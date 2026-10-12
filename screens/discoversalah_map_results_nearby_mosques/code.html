@@ -1,0 +1,432 @@
+<!DOCTYPE html><html class="light" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><title>DiscoverSalah</title><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#e7fff2;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;font-family:'Inter',sans-serif;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed": "#2f1500", "surface-container-lowest": "#ffffff", "on-primary-fixed-variant": "#005236", "on-secondary-container": "#326e52", "on-background": "#0b1f18", "surface-variant": "#d0e8db", "surface": "#e7fff2", "surface-bright": "#e7fff2", "surface-container": "#dcf3e7", "on-surface-variant": "#3f4943", "on-error": "#ffffff", "surface-container-highest": "#d0e8db", "surface-dim": "#c8dfd3", "surface-container-low": "#e1f9ec", "error": "#ba1a1a", "outline-variant": "#bec9c1", "primary-fixed": "#a3f3c9", "on-secondary-fixed": "#002114", "on-primary-container": "#98e9bf", "inverse-surface": "#20342c", "secondary": "#2d694e", "secondary-fixed": "#b1f0ce", "on-primary-fixed": "#002113", "primary-fixed-dim": "#87d7ae", "outline": "#6f7a72", "background": "#e7fff2", "primary-container": "#146b4a", "on-error-container": "#93000a", "primary": "#005136", "inverse-on-surface": "#dff6e9", "secondary-fixed-dim": "#96d4b3", "on-secondary": "#ffffff", "on-surface": "#0b1f18", "tertiary-fixed-dim": "#ffb77d", "secondary-container": "#aeedcb", "tertiary-fixed": "#ffdcc3", "on-tertiary-fixed-variant": "#6e3900", "inverse-primary": "#87d7ae", "on-tertiary": "#ffffff", "surface-tint": "#156b4a", "error-container": "#ffdad6", "tertiary": "#6e3900", "on-tertiary-container": "#ffcfab", "tertiary-container": "#8e4e0c", "on-primary": "#ffffff", "on-secondary-fixed-variant": "#0f5138", "surface-container-high": "#d6eee1" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-md": "1rem", "space-xl": "2rem", "gutter-desktop": "1.5rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin-desktop": "2rem", "gutter": "1rem", "margin": "1rem" }, "fontFamily": { "headline-xl": ["Inter"], "headline-md": ["Inter"], "label-sm": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"], "headline-xl-mobile": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"], "headline-lg-mobile": ["Inter"] }, "fontSize": { "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface min-h-screen flex flex-col antialiased selection:bg-secondary-container selection:text-on-secondary-container"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="max-w-6xl mx-auto h-16 px-4 sm:px-6 flex items-center justify-between"><div class="flex items-center gap-6"><a class="flex items-center gap-space-sm" href="#"><img alt="DiscoverSalah Logo" class="h-9 w-9 object-contain rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCCKiLBjfBnZrCaxj7L7WgvPzRhWEkQMaHasrwIX3cvO9U0xcaCaGCXDr5Cns5hFUJtwaIsLpTwvn9KcvGgymMNojOQODciiexbXXeu7WPCBB3CxfqTfE1-SrU-jjPTLNZF57uP8Ms0EYBaraj0pZGKWMuaM-kEnD9Sd2wQgJOZomcxJ02P5Bgm0p7pCXr1V__FAQIQjcaMGLX608GKofqsz27fDMTMWlw9d7ktevs0rONt60GnY0ExCA9SFcPHDE3Og"><div class="flex flex-col"><span class="font-headline-md text-headline-md text-primary leading-tight font-bold">DiscoverSalah</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate max-w-[140px]">Find A Mosque</span></div></a><nav class="hidden md:flex items-center gap-1 lg:gap-2"><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-primary bg-surface-container font-semibold transition-colors flex items-center gap-1.5" data-path="find-a-mosque" href="#"><span class="material-symbols-outlined text-[18px]">mosque</span><span class="">Find a Mosque</span></a><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container/60 transition-colors flex items-center gap-1.5" data-path="how-it-works" href="#"><span class="material-symbols-outlined text-[18px]">info</span><span class="">How It Works</span></a><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container/60 transition-colors flex items-center gap-1.5" data-path="become-a-contributor" href="#"><span class="material-symbols-outlined text-[18px]">volunteer_activism</span><span class="">Become a Contributor</span></a></nav></div><div class="flex items-center gap-2"><a class="hidden lg:flex items-center gap-1.5 px-3 py-2 rounded-lg font-label-md text-label-md text-outline hover:text-on-surface hover:bg-surface-container transition-colors" data-path="management-login" href="#"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span><span class="">Management Login</span></a><button aria-label="Open Navigation Menu" class="md:hidden w-11 h-11 flex items-center justify-center rounded-xl text-on-surface hover:bg-surface-container transition-colors" onclick="document.getElementById('mobile-drawer').classList.toggle('translate-x-full')" type="button"><span class="material-symbols-outlined text-[24px]">menu</span></button><div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><div class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex justify-end backdrop-blur-sm bg-inverse-surface/20" id="mobile-drawer"><div class="w-4/5 max-w-xs h-full bg-surface-container-lowest flex flex-col justify-between p-space-lg shadow-[0_4px_16px_rgba(23,43,35,0.08)]"><div class="flex flex-col gap-space-md"><div class="flex items-center justify-between pb-space-sm"><span class="font-headline-md text-headline-md text-primary">DiscoverSalah</span><button aria-label="Close Menu" class="w-12 h-12 flex items-center justify-center rounded-xl text-on-surface hover:bg-surface-container" onclick="document.getElementById('mobile-drawer').classList.add('translate-x-full')" type="button"><span class="material-symbols-outlined text-[24px]">close</span></button></div><nav class="flex flex-col gap-space-xs"><a class="h-12 flex items-center gap-space-sm px-space-sm rounded-xl font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors" data-path="find-a-mosque" href="#" onclick="document.getElementById('mobile-drawer').classList.add('translate-x-full')"><span class="material-symbols-outlined text-primary text-[20px]">mosque</span><span class="">Find a Mosque</span></a><a class="h-12 flex items-center gap-space-sm px-space-sm rounded-xl font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors" data-path="how-it-works" href="#" onclick="document.getElementById('mobile-drawer').classList.add('translate-x-full')"><span class="material-symbols-outlined text-primary text-[20px]">info</span><span class="">How It Works</span></a><a class="h-12 flex items-center gap-space-sm px-space-sm rounded-xl font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors" data-path="become-a-contributor" href="#" onclick="document.getElementById('mobile-drawer').classList.add('translate-x-full')"><span class="material-symbols-outlined text-primary text-[20px]">volunteer_activism</span><span class="">Become a Contributor</span></a><a class="h-12 flex items-center gap-space-sm px-space-sm rounded-xl font-label-md text-label-md text-outline hover:text-on-surface hover:bg-surface-container transition-colors" data-path="management-login" href="#" onclick="document.getElementById('mobile-drawer').classList.add('translate-x-full')"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span class="">Management Login</span></a></nav></div><div class="flex flex-col gap-space-sm pt-space-md"><p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">Public browsing is free and requires no login</p><div class="flex flex-wrap gap-x-space-sm gap-y-space-xs font-label-sm text-label-sm text-outline"><a class="hover:text-primary" data-path="help" href="#">Help</a><span class="text-outline-variant">•</span><a class="hover:text-primary" data-path="privacy-policy" href="#">Privacy Policy</a><span class="text-outline-variant">•</span><a class="hover:text-primary" data-path="terms-of-service" href="#">Terms</a><span class="text-outline-variant">•</span><a class="hover:text-primary" data-path="contact" href="#">Contact</a></div></div></div></div><main class="flex-1 flex flex-col relative w-full pt-16 bg-surface pb-24 md:pb-12"><div class="flex flex-col w-full relative select-none">
+<!-- Search Context & Quick Control Header Bar -->
+<section class="w-full bg-surface-container-lowest shadow-sm z-30">
+<div class="max-w-6xl mx-auto px-space-md py-space-sm flex flex-col gap-space-xs">
+<!-- Top Row: Location Context & View Toggle -->
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs min-w-0">
+<button aria-label="Go back to search parameters" class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-low text-primary hover:bg-surface-container transition-colors shrink-0" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-bold text-on-surface truncate">Gulberg III, Lahore</span>
+<button class="font-label-sm text-label-sm text-primary font-semibold hover:underline shrink-0" type="button">Change</button>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm truncate">
+<span class="font-semibold text-primary">Asr</span>
+<span class="">•</span>
+<span class="">Today, 24 Oct</span>
+<span class="">•</span>
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-[11px] font-semibold text-secondary">3 km Radius</span>
+</div>
+</div>
+</div>
+<!-- Segmented View Switcher: List vs Map (Map Active) -->
+<div class="flex items-center bg-surface-container p-1 rounded-xl shrink-0 shadow-inner">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">view_list</span>
+<span class="">List</span>
+</button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-primary font-label-sm text-label-sm font-bold shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="">Map</span>
+</button>
+</div>
+</div>
+<!-- Filter & Mode Rail -->
+<div class="flex items-center gap-space-xs overflow-x-auto no-scrollbar py-0.5">
+<!-- Mobility Mode Chip -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm shrink-0 font-semibold shadow-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">directions_walk</span>
+<span class="">Walking Mode</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+<!-- Reachability Quick Filter -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm shrink-0 hover:text-primary transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+<span class="">In Reach (4)</span>
+</button>
+<!-- Verified Filter -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm shrink-0 hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px] text-primary">verified</span>
+<span class="">Verified Today</span>
+</button>
+<!-- Facilities Filter -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm shrink-0 hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]">tune</span>
+<span class="">Filters (2)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Interactive Map Canvas Container -->
+<div class="relative w-full h-[calc(100dvh-175px)] md:h-[680px] bg-surface-container overflow-hidden">
+<!-- Stylized Map Canvas (Clean vector-style architectural aesthetic) -->
+<div class="absolute inset-0 bg-surface-bright" data-location="Gulberg III, Lahore, Pakistan">
+<!-- Ambient Map Road & Water Geometry (Inline SVG) -->
+<svg class="w-full h-full object-cover opacity-90" preserveAspectRatio="xMidYMid slice" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="urbanGrid" patternUnits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" opacity="0.6" stroke="#d0e8db" stroke-width="0.8"></path>
+</pattern>
+</defs>
+<!-- Soft Base Grid -->
+<rect fill="url(#urbanGrid)" height="100%" width="100%"></rect>
+<!-- Park & Green Spaces -->
+<path d="M 120,40 C 220,60 260,180 180,240 C 100,300 40,220 50,110 Z" fill="#d6eee1" opacity="0.8"></path>
+<path d="M 520,380 C 640,360 720,440 680,560 C 640,640 500,680 480,520 Z" fill="#d6eee1" opacity="0.7"></path>
+<circle cx="280" cy="620" fill="#d6eee1" opacity="0.65" r="90"></circle>
+<!-- Lahore Canal Water Corridor -->
+<path d="M-50,150 C 250,220 500,100 850,220" fill="none" stroke="#b1f0ce" stroke-linecap="round" stroke-width="26"></path>
+<path d="M-50,150 C 250,220 500,100 850,220" fill="none" stroke="#96d4b3" stroke-linecap="round" stroke-width="12"></path>
+<!-- Main Thoroughfares (Boulevards) -->
+<path d="M 100,-20 L 750,780" fill="none" stroke="#ffffff" stroke-width="18"></path>
+<path d="M 100,-20 L 750,780" fill="none" stroke="#d0e8db" stroke-width="2"></path>
+<path d="M-30,480 L 830,440" fill="none" stroke="#ffffff" stroke-width="16"></path>
+<path d="M-30,480 L 830,440" fill="none" stroke="#d0e8db" stroke-width="2"></path>
+<path d="M 420,-40 L 360,840" fill="none" stroke="#ffffff" stroke-width="20"></path>
+<path d="M 420,-40 L 360,840" fill="none" stroke="#bec9c1" stroke-width="1.5"></path>
+<!-- Local Streets & Urban Fabric -->
+<path d="M 180,320 L 360,340 L 520,280" fill="none" stroke="#ffffff" stroke-width="8"></path>
+<path d="M 240,460 L 250,680" fill="none" stroke="#ffffff" stroke-width="8"></path>
+<path d="M 460,180 L 680,240" fill="none" stroke="#ffffff" stroke-width="8"></path>
+<path d="M 320,520 L 540,580" fill="none" stroke="#ffffff" stroke-width="8"></path>
+<!-- 3 km Radius Guidance Circle Centered at Starting Point (380, 420) -->
+<circle cx="380" cy="420" fill="#146b4a" fill-opacity="0.03" r="230" stroke="#146b4a" stroke-dasharray="6 6" stroke-width="1.5"></circle>
+<circle cx="380" cy="420" fill="none" r="230" stroke="#98e9bf" stroke-opacity="0.5" stroke-width="1"></circle>
+<!-- Walking Route Trail from Starting Point to Selected Mosque -->
+<path d="M 380,420 Q 360,360 330,330 T 260,265" fill="none" stroke="#005136" stroke-dasharray="8 6" stroke-linecap="round" stroke-width="4"></path>
+<!-- Street Labels -->
+<text fill="#6f7a72" font-size="11" font-weight="600" letter-spacing="1" x="520" y="430">MAIN BOULEVARD GULBERG</text>
+<text fill="#2d694e" font-size="10" font-weight="600" letter-spacing="0.5" x="180" y="195">CANAL PARK ROAD</text>
+<text fill="#6f7a72" font-size="11" font-weight="600" letter-spacing="1" x="375" y="720">FEROZEPUR ROAD</text>
+</svg>
+</div>
+<!-- Map Resilience & Exploration Micro-Notice -->
+<div class="absolute top-3 inset-x-3 sm:inset-x-auto sm:left-4 z-20 flex items-center justify-between gap-2 bg-surface-container-lowest/95 backdrop-blur-md px-3.5 py-2 rounded-xl shadow-md max-w-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0 animate-pulse">explore</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">
+          Exploring map freely • Search pin fixed at Gulberg III
+        </p>
+</div>
+<button aria-label="Dismiss notice" class="text-outline hover:text-on-surface shrink-0" onclick="this.parentElement.remove()" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- Floating Map Control Utilities -->
+<aside class="absolute top-14 right-3 z-20 flex flex-col gap-2">
+<!-- Zoom Controls Group -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl shadow-md overflow-hidden">
+<button aria-label="Zoom in" class="w-12 h-12 flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+<div class="h-px bg-surface-variant w-full"></div>
+<button aria-label="Zoom out" class="w-12 h-12 flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+</div>
+<!-- Fit Bounds Button -->
+<button aria-label="Fit all results in view" class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-lowest text-primary shadow-md hover:bg-surface-container transition-colors active:scale-95" title="Fit All Venues" type="button">
+<span class="material-symbols-outlined text-[20px]">fit_screen</span>
+</button>
+<!-- Center to Starting Point -->
+<button aria-label="Recenter on my starting location" class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-lowest text-secondary shadow-md hover:bg-surface-container transition-colors active:scale-95" title="My Starting Point" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">my_location</span>
+</button>
+<!-- Layer / Reachability Filter Overlay Toggle -->
+<button aria-label="Map Layer Settings" class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-lowest text-on-surface-variant shadow-md hover:bg-surface-container transition-colors active:scale-95" title="Layers" type="button">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+</button>
+</aside>
+<!-- MAP MARKERS OVERLAY -->
+<!-- 1. STARTING POINT PIN -->
+<div class="absolute top-[52%] left-[47%] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center pointer-events-auto cursor-pointer group">
+<!-- Popover Label -->
+<div class="mb-1 px-2.5 py-1 rounded-full bg-inverse-surface text-inverse-on-surface shadow-md font-label-sm text-[11px] whitespace-nowrap flex items-center gap-1 opacity-90 group-hover:opacity-100 transition-opacity">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+<span class="">Your Location (Gulberg III)</span>
+</div>
+<!-- Pin Avatar -->
+<div class="relative flex items-center justify-center">
+<div class="absolute w-8 h-8 rounded-full bg-primary-container/20 animate-ping"></div>
+<div class="w-9 h-9 rounded-full bg-inverse-surface text-on-primary flex items-center justify-center shadow-lg border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[18px]">person_pin_circle</span>
+</div>
+</div>
+</div>
+<!-- 2. MOSQUE MARKER 1: Jamia Masjid Al-Falah (CURRENTLY SELECTED & IMMINENT) -->
+<div class="absolute top-[31%] left-[32%] -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center pointer-events-auto cursor-pointer">
+<!-- Imminent Timing Badge -->
+<div class="mb-1.5 flex items-center gap-1.5 bg-primary text-on-primary px-3 py-1.5 rounded-xl shadow-lg ring-4 ring-primary-fixed/40 transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">mosque</span>
+<span class="font-label-sm text-label-sm font-bold tracking-tight">4:45 PM</span>
+<span class="bg-surface-container-lowest/20 px-1.5 py-0.2 rounded text-[11px] font-semibold">in 28m</span>
+</div>
+<!-- Marker Pin Head with Glow -->
+<div class="relative flex items-center justify-center">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xl ring-2 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="w-2.5 h-2.5 bg-primary rotate-45 -mt-1 shadow-sm"></div>
+</div>
+</div>
+<!-- 3. MOSQUE MARKER 2: Masjid Quba (Warning / Tight Margin) -->
+<div class="absolute top-[26%] left-[68%] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center pointer-events-auto cursor-pointer hover:scale-105 transition-transform">
+<div class="mb-1 flex items-center gap-1 bg-surface-container-lowest text-on-surface px-2.5 py-1 rounded-lg shadow-md border-b-2 border-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse shrink-0"></span>
+<span class="font-label-sm text-[12px] font-bold">4:35 PM</span>
+<span class="text-tertiary text-[11px] font-semibold">18m</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest text-tertiary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[17px]">mosque</span>
+</div>
+</div>
+<!-- 4. MOSQUE MARKER 3: Masjid Noor-e-Madina -->
+<div class="absolute top-[64%] left-[23%] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center pointer-events-auto cursor-pointer hover:scale-105 transition-transform">
+<div class="mb-1 flex items-center gap-1 bg-surface-container-lowest text-on-surface px-2 py-0.5 rounded-lg shadow-sm">
+<span class="font-label-sm text-[11px] font-bold">4:30 PM</span>
+<span class="text-on-surface-variant text-[10px]">13m</span>
+</div>
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest text-secondary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[15px]">mosque</span>
+</div>
+</div>
+<!-- 5. MOSQUE MARKER 4: Bait-ul-Mukarram Central -->
+<div class="absolute top-[72%] left-[64%] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center pointer-events-auto cursor-pointer hover:scale-105 transition-transform">
+<div class="mb-1 flex items-center gap-1 bg-surface-container-lowest text-on-surface px-2 py-0.5 rounded-lg shadow-sm">
+<span class="font-label-sm text-[11px] font-bold">5:00 PM</span>
+<span class="text-primary text-[10px] font-semibold">43m</span>
+</div>
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[15px]">mosque</span>
+</div>
+</div>
+<!-- 6. CLUSTER BUBBLE MARKER -->
+<div class="absolute top-[44%] left-[78%] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center pointer-events-auto cursor-pointer hover:scale-110 transition-transform">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[12px] font-bold flex items-center justify-center shadow-md">
+        +3
+      </div>
+<span class="font-label-sm text-[10px] text-on-surface-variant mt-0.5 font-medium">Mosques</span>
+</div>
+<!-- Map Legend Bar (Discreet bottom-left badge) -->
+<div class="hidden sm:flex items-center gap-3 absolute bottom-3 left-4 z-20 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-sm text-[11px] font-medium text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="">Reachable with margin</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-container"></span>
+<span class="">Tight timing</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-outline-variant"></span>
+<span class="">Passed / Prayer active</span>
+</div>
+</div>
+</div>
+<!-- Interactive Collapsible Bottom Sheet & Selected Venue Inspection Drawer -->
+<section class="w-full bg-surface-container-lowest rounded-t-2xl shadow-[0_-8px_24px_rgba(23,43,35,0.08)] z-40 transition-all duration-300 -mt-5 relative" id="bottom-sheet">
+<!-- Grab Bar & Expand / Collapse Trigger Header -->
+<div class="w-full pt-2.5 pb-2 px-space-md flex flex-col items-center cursor-pointer select-none" onclick="document.getElementById('sheet-expandable-content').classList.toggle('hidden')">
+<div class="w-10 h-1 rounded-full bg-outline-variant mb-2"></div>
+<div class="w-full flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<p class="font-label-sm text-label-sm font-semibold text-on-surface">6 venues found within 3 km</p>
+<span class="text-outline text-label-sm">• Tap marker to inspect</span>
+</div>
+<button class="flex items-center gap-0.5 text-primary font-label-sm text-label-sm font-bold" type="button">
+<span class="">Details</span>
+<span class="material-symbols-outlined text-[18px]">expand_less</span>
+</button>
+</div>
+</div>
+<!-- Active Venue Inspection Card (Primary Focus: Jamia Masjid Al-Falah) -->
+<div class="px-space-md pb-space-lg pt-1 flex flex-col gap-space-md" id="sheet-expandable-content">
+<!-- Card Container -->
+<article class="w-full bg-surface-container-low rounded-xl p-space-md shadow-xs flex flex-col gap-space-sm">
+<!-- Header: Mosque Title & Rapid Actions -->
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold truncate">Jamia Masjid Al-Falah</h2>
+<span class="px-2 py-0.5 rounded-md bg-secondary-container text-on-secondary-container font-label-sm text-[11px] font-bold">
+                0.6 km away
+              </span>
+</div>
+<p class="font-body-md text-label-md text-on-surface-variant truncate">
+              Block B, Gulberg III, Main Market Area, Lahore
+            </p>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<!-- Bookmark Button -->
+<button aria-label="Bookmark this mosque" class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+<!-- Share Button -->
+<button aria-label="Share details" class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+</div>
+<!-- Timetable & Jama'at Status Showcase Strip -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+<!-- Active Jama'at Time -->
+<div class="bg-primary text-on-primary p-3 rounded-lg flex flex-col justify-between shadow-xs">
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-on-primary-container font-semibold">Asr Jama’at</span>
+<div class="my-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tight">4:45</span>
+<span class="font-label-md text-label-md">PM</span>
+</div>
+<span class="font-label-sm text-[11px] text-on-primary-container font-semibold">Starts in 28 mins</span>
+</div>
+<!-- Reachability & Walk Estimate -->
+<div class="bg-surface-container-lowest p-3 rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold">Walk Time</span>
+<span class="material-symbols-outlined text-[16px] text-primary">directions_walk</span>
+</div>
+<div class="my-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">8</span>
+<span class="font-label-md text-label-md text-on-surface-variant">mins</span>
+</div>
+<span class="font-label-sm text-[11px] text-secondary font-semibold">Easy pace (0.6 km)</span>
+</div>
+<!-- Safety Buffer Margin -->
+<div class="bg-surface-container-lowest p-3 rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold">Arrival Margin</span>
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+</div>
+<div class="my-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">+15</span>
+<span class="font-label-md text-label-md text-on-surface-variant">mins</span>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Wudu buffer included</span>
+</div>
+<!-- Next Prayer Countdown -->
+<div class="bg-surface-container-lowest p-3 rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold">Maghrib Today</span>
+<span class="material-symbols-outlined text-[16px] text-outline">wb_twilight</span>
+</div>
+<div class="my-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">5:42</span>
+<span class="font-label-md text-label-md text-on-surface-variant">PM</span>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Sunset prayer</span>
+</div>
+</div>
+<!-- Verification & Community Credibility Badge -->
+<div class="flex items-center gap-2 bg-surface-container px-3 py-2 rounded-lg text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[17px] text-primary shrink-0" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="truncate">Timings confirmed 2 days ago by Mosque Committee Representative</span>
+</div>
+<!-- Primary & Secondary Interactive Action CTAs -->
+<div class="flex items-center gap-2 pt-1">
+<!-- Directions Button (Primary Tap Target) -->
+<a class="flex-1 h-12 flex items-center justify-center gap-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold hover:bg-on-primary-fixed-variant transition-colors shadow-sm active:scale-[0.99]" href="#">
+<span class="material-symbols-outlined text-[20px]">directions</span>
+<span class="">Directions (Gate 2)</span>
+</a>
+<!-- View Mosque Full Schedule / Facility Details -->
+<button class="h-12 px-4 flex items-center justify-center gap-1.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-container transition-colors shadow-xs active:scale-[0.99]" type="button">
+<span class="">Full Profile</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Horizontal Carousel Preview of Next Nearby Mosque -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Other Nearby Venues (Swipe)</span>
+<span class="font-label-sm text-label-sm text-outline">1 of 5</span>
+</div>
+<div class="flex items-center gap-space-sm overflow-x-auto no-scrollbar pb-1">
+<!-- Next Card Preview: Masjid Quba & Islamic Center -->
+<div class="w-[280px] shrink-0 bg-surface-container-lowest p-3 rounded-xl shadow-xs flex flex-col gap-2 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="font-label-md text-label-md font-bold text-on-surface truncate max-w-[190px]">Masjid Quba &amp; Islamic Center</h3>
+<span class="font-label-sm text-[11px] text-on-surface-variant">1.1 km • 14 min walk</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-bold">
+                Tight
+              </span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-md text-label-md text-primary font-bold">Asr 4:35 PM</span>
+<span class="font-label-sm text-[11px] text-tertiary font-semibold">in 18m</span>
+</div>
+</div>
+<!-- Next Card Preview: Masjid Noor-e-Madina -->
+<div class="w-[280px] shrink-0 bg-surface-container-lowest p-3 rounded-xl shadow-xs flex flex-col gap-2 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="font-label-md text-label-md font-bold text-on-surface truncate max-w-[190px]">Masjid Noor-e-Madina</h3>
+<span class="font-label-sm text-[11px] text-on-surface-variant">0.9 km • 11 min walk</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-[11px] font-bold">
+                13 mins left
+              </span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-md text-label-md text-on-surface font-bold">Asr 4:30 PM</span>
+<span class="font-label-sm text-[11px] text-outline">Gate 1 &amp; 3</span>
+</div>
+</div>
+<!-- Next Card Preview: Bait-ul-Mukarram Central -->
+<div class="w-[280px] shrink-0 bg-surface-container-lowest p-3 rounded-xl shadow-xs flex flex-col gap-2 cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="font-label-md text-label-md font-bold text-on-surface truncate max-w-[190px]">Bait-ul-Mukarram Central</h3>
+<span class="font-label-sm text-[11px] text-on-surface-variant">1.8 km • 22 min walk</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-[11px] font-bold">
+                Comfortable
+              </span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-md text-label-md text-primary font-bold">Asr 5:00 PM</span>
+<span class="font-label-sm text-[11px] text-secondary font-semibold">in 43m</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Client-side Drawer Micro-script -->
+<script>
+    // Smooth sheet expand/collapse toggling
+    (function() {
+      const toggleBtn = document.querySelector('#bottom-sheet');
+      if (toggleBtn) {
+        // Keeps user interaction intuitive without external dependencies
+        console.log('DiscoverSalah Map View initialized with 6 active venues.');
+      }
+    })();
+  </script>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_16px_rgba(23,43,35,0.06)] md:hidden" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="find-a-mosque" href="#"><span class="material-symbols-outlined text-[24px]">mosque</span><span class="font-label-sm text-label-sm mt-0.5">Find</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="prayer-times" href="#"><span class="material-symbols-outlined text-[24px]">schedule</span><span class="font-label-sm text-label-sm mt-0.5">Timetable</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="saved-mosques" href="#"><span class="material-symbols-outlined text-[24px]">bookmark</span><span class="font-label-sm text-label-sm mt-0.5">Saved</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="how-it-works" href="#"><span class="material-symbols-outlined text-[24px]">explore</span><span class="font-label-sm text-label-sm mt-0.5">Explore</span></a></div></nav>
+
+
+</body></html>

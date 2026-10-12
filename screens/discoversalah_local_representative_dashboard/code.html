@@ -1,0 +1,603 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#e7fff2;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-container": "#98e9bf", "error": "#ba1a1a", "surface": "#e7fff2", "on-tertiary-container": "#ffcfab", "inverse-surface": "#20342c", "on-error-container": "#93000a", "surface-dim": "#c8dfd3", "surface-tint": "#156b4a", "on-surface-variant": "#3f4943", "primary-fixed-dim": "#87d7ae", "outline-variant": "#bec9c1", "on-secondary": "#ffffff", "surface-container-high": "#d6eee1", "inverse-on-surface": "#dff6e9", "on-primary": "#ffffff", "surface-container-highest": "#d0e8db", "on-secondary-fixed-variant": "#0f5138", "on-tertiary-fixed": "#2f1500", "surface-container": "#dcf3e7", "on-error": "#ffffff", "secondary": "#2d694e", "on-tertiary-fixed-variant": "#6e3900", "error-container": "#ffdad6", "on-primary-fixed": "#002113", "primary": "#005136", "secondary-fixed": "#b1f0ce", "on-primary-fixed-variant": "#005236", "surface-container-lowest": "#ffffff", "tertiary-fixed-dim": "#ffb77d", "on-tertiary": "#ffffff", "surface-container-low": "#e1f9ec", "background": "#e7fff2", "surface-variant": "#d0e8db", "tertiary-container": "#8e4e0c", "on-background": "#0b1f18", "surface-bright": "#e7fff2", "tertiary-fixed": "#ffdcc3", "on-secondary-container": "#326e52", "tertiary": "#6e3900", "outline": "#6f7a72", "on-surface": "#0b1f18", "inverse-primary": "#87d7ae", "primary-container": "#146b4a", "primary-fixed": "#a3f3c9", "on-secondary-fixed": "#002114", "secondary-fixed-dim": "#96d4b3", "secondary-container": "#aeedcb" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xs": "0.25rem", "margin": "1rem", "gutter-desktop": "1.5rem", "margin-desktop": "2rem", "gutter": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "headline-xl": ["Inter"], "headline-lg-mobile": ["Inter"], "label-md": ["Inter"], "body-md": ["Inter"], "headline-md": ["Inter"], "headline-xl-mobile": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"], "body-lg": ["Inter"] }, "fontSize": { "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "700" }], "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="DiscoverSalah_Logo.png" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCCKiLBjfBnZrCaxj7L7WgvPzRhWEkQMaHasrwIX3cvO9U0xcaCaGCXDr5Cns5hFUJtwaIsLpTwvn9KcvGgymMNojOQODciiexbXXeu7WPCBB3CxfqTfE1-SrU-jjPTLNZF57uP8Ms0EYBaraj0pZGKWMuaM-kEnD9Sd2wQgJOZomcxJ02P5Bgm0p7pCXr1V__FAQIQjcaMGLX608GKofqsz27fDMTMWlw9d7ktevs0rONt60GnY0ExCA9SFcPHDE3Og"><div class="flex flex-col"><span class="font-label-sm text-label-sm uppercase tracking-wider text-primary">DiscoverSalah</span><span class="font-headline-md text-headline-md font-bold text-on-surface leading-tight">Dashboard</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Notifications" class="w-11 h-11 flex items-center justify-center relative text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[24px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error"></span></button><button aria-label="Open drawer menu" class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" onclick="document.getElementById('mobile-drawer').classList.remove('-translate-x-full')"><span class="material-symbols-outlined text-[24px]">menu</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><div class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex" id="mobile-drawer"><div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-xs" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full')"></div><div class="relative w-4/5 max-w-xs bg-surface-container-lowest h-full shadow-[0_4px_24px_rgba(0,0,0,0.12)] flex flex-col z-10 pt-safe pb-safe"><div class="p-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="DiscoverSalah_Logo.png" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCCKiLBjfBnZrCaxj7L7WgvPzRhWEkQMaHasrwIX3cvO9U0xcaCaGCXDr5Cns5hFUJtwaIsLpTwvn9KcvGgymMNojOQODciiexbXXeu7WPCBB3CxfqTfE1-SrU-jjPTLNZF57uP8Ms0EYBaraj0pZGKWMuaM-kEnD9Sd2wQgJOZomcxJ02P5Bgm0p7pCXr1V__FAQIQjcaMGLX608GKofqsz27fDMTMWlw9d7ktevs0rONt60GnY0ExCA9SFcPHDE3Og"><span class="font-headline-md text-headline-md text-on-surface font-bold">Admin</span></div><button class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full')"><span class="material-symbols-outlined text-[22px]">close</span></button></div><div class="px-space-md py-space-xs flex items-center gap-space-sm bg-surface-container-low rounded-xl mx-space-md mb-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md font-semibold text-on-surface truncate">Portal Manager</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">admin@discoversalah.com</span></div></div><div class="flex-1 overflow-y-auto px-space-md py-space-xs flex flex-col gap-space-xs"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-body-md text-body-md">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container" data-path="my-mosques" href="#"><span class="material-symbols-outlined text-[22px]">mosque</span><span class="font-body-md text-body-md">My Mosques</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container" data-path="submissions" href="#"><span class="material-symbols-outlined text-[22px]">assignment_turned_in</span><span class="font-body-md text-body-md">Submissions</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container" data-path="announcements" href="#"><span class="material-symbols-outlined text-[22px]">campaign</span><span class="font-body-md text-body-md">Announcements</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container" data-path="notifications" href="#"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="font-body-md text-body-md">Notifications</span></a></div><div class="p-space-md"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl text-error hover:bg-error-container/40" data-path="sign-out" href="#"><span class="material-symbols-outlined text-[22px]">logout</span><span class="font-body-md text-body-md font-semibold">Sign Out</span></a></div></div></div><main class="flex flex-col relative w-full pt-16 pb-24 px-margin bg-surface flex-1"><div class="flex flex-col w-full gap-space-lg">
+<!-- Offline Warning Banner (Dismissible / State driven) -->
+<aside class="w-full bg-tertiary-container text-on-tertiary rounded-xl p-space-md shadow-sm transition-all duration-300" id="offline-banner">
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">cloud_sync</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-space-xs">
+<span class="font-label-md text-label-md font-bold tracking-tight">Offline Field Cache Active</span>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-lowest/30 uppercase tracking-wider">Sync Paused</span>
+</div>
+<p class="font-label-sm text-label-sm opacity-90 mt-0.5">Summaries cached locally. Submissions and timing updates will queue safely until network connectivity is restored.</p>
+</div>
+<button aria-label="Dismiss banner" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-lowest/20 transition-colors" onclick="document.getElementById('offline-banner').classList.add('hidden')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</aside>
+<!-- Header / Greeting Section -->
+<header class="flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">verified_user</span>
+        Local Representative Portal
+      </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">location_on</span>
+        Gulberg III Zone
+      </span>
+</div>
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold tracking-tight">
+        Your mosque responsibilities
+      </h1>
+<p class="font-label-md text-label-md text-on-surface-variant mt-0.5">
+        Keep assigned mosque information and Jama’at timings up to date.
+      </p>
+</div>
+<!-- Representative Account Card -->
+<div class="flex items-center justify-between p-space-md bg-surface-container-low rounded-xl shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold font-label-md text-label-md shrink-0">
+          TF
+        </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md font-bold text-on-surface truncate">Tariq Farooq</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">(rep-7429)</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-medium">3 Mosques Assigned • Field Lead</span>
+</div>
+</div>
+<span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</span>
+</div>
+</header>
+<!-- Visual Context: Zone Micro Preview -->
+<section class="relative w-full rounded-xl overflow-hidden bg-surface-container-low shadow-sm">
+<div class="w-full h-28 bg-cover bg-center" data-location="Gulberg III, Lahore" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBtRz4DTWAsq8z7fAelyCbIHv53-5AdNvAiQLdQkDLr8wVIXUsvdTOwNj7kudMIpVXAPa-EOOAPocaR4sgZOoyw2Zvs3Uxu5kmgzOZKIN1F4Klw7pJW1gW_1h7dTm_XesGUekoY9CJ4qoIUS2psYf-HzvS1lHoIrsUBnr8_2jslHEPKerRlewT1e12gYnS6RuKnf5vvPgLy0jaACIgsuzk12QA7dT_kOZATaDgQw6k')"></div>
+<div class="p-space-sm flex items-center justify-between bg-surface-container-lowest">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span>
+<span class="">Operational Perimeter: <strong>Main Market • Block B • Canal Park</strong></span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Active Zone</span>
+</div>
+</section>
+<!-- Summary Cards Grid (2x2 on mobile, Interactive Filter Targets) -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant">Task Overview • Live Status</span>
+<span class="font-label-sm text-label-sm text-secondary">Tap card to focus</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Card 1: Assigned Mosques -->
+<button class="text-left p-space-md bg-surface-container-lowest rounded-xl shadow-sm hover:bg-surface-container-low transition-colors flex flex-col justify-between min-h-[110px]" onclick="filterTaskView('all')" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">mosque</span>
+</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-semibold">Live</span>
+</div>
+<div class="mt-space-sm">
+<span class="font-headline-md text-headline-md font-bold text-on-surface block">3</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Assigned Mosques</span>
+<p class="font-label-sm text-label-sm text-secondary truncate mt-0.5">Active in Gulberg III</p>
+</div>
+</button>
+<!-- Card 2: Need Timing Confirmation -->
+<button class="text-left p-space-md bg-surface-container-lowest rounded-xl shadow-sm hover:bg-surface-container-low transition-colors flex flex-col justify-between min-h-[110px]" onclick="filterTaskView('timing')" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="w-8 h-8 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-bold">Action</span>
+</div>
+<div class="mt-space-sm">
+<span class="font-headline-md text-headline-md font-bold text-tertiary block">2</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Need Confirmation</span>
+<p class="font-label-sm text-label-sm text-tertiary truncate mt-0.5">Due in 48h / Twilight</p>
+</div>
+</button>
+<!-- Card 3: Pending Review -->
+<button class="text-left p-space-md bg-surface-container-lowest rounded-xl shadow-sm hover:bg-surface-container-low transition-colors flex flex-col justify-between min-h-[110px]" onclick="filterTaskView('pending')" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="w-8 h-8 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">hourglass_top</span>
+</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-semibold">Review</span>
+</div>
+<div class="mt-space-sm">
+<span class="font-headline-md text-headline-md font-bold text-on-surface block">1</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Pending Review</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate mt-0.5">With Focal Person</p>
+</div>
+</button>
+<!-- Card 4: Returned for Correction -->
+<button class="text-left p-space-md bg-surface-container-lowest rounded-xl shadow-sm hover:bg-surface-container-low transition-colors flex flex-col justify-between min-h-[110px]" onclick="filterTaskView('returned')" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="w-8 h-8 rounded-lg bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">assignment_return</span>
+</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-bold">Rework</span>
+</div>
+<div class="mt-space-sm">
+<span class="font-headline-md text-headline-md font-bold text-error block">1</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Returned Queue</span>
+<p class="font-label-sm text-label-sm text-error truncate mt-0.5">Notes attached</p>
+</div>
+</button>
+</div>
+</section>
+<!-- Interactive Edge State Simulator -->
+<section class="p-space-md bg-surface-container-low rounded-xl flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+<span class="font-label-md text-label-md font-bold">Simulator Controls</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Edge Case Demos</span>
+</div>
+<div class="flex flex-wrap gap-space-xs">
+<button class="h-10 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container shadow-sm flex items-center gap-1.5 transition-colors" id="toggle-queue-btn" onclick="toggleActionQueue()" type="button">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+        Toggle All Tasks Done
+      </button>
+<button class="h-10 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container shadow-sm flex items-center gap-1.5 transition-colors" id="toggle-empty-btn" onclick="toggleMosquesEmpty()" type="button">
+<span class="material-symbols-outlined text-[16px]">folder_off</span>
+        Simulate Zero Mosques
+      </button>
+<button class="h-10 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container shadow-sm flex items-center gap-1.5 transition-colors" onclick="document.getElementById('offline-banner').classList.toggle('hidden')" type="button">
+<span class="material-symbols-outlined text-[16px]">wifi_off</span>
+        Toggle Offline Alert
+      </button>
+</div>
+</section>
+<!-- Section 1: "Action Required" Prioritized Tasks Queue -->
+<section class="flex flex-col gap-space-md" id="actions-section">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Action Required</h2>
+<span class="px-2.5 py-0.5 rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold" id="urgent-badge">3 urgent</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Priority Sorted</span>
+</div>
+<!-- Empty State for Actions (Hidden by default) -->
+<div class="hidden p-space-xl bg-surface-container-lowest rounded-xl shadow-sm text-center flex-col items-center gap-space-sm" id="actions-empty-state">
+<div class="w-14 h-14 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px]">task_alt</span>
+</div>
+<div class="max-w-xs">
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">All caught up!</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">No urgent timing confirmations or corrections needed right now. Good work maintaining Gulberg III!</p>
+</div>
+<button class="h-12 px-4 mt-2 bg-primary text-on-primary font-label-md text-label-md font-bold rounded-lg shadow-sm" onclick="toggleActionQueue()">
+        Restore Urgent Tasks
+      </button>
+</div>
+<!-- Task List Container -->
+<div class="flex flex-col gap-space-md" id="actions-list">
+<!-- Item 1: Urgent Stale Timing / Season Shift -->
+<article class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-md border-l-4 border-l-tertiary">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold uppercase tracking-wider inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+              Timing Review Due
+            </span>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">
+              Due today (24 Oct)
+            </span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mt-1">Jamia Masjid Al-Falah</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Block B, Gulberg III • ID: msq-8910</p>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-tertiary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[18px]">routine</span>
+<span class="">Winter Timing Shift: Asr &amp; Maghrib Jama’at</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">
+            Winter twilight transition. Current 4:45 PM Asr will conflict with sunset next Friday. Committee reconfirmation due.
+          </p>
+</div>
+<!-- 24h Jama'at comparison chip preview -->
+<div class="grid grid-cols-2 gap-space-xs bg-surface-container p-2 rounded-lg text-center font-label-sm text-label-sm">
+<div>
+<span class="text-on-surface-variant block">Current Asr Jama’at</span>
+<span class="font-bold text-on-surface font-mono">04:45 PM</span>
+</div>
+<div>
+<span class="text-tertiary block font-semibold">Recommended Shift</span>
+<span class="font-bold text-tertiary font-mono">04:15 PM</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-space-xs">
+<button class="h-12 w-full flex items-center justify-center gap-2 bg-primary text-on-primary font-label-md text-label-md font-semibold rounded-lg shadow-sm hover:opacity-95 active:scale-[0.99] transition-all" onclick="showToast('Opening Winter Timing editor for Al-Falah...')" type="button">
+<span class="material-symbols-outlined text-[20px]">edit_calendar</span>
+            Update Timings
+          </button>
+<button class="h-12 w-full flex items-center justify-center gap-2 bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold rounded-lg hover:bg-surface-container-highest transition-colors" onclick="showToast('Confirmed unchanged: Representative confirmation recorded.')" type="button">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+            Confirm Timings Unchanged
+          </button>
+</div>
+</article>
+<!-- Item 2: Returned Submission -->
+<article class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-md border-l-4 border-l-error">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold uppercase tracking-wider inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">assignment_return</span>
+              Returned for Correction
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 3h ago
+            </span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mt-1">Masjid Quba &amp; Islamic Center</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Main Market, Gulberg II • ID: msq-4402</p>
+</div>
+<div class="p-space-sm bg-error-container/40 rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface">Jumu’ah 2nd Jama’at addition (Effective 1 Nov)</span>
+<span class="font-label-sm text-label-sm text-error font-bold">Needs Rework</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface leading-relaxed italic">
+            “Please attach Imam approval note or committee resolution for 2:30 PM second session hall allocation.”
+          </p>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm mt-0.5 pt-1 border-t border-error/10">
+<span class="material-symbols-outlined text-[16px] text-primary">person_check</span>
+<span class="">Reviewed by: <strong>Bilal Ahmed</strong> (Focal Person)</span>
+</div>
+</div>
+<button class="h-12 w-full flex items-center justify-center gap-2 bg-error text-on-error font-label-md text-label-md font-semibold rounded-lg shadow-sm hover:opacity-95 active:scale-[0.99] transition-all" onclick="showToast('Navigating to Submission Revision Editor...')" type="button">
+<span class="material-symbols-outlined text-[20px]">edit_document</span>
+          Correct Submission
+        </button>
+</article>
+<!-- Item 3: Pending Expiry Warning -->
+<article class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-md border-l-4 border-l-tertiary">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold uppercase tracking-wider inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+              Verification Expiring
+            </span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">2 days remaining</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mt-1">Masjid Noor-e-Madina</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Canal Park, Gulberg II • ID: msq-1108</p>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-on-surface font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[18px] text-tertiary">alarm</span>
+<span class="">Fajr Adhan &amp; Iqamah (Current: 5:15 AM)</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">
+            Last verified 28 days ago. Timings automatically expire at 30 days without reconfirmation.
+          </p>
+</div>
+<button class="h-12 w-full flex items-center justify-center gap-2 bg-primary text-on-primary font-label-md text-label-md font-semibold rounded-lg shadow-sm hover:opacity-95 active:scale-[0.99] transition-all" onclick="showToast('Timings confirmed: 30-day freshness timer reset for Noor-e-Madina.')" type="button">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+          Confirm Timings Unchanged
+        </button>
+</article>
+</div>
+</section>
+<!-- Section 2: "My Assigned Mosques" -->
+<section class="flex flex-col gap-space-md" id="assigned-mosques-section">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">My Assigned Mosques</h2>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-bold">3</span>
+</div>
+<button class="flex items-center gap-1 font-label-sm text-label-sm text-primary font-bold hover:underline" onclick="showToast('Opening Mosque Onboarding Wizard (Permission verified: Gulberg Lead)')" type="button">
+<span class="material-symbols-outlined text-[16px]">add_business</span>
+        Register Mosque
+      </button>
+</div>
+<!-- Empty State for Mosques (Hidden by default) -->
+<div class="hidden p-space-xl bg-surface-container-lowest rounded-xl shadow-sm text-center flex-col items-center gap-space-sm" id="mosques-empty-state">
+<div class="w-14 h-14 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px]">domain_disabled</span>
+</div>
+<div class="max-w-xs">
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">No assigned mosques</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">You currently have no mosques assigned under your representative handle. Contact your Zonal Administrator.</p>
+</div>
+<button class="h-12 px-4 mt-2 bg-primary text-on-primary font-label-md text-label-md font-bold rounded-lg shadow-sm" onclick="toggleMosquesEmpty()">
+        Restore Sample Mosques
+      </button>
+</div>
+<!-- Mosque Cards Deck -->
+<div class="flex flex-col gap-space-md" id="mosques-list">
+<!-- Mosque Card 1 -->
+<article class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex gap-space-sm items-start">
+<img class="w-20 h-20 rounded-xl object-cover shrink-0 bg-surface-container-low" data-alt="Traditional Pakistani city mosque facade featuring serene emerald arches and neat minaret in Lahore Gulberg neighbourhood during early daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJrrvva78JHsDy4rAnl4ILY42iJnTl8gRiwDYOChmDBuhGbuN_MC10XrHUTlu4u0sl7aGO6T8uctnf97H3p7CBDwMhQH7CQW0ApLUZ8nHQp_3Jdm9mkyhjmi28MUpprPhl1xAUSrzngR6IEUnOduoB1nVh2ZiwHtOlKt_dg24fEwgpbPKRxF1sqlLNGuKUC8EgWUpROakc5vwm47ShRSmYOM1sJUT6TB6amPn8-o8">
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-1 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Published • Live
+              </span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                Reconfirmed 2d ago
+              </span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface truncate">Jamia Masjid Al-Falah</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Block B, Main Market, Gulberg III</p>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">person</span>
+<span class="">Latest Rep: Tariq Farooq (2 days ago)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">call</span>
+<span class="">Focal Phone Check: Verified (12 days ago)</span>
+</div>
+<div class="flex items-center gap-1.5 text-tertiary font-semibold mt-0.5">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+<span class="">1 pending schedule update drafted in workspace</span>
+</div>
+</div>
+<div class="flex gap-space-xs">
+<button class="h-12 flex-1 flex items-center justify-center gap-1.5 bg-surface-container text-on-surface font-label-md text-label-md font-semibold rounded-lg hover:bg-surface-container-high transition-colors" onclick="showToast('Opening mosque profile for Jamia Masjid Al-Falah...')" type="button">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+            Manage Mosque
+          </button>
+<button class="h-12 flex-1 flex items-center justify-center gap-1.5 bg-primary text-on-primary font-label-md text-label-md font-semibold rounded-lg shadow-sm hover:opacity-95 active:scale-[0.99] transition-all" onclick="showToast('Launching quick timing update dialog...')" type="button">
+<span class="material-symbols-outlined text-[18px]">edit_calendar</span>
+            Update Timings
+          </button>
+</div>
+</article>
+<!-- Mosque Card 2 -->
+<article class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex gap-space-sm items-start">
+<img class="w-20 h-20 rounded-xl object-cover shrink-0 bg-surface-container-low" data-alt="Community Islamic Center in Lahore with spacious prayer courtyard and calm green accents on glass entrance doors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTz-AUWVvSIwRR13KlZ_LNekpRGiQCKN5_5Y7UUqAAA6d3uArEJpeGJ26BPwwnbtCRxDUi2bZR7g_IQ97EXbOHFZS0iTFTr0FbOAzwxqufXfbr8nSCa5wxXZirxzjkKVUU7kpdhACKuptU7G3uYhOsUvMhc0J58hsP2tt72fvVy-Q78ecz0hyxsk96UOSb8xhZi6WazzSDjESOo6YSng-2NVMWE4FrgcMbOj8MeK0">
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-1 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Published • Live
+              </span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                Fresh (Yesterday)
+              </span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface truncate">Masjid Quba &amp; Islamic Center</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Main Market, Gulberg II</p>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5 text-error font-semibold">
+<span class="material-symbols-outlined text-[16px]">priority_high</span>
+<span class="">1 returned submission awaiting your correction</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">person</span>
+<span class="">Latest Rep Confirmation: Tariq Farooq (Yesterday)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+<span class="">Phone Check: Verified by Admin Bilal</span>
+</div>
+</div>
+<div class="flex gap-space-xs">
+<button class="h-12 flex-1 flex items-center justify-center gap-1.5 bg-surface-container text-on-surface font-label-md text-label-md font-semibold rounded-lg hover:bg-surface-container-high transition-colors" onclick="showToast('Opening mosque profile for Masjid Quba...')" type="button">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+            Manage Mosque
+          </button>
+<button class="h-12 flex-1 flex items-center justify-center gap-1.5 bg-error text-on-error font-label-md text-label-md font-semibold rounded-lg shadow-sm hover:opacity-95 active:scale-[0.99] transition-all" onclick="showToast('Loading returned submission notes for Masjid Quba...')" type="button">
+<span class="material-symbols-outlined text-[18px]">build</span>
+            Resolve Submission
+          </button>
+</div>
+</article>
+<!-- Mosque Card 3 -->
+<article class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex gap-space-sm items-start">
+<img class="w-20 h-20 rounded-xl object-cover shrink-0 bg-surface-container-low" data-alt="Serene neighbourhood mosque in residential Lahore Gulberg canal district with white marble tiles and quiet courtyard under soft afternoon sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUSpLfxFj_KyFpRz2X5wKWtWH9cZ3QchHILQgM73xNH5Kvm9PkAcs0Y4godVphoguyN_O9Qn9DFZHsR3RZMiXD4ZFBI_jShEvJzb6Vh9lbYJ1LIFVKJ-MUUeqZ8izTw54-4_MpyARprh51g_K2gRZVgf4JJsdFU1JQzWI321ogCNnB-HAah9jTUrSA5NQAzdgnBIC-zK2gvY4Szka3Q77vaiUWP042G7VynHgovMg">
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-1 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Published • Live
+              </span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold">
+                Stale (28d ago)
+              </span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface truncate">Masjid Noor-e-Madina</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Canal Park, Gulberg II</p>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5 text-tertiary font-semibold">
+<span class="material-symbols-outlined text-[16px]">alarm</span>
+<span class="">Needs reconfirmation before 26 Oct (2 days away)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">history</span>
+<span class="">Last Routine Verification: 28 days ago</span>
+</div>
+</div>
+<div class="flex gap-space-xs">
+<button class="h-12 flex-1 flex items-center justify-center gap-1.5 bg-surface-container text-on-surface font-label-md text-label-md font-semibold rounded-lg hover:bg-surface-container-high transition-colors" onclick="showToast('Opening mosque profile for Masjid Noor-e-Madina...')" type="button">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+            Manage Mosque
+          </button>
+<button class="h-12 flex-1 flex items-center justify-center gap-1.5 bg-primary text-on-primary font-label-md text-label-md font-semibold rounded-lg shadow-sm hover:opacity-95 active:scale-[0.99] transition-all" onclick="showToast('Reconfirming current Jama\'at timetable...')" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+            Confirm Timings
+          </button>
+</div>
+</article>
+</div>
+</section>
+<!-- Section 3: "Recent Submission Decisions" -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Recent Submission Decisions</h2>
+<a class="font-label-sm text-label-sm text-primary font-bold hover:underline flex items-center gap-0.5" href="#">
+        Audit Log
+        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Entry 1: Approved -->
+<article class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col min-w-0">
+<h3 class="font-label-md text-label-md font-bold text-on-surface truncate">Jamia Masjid Al-Falah</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Isha Jama’at shifted to 7:30 PM</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold shrink-0">
+            Approved • 20 Oct
+          </span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-low p-space-sm rounded-lg leading-relaxed">
+          “Verified with committee secretary Hafiz Usman. Published to live search.”
+        </p>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Decided 4 days ago</span>
+<button class="font-label-sm text-label-sm text-primary font-bold flex items-center gap-1 hover:underline" onclick="showToast('Viewing submission #SUB-8109 detail...')" type="button">
+            View Submission
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</article>
+<!-- Entry 2: Returned -->
+<article class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col min-w-0">
+<h3 class="font-label-md text-label-md font-bold text-on-surface truncate">Masjid Quba &amp; Islamic Center</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Jumu’ah 2nd Congregation schedule</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold shrink-0">
+            Returned for Correction
+          </span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant bg-error-container/30 p-space-sm rounded-lg leading-relaxed">
+          “Need hall capacity verification for 2nd session.”
+        </p>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Decided 3 hours ago</span>
+<button class="font-label-sm text-label-sm text-error font-bold flex items-center gap-1 hover:underline" onclick="showToast('Viewing submission #SUB-8290 detail...')" type="button">
+            View Submission
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Governance & Separation of Powers Footnote -->
+<footer class="p-space-md bg-surface-container rounded-xl flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary shrink-0 mt-0.5">policy</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">
+<strong>Policy Mandate:</strong> Submissions require Focal Person review before updating public schedules. Editing facilities, accessibility tags, or notice boards does not count as timetable confirmation.
+    </p>
+</footer>
+<!-- Micro Toast Notification Element -->
+<div class="fixed bottom-24 left-4 right-4 z-50 pointer-events-none opacity-0 transition-opacity duration-300 flex justify-center" id="action-toast">
+<div class="bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-xl shadow-xl font-label-md text-label-md font-medium flex items-center gap-2 max-w-sm">
+<span class="material-symbols-outlined text-[20px] text-inverse-primary">info</span>
+<span id="toast-message" class="">Action processed</span>
+</div>
+</div>
+</div>
+<script>
+  let queueHidden = false;
+  let mosquesHidden = false;
+
+  function toggleActionQueue() {
+    queueHidden = !queueHidden;
+    const list = document.getElementById('actions-list');
+    const empty = document.getElementById('actions-empty-state');
+    const badge = document.getElementById('urgent-badge');
+    const btn = document.getElementById('toggle-queue-btn');
+
+    if (queueHidden) {
+      list.classList.add('hidden');
+      empty.classList.remove('hidden');
+      empty.classList.add('flex');
+      badge.textContent = '0 urgent';
+      badge.className = 'px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold';
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">replay</span> Reset Action Queue';
+      showToast('Switched simulator: All actions complete!');
+    } else {
+      list.classList.remove('hidden');
+      empty.classList.add('hidden');
+      empty.classList.remove('flex');
+      badge.textContent = '3 urgent';
+      badge.className = 'px-2.5 py-0.5 rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold';
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">done_all</span> Toggle All Tasks Done';
+      showToast('Restored priority tasks queue.');
+    }
+  }
+
+  function toggleMosquesEmpty() {
+    mosquesHidden = !mosquesHidden;
+    const list = document.getElementById('mosques-list');
+    const empty = document.getElementById('mosques-empty-state');
+    const btn = document.getElementById('toggle-empty-btn');
+
+    if (mosquesHidden) {
+      list.classList.add('hidden');
+      empty.classList.remove('hidden');
+      empty.classList.add('flex');
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">replay</span> Reset Mosque List';
+      showToast('Simulating zero assigned mosques view.');
+    } else {
+      list.classList.remove('hidden');
+      empty.classList.add('hidden');
+      empty.classList.remove('flex');
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">folder_off</span> Simulate Zero Mosques';
+      showToast('Restored assigned mosques.');
+    }
+  }
+
+  function filterTaskView(category) {
+    if (category === 'all') {
+      showToast('Viewing all 3 mosques in Gulberg III.');
+      document.getElementById('assigned-mosques-section').scrollIntoView({ behavior: 'smooth' });
+    } else if (category === 'timing') {
+      showToast('Filtering for: 2 mosques needing timing confirmation.');
+      document.getElementById('actions-section').scrollIntoView({ behavior: 'smooth' });
+    } else if (category === 'pending') {
+      showToast('Showing 1 submission awaiting focal review.');
+    } else if (category === 'returned') {
+      showToast('Showing 1 returned submission requiring correction.');
+      document.getElementById('actions-section').scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function showToast(msg) {
+    const toast = document.getElementById('action-toast');
+    const text = document.getElementById('toast-message');
+    text.textContent = msg;
+    toast.classList.remove('opacity-0');
+    toast.classList.add('opacity-100');
+    clearTimeout(window.toastTimer);
+    window.toastTimer = setTimeout(() => {
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0');
+    }, 2800);
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-20 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center gap-space-xs min-w-[48px] min-h-[48px] px-space-xs transition-colors text-primary font-bold" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-sm text-label-sm">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[48px] min-h-[48px] px-space-xs text-on-surface-variant hover:text-on-surface transition-colors" data-path="my-mosques" href="#"><span class="material-symbols-outlined text-[22px]">mosque</span><span class="font-label-sm text-label-sm">Mosques</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[48px] min-h-[48px] px-space-xs text-on-surface-variant hover:text-on-surface transition-colors" data-path="submissions" href="#"><span class="material-symbols-outlined text-[22px]">assignment</span><span class="font-label-sm text-label-sm">Submissions</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[48px] min-h-[48px] px-space-xs text-on-surface-variant hover:text-on-surface transition-colors" data-path="announcements" href="#"><span class="material-symbols-outlined text-[22px]">campaign</span><span class="font-label-sm text-label-sm">Updates</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[48px] min-h-[48px] px-space-xs text-on-surface-variant hover:text-on-surface transition-colors" data-path="notifications" href="#"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="font-label-sm text-label-sm">Alerts</span></a></div></nav>
+
+</body></html>

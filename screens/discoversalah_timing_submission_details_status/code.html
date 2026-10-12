@@ -1,0 +1,559 @@
+<!DOCTYPE html><html class="light" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-fixed": "#a3f3c9", "inverse-surface": "#20342c", "surface": "#e7fff2", "tertiary-fixed": "#ffdcc3", "on-primary-fixed-variant": "#005236", "surface-container-highest": "#d0e8db", "secondary-container": "#aeedcb", "on-secondary-container": "#326e52", "on-tertiary": "#ffffff", "surface-container-high": "#d6eee1", "on-tertiary-container": "#ffcfab", "on-surface": "#0b1f18", "secondary": "#2d694e", "on-primary-fixed": "#002113", "secondary-fixed-dim": "#96d4b3", "error": "#ba1a1a", "primary-container": "#146b4a", "surface-container-lowest": "#ffffff", "surface-dim": "#c8dfd3", "on-primary": "#ffffff", "on-surface-variant": "#3f4943", "secondary-fixed": "#b1f0ce", "on-primary-container": "#98e9bf", "inverse-primary": "#87d7ae", "tertiary-fixed-dim": "#ffb77d", "outline-variant": "#bec9c1", "on-tertiary-fixed-variant": "#6e3900", "background": "#e7fff2", "surface-bright": "#e7fff2", "surface-tint": "#156b4a", "surface-variant": "#d0e8db", "on-error-container": "#93000a", "on-secondary": "#ffffff", "tertiary-container": "#8e4e0c", "on-tertiary-fixed": "#2f1500", "outline": "#6f7a72", "on-error": "#ffffff", "surface-container-low": "#e1f9ec", "error-container": "#ffdad6", "on-secondary-fixed": "#002114", "tertiary": "#6e3900", "surface-container": "#dcf3e7", "on-secondary-fixed-variant": "#0f5138", "on-background": "#0b1f18", "primary": "#005136", "primary-fixed-dim": "#87d7ae", "inverse-on-surface": "#dff6e9" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "gutter-desktop": "1.5rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin-desktop": "2rem", "margin": "1rem", "space-xl": "2rem", "space-sm": "0.5rem", "gutter": "1rem", "space-md": "1rem" }, "fontFamily": { "body-lg": ["Inter"], "headline-lg-mobile": ["Inter"], "label-md": ["Inter"], "label-sm": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "headline-xl-mobile": ["Inter"], "headline-md": ["Inter"] }, "fontSize": { "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "700" }], "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-body-md text-on-surface min-h-screen flex flex-col selection:bg-secondary-container selection:text-on-secondary-container"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="DiscoverSalah_Logo.png" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCCKiLBjfBnZrCaxj7L7WgvPzRhWEkQMaHasrwIX3cvO9U0xcaCaGCXDr5Cns5hFUJtwaIsLpTwvn9KcvGgymMNojOQODciiexbXXeu7WPCBB3CxfqTfE1-SrU-jjPTLNZF57uP8Ms0EYBaraj0pZGKWMuaM-kEnD9Sd2wQgJOZomcxJ02P5Bgm0p7pCXr1V__FAQIQjcaMGLX608GKofqsz27fDMTMWlw9d7ktevs0rONt60GnY0ExCA9SFcPHDE3Og"><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-label-sm text-label-sm text-primary tracking-tight font-semibold truncate">DiscoverSalah</span><span class="inline-flex items-center px-space-xs py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] leading-tight font-medium">Gulberg III Zone</span></div><h1 class="font-label-md text-label-md text-on-surface font-semibold truncate">My Mosques</h1></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="Notifications" class="relative w-11 h-11 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-4 h-4 rounded-full bg-error text-on-error font-label-sm text-[10px] flex items-center justify-center leading-none font-bold">1</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm flex-shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 w-full bg-surface pt-16 pb-24 px-margin"><div class="flex flex-col w-full pb-8">
+<!-- Immediate Flash Confirmation Banner -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-md shadow-sm mb-space-md flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px] flex-shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="min-w-0 flex-1">
+<p class="font-label-md text-label-md text-primary font-semibold">Submission Dispatched Successfully</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Reference token: <span class="font-mono font-medium text-on-surface">SUB-8910-2410-v3.3</span> recorded in audit log.</p>
+</div>
+</div>
+<!-- Breadcrumbs & Quick Back Link -->
+<div class="flex flex-col gap-1 mb-space-md">
+<nav aria-label="Breadcrumb" class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm overflow-x-auto whitespace-nowrap py-0.5">
+<a class="hover:text-primary transition-colors" href="#">Dashboard</a>
+<span class="text-outline-variant text-[12px]">/</span>
+<a class="hover:text-primary transition-colors" href="#">Jamia Masjid Al-Falah</a>
+<span class="text-outline-variant text-[12px]">/</span>
+<span class="text-primary font-semibold">Submission SUB-8910-2410</span>
+</nav>
+<a class="inline-flex items-center gap-1 text-primary hover:text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold w-fit mt-1" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+      Back to Jamia Masjid Al-Falah
+    </a>
+</div>
+<!-- Section 1: Header & Submission Identity -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md">
+<div class="flex items-start justify-between gap-space-sm mb-space-xs">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Timing Submission Details</h2>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="material-symbols-outlined text-primary text-[18px]">mosque</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Jamia Masjid Al-Falah</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">(msq-8910)</span>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold flex-shrink-0">
+        v3.3 Draft
+      </span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1 mb-space-md">
+<span class="material-symbols-outlined text-[15px] text-outline">location_on</span>
+      Block B, Gulberg III, Lahore • Zone 3
+    </p>
+<!-- Meta Details Strip -->
+<div class="bg-surface-container-low rounded-lg p-space-sm grid grid-cols-2 gap-space-sm text-left">
+<div>
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider block">Reference</span>
+<span class="font-label-md text-label-md text-on-surface font-mono font-semibold">SUB-8910-2410</span>
+</div>
+<div>
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider block">Revision Scope</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Winter Shift</span>
+</div>
+<div>
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider block">Submitted By</span>
+<span class="font-label-md text-label-md text-on-surface font-medium truncate block">Tariq Farooq <span class="font-mono text-xs text-on-surface-variant">(rep-7429)</span></span>
+</div>
+<div>
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider block">Submitted Timestamp</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">24 Oct 2024, 02:45 PM PKT</span>
+</div>
+</div>
+</div>
+<!-- Section 2 & 3: Interactive Review Status Simulator & Summary Banner -->
+<div class="mb-space-md">
+<!-- State Simulator Bar (Demonstrating required review states) -->
+<div class="mb-space-sm">
+<div class="flex items-center justify-between mb-1.5 px-0.5">
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">visibility</span>
+          Workflow State Preview
+        </span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Live Management Mode</span>
+</div>
+<div class="grid grid-cols-2 gap-1.5">
+<button class="state-pill px-2.5 py-2 rounded-lg font-label-sm text-[11px] text-left transition-all bg-tertiary-fixed text-on-tertiary-fixed font-semibold shadow-xs flex items-center justify-between" id="btn-state-awaiting" onclick="setViewState('awaiting')">
+<span class="">Awaiting Verification</span>
+<span class="material-symbols-outlined text-[14px]">check</span>
+</button>
+<button class="state-pill px-2.5 py-2 rounded-lg font-label-sm text-[11px] text-left transition-all bg-surface-container text-on-surface-variant hover:bg-surface-container-high flex items-center justify-between" id="btn-state-correction" onclick="setViewState('correction')">
+<span class="">Returned (Correction)</span>
+</button>
+<button class="state-pill px-2.5 py-2 rounded-lg font-label-sm text-[11px] text-left transition-all bg-surface-container text-on-surface-variant hover:bg-surface-container-high flex items-center justify-between" id="btn-state-approved" onclick="setViewState('approved')">
+<span class="">Approved — Scheduled</span>
+</button>
+<button class="state-pill px-2.5 py-2 rounded-lg font-label-sm text-[11px] text-left transition-all bg-surface-container text-on-surface-variant hover:bg-surface-container-high flex items-center justify-between" id="btn-state-superseded" onclick="setViewState('superseded')">
+<span class="">Superseded</span>
+</button>
+</div>
+</div>
+<!-- Dynamic Status Banner Container -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all" id="status-card">
+<!-- AWAITING VERIFICATION VIEW (DEFAULT) -->
+<div class="flex flex-col gap-space-sm" id="view-awaiting">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">hourglass_top</span>
+            AWAITING FOCAL PERSON VERIFICATION
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+          Your proposal is pending formal review by designated Focal Person <strong class="font-semibold text-primary">Bilal Ahmed (focal-104)</strong>. The current live timetable remains active on DiscoverSalah searches until formal sign-off.
+        </p>
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-start gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-[18px] flex-shrink-0 mt-0.5">schedule</span>
+<p class="font-label-sm text-label-sm">
+<strong class="text-on-surface">Verification SLA:</strong> Typical reviews complete within 24–48 hours. If the effective date (1 Nov) approaches without resolution, this submission automatically escalates to Sector Lead Supervisor.
+          </p>
+</div>
+</div>
+<!-- RETURNED FOR CORRECTION (HIDDEN BY DEFAULT) -->
+<div class="hidden flex flex-col gap-space-sm" id="view-correction">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">assignment_return</span>
+            RETURNED FOR CORRECTION
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+          Focal Person <strong class="font-semibold">Bilal Ahmed</strong> returned this submission requesting adjustments to Isha congregation interval before validation.
+        </p>
+<div class="bg-error-container/30 rounded-lg p-space-sm text-on-surface">
+<span class="font-label-sm text-label-sm font-semibold block text-error">Reviewer Remarks:</span>
+<p class="font-label-sm text-label-sm mt-0.5 italic">"Please verify committee agreement on Isha delay. Minimum 90 minutes post-Maghrib requested for winter community transport."</p>
+</div>
+</div>
+<!-- APPROVED SCHEDULED (HIDDEN BY DEFAULT) -->
+<div class="hidden flex flex-col gap-space-sm" id="view-approved">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+            APPROVED — SCHEDULED TO GO LIVE
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+          Verified by <strong class="font-semibold text-primary">Bilal Ahmed</strong> on 24 Oct 2024. This schedule will automatically replace current public timings on <strong class="font-semibold">1 Nov 2024 at 12:00 AM PKT</strong>.
+        </p>
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center gap-2 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[18px]">event_available</span>
+          Scheduled automated cutover verified across 4 prayer apps &amp; notification feeds.
+        </div>
+</div>
+<!-- SUPERSEDED (HIDDEN BY DEFAULT) -->
+<div class="hidden flex flex-col gap-space-sm" id="view-superseded">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">history_toggle_off</span>
+            SUPERSEDED ARCHIVE
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+          This submission was rendered inactive on 25 Oct 2024 by subsequent submission <span class="font-mono font-medium">SUB-8910-2411 (v3.4)</span>. Preserved for immutable audit history.
+        </p>
+</div>
+</div>
+</div>
+<!-- Primary In-Page Action Controls -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md flex flex-col gap-space-sm">
+<div class="flex flex-col sm:flex-row gap-space-sm">
+<button class="w-full h-12 px-4 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center justify-center gap-2 shadow-xs active:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit_calendar</span>
+        Revise Proposal (Creates v3.4)
+      </button>
+<a class="w-full h-12 px-4 rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md font-semibold flex items-center justify-center gap-2 transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px] text-primary">visibility</span>
+        View Current Live Timetable
+      </a>
+</div>
+<p class="font-label-sm text-[12px] text-on-surface-variant leading-relaxed">
+<span class="font-semibold text-tertiary">Note on revision:</span> Creating a revised draft (v3.4) cancels and archives this pending submission (v3.3) and resets the Focal Person verification turnaround clock.
+    </p>
+</div>
+<!-- Section 4: Submitted Timing Changes (Historical Preserved Comparison) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface tracking-tight">Changes in this Proposal</h3>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[11px] font-semibold">
+        2 Modified • 3 Retained
+      </span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-space-md">
+      Side-by-side comparative inspection between current approved timings and proposed winter schedule.
+    </p>
+<!-- Comparison Card 1: Asr Jama'at -->
+<div class="bg-surface-container-low rounded-xl p-space-md mb-space-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[18px]">wb_twilight</span>
+</span>
+<div>
+<span class="font-label-md text-label-md font-semibold text-on-surface block">Asr Jama’at</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Congregation Prayer</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold">
+          Changed (-30 mins)
+        </span>
+</div>
+<div class="grid grid-cols-2 gap-2 my-space-sm p-space-sm bg-surface-container-lowest rounded-lg">
+<div>
+<span class="font-label-sm text-[11px] text-on-surface-variant block uppercase tracking-wider">Approved Live</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant line-through font-mono">4:45 PM</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant block">PKT (Asia/Karachi)</span>
+</div>
+<div class="pl-2">
+<span class="font-label-sm text-[11px] text-primary block uppercase tracking-wider font-semibold">Submitted Proposal</span>
+<span class="font-headline-md text-headline-md text-primary font-bold font-mono">4:15 PM</span>
+<span class="font-label-sm text-[10px] text-primary block font-medium">Applies 1 Nov 2024</span>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-start gap-1.5 mt-1">
+<span class="material-symbols-outlined text-primary text-[16px] flex-shrink-0 mt-0.5">info</span>
+<span class="">Provides <strong>83 min buffer</strong> before Maghrib (5:38 PM), satisfying sunset twilight congregation safety margin.</span>
+</p>
+</div>
+<!-- Comparison Card 2: Maghrib Iqamah -->
+<div class="bg-surface-container-low rounded-xl p-space-md mb-space-md">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[18px]">bedtime</span>
+</span>
+<div>
+<span class="font-label-md text-label-md font-semibold text-on-surface block">Maghrib Iqamah</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Congregation Prayer</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold">
+          Changed (-4 mins)
+        </span>
+</div>
+<div class="grid grid-cols-2 gap-2 my-space-sm p-space-sm bg-surface-container-lowest rounded-lg">
+<div>
+<span class="font-label-sm text-[11px] text-on-surface-variant block uppercase tracking-wider">Approved Live</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant line-through font-mono">5:42 PM</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant block">PKT (Asia/Karachi)</span>
+</div>
+<div class="pl-2">
+<span class="font-label-sm text-[11px] text-primary block uppercase tracking-wider font-semibold">Submitted Proposal</span>
+<span class="font-headline-md text-headline-md text-primary font-bold font-mono">5:38 PM</span>
+<span class="font-label-sm text-[10px] text-primary block font-medium">Applies 1 Nov 2024</span>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-start gap-1.5 mt-1">
+<span class="material-symbols-outlined text-primary text-[16px] flex-shrink-0 mt-0.5">info</span>
+<span class="">Synchronized with Lahore winter astronomical sunset; Iqamah held strictly 3 mins post-Adhan.</span>
+</p>
+</div>
+<!-- Collapsible Full Proposed Timetable Accordion -->
+<div class="bg-surface-container rounded-xl overflow-hidden">
+<button class="w-full p-space-md flex items-center justify-between text-left hover:bg-surface-container-high transition-colors" id="accordion-toggle" onclick="toggleTimetableAccordion()">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_view_week</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Full Proposed Daily &amp; Friday Timetable</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant transition-transform" id="accordion-chevron">expand_more</span>
+</button>
+<div class="p-space-md pt-0 hidden flex flex-col gap-2" id="accordion-content">
+<div class="grid grid-cols-1 divide-y divide-surface-container-highest bg-surface-container-lowest rounded-lg overflow-hidden">
+<div class="p-3 flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium">Fajr Iqamah</span>
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-on-surface">05:15 AM</span>
+<span class="text-[10px] px-2 py-0.5 rounded bg-surface-container text-on-surface-variant uppercase font-semibold">Unchanged</span>
+</div>
+</div>
+<div class="p-3 flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium">Dhuhr Jama’at</span>
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-on-surface">01:30 PM</span>
+<span class="text-[10px] px-2 py-0.5 rounded bg-surface-container text-on-surface-variant uppercase font-semibold">Unchanged</span>
+</div>
+</div>
+<div class="p-3 flex items-center justify-between bg-surface-container-low">
+<span class="font-label-md text-label-md text-primary font-semibold">Asr Jama’at</span>
+<div class="flex items-center gap-2">
+<span class="font-mono font-bold text-primary">04:15 PM</span>
+<span class="text-[10px] px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-bold uppercase">Proposed</span>
+</div>
+</div>
+<div class="p-3 flex items-center justify-between bg-surface-container-low">
+<span class="font-label-md text-label-md text-primary font-semibold">Maghrib Iqamah</span>
+<div class="flex items-center gap-2">
+<span class="font-mono font-bold text-primary">05:38 PM</span>
+<span class="text-[10px] px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-bold uppercase">Proposed</span>
+</div>
+</div>
+<div class="p-3 flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium">Isha Jama’at</span>
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-on-surface">07:30 PM</span>
+<span class="text-[10px] px-2 py-0.5 rounded bg-surface-container text-on-surface-variant uppercase font-semibold">Unchanged</span>
+</div>
+</div>
+<div class="p-3 flex items-center justify-between bg-surface-container-lowest">
+<span class="font-label-md text-label-md text-on-surface font-medium">Jumu’ah (Session 1)</span>
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-on-surface">01:45 PM</span>
+<span class="text-[10px] px-2 py-0.5 rounded bg-surface-container text-on-surface-variant uppercase font-semibold">Unchanged</span>
+</div>
+</div>
+<div class="p-3 flex items-center justify-between bg-surface-container-lowest">
+<span class="font-label-md text-label-md text-on-surface font-medium">Jumu’ah (Session 2)</span>
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-on-surface">02:30 PM</span>
+<span class="text-[10px] px-2 py-0.5 rounded bg-surface-container text-on-surface-variant uppercase font-semibold">Unchanged</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 5: Effective Schedule Period & Representative's Stated Rationale -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md">
+<h3 class="font-headline-md text-headline-md text-on-surface tracking-tight mb-space-sm">Effective Schedule &amp; Rationale</h3>
+<!-- Period details -->
+<div class="bg-surface-container-low rounded-lg p-space-sm mb-space-sm">
+<div class="flex items-start gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">event</span>
+<div>
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider block">Requested Go-Live Date</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">1 Nov 2024, 12:00 AM PKT</span>
+</div>
+</div>
+<div class="flex items-start gap-2 mb-2">
+<span class="material-symbols-outlined text-outline text-[18px] mt-0.5">timelapse</span>
+<div>
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider block">Duration Authority</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Until superseded (governed by 30-day freshness reconfirmation rule)</span>
+</div>
+</div>
+<p class="font-label-sm text-[11px] text-on-surface-variant pt-2">
+<strong>Governance Reminder:</strong> Reaching the requested start date does not auto-publish. Timetables only adjust upon formal Focal Person sign-off.
+      </p>
+</div>
+<!-- Reason for Change Card -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary font-semibold font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">rate_review</span>
+        Representative’s Statement for Record
+      </div>
+<div class="bg-surface-container-low p-space-sm rounded-lg text-on-surface font-body-md text-body-md">
+        “Annual winter twilight shift: Asr moved earlier from 4:45 PM to 4:15 PM to ensure adequate congregation clearance before sunset (5:38 PM). Maghrib Iqamah synchronized to 5:38 PM per committee resolution.”
+      </div>
+<div class="bg-surface-container p-2.5 rounded-lg flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px] flex-shrink-0 mt-0.5">task_alt</span>
+<span class="font-label-sm text-label-sm text-on-surface">
+<strong>Reviewer Note Addressed:</strong> Focal Person Bilal Ahmed requested ≥30m twilight buffer; proposed 83m margin fully satisfies safety policy.
+        </span>
+</div>
+</div>
+</div>
+<!-- Section 6: Reviewer & Verification Governance Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface tracking-tight">Assigned Governance Unit</h3>
+<span class="material-symbols-outlined text-primary text-[20px]">admin_panel_settings</span>
+</div>
+<div class="flex items-center gap-3 p-space-sm bg-surface-container-low rounded-lg mb-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-semibold text-sm">
+        BA
+      </div>
+<div class="min-w-0">
+<span class="font-label-md text-label-md font-semibold text-on-surface block">Bilal Ahmed</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block font-mono">focal-104 • Gulberg III Sector Lead</span>
+</div>
+</div>
+<div class="space-y-2 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">phone_callback</span>
+<p class="text-on-surface">
+<strong>Next Verification Step:</strong> Focal Person Bilal Ahmed will call Imam Khatib Maulana Tariq or Committee Secretary Hafiz Usman to corroborate the committee notice board timings before approving.
+        </p>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container flex items-start gap-2 text-on-surface-variant text-[12px]">
+<span class="material-symbols-outlined text-outline text-[16px] flex-shrink-0 mt-0.5">lock</span>
+<span class="">Private committee verification phone numbers and internal call logs are securely restricted to authorized Focal Personnel.</span>
+</div>
+</div>
+</div>
+<!-- Section 7: Version Lineage & Related Proposals -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md">
+<h3 class="font-headline-md text-headline-md text-on-surface tracking-tight mb-space-xs">Version Lineage</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-space-sm">
+      Each submitted iteration retains an immutable historical snapshot.
+    </p>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-outline text-[20px]">folder_open</span>
+<div class="min-w-0">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface block truncate">v3.2 Draft (Superceded)</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant block truncate">Returned for twilight adjustment on 22 Oct 2024</span>
+</div>
+</div>
+<a class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-dim font-label-sm text-[11px] font-semibold whitespace-nowrap flex items-center gap-1 transition-colors" href="#">
+        View Archive
+        <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- Section 8: Chronological Activity & Decision History Audit -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface tracking-tight">Audit Trail &amp; Activity Log</h3>
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold font-mono">Immutable Log</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-space-md">
+      Comprehensive step-by-step audit record from initial draft submission to current review state.
+    </p>
+<!-- Timeline Entries -->
+<div class="relative pl-6 space-y-space-md">
+<!-- Vertical guide line -->
+<div class="absolute left-2.5 top-2 bottom-2 w-0.5 bg-surface-container-highest"></div>
+<!-- Item 1 (Most Recent) -->
+<div class="relative flex flex-col gap-0.5">
+<span class="absolute -left-6 top-1 w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center text-[10px]">
+<span class="material-symbols-outlined text-[12px]">assignment_ind</span>
+</span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Assigned to Focal Person</span>
+<span class="font-mono text-[11px] text-on-surface-variant">24 Oct, 02:46 PM</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">
+          Automated task dispatched to Bilal Ahmed (focal-104). In-app review notification delivered.
+        </p>
+</div>
+<!-- Item 2 -->
+<div class="relative flex flex-col gap-0.5">
+<span class="absolute -left-6 top-1 w-5 h-5 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-[10px]">
+<span class="material-symbols-outlined text-[12px]">check</span>
+</span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Automated Syntax Validation Passed</span>
+<span class="font-mono text-[11px] text-on-surface-variant">24 Oct, 02:45 PM</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">
+          Standard checks passed: 12h chronologic consistency verified, 83m twilight margin confirmed, no overlapping exception windows.
+        </p>
+</div>
+<!-- Item 3 -->
+<div class="relative flex flex-col gap-0.5">
+<span class="absolute -left-6 top-1 w-5 h-5 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center text-[10px]">
+<span class="material-symbols-outlined text-[12px]">send</span>
+</span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Proposal v3.3 Submitted</span>
+<span class="font-mono text-[11px] text-on-surface-variant">24 Oct, 02:45 PM</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">
+          Submitted by Local Representative Tariq Farooq (rep-7429) via DiscoverSalah Mobile Portal.
+        </p>
+</div>
+<!-- Item 4 (Prior version correction) -->
+<div class="relative flex flex-col gap-0.5">
+<span class="absolute -left-6 top-1 w-5 h-5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center text-[10px]">
+<span class="material-symbols-outlined text-[12px]">history</span>
+</span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-semibold text-tertiary">v3.2 Returned for Correction</span>
+<span class="font-mono text-[11px] text-on-surface-variant">22 Oct, 06:15 PM</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">
+          Bilal Ahmed requested: “Align with sunset buffer policy (min 30 min clearance before Maghrib).”
+        </p>
+</div>
+<!-- Item 5 -->
+<div class="relative flex flex-col gap-0.5">
+<span class="absolute -left-6 top-1 w-5 h-5 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center text-[10px]">
+<span class="material-symbols-outlined text-[12px]">draft</span>
+</span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-medium text-on-surface-variant">v3.2 Initial Proposal Logged</span>
+<span class="font-mono text-[11px] text-on-surface-variant">22 Oct, 01:20 PM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 9: Live Connection & Freshness Indicator Strip -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low rounded-lg text-on-surface-variant font-label-sm text-[11px] mb-20">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-medium text-on-surface">Live Verification Link Active</span>
+</div>
+<span class="font-mono">Asia/Karachi (PKT) • Synced</span>
+</div>
+<!-- Sticky Bottom Quick Actions Bar -->
+<div class="fixed bottom-16 left-0 right-0 z-40 px-margin pb-2 bg-surface/95 backdrop-blur-md">
+<div class="max-w-md mx-auto bg-surface-container-lowest p-2 rounded-xl shadow-lg flex items-center justify-between gap-space-sm">
+<a class="h-12 px-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors flex-1 min-w-0 truncate" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span class="truncate">Mosque View</span>
+</a>
+<button class="h-12 px-4 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors flex-1 min-w-0 shadow-xs">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+<span class="truncate">Revise Proposal</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive State Switcher & Collapsible Accordion Micro-interactions -->
+<script>
+  function toggleTimetableAccordion() {
+    const content = document.getElementById('accordion-content');
+    const chevron = document.getElementById('accordion-chevron');
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      chevron.textContent = 'expand_less';
+    } else {
+      content.classList.add('hidden');
+      chevron.textContent = 'expand_more';
+    }
+  }
+
+  function setViewState(state) {
+    const states = ['awaiting', 'correction', 'approved', 'superseded'];
+    
+    // Toggle content views
+    states.forEach(s => {
+      const el = document.getElementById('view-' + s);
+      const btn = document.getElementById('btn-state-' + s);
+      if (s === state) {
+        el.classList.remove('hidden');
+        btn.className = 'state-pill px-2.5 py-2 rounded-lg font-label-sm text-[11px] text-left transition-all bg-tertiary-fixed text-on-tertiary-fixed font-semibold shadow-xs flex items-center justify-between';
+        if (!btn.querySelector('.material-symbols-outlined')) {
+          const checkIcon = document.createElement('span');
+          checkIcon.className = 'material-symbols-outlined text-[14px]';
+          checkIcon.textContent = 'check';
+          btn.appendChild(checkIcon);
+        }
+      } else {
+        el.classList.add('hidden');
+        btn.className = 'state-pill px-2.5 py-2 rounded-lg font-label-sm text-[11px] text-left transition-all bg-surface-container text-on-surface-variant hover:bg-surface-container-high flex items-center justify-between';
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (icon) icon.remove();
+      }
+    });
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary font-semibold"><div class="flex items-center justify-around h-16 px-space-xs"><a class="flex flex-col items-center justify-center flex-1 h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-sm text-[11px] leading-tight mt-0.5">Dashboard</span></a><a class="flex flex-col items-center justify-center flex-1 h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="my-mosques" href="#"><span class="material-symbols-outlined text-[22px]">mosque</span><span class="font-label-sm text-[11px] leading-tight mt-0.5">My Mosques</span></a><a class="flex flex-col items-center justify-center flex-1 h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="submissions" href="#"><span class="material-symbols-outlined text-[22px]">assignment_turned_in</span><span class="font-label-sm text-[11px] leading-tight mt-0.5">Submissions</span></a><a class="flex flex-col items-center justify-center flex-1 h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="updates" href="#"><span class="material-symbols-outlined text-[22px]">schedule</span><span class="font-label-sm text-[11px] leading-tight mt-0.5">Updates</span></a><a class="flex flex-col items-center justify-center flex-1 h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="alerts" href="#"><span class="material-symbols-outlined text-[22px]">crisis_alert</span><span class="font-label-sm text-[11px] leading-tight mt-0.5">Alerts</span></a></div></nav>
+
+</body></html>
