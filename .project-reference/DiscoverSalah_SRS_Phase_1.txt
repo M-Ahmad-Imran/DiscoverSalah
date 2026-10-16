@@ -1,0 +1,1017 @@
+DiscoverSalah
+Software Requirements Specification
+Phase 1 document
+Document control
+Value
+Document ID
+DS-SRS-P1-001
+Version and date
+1.2 • 4 October 2026
+Status
+Final Phase 1 documentation • Design-phase handoff
+Product Owner
+Muhammad Ahmad — retained from the supplied template
+Source baseline
+DiscoverSalah Project Proposal v4.0 and subsequent review clarifications
+Prepared for
+Product, development, quality assurance and service operations
+Purpose
+Define a realistic first public release for mosque-specific congregation discovery, walking and motorcycle reachability, remote Imam verification and whole-city Friday/Eid planning. This document follows the supplied Phase 1 structure and adds business rules, interfaces, data requirements, traceability and decisions needed for implementation.
+Final Phase 1 documentation for the next design phase. The initial service has no subscription. Funding outreach and any paid allowances are future options; accurate schedules, assigned maintainers and verification are required from launch. Field trials, implementation tests and independent validation remain to be performed.
+Contents
+1 Introduction and Background4
+1.1 Product Vision and Problem Context4
+1.2 Stakeholders and scope5
+1.3 Scope and release boundaries5
+1.4 Assumptions and requirement status5
+1.5 Operating model and phased growth6
+2 Agile Framework Setup7
+2.1 Epics for the Project7
+2.2 Product Backlog8
+2.3 User Stories10
+2.4 Estimation and sprint planning14
+2.5 Sprint Planning and Sprint Backlog14
+3 Functional Requirements15
+3.1 Use case overview and diagrams17
+3.2 Detailed use case flows30
+3.3 Business rules and state transitions31
+3.4 Data and external interface requirements32
+3.5 Community requests and notice controls33
+4 Non-functional Requirements35
+4.1 Reliability35
+4.2 Performance35
+4.3 Usability35
+4.4 Other Non-functional Requirements35
+5 Scrum Activities Plan36
+5.1 Kanban Board and Task Tracking36
+5.2 Acceptance Criteria and test method36
+5.3 Release and progress controls39
+5.4 Burndown Chart and Progress Tracking39
+5.5 Backlog Refinement Plan39
+6 Risk Analysis40
+7 References41
+Appendix A Glossary42
+Appendix B Independent Verification and Validation43
+Appendix C Decisions and approval register44
+Document history
+Version
+Date
+Change and evidence
+1.0
+30 Sep 2026
+Initial Phase 1 specification based on proposal v4.0.
+1.1
+2 Oct 2026
+Added individual diagrams and descriptions for UC-01–24.
+1.2
+4 Oct 2026
+Final Phase 1 edition: consistent formatting, navigable contents, free initial launch, future funding direction, contributor requests, notice controls and operational clarifications.
+Sprint log status: no execution records were supplied. S1–S8 below are planning candidates, not completed sprints. For each actual sprint, record dates, goal, selected stories, completed points, carryover, review evidence and retrospective actions. Initial status for every story is Backlog.
+Abstract and project context
+Abstract
+DiscoverSalah addresses the difficulty of finding current mosque-specific congregation times and judging whether a journey can finish before prayer begins. It combines maintained mosque records, dated sessions, geospatial discovery, route estimates and transparent timing status. Public users search without an account, select walking or motorcycle travel, and choose nearby or whole-city discovery. Friday and Eid planning supports multiple sessions and distant venues.
+The management model links each mosque to a Local Representative and a supervising Focal Person. Representatives submit information; Focal Persons receive account notifications and verify it by calling the registered Imam. The proposed publication policy protects unverified changes while preserving an audit trail. The intended result is a usable and accountable public service, to be validated through actual journeys and mosque operations. No market-size, adoption or field-accuracy claim is made here.
+1 Introduction and Background
+1.1 Product Vision and Problem Context
+Product goal: enable people to find a relevant, maintained congregation and understand the estimated time needed to reach it. Current pain points described in the proposal are scattered timings, local changes, unfamiliar locations and no clear maintenance responsibility. These are project hypotheses pending user research, not findings from a completed survey.
+Target users include local worshippers, commuters and travelers who do not know the nearest participating mosque or its Jama’at time. Discovery uses their current or chosen location. The service supports walking and motorcycle journeys, including longer Friday and Eid trips; it does not promise arrival or search along an entire travel itinerary.
+User research plan and evidence status
+No participant responses or interview records were supplied. Proposed discovery research: a short survey with at least 10 public users and 8 interviews across 3 worshippers, 2 representatives, 2 Imams and 1 potential Focal Person. Recruitment is planned, not completed; record overlap if a survey participant is also interviewed. Observe schedule maintenance at 3 consenting mosques.
+Ask how timings are currently obtained, how often they change, preferred travel modes, acceptable verification delay, phone availability, and trust in estimated arrivals. Observe one representative update and one Focal Person review using a prototype. Obtain participation permission, anonymize findings, and record dates, actual counts and limitations. The Product Owner reviews findings before approving uncertain defaults; recruitment failure remains an open dependency.
+Expected benefits
+Users gain clearer choices; mosque representatives gain a simple update channel; Focal Persons gain manageable review queues. These are intended benefits to measure, not achieved outcomes. Knowledge areas include requirements engineering, geospatial systems, access control, time handling, user experience and operational quality assurance.
+1.2 Stakeholders and scope
+Stakeholder
+Responsibility
+Expectation
+Product Owner
+Muhammad Ahmad; scope and acceptance decisions
+Evidence-based priorities and controlled scope.
+Public user
+Discover sessions and report issues
+Correct prayer/date, usable travel estimates and privacy.
+Local Representative
+Maintain assigned mosque and sessions
+Simple submission, status and correction feedback.
+Focal Person
+Area review, Imam calls and escalation
+Actionable notifications and manageable workload.
+Imam / mosque authority
+Confirm identity, contact and timings by phone
+Accurate representation and private contact handling.
+System Admin
+Account hierarchy, areas, backups and oversight
+Scoped access, continuity and auditability.
+Delivery team and QA
+Design, implement and verify
+Clear testable requirements and dependencies.
+Operations and providers
+Hosting, routing, monitoring and support
+Defined ownership, service limits and costs.
+1.3 Scope and release boundaries
+Core release: anonymous discovery; controlled management accounts; mosque registration with private Imam contact; in-account review notifications; phone verification; recurring/dated timetables; walking and motorcycle estimates; nearby and whole-city scopes; Friday/Eid sessions; reports, reassignment and audit. Begin in one selected city with declared participating coverage. Public missing-mosque suggestions and controlled contributor applications are included in this final Phase 1 scope, as specified in Section 3.5.
+Initial release also includes a limited mosque notice board with religious-event, service and verified death/Janazah notices. English/Urdu presentation, future-departure forecasts and automated reminders remain explicit scope decisions. Deferred: subscriptions, payment collection, compensation automation, native apps, car/cycle modes, OCR, third-party messaging, social feeds and nationwide launch.
+1.4 Assumptions and requirement status
+The launch city, staffing, budget, dates and routing provider are unassigned. An Imam contact can be reached with permission, and each area has an accountable reviewer. These assumptions must be checked. Administrative city membership defines Whole City results; a nearby radius may cross area boundaries.
+“Shall” defines required behavior for the proposed implementation. Finalizing this document does not validate estimates or approve a release. Confirmed direction includes motorcycle support, in-account notifications and Imam phone verification, Whole City discovery, and no initial subscription. Numerical thresholds and supporting scope decisions remain in Appendix C.
+1.5 Operating model and phased growth
+Free launch and future funding
+Launch without a subscription or payment barrier for public discovery. Begin with two or three manageable areas and expand only when records remain maintained and reviewer capacity is available. After sustained useful coverage is demonstrated, approach suitable Islamic organizations for funding to support service costs and allowances for Local Representatives and Focal Persons. Funding is not secured, and no payment amount, salary or partnership is promised. Billing, fundraising transactions and compensation automation are outside the initial product.
+Maintenance from day one
+Each published mosque needs an active representative, a scoped Focal Person and an approved timetable before promotion. Timing maintenance cannot wait for wider coverage or external funding. Document initial voluntary duties, availability and who covers service expenses. Pause expansion if maintenance becomes unreliable; flag affected records instead of presenting unsupported recommendations.
+Verification workload and urgent cover
+Set review hours and a named backup for each area before onboarding. Size assignments against measured calls and review time rather than an arbitrary mosque quota. A single Imam call may confirm an explicitly listed batch of submission versions; record each decision separately. In-account tasks are the authoritative record. Staff check them at agreed intervals and use a documented manual escalation contact for urgent missed work; automated external messaging is deferred.
+Community outreach
+Use permission-based Imam introductions around Friday gatherings at an agreed time and mosque notice boards with a QR code and short URL. Link to a maintained mosque page with nearby search. Public search-engine-readable pages and shareable links also help travelers. Paid advertising is not part of the initial outreach plan. Outreach means adoption; travel reachability retains its separate meaning.
+Pilot review and future allowances
+Review active maintained mosques, overdue reviews, confirmed timing errors, repeat visits in aggregate, correction delays, reviewer workload and operating cost per maintained mosque. Define expansion thresholds from actual pilot evidence. If funding becomes available, agree a budget and transparent duties before allowances start. Pay for accountable maintenance and availability, not the number of edits or approvals; funding must never influence ranking or verification.
+2 Agile Framework Setup
+Use two-week iterations with a shared backlog and reviewable increments. Muhammad Ahmad is the named Product Owner in the template. Scrum Master, development, QA and operations assignments are to be made; no team members or velocity are invented. The product role Focal Person is not the development task owner. This corrects the ambiguous owner column in the sample template.
+Use Git for version control and one agreed issue board, such as GitHub Issues or Trello; final tooling follows team access. Separate development, staging and production data. Review changes through pull requests, record test evidence and demonstrate user journeys. Scrum accountabilities and iterative inspection follow the Scrum Guide [R3]; the specific schedule here is a project proposal.
+2.1 Epics for the Project
+Epic
+Name
+Outcome and problem addressed
+EP-01
+Identity and authority
+Controlled accounts and scope prevent unauthorized edits.
+EP-02
+Mosque onboarding
+Registered venues and Imam contacts enable remote checks.
+EP-03
+Schedules and trust
+Versioning and freshness prevent misleading timing claims.
+EP-04
+Review operations
+Notifications and escalation reduce missed updates.
+EP-05
+Public discovery
+Location, city search and readable details aid unfamiliar users.
+EP-06
+Travel and reachability
+Walking/motorcycle estimates support practical choices.
+EP-07
+Friday and Eid planning
+Dated multi-session discovery supports longer journeys.
+EP-08
+Quality and continuity
+Reports, reassignment and audit sustain maintained data.
+EP-09
+Evidence and launch
+Research, routing checks and recovery support a real service.
+Delivery ownership
+The delivery team owns implementation tasks; QA owns verification evidence; the Product Owner owns priority and acceptance. Operations owns verification staffing and support readiness. A person may cover several functions in a small team, but independent review must identify a reviewer who did not author the item. Until assigned, responsibility is role-based rather than a fabricated name.
+Definition of Ready
+A story enters a sprint when scope and acceptance examples are understood, unresolved decisions affecting it are resolved or explicitly isolated, test data is identified, dependencies are available, and the team estimates it. Motorcycle integration requires a capability spike before commitment to a specific provider.
+2.2 Product Backlog
+Priorities reflect release risk: High items support the core service or launch evidence; Medium items are proposed supporting scope. All items are initially Backlog. Candidate sprint placement is provisional. PB, US, FR, UC and AC share the same numeric suffix for traceability. The additions US-25–26 are cataloged in Section 3.5; their estimates and sprint assignments remain pending.
+ID / Epic
+Feature
+Priority
+Dependency
+PB-01EP-01
+Scoped management accounts
+High
+None
+PB-02EP-01
+Login recovery and revocation
+High
+01
+PB-03EP-02
+Mosque and Imam registration
+High
+01–02
+PB-04EP-02
+Initial phone verification
+High
+03, 07
+PB-05EP-03
+Recurring and dated schedules
+High
+03–04
+PB-06EP-03
+Timing review and publication
+High
+05, 07
+PB-07EP-04
+Account notifications and reminders
+High
+01–03
+PB-08EP-04
+Urgent review and backup
+High
+06–07
+PB-09EP-05
+Location and manual origin
+High
+None
+PB-10EP-05
+Nearby and Whole City discovery
+High
+03–04, 09
+PB-11EP-05
+Prayer selection and live countdown
+High
+05, 09–10
+PB-12EP-06
+Walking and motorcycle estimates
+High
+09, 23
+Backlog governance
+Dependencies may be delivered within the same sprint. No story is marked Done by document preparation. Foundational work, security tests and release evidence form part of delivery rather than being omitted from estimates.
+2.2 Product Backlog continued
+Priorities reflect release risk: High items support the core service or launch evidence; Medium items are proposed supporting scope. All items are initially Backlog. Candidate sprint placement is provisional. PB, US, FR, UC and AC share the same numeric suffix for traceability. The additions US-25–26 are cataloged in Section 3.5; their estimates and sprint assignments remain pending.
+ID / Epic
+Feature
+Priority
+Dependency
+PB-13EP-06
+Reachability and ranking
+High
+11–12, 06
+PB-14EP-05
+Mosque details and directions
+High
+10–13
+PB-15EP-07
+Friday and Eid sessions
+High
+05–06, 10
+PB-16EP-07
+Future departure planning
+Medium
+12–15
+PB-17EP-03
+Freshness and reconfirmation
+High
+05–06
+PB-18EP-08
+Public issue reporting
+High
+03–04
+PB-19EP-08
+Assignment and private contact changes
+High
+01–04
+PB-20EP-08
+Announcements and facilities
+High
+03–04
+PB-21EP-08
+Audit and operational dashboard
+High
+01–08
+PB-22EP-05
+Language accessibility and failure states
+Medium
+09–18
+PB-23EP-09
+Research and routing feasibility
+High
+Owner availability
+PB-24EP-09
+Field validation and launch operations
+High
+All High items
+Deferred backlog
+Native mobile apps, car routing, OCR timetable import, third-party messaging and national expansion remain outside this first-release backlog. Any addition receives a new ID, estimate and impact review; do not silently expand the sprint or lower trust controls.
+2.3 User Stories
+Owner identifies delivery responsibility. AC-01–24 appear in Section 5.2; the new US/FR/AC-25–26 appear together in Section 3.5.
+US-01 Scoped management accounts
+As a Admin / Focal Person, I want to create accounts within my authority, so that each mosque has an accountable maintainer.
+Acceptance: Admin creates Focal Persons; Focal Persons create representatives only in their area. Public role escalation is denied.
+PB-01 • FR-01 • AC-01 • High • 5 provisional points • Owner: Development team
+US-02 Login recovery and revocation
+As a management user, I want to log in and recover access securely, so that I can maintain data without exposing it.
+Acceptance: Valid login succeeds; invalid login is generic; recovery is single-use and expires; disabling an account invalidates its next protected request.
+PB-02 • FR-02 • AC-02 • High • 5 provisional points • Owner: Development team
+US-03 Mosque and Imam registration
+As a representative, I want to register my mosque and its Imam contact, so that the information can be checked remotely.
+Acceptance: Required location, assignment and private Imam details are validated; a new record stays unpublished; possible duplicates are flagged.
+PB-03 • FR-03 • AC-03 • High • 5 provisional points • Owner: Development team
+US-04 Initial phone verification
+As a Focal Person, I want to verify a registration by calling its Imam, so that only checked mosques are published.
+Acceptance: Call result and exact submission version are recorded; confirmed submissions publish; unreachable or rejected submissions remain unpublished.
+PB-04 • FR-04 • AC-04 • High • 5 provisional points • Owner: Development team
+US-05 Recurring and dated schedules
+As a representative, I want to enter schedules and dated exceptions, so that users see the appropriate congregation time.
+Acceptance: An approved dated override wins; expired entries are excluded; tomorrow uses its own schedule; overlapping conflicting versions are rejected.
+PB-05 • FR-05 • AC-05 • High • 8 provisional points • Owner: Development team
+US-06 Timing review and publication
+As a Focal Person, I want to review changed times and call the Imam, so that published updates are accountable.
+Acceptance: Submission sends old/new values; approval publishes the checked version only; affected pending sessions lose reachability; unchanged sessions remain eligible.
+PB-06 • FR-06 • AC-06 • High • 8 provisional points • Owner: Development team
+2.3 User Stories continued
+Owner identifies delivery responsibility. AC-01–24 appear in Section 5.2; the new US/FR/AC-25–26 appear together in Section 3.5.
+US-07 Account notifications and reminders
+As a Focal Person, I want to receive durable update notifications, so that I can respond before timings become outdated.
+Acceptance: A saved submission creates one logical review task; unread/read status persists; delivery retries do not duplicate the task or approval.
+PB-07 • FR-07 • AC-07 • High • 5 provisional points • Owner: Development team
+US-08 Urgent review and backup
+As a Admin, I want to assign backup reviewers and escalate urgent changes, so that unavailable staff do not leave urgent updates unattended.
+Acceptance: Urgent work is immediately highlighted; a backup acts only within an active assignment; unanswered calls never count as confirmation.
+PB-08 • FR-08 • AC-08 • High • 3 provisional points • Owner: Development team
+US-09 Location and manual origin
+As a public user, I want to choose my starting point, so that I can search even if GPS permission is denied.
+Acceptance: Denied permission opens manual selection; an area centroid alone does not produce a personal ETA until the origin pin is confirmed.
+PB-09 • FR-09 • AC-09 • High • 3 provisional points • Owner: Development team
+US-10 Nearby and Whole City discovery
+As a public user, I want to search nearby or across a selected city, so that I can find distant Friday or Eid sessions.
+Acceptance: Nearby applies 5 km default and 7 km maximum; Whole City returns a seeded venue 20 km away in the same city; pagination retains matching results.
+PB-10 • FR-10 • AC-10 • High • 5 provisional points • Owner: Development team
+US-11 Prayer selection and live countdown
+As a public user, I want to select a prayer and see its upcoming sessions, so that I do not confuse one prayer with another.
+Acceptance: Selected Asr never silently becomes Maghrib; started sessions disappear from upcoming results; server-aligned countdown survives incorrect device time.
+PB-11 • FR-11 • AC-11 • High • 5 provisional points • Owner: Development team
+US-12 Walking and motorcycle estimates
+As a public user, I want to choose walking or motorcycle travel, so that journey estimates match my mode.
+Acceptance: Changing mode recalculates; motorcycle is not relabeled car routing; provider failure shows unavailable and leaves timings usable.
+PB-12 • FR-12 • AC-12 • High • 8 provisional points • Owner: Development team
+2.3 User Stories continued
+Owner identifies delivery responsibility. AC-01–24 appear in Section 5.2; the new US/FR/AC-25–26 appear together in Section 3.5.
+US-13 Reachability and ranking
+As a public user, I want to compare estimated arrival margins, so that I can choose a congregation I may reach.
+Acceptance: The documented boundary examples pass; invalid timings never show positive labels; sort order is deterministic and selected sort is visible.
+PB-13 • FR-13 • AC-13 • High • 8 provisional points • Owner: Development team
+US-14 Mosque details and directions
+As a public user, I want to view details and open directions, so that I can find the correct entrance.
+Acceptance: A card shows prayer, date, status and entrance; directions target that entrance; Imam phone and internal review notes never appear.
+PB-14 • FR-14 • AC-14 • High • 3 provisional points • Owner: Development team
+US-15 Friday and Eid sessions
+As a representative, I want to maintain multiple Friday and Eid sessions, so that users can plan across the city.
+Acceptance: Separate session times are retained; provisional Eid date has no positive reachability; a canceled session cannot reappear through recurring fallback.
+PB-15 • FR-15 • AC-15 • High • 8 provisional points • Owner: Development team
+US-16 Future departure planning
+As a public user, I want to compare a future departure against a session, so that I can plan a longer journey.
+Acceptance: Future results say forecast; no live-traffic claim without data; leaving-now recalculates with current time.
+PB-16 • FR-16 • AC-16 • Medium • 5 provisional points • Owner: Development team
+US-17 Freshness and reconfirmation
+As a representative, I want to confirm unchanged approved timings, so that users know when they were last checked.
+Acceptance: Unchanged confirmation refreshes its own timestamp only; an actual change enters review; stale sessions stay visible without positive labels.
+PB-17 • FR-17 • AC-17 • High • 5 provisional points • Owner: Development team
+US-18 Public issue reporting
+As a public user, I want to report an inaccurate timing or venue, so that the responsible person can correct it.
+Acceptance: Anonymous report is accepted within limits; it routes to the proper area; reports never directly overwrite official times.
+PB-18 • FR-18 • AC-18 • High • 5 provisional points • Owner: Development team
+2.3 User Stories continued
+Owner identifies delivery responsibility. AC-01–24 appear in Section 5.2; the new US/FR/AC-25–26 appear together in Section 3.5.
+US-19 Assignment and private contact changes
+As a Admin / Focal Person, I want to replace inactive maintainers safely, so that responsibility continues without unauthorized access.
+Acceptance: Old assignee loses access immediately; no maintainer triggers Maintenance pending; a new Imam number cannot verify itself.
+PB-19 • FR-19 • AC-19 • High • 5 provisional points • Owner: Development team
+US-20 Mosque notices and facilities
+As a representative, I want to submit relevant notices for approval and maintain known facilities, so that visitors receive current, accountable information.
+Acceptance: unapproved sensitive notices stay private; verified notices expire or can be canceled; unknown facilities remain labeled; notices cannot modify prayer times. See Section 3.5 for additional AC-20 checks.
+PB-20 • FR-20 • AC-20 • High • Estimate pending re-estimation • Owner: Development team
+US-21 Audit and operational dashboard
+As a Admin, I want to inspect changes and overdue work, so that I can manage service quality.
+Acceptance: Every decision has actor, version and time; area dashboards exclude other areas; protected audit history cannot be edited through normal APIs.
+PB-21 • FR-21 • AC-21 • High • 5 provisional points • Owner: Development team
+US-22 Language accessibility and failure states
+As a public user, I want to use a readable interface in my preferred language, so that I can discover sessions on my device.
+Acceptance: English/Urdu layouts preserve dates and statuses; keyboard and list fallback work; offline content is marked outdated.
+PB-22 • FR-22 • AC-22 • Medium • 5 provisional points • Owner: Development team
+US-23 Research and routing feasibility
+As a Product Owner, I want to validate needs and routing feasibility, so that we do not build on untested assumptions.
+Acceptance: Research findings are logged only after participation; provider capability and cost evidence are reviewed before choosing an implementation.
+PB-23 • FR-23 • AC-23 • High • 5 provisional points • Owner: Product Owner / technical lead
+US-24 Field validation and launch operations
+As a operations lead, I want to test actual journeys and restoration, so that the service is supportable before public launch.
+Acceptance: Per-mode field evidence, restore test and release checklist are reviewed; absent evidence blocks release approval.
+PB-24 • FR-24 • AC-24 • High • 8 provisional points • Owner: Operations / QA
+2.4 Estimation and sprint planning
+Use relative Fibonacci points 1, 2, 3, 5 and 8. These are author-proposed complexity estimates, not team estimates or hours. Five points represents a moderate cross-layer workflow; eight indicates versioning, routing or multi-session complexity. The team re-estimates during planning and splits stories larger than eight points.
+Stories
+Points each
+Estimation basis
+01–04, 07, 10–11, 16–19, 21–23
+5
+Forms, scoped persistence, several states or evidence dependencies.
+08–09, 14, 20
+3
+Narrower workflow, integration or presentation behavior.
+05–06, 12–13, 15, 24
+8
+Time/version rules, external route uncertainty or field/recovery validation.
+2.5 Sprint Planning and Sprint Backlog
+Sprint
+US suffixes
+Points
+Candidate goal
+S1
+01, 02, 23
+15
+Access and feasibility
+S2
+03, 04, 07
+15
+Register and verify mosques
+S3
+05, 06
+16
+Versioned timing changes
+S4
+08, 09, 10, 11
+16
+Usable discovery and urgent review
+S5
+12, 13, 14
+19
+Travel and reachability
+S6
+15, 16, 17
+18
+Friday Eid and freshness
+S7
+18, 19, 20, 21
+18
+Reports and maintenance
+S8
+22, 24
+13
+Usability and operational release
+Original candidate scope: 130 provisional points across US-01–24. US-25–26 and the expanded notice controls require team estimation and a revised sprint forecast before commitment. Each sprint is provisionally two weeks; eight candidate sprints are sequencing buckets, not a guaranteed 16-week delivery promise. Capacity, research, procurement and mosque recruitment may change the number or length of delivery phases. Do not equate points with days.
+First sprint task breakdown
+US-01: define role matrix, implement scoped creation and negative permission tests. US-02: implement login, first-use password change, recovery and revocation tests. US-23: recruit research participants, inspect motorcycle-routing capability and cost, record decision evidence. Owners are assigned at planning; unavailable dependencies are surfaced before commitment.
+The Product Owner supplies the goal and order; the delivery team selects what fits actual availability. Reserve capacity for integration and defects. Review the forecast after two completed sprints using observed throughput, not an invented velocity.
+3 Functional Requirements
+These proposed requirements derive from the corresponding user stories. BR rules in Section 3.3 constrain their behavior. Every FR is mapped to an acceptance check with the same numeric suffix; supporting NFRs apply across all stories.
+FR-01  Create scoped management accounts; validate parent role and area on every request; public account creation shall not grant management privileges.
+FR-02  Authenticate management users, require initial password change, provide verified recovery, logout and session revocation, and deny inactive accounts.
+FR-03  Capture mosque identity, entrance coordinates, city, area, representative and private Imam contact with permitted-use acknowledgment; create a draft and flag potential duplicates.
+FR-04  Provide approve, return and reject actions after recorded phone verification; require reviewer scope and exact version; no physical visit shall be mandatory.
+FR-05  Maintain versioned daily schedules with effective dates and approved dated overrides in Asia/Karachi; distinguish congregation, sermon and prayer-beginning times.
+FR-06  Store proposed and approved versions separately; publish changed times only after the proposed phone-approval policy; suppress recommendations only for affected sessions while pending.
+FR-07  Create in-account notifications for submissions and decisions, with retryable delivery, dashboard counts, acknowledgment state, due status and configurable reminders.
+FR-08  Escalate urgent or overdue tasks to authorized backup or Admin with auditable delegation; retain pending state until evidence supports approval.
+FR-09  Support permission-based location and manual area/pin selection; allow timetable browsing without an origin and require a confirmed origin for personal travel estimates.
+FR-10  Provide separate Nearby and Whole City scopes; Whole City shall ignore the nearby radius cap and query participating venues by explicit city membership.
+FR-11  Provide next-upcoming and selected-prayer/date discovery; identify prayer and date, exclude started sessions, and label tomorrow explicitly using server-aligned time.
+FR-12  Obtain mode-appropriate route duration and distance through a provider adapter or validated local model; label source and freshness and fail honestly when unsupported.
+Scope enforcement
+Authorization checks shall apply to the record’s actual area and assignment, not just a role or client-supplied areaId. A Focal Person cannot create another Focal Person; a representative cannot approve their own submission. Only an authorized reviewer can publish verified changes.
+3 Functional Requirements continued
+These proposed requirements derive from the corresponding user stories. BR rules in Section 3.3 constrain their behavior. Every FR is mapped to an acceptance check with the same numeric suffix; supporting NFRs apply across all stories.
+FR-13  Calculate arrival margin using departure, route duration, preparation and uncertainty; assign defined statuses and rank eligible sessions deterministically.
+FR-14  Display public identity, timings, confirmation indicators and known facilities; hand off entrance coordinates and travel mode where supported without exposing private contacts.
+FR-15  Support multiple dated Jumu’ah/Eid sessions, provisional dates, cancellation and associated prayer grounds with their own entrance and accountable assignment.
+FR-16  Allow future departure selection for dated sessions, label estimates as forecasts and refresh on departure; reject invalid past planning inputs.
+FR-17  Track identity verification, representative confirmation and phone verification independently; derive freshness per applicable schedule/session and apply expiry and dispute overrides.
+FR-18  Accept categorized public reports, group duplicates and rate-limit abuse; support Open, In review, Escalated, Resolved and Dismissed states with reasons.
+FR-19  Support scoped reassignment, deactivation and contact-change verification through an established independent contact; preserve prior attribution.
+FR-20  Maintain scoped, expiring religious-event, mosque-service and death/Janazah notices with reviewer approval, correction, cancellation and minimum necessary personal information. Keep prayer timings in the structured schedule workflow; maintain known facilities separately.
+FR-21  Record accountable changes and provide scope-filtered coverage, pending review, freshness, issue and notification-failure summaries.
+FR-22  Provide proposed English/Urdu support with right-to-left layout where required, accessible forms and statuses, and recoverable empty, error, offline and map-failure states.
+FR-23  Maintain a decision register and research evidence supporting launch scope and routing capability; no unvalidated motorcycle estimate shall receive a confident label.
+FR-24  Provide monitored production deployment, backup/restore procedures, field-validation records and an auditable launch sign-off checklist.
+Public status integrity
+A label shall describe evidence actually held. A saved submission is not published approval; a read notification is not a verified call; a displayed map is not a valid motorcycle route; a Whole City query is not complete city coverage.
+3.1 Use case overview and diagrams
+The diagram groups related use cases for readability. Public users use anonymous discovery/reporting; management actors use scoped authenticated operations. The Imam is an external human confirmation source contacted by telephone, not an assumed application account.
+Use case catalog and story mapping
+Use case IDs
+Primary actor
+Capability and corresponding US IDs
+UC-01–02
+Management
+Accounts and access; US-01–02.
+UC-03–08
+Representative / Focal Person
+Registration, schedules, verification and notifications; US-03–08.
+UC-09–14
+Public user
+Location, search, prayer, routing, reachability and directions; US-09–14.
+UC-15–17
+Representative / public user
+Event sessions, future planning and freshness; US-15–17.
+UC-18–22
+Public / management
+Reports, assignments, notices, audit and accessibility; US-18–22.
+UC-23–24
+Product Owner / operations
+Research and release processes outside the application; legacy US-23–24 references retained.
+3.1 Use case diagrams continued
+Figures UC-01–22 describe application interactions; UC-23–24 retain the existing identifiers for supporting delivery processes outside the application. UC-25–26 appear in Section 3.5. Lines indicate actor participation, not execution order.
+UC-01 Scoped management accounts
+Admin creates Focal Person accounts; a Focal Person creates representative accounts within the assigned area. Scope checks reject unauthorized account creation.
+Traceability: PB-01 / US-01 / FR-01 / AC-01
+UC-02 Login recovery and revocation
+Management users authenticate and recover access through the verified recovery process. Deactivation or revocation prevents subsequent protected access.
+Traceability: PB-02 / US-02 / FR-02 / AC-02
+3.1 Use case diagrams continued
+UC-03 Mosque and Imam registration
+The assigned representative supplies mosque identity, location and a permitted private Imam contact. Validation flags possible duplicates; the new mosque remains unpublished pending verification.
+Traceability: PB-03 / US-03 / FR-03 / AC-03
+UC-04 Initial phone verification
+The Focal Person calls the registered Imam and records the outcome against the exact submission. Confirmed registrations can be approved; an unanswered call leaves the draft pending. The call occurs outside the application; no physical visit is required.
+Traceability: PB-04 / US-04 / FR-04 / AC-04
+3.1 Use case diagrams continued
+UC-05 Recurring and dated schedules
+The representative enters recurring Jama’at times and dated exceptions with effective dates. Changes enter review; an approved dated exception takes precedence over the recurring schedule.
+Traceability: PB-05 / US-05 / FR-05 / AC-05
+UC-06 Timing review and publication
+A submission creates a review task with old and new values. The Focal Person calls the Imam and approves or returns the exact version. Under the proposed policy, only approved changes publish; affected pending sessions lose positive reachability labels.
+Traceability: PB-06 / US-06 / FR-06 / AC-06
+3.1 Use case diagrams continued
+UC-07 Account notifications and reminders
+Saved submissions create durable in-account review notifications. Focal Persons see pending work and due status; representatives receive decisions. Reading a notification does not constitute approval; automated reminders remain a scope decision.
+Traceability: PB-07 / US-07 / FR-07 / AC-07
+UC-08 Urgent review and backup
+Urgent or overdue work is escalated to an authorized backup or Admin. Delegation is scoped and audited; the submission stays pending until verification supports an approval.
+Traceability: PB-08 / US-08 / FR-08 / AC-08
+3.1 Use case diagrams continued
+UC-09 Location and manual origin
+A traveler or local user chooses device location or a manual starting point. Permission denial leaves manual selection available. Timetables can be browsed without an origin, but personal travel estimates require a confirmed origin.
+Traceability: PB-09 / US-09 / FR-09 / AC-09
+UC-10 Nearby and Whole City discovery
+The user discovers participating mosques near the chosen location or across a selected city. Nearby uses the proposed 5 km default and 7 km maximum; Whole City removes that cap for journeys such as Friday or Eid prayer.
+Traceability: PB-10 / US-10 / FR-10 / AC-10
+3.1 Use case diagrams continued
+UC-11 Prayer selection and live countdown
+The user selects a prayer and date or requests the next upcoming sessions. Server-aligned countdowns identify the correct prayer and date; started sessions are excluded and tomorrow is explicitly labeled.
+Traceability: PB-11 / US-11 / FR-11 / AC-11
+UC-12 Walking and motorcycle estimates
+The user chooses walking or motorcycle travel to the mosque entrance. A supported provider or validated local model supplies the estimate. Missing or unsupported routes show unavailable; a car route cannot simply be labeled motorcycle.
+Traceability: PB-12 / US-12 / FR-12 / AC-12
+3.1 Use case diagrams continued
+UC-13 Reachability and ranking
+The service compares the session start with departure, route duration, preparation and uncertainty buffers. Eligibility rules prevent unreliable timings from receiving positive labels; deterministic ranking follows the documented business rules.
+Traceability: PB-13 / US-13 / FR-13 / AC-13
+UC-14 Mosque details and directions
+An unfamiliar visitor views the mosque entrance, Jama’at times, confirmation indicators and known facilities, then opens directions. The handoff uses entrance coordinates and mode where supported; private Imam contacts remain hidden.
+Traceability: PB-14 / US-14 / FR-14 / AC-14
+3.1 Use case diagrams continued
+UC-15 Friday and Eid sessions
+The representative maintains multiple Friday or Eid sessions and accountable prayer-ground entrances through the review workflow. Users discover published sessions across the city. Provisional dates receive no positive reachability, and canceled sessions cannot return through recurring fallback.
+Traceability: PB-15 / US-15 / FR-15 / AC-15
+UC-16 Future departure planning
+The user compares a future departure with a dated session. Results are labeled forecasts, past inputs are rejected, and leaving-now selection recalculates with current time. This supporting release feature remains subject to scope approval.
+Traceability: PB-16 / US-16 / FR-16 / AC-16
+3.1 Use case diagrams continued
+UC-17 Freshness and reconfirmation
+An unchanged confirmation updates the representative-confirmation timestamp without implying a new Imam phone check. An actual timing change enters review. Users see freshness indicators; stale, disputed or pending states prevent positive recommendations as defined in the business rules.
+Traceability: PB-17 / US-17 / FR-17 / AC-17
+UC-18 Public issue reporting
+Anonymous users report incorrect timings or venue details within abuse limits. Reports route to the responsible area for investigation and a recorded disposition; a public report never directly overwrites official times.
+Traceability: PB-18 / US-18 / FR-18 / AC-18
+3.1 Use case diagrams continued
+UC-19 Assignment and private contact changes
+Authorized management reassigns maintainers within its scope and removes old access immediately. A replacement Imam number must be verified through an established independent contact; it cannot verify itself. Missing maintenance responsibility is explicitly flagged.
+Traceability: PB-19 / US-19 / FR-19 / AC-19
+UC-20 Mosque notices and facilities
+The representative submits mosque notices for Focal Person approval and maintains known facilities. Death/Janazah notices require authorized-source confirmation. Users see approved active notices only; expiry, correction and cancellation are supported. Notices cannot change structured prayer times.
+Traceability: PB-20 / US-20 / FR-20 / AC-20
+3.1 Use case diagrams continued
+UC-21 Audit and operational dashboard
+Authorized managers inspect coverage, freshness, reports and pending work within their scope. Audit history records actors, versions and times and cannot be edited through normal application interfaces.
+Traceability: PB-21 / US-21 / FR-21 / AC-21
+UC-22 Language accessibility and failure states
+The proposed English and Urdu interface preserves dates and status meanings, including right-to-left presentation. Keyboard access, readable status text and list alternatives support discovery; offline or failed views clearly indicate their limitations.
+Traceability: PB-22 / US-22 / FR-22 / AC-22
+3.1 Use case diagrams continued
+UC-23 Research and routing feasibility
+The Product Owner and technical lead review real research and provider evidence before confirming scope and routing choices. This is a delivery process outside the application, not a proposed research screen. Interviews and feasibility checks remain planned until performed.
+Traceability: PB-23 / US-23 / FR-23 / AC-23
+UC-24 Field validation and launch operations
+Operations and QA collect walking and motorcycle field evidence, test restoration and assess readiness. The Product Owner records a launch decision against the release gates. This supporting process is outside the application; this document does not claim the tests or approval are complete.
+Traceability: PB-24 / US-24 / FR-24 / AC-24
+3.2 Detailed use case flows
+UC-04 Verify a new mosque
+Preconditions: authenticated Focal Person, assigned area, submitted draft and registered Imam contact. Trigger: registration task appears. Main flow: open the exact version; call Imam; confirm identity, representative relationship and times; record outcome; approve; publish; notify representative. Alternatives: unreachable stays pending; mismatch returns for correction; duplicate is investigated; changed version requires reload. Postcondition: only the checked version is published, with audit evidence.
+UC-06 Verify a timing update
+Preconditions: assigned representative submits a change against a published schedule. Main flow: validate effective date; create new version and review task; show old/new values; call registered Imam; record result; approve exact version; activate at effective time; refresh results. Alternatives: new edit supersedes old submission; rejection preserves approved history; urgent pending change suppresses only affected session recommendations. Postcondition: approved state and notification work are durably recorded; neither a failed notification nor retry silently loses or duplicates the decision.
+UC-10 Search the whole city
+Preconditions: city and prayer/date selected; origin optional for browsing. Main flow: query all matching participating venues in the selected city; apply session status filters; paginate results; estimate routes for displayed candidates; label partial ETA loading; allow comparison. Alternatives: no participants produces a coverage message; route service unavailable leaves timings browseable; an outside-city origin remains allowed. Postcondition: a distant matching venue is not excluded by the 7 km nearby cap.
+UC-13 Assess reachability
+Preconditions: valid origin, mode, selected session and current route estimate. Main flow: resolve effective schedule; assess timing eligibility; compute duration, buffers and margin; assign status; sort by the documented rules. Alternatives: missing/provisional/stale/disputed timing gives unavailable; route failure gives unavailable; congregation already started is excluded from upcoming results. Postcondition: the displayed status is reproducible from recorded inputs and never guarantees arrival.
+UC-15 Cancel or change an event session
+Preconditions: representative has authority over the event venue. Main flow: submit affected session/date and change reason; notify reviewer; immediately flag an affected confirmed session as under review; verify by phone; approve cancellation or revision. Alternatives: provisional Eid date remains provisional; reviewer unavailable invokes backup. Postcondition: cancellation is an explicit exclusion; recurring fallback cannot resurrect the canceled session.
+External confirmation and exceptions
+A telephone call is a manual activity; the platform records its outcome, not proof of a completed telecom connection. Reviewers must not self-approve their own submissions. If the same person would occupy conflicting roles, route the review to an authorized independent backup or Admin. Approval after a session has started updates history but cannot restore it to upcoming results.
+3.3 Business rules and state transitions
+Rule
+Proposed behavior
+BR-01 Publication
+A changed timetable requires recorded phone verification of the exact version before publication. This is a proposed baseline pending owner confirmation.
+BR-02 Pending scope
+Only sessions and effective dates affected by a pending update lose positive reachability. Unchanged approved sessions remain eligible.
+BR-03 Time precedence
+Approved dated override/session takes precedence over recurring timing. Cancellation explicitly blocks fallback. Reject conflicting active overrides.
+BR-04 Freshness
+Freshness is Recent at age ≤7 days, Needs confirmation at >7 to ≤14 days, and Stale at >14 days. An unchanged representative confirmation or approved change starts this clock. Phone verification retains its own date. Reconfirmation cannot clear a dispute, expiry or pending change.
+BR-05 Events
+A positive Friday/Eid recommendation requires a confirmed date and final phone check within the preceding 48 hours. Earlier planning remains visible as confirmation-needed forecast.
+BR-06 Buffers
+Proposed minima: walking 5 minutes, motorcycle 8 minutes; users may increase. Add a validated uncertainty allowance separately; never assume zero when uncalibrated.
+BR-07 Eligibility
+No positive label for missing, expired, provisional, stale, disputed, currently affected pending or unmaintained sessions, or unvalidated/unavailable routes.
+BR-08 Ranking
+Eligible status group first; recent confirmation before needs-confirmation; route duration ascending; congregation time ascending; stable session ID. No-origin/partial ETA lists sort by time and are not labeled global shortest journey.
+BR-09 Geography
+Nearby 5 km default, 7 km maximum. Whole City uses explicit city membership with no nearby cap; area boundaries restrict editing only.
+BR-10 Lifecycle
+Started sessions are not upcoming. Tomorrow is explicitly labeled. Reassignment revokes old rights on the next protected request.
+BR-11 Contacts
+Registered Imam number is private; replacement needs an established contact or independently verified mosque authority, never self-confirmation from the new number.
+BR-12 Escalation
+Immediately flag urgent changes; proposed reminder after 30 minutes without action and backup alert at that time or sooner if effective time is near. Ordinary tasks escalate at 24 hours. No-response never implies approval.
+Reachability calculation and labels
+Margin = session start − departure time − route duration − preparation buffer − uncertainty allowance. For eligible inputs, margin ≥0 means Estimated reachable. If margin <0 but departure plus route duration is before the start, label Too tight. Arrival at or after the start means Unlikely to reach. BR-07 ineligibility takes precedence and means Reachability unavailable. Use server-aligned current time for leaving now, or the selected future departure for a qualified forecast. Calculate before rounding display values.
+Submission states: Draft → Submitted → Approved, Returned or Rejected; a newer submission may mark an older pending version Superseded. Approved future schedules wait until their effective time. Listing states are separate: Draft, Published, Suspended or Maintenance pending. Notification Read is separate from review Resolved. These distinctions prevent status changes from falsely implying verification.
+3.4 Data and external interface requirements
+Logical data and integrity
+Entity
+Minimum data and constraints
+Account
+ID, name, role, active status, credential hash, scoped assignment; no plaintext password.
+City and area
+Stable IDs, names, city membership and Focal Person responsibility; boundary corrections audited.
+Mosque or venue
+Identity, address, longitude/latitude and entrance, city/area, primary representative, listing status; associated event venue references parent mosque where applicable.
+Private Imam contact
+Name, normalized number, permitted-use acknowledgment, contact verification and change history; omitted from public serializers.
+Schedule and session
+Prayer, local date/time, timezone, effective dates, recurring/dated type, session ID, version, state and cancellation; no overlapping conflicting approved versions.
+Review and notification
+Submission ID/version, old/new values, reviewer, call outcome, timestamps, due time and decision; durable notification key prevents retry duplicates.
+Report and audit
+Category, subject/session, state, assignee and resolution; audit actor/action/previous/new/version/time protected from routine edits.
+Interface behavior
+Public APIs return published public fields only; management APIs authorize role and record scope server-side. Invalid inputs return field-specific errors without internal secrets. Concurrent edits return a conflict with a reload path. Retried mutation requests must not create duplicate sessions or decisions. Final endpoint names and schemas belong in the design phase.
+Location coordinates use a documented longitude/latitude order. Schedule interpretation uses Asia/Karachi; audit timestamps use UTC. The frontend refreshes when returning from background and at least every 60 seconds while active; server time anchors countdowns. Offline state stops live reachability claims.
+Separate adapters cover geocoding, map tiles, walking/motorcycle routing and navigation handoff. Evaluate provider coverage, licensing, quotas, traffic and future-departure support before selection [R4–R5]. Future estimates lacking predictive traffic must say so. Route timeout is proposed at 8 seconds, after which results degrade to timetable-only. No paid provider or tariff is assumed.
+Technology baseline and boundaries
+Proposed stack remains React, Node.js/Express and MongoDB with geospatial indexing [R4]. The technology choice does not guarantee performance. City search must preserve pagination over all matching venues; progressive route loading must not pretend to be a globally complete travel-time ranking. Operational phone calls and mosque decisions remain outside the software boundary.
+3.5 Community requests and notice controls
+The following additions extend the first-release scope without introducing public management access or a payment system. PB/US/FR/UC/AC-25 and -26 link the same feature across the catalog. Their effort estimates and sprint allocation require team planning; do not treat the original 130-point forecast as the revised total.
+US-25 Suggest a missing mosque
+As a visitor, I want to suggest an unlisted mosque so that the team can assess it for onboarding.
+PB-25: High priority; estimate pending; delivery owner: development team; acceptance owner: Product Owner; dependencies: accounts, registration, review and abuse controls.
+FR-25  Accept mosque name, city/area, address or map pin and optional submitter contact. Contact details require a permitted-use acknowledgment and remain private. Show a reference number and a clear receipt; no public account is required.
+UC-25  Public user submits → system validates and checks possible duplicates → responsible Focal Person or Admin reviews → existing listing is linked, onboarding is initiated, or the request is closed with a reason. New records stay unpublished until representative assignment and initial Imam verification are completed.
+AC-25  A valid anonymous suggestion receives a reference; a duplicate links to an existing request/listing without creating another public mosque; malformed or excessive submissions are rejected; no submission grants edit rights or publishes a timetable.
+US-26 Apply to maintain a mosque or area
+As a community member, I want to apply as a Local Representative or Focal Person so that I can support maintained coverage.
+PB-26: High priority; estimate pending; delivery owner: development team; acceptance owner: Product Owner; dependencies: accounts, registration, review and abuse controls.
+FR-26  Collect name, private contact, area, requested role, mosque affiliation, availability, reference contact and contact permission. Phone ownership and an independent mosque reference are checked before activation. Admin controls Focal Person appointments; representatives remain subject to scoped assignment.
+UC-26  Applicant submits → Admin reviews area coverage and suitability → contact/reference checks and onboarding → authorized account invitation and explicit area/mosque assignment, or waitlist/rejection with reason. An application never activates a management role. A single-mosque volunteer may be offered the representative role.
+AC-26  Submitting a Focal Person application gives no protected access; Admin alone can approve that role; an existing area assignment triggers review rather than replacement; rejected/withdrawn applicants receive no active account; accepted accounts pass scoped permission checks.
+Request data and retention
+Store request ID, type, supplied area/location, private contact where provided, assignee, state, timestamps, duplicate link and decision reason. Suggestions use New, In review, Onboarding, Linked and Closed states. Applications use Submitted, In review, Awaiting checks, Approved, Waitlisted, Rejected and Withdrawn states. Rate-limit both forms; restrict application/reference information to authorized reviewers. Define retention and deletion periods before launch; no identity-document upload is required by this SRS.
+Community request diagrams
+UC-25 Suggest a missing mosque
+A suggestion starts a review; publication still requires assigned maintainers and Imam verification.
+UC-26 Apply to maintain a mosque or area
+An application requests consideration only. Admin verifies suitability before granting any role or scoped access.
+Expanded US-20 notice rules
+Representatives submit religious-event, mosque-service and death/Janazah notices for their assigned mosque. Focal Persons approve publication; sensitive death/Janazah notices require confirmation from an authorized family contact or responsible mosque authority, recorded privately. A backup handles urgent reviews. Capture category, public title, minimum necessary details, actual venue/entrance, date/time, expiry, status and version; retain verification evidence privately.
+Allow corrections and cancellation with an audit trail; expired/canceled notices leave active views. Do not publish private family addresses or phone numbers without explicit permission. Public visitors cannot publish notices directly. Janazah announcements do not automatically enter prayer reachability calculations; any future integration requires a structured verified session. Keep comments, discussions and fundraising links outside this initial notice scope.
+AC-20 additional checks: an unapproved death notice is invisible publicly; private confirmation details never appear in the public response; a changed venue requires renewed approval; expiry/cancellation removes the active notice; notices cannot change prayer schedules or their freshness timestamps.
+4 Non-functional Requirements
+All numeric targets below are proposed acceptance targets, not measured production results. Validate them against the chosen infrastructure and initial load profile before baseline approval.
+4.1 Reliability
+ID
+Requirement and verification
+NFR-R01
+Persist approved changes and associated notification work consistently; fault-injection and retry checks show no lost approved change or duplicate logical decision.
+NFR-R02
+Target 99.5% monthly service availability, measured by external checks of public search and management login; include dependency-caused user failures in reporting.
+NFR-R03
+Proposed recovery targets: RPO ≤24 hours and RTO ≤4 hours. Back up daily, restrict access, and demonstrate restoration in staging before launch.
+NFR-R04
+Provider timeout, map failure or offline state shall retain honest timetable browsing and disable unsupported live reachability; test each failure explicitly.
+4.2 Performance
+NFR-P01: Under a proposed initial test profile of 1,000 venues, 5,000 upcoming sessions and 50 concurrent browsing users, non-routing search API latency shall be p95 ≤2 seconds over a 15-minute run. This is test capacity, not expected adoption. Report environment, error rate and cold/warm cache behavior.
+NFR-P02: Active public results shall reflect an approved change within 60 seconds under normal connectivity. NFR-P03: Routing shall time out to an explicit unavailable state within 8 seconds; display base results before all routes complete. Larger city load requires re-testing, not extrapolation from these targets.
+4.3 Usability
+NFR-U01: From an established origin, a public user shall reach a useful session list without registration and with no more than four primary selections. Validate through 5 recruited public-user task sessions; target at least 4 successful completions without help, reporting the small sample limitation.
+NFR-U02: Core journeys shall support keyboard operation, visible focus, labeled inputs and statuses understandable without color. Target applicable WCAG 2.2 AA criteria; record manual and automated checks without claiming certification [R6]. NFR-U03: Test responsive layouts at 360, 768 and 1280 CSS pixels, 200% zoom, and proposed English/Urdu directionality.
+4.4 Other Non-functional Requirements
+NFR-S01: Deny unauthorized cross-area, unassigned, inactive and self-approval actions on every protected request; test direct API calls [R7]. NFR-S02: Encrypt transport, hash passwords, protect recovery tokens, apply login/report limits and require an additional factor for Admin access. NFR-S03: Public APIs and logs shall not leak private Imam contacts, credentials or raw tokens.
+NFR-M01: Isolate routing and notification adapters, use version-controlled changes, and attach automated tests to business rules. NFR-PR01: Do not persist precise public origins by default; minimize external disclosure and adopt a retention policy before launch. NFR-C01: Test the current and prior major supported mobile/desktop browser versions at release and record the exact tested versions.
+5 Scrum Activities Plan
+For a two-week sprint, propose planning up to 2 hours, a 15-minute daily coordination meeting, a 60-minute review and a 45-minute retrospective. These are project timeboxes, not claimed Scrum maxima. Discuss completed user journeys with the Product Owner and an operations representative; carry unfinished work back into the backlog with reasons [R3].
+5.1 Kanban Board and Task Tracking
+State
+Entry and exit rules
+Backlog
+Uncommitted work ordered by the Product Owner; all 26 stories start here.
+Ready
+Definition of Ready met and dependency/decision review completed.
+In progress
+Named delivery owner; proposed limit one active implementation story per developer.
+Review
+Code and requirement review requested; blocking comments resolved before testing.
+Testing
+Acceptance and negative tests run; evidence linked; failures return to In progress.
+Done
+Definition of Done satisfied; no partial credit. Release approval remains a separate gate.
+Blocked is a flag on the current state, with cause, dependency owner and next action; it is not Done. The board stores PB/US/FR/AC links, estimate, assignee, sprint, test evidence and decision references. Do not populate fake progress or completed tasks from the template examples.
+Definition of Done
+Implementation and configuration are reviewed; relevant acceptance and regression checks pass; direct authorization tests cover protected changes; errors and retry behavior are handled; no known critical/high defect remains in the delivered story; user-facing behavior and operational notes are updated; the increment is demonstrated in staging. Documentation-only items require reviewed evidence rather than code tests.
+5.2 Acceptance Criteria and test method
+Use deterministic server time, seeded mosque records and separate management identities for automated checks. Use a routing stub for formula/error tests and live provider checks for coverage. Stubbed results cannot substitute for real motorcycle journey validation. Test only synthetic private contacts outside consented field work.
+The following acceptance matrix supplements each story’s criteria. ID suffixes directly map AC → FR → US → PB. Record observed result, build, environment, date, tester and evidence; all checks are currently Not executed. Product Owner acceptance of a document does not imply production behavior has passed. Additional AC-20 controls and AC-25–26 in Section 3.5 are also mandatory release checks.
+Acceptance test matrix
+ID
+Scenario and action
+Expected result
+AC-01
+Cross-area account creation — Area A Focal Person attempts area B creation or Admin role injection.
+Request denied; no account or privilege change.
+AC-02
+Recovery and revocation — Reuse an expired/used recovery token; disable an active account.
+Recovery denied; next protected call fails; generic login errors.
+AC-03
+Registration validation — Omit Imam contact or enter invalid coordinates; submit a possible duplicate.
+Invalid input rejected; duplicate flagged; valid submission remains unpublished.
+AC-04
+Verification gate — Record unreachable call, then confirmed call against current version.
+First remains pending; only authorized confirmed version publishes.
+AC-05
+Time precedence — Seed recurring time, dated override, expiry and conflicting override.
+Dated approved value wins; expired/conflicting input is not used.
+AC-06
+Pending specificity — Submit Asr-only change; concurrently edit it before reviewer approval.
+Asr loses positive label; unaffected valid Maghrib remains eligible; old approval conflicts.
+AC-07
+Notification retry — Retry submission/delivery after simulated failure.
+One logical task persists with correct diff; read does not imply approved.
+AC-08
+Backup and urgency — Urgent change has no action; invoke backup before/after delegation expires.
+Alert follows configured rule; only active scoped backup can decide.
+AC-09
+Denied location — Deny GPS and choose an area; do not confirm origin pin.
+Browse times available; personalized ETA waits for confirmed origin.
+AC-10
+Distant city result — Seed same-city venue 20 km away and neighboring-city venue; compare scopes.
+Whole City includes first beyond 7 km; excludes other city; Nearby honors radius.
+AC-11
+Selected prayer and clock — Select Asr with no later Asr; skew device clock; cross midnight.
+No automatic Maghrib substitution; server time and tomorrow label remain correct.
+AC-12
+Mode and outage — Switch walking to motorcycle; remove mode support or force timeout.
+Recalculation uses correct mode; unavailable state never masquerades as car ETA.
+Execution status: Not executed for every entry. Evidence and observed outcomes must be added during implementation; these are specifications for testing, not a test-pass report.
+5.2 Acceptance test matrix continued
+ID
+Scenario and action
+Expected result
+AC-13
+Boundary margins — At 12:30, route 15m, prep 8m, uncertainty 5m; starts 12:58, 12:57 and 12:45.
+Margins 0 and −1 give reachable and too tight; arrival at start gives unlikely. Ineligible timing overrides all.
+AC-14
+Privacy and destination — Inspect card/API and open directions for separate entrance coordinates.
+Correct entrance used; private phone and verification notes absent.
+AC-15
+Event cancellation — Cancel dated session that overlaps recurring record; use provisional Eid date.
+Canceled instance stays excluded; provisional date never gets positive reachability.
+AC-16
+Future planning — Select a future departure then switch to leaving now.
+Forecast qualified; new departure recalculates; unsupported traffic not invented.
+AC-17
+Freshness edges — Check 7/14-day boundaries; reconfirm unchanged schedule; alter an announcement.
+Correct bucket; phone date unchanged; announcement does not refresh timing.
+AC-18
+Reports and abuse — Submit incorrect-time report and repeated duplicates.
+Task assigned to correct area; limits/grouping apply; official schedule unchanged.
+AC-19
+Reassignment and contacts — Replace representative; submit new Imam number using only that number as evidence.
+Old access revoked; contact approval requires independent established evidence.
+AC-20
+Notice expiry — Expire a notice; save unknown facilities; try modifying times via notice.
+Expired notice hidden; unknown stays unknown; schedule cannot be changed indirectly.
+AC-21
+Audit and scoping — Approve a change and query another area’s dashboard or edit audit log.
+Authorized history records actor/version/time; cross-area and routine audit edit denied.
+AC-22
+Accessibility and failure — Keyboard complete discovery; test Urdu layout, map failure and offline state.
+Readable and operable core flow; list fallback; no stale live-reachability claim.
+AC-23
+Evidence review — Inspect research log and provider capability/cost decision.
+Actual participants and limitations recorded; unsupported assumptions remain open.
+AC-24
+Operational rehearsal — Restore backup and review per-mode field results plus launch checklist.
+Measured recovery and accuracy evidence retained; missing critical gate blocks release.
+Execution status: Not executed for every entry. Evidence and observed outcomes must be added during implementation; these are specifications for testing, not a test-pass report.
+5.3 Release and progress controls
+Release criteria
+Release requires Product Owner scope acceptance, QA evidence and operations readiness. Each role must be assigned; unsigned or missing evidence means the release gate is open. No public release is authorized by this document.
+Gate
+Evidence required
+Core behavior
+All High-priority story acceptance checks pass on a release candidate; no unresolved critical/high security or timing-integrity defect.
+Mosque readiness
+Every published venue has an active representative, supervising reviewer, verified initial contact and approved schedule.
+Routing evidence
+Supported walking/motorcycle paths tested locally; per-mode timing error reviewed; no confident labels on unvalidated estimates.
+Field trial
+Proposed minimum 30 observed journeys per mode across at least 3 areas and peak/off-peak times. Include Friday congestion; Eid-specific behavior needs a rehearsal and event follow-up.
+Accuracy target
+Proposed trial gate: buffered required time covers actual route-plus-preparation time in at least 95% of sampled journeys per mode. Report sample size and every miss; this is not a population guarantee.
+Operations
+Restore drill meets agreed RPO/RTO; alerts, backups, escalation contacts, privacy retention and cost limits reviewed.
+Scope decisions
+Appendix C release blockers resolved; Medium features explicitly included or deferred. Motorcycle and Whole City core scope cannot be silently dropped.
+5.4 Burndown Chart and Progress Tracking
+At sprint start, record selected points P across D working days. The ideal reference line at day d is P × (1 − d/D). Actual remaining work equals selected points minus points for stories satisfying Done; record scope changes separately. Example only: for 15 points and 10 days, ideal remaining points are 15 on day 0, 7.5 on day 5 and 0 on day 10. These are illustrative, not actual progress.
+No actual burndown is fabricated because no sprint has begun. Generate the chart from daily board snapshots after kickoff. Track blocked days, carryover, completed stories and verification backlog alongside points; a falling chart does not prove correctness or accurate mosque data.
+5.5 Backlog Refinement Plan
+Hold a proposed 45-minute weekly refinement session. Review research, reports and route errors; split oversized stories; verify dependencies; re-estimate with the delivery team; update acceptance examples and risks. The Product Owner approves priority/scope changes. Version any changed baseline and preserve old IDs or mark them superseded so tests remain traceable.
+6 Risk Analysis
+Risk ratings are initial judgments, not measured probabilities. Review weekly and at every release gate. Role owners below must be assigned to named people before launch.
+ID and risk
+Likelihood / impact
+Mitigation and owner
+RK-01 Wrong or stale times
+High / High
+Version approval, session-level freshness and targeted suppression; operations lead.
+RK-02 Imam unreachable or reviewer delayed
+Medium / High
+Record call attempts, urgent queue, backup delegation and no automatic approval; Focal Person/Admin.
+RK-03 Poor motorcycle route coverage
+Medium / High
+Provider spike and per-mode field validation before confident labels; technical lead.
+RK-04 City-wide route costs
+Medium / High
+Budget/quotas, progressive estimates and honest partial-ranking labels; technical lead/owner.
+RK-05 Event date or venue changes
+High / High
+Provisional dates, reconfirmation, explicit cancellation and own entrance pins; operations.
+RK-06 Unauthorized edits or contact exposure
+Medium / High
+Record-scoped checks, private serializers, revocation and negative tests; development/QA.
+RK-07 Notification or duplicate-write failure
+Medium / High
+Durable tasks, retry keys, conflict checks and failure alerts; backend owner.
+RK-08 Insufficient mosque coverage
+High / Medium
+Declare participating coverage and recruit by accountable area; Product Owner/operations.
+RK-09 Unstaffed delivery or optimistic schedule
+Medium / High
+Assign roles, measure capacity, keep sprint forecast provisional; Product Owner.
+RK-10 Provider outage or data loss
+Medium / High
+Timetable fallback, backups, restore drill and provider abstraction; operations/technical lead.
+RK-11 Research assumptions wrong
+Medium / Medium
+Interview and prototype evidence before locking uncertain flows; Product Owner.
+RK-12 Trust abuse in phone verification
+Medium / High
+Verify initial contact source, independent contact-change checks, reviewer attribution and spot audits; Admin.
+Operational cost and feasibility checkpoints
+Before selecting services, estimate monthly hosting, database/backup, map/geocoding, route requests, support and verification-call costs using the actual provider quotes and expected request volume. Assign a funding owner and spending alerts. No currency figure or revenue assumption is invented. Public availability is conditional on both software readiness and maintained mosque data.
+Expansion rule
+Add areas only when there is a responsible reviewer, representative recruitment capacity and supported travel estimates. Whole City capability exists from launch, but coverage may be partial. Reassess infrastructure and phone-verification workload as coverage grows; the small initial load test is not proof of nationwide capacity.
+7 References
+Internal sources define product intent. External primary sources support the proposed process and technical approach; they do not prove local coverage, completed implementation or compliance. Online sources were consulted on 30 September 2026.
+R1
+DiscoverSalah Project Proposal, Version 4.0, 30 September 2026. Project working document supplied and revised in this project.
+Internal source: DiscoverSalah_Updated_Project_Proposal.docx.
+R2
+Phase 1 Document Template. Supplied project template; no publication date stated. Product Owner field names Muhammad Ahmad.
+Internal source: Phase 1 Document Template.docx; also owner instructions and proposal review clarifications dated 30 September 2026.
+R3
+Ken Schwaber and Jeff Sutherland. The Scrum Guide, November 2020.
+https://scrumguides.org/scrum-guide.html
+R4
+MongoDB documentation. 2dsphere Indexes, Database Manual. Living documentation.
+https://www.mongodb.com/docs/manual/core/indexes/index-types/geospatial/2dsphere/
+R5
+Google for Developers. Get a two-wheeled vehicle route, Routes API documentation. Reference capability only; provider not selected.
+https://developers.google.com/maps/documentation/routes/route_two_wheel
+R6
+World Wide Web Consortium. Web Content Accessibility Guidelines 2.2. Recommendation, 12 December 2024.
+https://www.w3.org/TR/WCAG22/
+R7
+OWASP Cheat Sheet Series. Authorization Cheat Sheet. Living guidance.
+https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html
+Source interpretation
+No external source is used to assert that a motorcycle-routing provider supports the intended launch city. That must be established in PB-23 and field validation. Source documentation may change; record the chosen provider configuration and tested capability in the design-stage decision record.
+Appendix A Glossary
+Term
+Meaning in DiscoverSalah
+Jama’at / Iqamah
+The mosque-specific congregation start used for discovery and arrival comparison.
+Jumu’ah
+Friday congregation, potentially offered in multiple separately timed sessions.
+Eid session
+A dated congregation that may be provisional until its local date is confirmed.
+Khutbah
+Sermon time; recorded separately from congregation start when supplied.
+Wudu
+Preparation considered within the user’s time buffer.
+Imam
+Registered mosque contact used by the Focal Person for remote confirmation.
+Focal Person
+Area-level operational reviewer; not a generic development-task assignee.
+Local Representative
+Authorized maintainer for one or more assigned mosques.
+Whole City
+Search across participating venues in the selected city without the nearby radius cap.
+ETA / route duration
+Estimated journey time for the chosen origin and travel mode; not guaranteed arrival.
+Arrival margin
+Session start minus departure, route duration, preparation and uncertainty.
+Freshness
+Age of the applicable schedule’s latest valid confirmation, distinct from phone verification.
+Version / superseded
+A specific immutable submission revision / one replaced by a newer proposal.
+SRS / FR / NFR
+Software Requirements Specification / functional / non-functional requirement.
+PB / US / UC / AC
+Product backlog item / user story / use case / acceptance check.
+Story points
+Relative effort estimate; not hours, days or productivity comparison.
+p95
+The value at or below which 95% of measured observations fall.
+RPO / RTO
+Maximum targeted recoverable data-loss window / time to restore service.
+IV and V
+Independent verification and validation by an identified independent reviewer.
+Review draft
+A proposed baseline awaiting product decisions and approval; not a release certification.
+Appendix B Independent Verification and Validation
+Status and resource
+Independent verification and validation has not been performed. No independent reviewer, signature, executed tests or correction times were supplied. This appendix provides the required review plan and records document-review findings without misrepresenting them as independently validated results.
+Field
+Current status
+Independent reviewer
+To be appointed; must not be the author of the reviewed work.
+Review date and signature
+Not performed / Not signed.
+Scope
+SRS completeness, consistency, traceability, testability and feasibility; later validation against user and field evidence.
+Inputs
+Proposal v4.0, template, this SRS, owner decisions; implementation evidence when available.
+Acceptance authority
+Product Owner accepts scope; QA and operations provide release evidence.
+Non-trivial document review findings
+ID
+Finding and origin
+Disposition
+Fix time
+DV-01
+Generic template includes product/orders/payments unrelated to this project.
+Replaced by mosque-specific epics and stories in this draft.
+Not measured
+DV-02
+Template owner column confuses Focal Person with development assignee.
+Separated operational actor from delivery owner.
+Not measured
+DV-03
+Pending timing suppression could affect an entire mosque.
+BR-02 restricts it to affected sessions/dates; verify AC-06 later.
+Not measured
+DV-04
+Cancellation could fall back to recurring timing.
+Explicit exclusion in BR-03 and AC-15.
+Not measured
+DV-05
+Publication/freshness/route accuracy defaults lack owner approval or field evidence.
+Open decisions in Appendix C; not marked resolved.
+Not applicable
+Independent review procedure
+The reviewer checks all template sections, samples each traceability chain, walks through normal and failure cases, and challenges unsupported assumptions. Log each finding with severity, requirement ID, actual date, owner, correction and retest evidence. Record actual hours/minutes only if measured. A defect is closed only after the reviewer checks the correction.
+Validation then observes public users and mosque staff completing intended tasks and compares travel estimates with actual journeys. Independent validation cannot be replaced by the present author’s completeness check. Outcomes remain Not executed until genuine evidence is attached.
+Appendix C Decisions and approval register
+The following decisions are completed as explicit proposals, not left as unexplained blanks. The Product Owner may accept or change them during review. Confirmed owner instructions are preserved; unresolved dependencies do not justify silently changing core scope.
+ID
+Proposed decision or dependency
+Owner and gate
+D-01
+Approve phone verification before changed times publish; immediate affected-session warning while pending.
+Product Owner; before schedule workflow implementation.
+D-02
+Adopt 7/14-day freshness and event phone confirmation within 48 hours; approve reset semantics in BR-04.
+Owner + operations; before trust labels.
+D-03
+Choose launch city, participating areas and explicit city membership rules.
+Product Owner; before recruitment/data import.
+D-04
+Select and validate walking/motorcycle provider or model, costs, restrictions and forecasting support.
+Technical lead + owner; before travel implementation commitment.
+D-05
+Approve preparation minima and per-mode uncertainty from field evidence; approve trial threshold/sample plan.
+Operations + QA + owner; before positive reachability launch.
+D-06
+Assign named team, reviewer, support and backup staff; confirm sprint capacity and verification hours.
+Product Owner; before sprint and launch commitments.
+D-07
+Approve or defer English/Urdu, future departure planning and reminder automation explicitly.
+Product Owner; before release scope baseline.
+D-08
+Approve hosting budget, privacy retention, recovery and performance targets.
+Owner + technical/operations leads; before production.
+D-09
+Complete actual user research and independent review; record evidence and changes.
+Owner + independent reviewer; before release approval.
+D-10
+Confirmed: no initial subscription. Future Islamic-organization funding may support staff allowances after sustained coverage; no funding or compensation promise. Timing maintenance starts at launch.
+Owner direction, 4 Oct 2026. Future funding reviewed separately.
+Approval record
+Product Owner: Muhammad Ahmad (retained from the template). Phase 1 documentation is finalized for the next design phase; no implementation or launch approval is implied. Record technical, QA and operations decisions with their evidence before release. Outstanding operating parameters in this register remain proposed until validated and accepted.
+Phase 1 completion boundary
+Phase 1 documentation is complete for progression to the supplied next-phase template. The SRS contains the original requirements and diagrams plus missing-mosque requests, contributor applications, limited notice controls and the agreed free-launch/future-funding approach. Empirical research, field tests and independent validation remain unperformed. The design phase must resolve dependencies before implementation or release.
+DISCOVERSALAH  |  PHASE 1  |  SRS 1.2
+Phase 1 final  •  4 October 2026       Page 

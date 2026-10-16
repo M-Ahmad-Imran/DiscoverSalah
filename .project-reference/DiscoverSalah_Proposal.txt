@@ -1,0 +1,145 @@
+DiscoverSalah Project Proposal
+Community managed mosque discovery and practical Jama’at planning
+Version 4.0 | 30 September 2026 | Pakistan
+Purpose and direction
+DiscoverSalah is a real-world public service that helps people discover mosque-specific congregation timings and assess whether they can arrive in time. It supports walking and motorcycle travel, nearby discovery, and whole-city planning for daily prayers, Jumu’ah and Eid. Its value depends on trustworthy schedules and realistic travel estimates, supported by accountable local people.
+This proposal updates Version 3.0 and removes the academic-project framing. It establishes product scope and operating rules for implementation planning. The formal requirements document, detailed acceptance criteria and technical specifications will follow the templates supplied by the project owner.
+Confirmed changes in this revision
+Motorcycle travel is included from the first release alongside walking. Local Representatives submit mosque information and timing changes; their Focal Person receives an account notification and can verify timings by calling the Imam whose number was collected during registration. Physical visits are not a prerequisite. A Whole City search mode removes the nearby distance cap for discovery, including Friday and Eid congregations.
+Recommended rules retained for planning
+The remaining workflow details in this proposal are recommendations, rather than previously approved requirements. In particular, timing publication after phone verification, freshness thresholds, review targets and launch metrics are proposed defaults to confirm through operating experience and the forthcoming requirements process.
+Service outcomes
+People should be able to find the correct prayer or event, see confirmed mosque timings, compare practical travel options, and open directions. Representatives should be able to submit updates quickly. Focal Persons should be able to verify changes remotely and identify overdue work. Administrators should be able to expand coverage without losing responsibility for data quality.
+Launch approach
+Begin with a controlled operational launch in one selected city and a manageable network of participating mosques. Both Nearby and Whole City modes are available immediately. City-wide discovery means searching all participating venues in that city; it does not imply every mosque has already been onboarded.
+1 Discovery and prayer planning
+Search controls
+Users choose their starting location, travel mode, prayer or event, and search scope. Location permission is optional: manual area selection and a movable starting-point pin remain available. Browsing does not require an account. A confirmed origin is needed for personalized travel estimates; users can still browse timings without it.
+Mode
+Behavior
+Nearby
+Default radius of 5 km, expandable to 7 km. Includes participating mosques across administrative area boundaries.
+Whole City
+Searches all participating venues assigned to the selected city, without the 7 km cap. Supports neighborhood, prayer, date and session filters.
+Find a Jama’at now
+Shows the next applicable upcoming congregation for each mosque, with the prayer name and date visible.
+Choose a prayer or event
+Shows sessions for the selected prayer and date. Jumu’ah and Eid support planning in advance and multiple confirmed sessions.
+Clear results
+Each card shows the mosque or event venue, neighborhood, prayer name, congregation start, date, timing confirmation status, estimated journey duration, arrival margin and directions. Khutbah or arrival-advice times are separate from the congregation start. Available facilities and access restrictions are shown when confirmed; unknown facilities are not assumed.
+If today’s selected Asr sessions have all started, show “No upcoming Asr Jama’at found today.” Do not silently switch to Maghrib. In the general discovery mode, tomorrow’s Fajr can appear after Isha with an explicit Tomorrow label and a valid schedule.
+Friday and Eid
+Support multiple Jumu’ah sessions and dated Eid sessions at mosques or authorized associated prayer grounds. Every session has a responsible representative and verification history. Outdoor venues require their own entrance coordinates, location description and access information. Eid dates may remain provisional until locally confirmed; provisional sessions are visible for planning but cannot receive positive reachability recommendations.
+Whole City is a separate search scope, not a larger circle around the user. An origin outside the selected city can still be used for travel estimation. Adjacent cities require an explicit city change. Clearly display coverage limitations and never imply that no search result means no congregation exists.
+2 Travel estimates and ranking
+Walking and motorcycle from launch
+Bike means motorcycle in this proposal. Users explicitly choose Walking or Motorcycle; changing the mode recalculates journey time and rankings. The production design uses route-based estimates appropriate to the mode, with routing coverage and motorcycle restrictions tested in the launch city before release. A car estimate must not be labeled as a motorcycle estimate.
+Routing-provider selection remains open. Evaluate local walking and motorcycle coverage, route legality, response time, usage costs, privacy and licensing. If reliable motorcycle routing is unavailable, use a separately validated local model only with explicit estimate labeling. Where neither method is credible, display “Travel estimate unavailable” and withhold a positive reachability label. Straight-line distance alone is not the default basis for city-wide recommendations.
+Reachability calculation
+Arrival margin = congregation start − departure time − estimated route duration − preparation buffer − uncertainty allowance. For immediate discovery, departure time is server-aligned current time. For future planning, the user supplies a departure time and the result is labeled a forecast that must be refreshed before leaving.
+The preparation buffer covers parking, walking from the entrance and Wudu. A proposed starting minimum is 5 minutes for walking and 8 minutes for motorcycle travel; users may increase it. Friday and Eid can need longer venue-specific buffers. Additional uncertainty depends on measured route errors and available traffic information. These values require local calibration and are not guarantees.
+Outcome
+Rule
+Estimated reachable
+Arrival margin is zero or positive and the schedule and travel estimate are eligible.
+Too tight
+Arrival precedes congregation start, but preparation and uncertainty allowances do not fit.
+Unlikely to reach
+Estimated arrival is at or after the congregation start.
+Reachability unavailable
+Timing is provisional, stale, disputed or affected by a pending change, or a credible route estimate is missing.
+Predictable ranking
+Filter by prayer, date, scope and publication status first. Group results by reachability, then prioritize stronger timing confirmation, shorter mode-specific travel duration, earlier session time and a stable identifier. Offer explicit Earliest Jama’at and Shortest Journey sorting. Distant sessions remain discoverable in Whole City mode; pagination and routing batches must not silently restrict the search to nearby mosques.
+Example: at 12:30 PM, a confirmed 1:00 PM session has a 15-minute motorcycle route, 8-minute preparation buffer and 5-minute uncertainty allowance. The arrival margin is 2 minutes: estimated reachable. A 12:55 PM session with identical assumptions is too tight. Both are illustrative, not measured journeys.
+3 Registration and phone verification
+Accountable roles
+The System Admin creates Focal Persons and assigns their geographical responsibility. Focal Persons create Local Representative accounts and assign mosques. Representatives maintain only assigned records. Public users can discover and report information but cannot publish official changes. Account privileges are enforced by the backend on every protected operation.
+Mosque registration
+The representative enters the mosque name, address, map pin and entrance, city and area, initial timetable, Imam’s name and phone number, and relevant facilities. Record permission to use the Imam’s number for service verification. Check possible duplicates by location and identity before publication. Supporting timetable photographs may be included but do not replace the defined verification decision.
+Submitting registration creates a notification and review task in the assigned Focal Person’s account. The Focal Person calls the registered Imam to confirm mosque identity, the representative’s relationship, and the timetable, then records the call outcome and approves or returns the submission. No physical visit is required. If the Imam cannot be reached, the submission stays pending and can be escalated; it is not marked verified.
+Timing update workflow
+1. The representative submits revised times with an effective date and a brief reason. The system retains both the current approved version and the proposed version.
+2. The Focal Person receives an account notification identifying the mosque, representative, affected prayers, old and new values, submission time and effective date. A dashboard badge and durable task remain until resolved; reading the notification is not approval.
+3. The Focal Person calls the registered Imam and records who confirmed the change, when, which schedule version was checked, and the result. No call recording is required.
+4. Recommended publication policy: approve the checked version for its effective date, return it for correction, or reject it with a reason. The representative receives the decision. A further edit creates a new version requiring its own verification.
+Pending and urgent changes
+For a future change, the current approved timetable remains valid until its normal end or the proposed effective time. Once a pending change affects the current prayer, warn that the timing is under review and suppress its positive reachability recommendation. Do not present a potentially superseded old time as confidently current. Urgent changes are highlighted for immediate review and escalated to an authorized backup or Admin if the Focal Person is unavailable.
+Imam phone numbers remain private to the assigned management roles and authorized Admin. Changes to that number require separate verification through the existing contact or an independently established mosque authority; the new number must not validate itself.
+4 Schedules and data reliability
+Schedule structure
+Store recurring daily timings with effective-from and effective-to dates, plus date-specific overrides. The precedence is an approved dated session or override, then the approved recurring schedule. Missing, expired or canceled sessions never receive inferred congregation times. Store congregation starts separately from calculated prayer beginnings or sermon times.
+Use Asia/Karachi for mosque schedule interpretation and UTC for audit events. Server-aligned time drives countdowns. A session at or before current time is marked started and excluded from upcoming recommendations. Tomorrow’s schedule is evaluated using its own applicable version. Friday sessions explicitly replace the ordinary Dhuhr listing unless the mosque separately confirms another applicable congregation.
+Confirmation and freshness
+Keep mosque identity verification, representative confirmation and Focal Person phone verification as separate facts. Editing a name, announcement or facility must not reset timetable freshness. Provide a “No timing change” confirmation action and record its author; it does not fabricate a new phone verification.
+Proposed standard thresholds are recently confirmed within 7 days, needs confirmation after 7 days and up to 14 days, and stale after 14 days. Expiry, an active dispute or a relevant pending change overrides these age labels. Event-specific timings should receive a final check near the event; a proposed starting window is 48 hours before Jumu’ah or Eid, with re-verification after any subsequent timing or date change.
+Public reports
+Allow reports for incorrect timings, incorrect locations, duplicates, missing mosques and other issues. Reports progress through Open, In review, Resolved, Escalated or Dismissed with a reason. The Focal Person owns area reports. Apply rate limits and duplicate grouping. A public allegation does not automatically rewrite official data; a reviewer can mark a schedule disputed while checking it.
+Responsibility and continuity
+Every published mosque has one primary representative and one supervising Focal Person. A representative may maintain multiple mosques. Replacement removes the former assignee’s editing access immediately while preserving history. An Admin-appointed backup can handle urgent verification under an auditable temporary assignment.
+If responsibility is lost, mark the mosque Maintenance pending, retain useful location information, and withhold positive reachability recommendations until responsibility is restored. The Admin monitors unattended review queues, stale schedules and repeated reports.
+Announcements and contact privacy
+Representatives may publish relevant notices with expiry dates. Announcements cannot override official schedule fields. Contact information and verification notes stay outside public responses. Collect only information needed to operate the service; define retention and deletion periods before launch.
+5 Product scope and system design
+First public release
+Deliver a mobile-friendly web application with Urdu and English interfaces, mosque lists and maps, manual and device location, Walking and Motorcycle modes, Nearby and Whole City search, daily schedules, multiple Jumu’ah sessions, dated Eid sessions, countdowns, estimated arrival margins and directions. Include basic confirmed facility details, announcements and public reporting.
+Management capabilities include three scoped dashboards, mosque registration, private Imam contacts, versioned schedule submissions, durable account notifications, phone-verification decisions, reminders, escalation, reassignment, freshness monitoring and audit history. The first release supports future departure planning with clearly qualified estimates. Native apps, car routing and automated timetable extraction can follow after the operating model is proven.
+Proposed architecture
+Retain the original proposal’s React web frontend, Node.js and Express backend, and MongoDB geospatial data model as the baseline, subject to implementation review. Separate discovery, schedules, identity and authorization, verification, reporting and notifications into clear modules. A routing adapter should allow provider replacement without changing business rules.
+Map rendering, map tiles, geocoding, route estimation and external navigation are separate dependencies with separate capacity and cost considerations. Select production service arrangements after evaluating the launch city; do not assume map display also provides motorcycle travel estimates or unrestricted infrastructure.
+Record group
+Purpose
+Cities and areas
+City search membership, boundaries and Focal Person responsibility.
+Mosques and venues
+Identity, entrances, facilities, status and authoritative representative assignment.
+Private contacts
+Imam details, permitted verification use and contact-change history.
+Schedules and sessions
+Recurring rules, dated exceptions, event sessions, versions and effective dates.
+Reviews and notifications
+Submission, phone outcome, approval, recipient, read state, retries and escalation.
+Accounts and audit
+Scoped access, status, accountable changes and retained history.
+Reports and notices
+Public issues, resolutions, announcements and expiry.
+Consistency and performance
+Approval must refer to the exact version reviewed. Concurrent edits cannot silently overwrite each other. Persist schedule decisions and their notification work reliably so retries do not create duplicate approvals or tasks. Cache route estimates by origin, destination, mode and relevant time window; expire them appropriately. City-wide lists use pagination and map clustering while retaining access to all matching records.
+6 Operations security and launch quality
+Operational ownership
+Assign named owners for service operations, software maintenance and incident response. Focal Person workload should be measured in active mosques and review volume. Add coverage or backups when pending verifications grow; expansion must follow available capacity to call Imams and maintain schedules.
+Timing changes effective today require priority handling. As initial staffing targets, review ordinary submissions within 24 hours and escalate unattended work after 24 hours; do not allow an urgent prayer-time change to wait for that deadline. Configure immediate backup notification when an effective-time deadline is approaching. These are proposed operational targets, not promises of uninterrupted staffing.
+Security and privacy
+Use secure password hashing, encrypted transport, scoped authorization, login throttling, secure session handling and revocation on deactivation or reassignment. Administrative accounts should have an additional authentication factor. Initial credentials require a first-use change, and recovery must verify the account owner. Never include Imam numbers in public APIs, analytics events or broad exports.
+Avoid persistent storage of precise public-user locations unless justified and consented to. Disclose location sharing with routing providers. Restrict verification notes and audit access. Validate submitted times, effective dates, coordinates and account scope on the server. Define retention, backup access and restoration procedures before launch.
+Failure behavior
+Denied location permission leads to manual selection. Missing routes leave timetable browsing usable. Map failure falls back to the list. Save failure preserves the representative’s draft without claiming publication. Failed notifications remain in a retry queue and visible review dashboard. Offline or stale cached content shows when it was retrieved and does not claim current reachability. Navigation handoff preserves motorcycle mode where supported; otherwise explain the limitation.
+Proposed launch gates
+Before public launch, every participating venue has a responsible representative, a reachable verification contact and an approved initial timetable. Test city-wide discovery with distant venues and multiple event sessions, phone-approval versioning, denied cross-area edits, canceled events, midnight transitions and routing outages.
+Validate walking and motorcycle estimates against real journeys across different neighborhoods and times, including Friday congestion and distant destinations. Measure errors and false-positive reachability by mode. Set acceptable error thresholds from this evidence before enabling positive labels; unvalidated estimates remain unavailable or explicitly provisional.
+Proposed service targets are 99.5% monthly availability, 95% of ordinary non-routing search API responses within 2 seconds at an agreed load, and approved changes reflected in active results within 60 seconds. Confirm capacity and monitoring during requirements work. Exercise backup restoration before launch.
+7 Rollout sustainability and next documents
+Phased rollout
+Phase 1 selects the launch city, operating owners, participating mosques and routing approach. Include several areas so nearby and distant journeys can both be tested. Network size should match verification capacity.
+Phase 2 delivers the first-release scope and validates it through supervised field use. Phase 3 opens public access and expands city coverage. Phase 4 adds cities after each has accountable Focal Persons, reliable routing and maintained venues. Native apps, car mode, OCR and broader Ramadan services follow later.
+Costs and sustainability
+Budget for hosting, database and backups, map tiles, geocoding, route requests, monitoring, verification calls, support and representative coordination. Track cost per active user, per search and per maintained mosque. Keep a monthly routing budget with alerts and an honest degraded mode if limits are reached. Hosting providers, commercial terms, funding model, staffing and delivery dates remain to be selected; this proposal does not invent prices or commitments.
+Risk
+Primary response
+Incorrect or delayed timing
+Versioned submissions, Imam calls, priority review and suppression of affected reachability labels.
+Overconfident travel estimate
+Mode-specific route validation, uncertainty allowance and unavailable state where evidence is insufficient.
+City-wide coverage gaps
+Visible participation limits, systematic onboarding and reporting of missing venues.
+Friday or Eid disruption
+Dated sessions, cancellation updates, event reconfirmation and venue-specific buffers.
+Verification bottleneck
+Workload monitoring, authorized backups and escalation before the affected congregation.
+Cost or provider outage
+Usage monitoring, caching, provider abstraction and timetable-only fallback.
+Decisions for the requirements stage
+Confirm the launch city and operating team, routing provider and motorcycle coverage, publication policy for pending changes, freshness and event-verification windows, review staffing, preparation and uncertainty settings, privacy retention periods, measurable field-validation thresholds, and budget. The user-requested motorcycle mode, account notifications with Imam phone verification, and Whole City discovery are already part of the revised scope.
+Documentation sequence
+When the project owner supplies templates, prepare scope and requirements first, followed by use cases, system and data design, interface flows, acceptance tests, deployment and operational guidance. Maintain traceability to this proposal and clearly distinguish confirmed decisions from assumptions. No separate requirements document has been produced in this revision.
+DISCOVERSALAH  |  PROJECT PROPOSAL  |  VERSION 4.0
+30 September 2026  •  Proposal for implementation planning     Page 

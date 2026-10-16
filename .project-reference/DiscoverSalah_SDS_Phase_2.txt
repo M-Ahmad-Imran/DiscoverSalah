@@ -1,0 +1,996 @@
+DiscoverSalah
+Agile Software Design Specification
+Phase 2  •  Design for implementation
+Document control
+Value
+Document ID
+DS-SDS-P2-001
+Version and date
+1.1 • 5 October 2026
+Product Owner
+Muhammad Ahmad
+Requirements baseline
+Phase 1 SRS v1.2, finalized 4 October 2026
+Status
+Completed design document for review and implementation planning; not an implemented-system or test-pass report
+Scope
+Free initial service in 2–3 areas; walking and motorcycle discovery; remote Imam verification; Whole City search; controlled community requests and notices
+This specification turns the agreed requirements into a coherent application design. It defines responsibilities, data contracts, critical failure handling and proposed deployment. Provider choice, operating thresholds and launch evidence remain explicit decisions rather than assumed facts.
+Contents
+Abstract and document history4
+Diagram guide and review coverage5
+1 System Architecture6
+1.3 Component Overview7
+2 Mapping Design to User Stories8
+3 Detailed System Design9
+3.2 Data Flow Description10
+3.3 Management data flow11
+4 UML Diagrams12
+4.2 Service Class Diagram13
+4.3 Sequence for timing submission14
+4.4 Sequence for phone approval15
+4.5 Sequence for discovery and routing16
+4.6 Sequence for contributor appointment17
+4.7 Sequence for community notices18
+4.8 Sequence for reassignment19
+4.9 State diagrams20
+4.9.1 Notice state diagram21
+4.10 Reachability decision flow22
+4.10.1 Reachability rules and ranking23
+4.11 Public use cases24
+4.12 Management use cases25
+4.13 Venue registration activity26
+4.14 Issue resolution activity27
+5 Database Design28
+5.1.2 ER Diagram for schedules and review29
+5.1.3 ER Diagram for community workflows30
+5.1.4 ER Diagram for operational records31
+5.2.1 Schema for identity and venues32
+5.2.2 Schema for schedules and decisions33
+5.2.3 Embedded schedule structures34
+5.2.4 Schema for community content35
+5.2.5 Operational records and indexes36
+5.3 Transactions and concurrency37
+6 API Design38
+6.3 Authentication and management APIs39
+6.4 Review and community APIs40
+6.5 Payload examples and invariants41
+7 UI and UX Design42
+7.2 Proposed visual design43
+7.3 Focal Person review screen44
+7.3.1 Screen behavior and validation45
+7.4 Navigation Flow46
+8 Sprint-wise Design Evolution47
+9 Test Design48
+10 Design Quality Attributes50
+11 Deployment Considerations51
+11.1 Deployment and release controls52
+12 Future Enhancements53
+13 Revised Project Plan54
+14 References55
+Appendix A Glossary56
+Appendix B IV and V Report57
+Appendix C Review record and open decisions58
+Sections follow the supplied Phase 2 template. Diagrams are design proposals; UI screens use fictional demonstration data. Numbered sequences show order; association and ER lines show relationships.
+Abstract and document history
+Abstract
+DiscoverSalah helps worshippers and travelers find participating mosques, mosque-specific Jama’at times and realistic walking or motorcycle arrival estimates. Its operating model combines Local Representative submissions with Focal Person approval after a call to the registered Imam. Whole City search supports longer Friday and Eid journeys. Missing-mosque suggestions and contributor applications expand coverage through controlled onboarding; a limited notice board supports verified community announcements.
+The proposed solution is a modular, layered web application backed by MongoDB. Immutable schedule submissions, scoped authority, explicit pending states and atomic review decisions protect timing integrity. A provider adapter makes routing replaceable and allows honest timetable-only operation when route evidence is unavailable. The intended result is an implementable, testable service design; no code, field accuracy, interview result or deployment is claimed as completed.
+Version
+Date
+Changes
+1.0
+5 Oct 2026
+Initial Phase 2 specification based on SRS v1.2.
+1.1
+5 Oct 2026
+All 22 original figures redesigned. Seven added views cover use cases, management data flow, registration, issue resolution, arrival classification and operational records. Detailed branches, guards, cardinalities, privacy boundaries and screen states added.
+Design authority and interpretation
+SRS v1.2 governs product scope. This SDS proposes implementation choices without silently approving the outstanding SRS decisions. Admin creates Focal Persons; Focal Persons manage scoped representatives. Public applicants gain no authority until reviewed. An Imam is contacted outside the application and is not assumed to hold a login.
+Initial discovery is free. Timing maintenance is required from launch. Approaching Islamic organizations for operational funding and future allowances is a later organizational activity; no subscription, donation processing, payroll or funded partnership is part of this build.
+Template adaptation
+All 14 template sections and both required appendices are addressed. The academic attendance sheet is represented by an honest project-review record in Appendix C; no student identities, advisor signatures, meeting attendance or independent-review results are fabricated.
+Diagram guide and review coverage
+The diagrams specify proposed implementation behavior. They are read together with the schema and API contracts; none represents completed software or verified field performance. Portrait sheets preserve long sequences and decision flows. Wide architecture, use-case, state and interface views use landscape pages for readable labels.
+Diagram family
+How to read it
+Review focus
+Architecture and modules
+Boxes identify deployable processes or logical responsibilities; labeled arrows identify interfaces. Dashed links indicate manual or supporting dependencies.
+Trust boundary, external provider isolation, atomic writes and worker ownership.
+Class diagrams
+Attributes and operations appear in compartments. Multiplicity labels sit beside each association endpoint. A filled diamond means composition; an open diamond means aggregation.
+Ownership, immutable snapshots, review evidence and pure policy functions.
+Sequence diagrams
+Read numbered messages from top to bottom. Solid arrows request work; dashed arrows return results. Conditional bands identify alternative, optional and repeatable paths. An error branch stops that request.
+Authority, version conflicts, transaction boundaries, retries and failure outcomes.
+State and activity diagrams
+Rounded boxes represent states/actions; diamonds ask guarded questions. Event labels identify the trigger, condition and effect. A new corrected version does not rewrite an old submission.
+Approval versus publication, disputed scopes, cancellation and read-time expiry.
+Logical ER diagrams
+PK is _id; REF is a service-validated reference. Endpoint labels show minimum/maximum multiplicity. MongoDB does not enforce SQL-style foreign keys.
+Unique records, typed targets, optional relationships and private data separation.
+Use cases and screens
+Actors sit outside the service boundary; ovals are user goals. Include means required behavior; extend adds conditional behavior. Screen data is fictional.
+Role boundaries, discoverability, empty/error states and no automatic applicant privileges.
+Traceability and acceptance
+Sections 2 and 9 map these designs to the 26 SRS stories and 31 planned tests. Cross-check every approval path for scope, independence, registered-contact evidence and an unchanged revision. Cross-check every positive reachability path for an eligible exact session, supported travel mode, validated uncertainty and a final revision check. The later funding strategy introduces no payment or payroll component.
+1 System Architecture
+1.1 High-Level Architecture
+The pilot uses one modular application, a separate worker process and independently reviewed timing publication.
+1.2 Architecture Diagram
+Figure 1 Proposed runtime components and external provider boundary
+1.3 Component Overview
+Use a client–server, layered modular monolith: React presentation, Node.js/Express application services and MongoDB repositories. Deploy a small background worker from the same codebase for durable notifications. The first 2–3 areas use this small deployment; extract modules only if measured demand warrants it.
+The browser uses public read endpoints anonymously and authenticated management endpoints for changes. Map tiles may load directly under provider terms; secret routing credentials stay on the server. The API commits domain changes and an outbox event together. The worker delivers in-account notifications after commit. No phone-call automation is implied by any connection.
+Component
+Responsibility
+Boundary
+Web application
+Discovery, mosque details, forms and scoped dashboards.
+Never decides approval or authority locally.
+API controllers
+Parse allowlisted input; attach authenticated context; normalize errors.
+No unvalidated role, area or target IDs trusted.
+Domain services
+Schedule resolution, review, notices, onboarding and ranking.
+No external provider call inside database transaction.
+AccessPolicy
+Check role, current assignment and self-approval restrictions.
+Recheck every protected request [R3].
+Repositories
+Persist records, conditional revisions and transactions.
+References and cross-document invariants enforced by services.
+Worker
+Claim outbox jobs, upsert notifications and escalate due tasks.
+At-least-once delivery with deduplication.
+Routing adapter
+Normalize supported walking/motorcycle estimates.
+Coverage and calibration required before positive labels [R6].
+Operations
+Imam calls, staffing, issue review and future funding outreach.
+Manual duties outside application automation.
+Design decisions
+Use a single origin for the website and /api proxy where feasible. Management access uses opaque server-side sessions in Secure, HttpOnly cookies, with SameSite protection and anti-CSRF checks on mutations. Current assignments, rather than long-lived role claims, determine permissions. Admin requires an additional factor. Exact hosting and recovery-delivery providers are selected before deployment.
+Do not introduce Redis, a dedicated broker or city-wide live route precomputation in the pilot. Bound query sizes and route batches first. Any later cache must recheck schedule revision and eligibility before serving a positive label.
+Controllers remain thin. Domain services receive a typed actor context and explicit command/query objects. Repositories expose conditional writes, not unrestricted collection access. Public serializers are allowlists; private phone numbers and verification notes are never accidentally removed only at the UI layer.
+2 Mapping Design to User Stories
+US/FR/AC suffixes refer to SRS v1.2. Implementation modules may satisfy several stories; a story may require several modules. IDs 23–24 describe delivery/operational work rather than ordinary application screens.
+SRS IDs
+Design components
+Evidence / design location
+01–02
+Accounts, AccessPolicy, auth sessions and tokens
+Identity schema; protected API contracts; T01–T03.
+03–04
+Venue registration, private contacts, review service
+Initial registration uses exact-version review; ER identity; T04.
+05–06
+ScheduleHead, immutable versions and decisions
+Submission and approval sequences; schedule schema; T05–T08.
+07–08
+Outbox, worker, notifications and due review tasks
+Submission sequence; retry policy; T09–T10.
+09–11
+Origin selector, geo discovery and schedule resolver
+Discovery sequence; public APIs; UI; T11–T13.
+12–13
+RoutingAdapter and ReachabilityPolicy
+Class diagrams; arrival algorithm; T14–T17.
+14
+Venue detail and navigation handoff
+Public serializer and prototype; T18.
+15–17
+Dated sessions, forecasts and confirmations
+Embedded schedule schema; event rules; T19–T21.
+18–19
+Issue reports and scoped reassignment
+Reassignment sequence; community schema; T22–T23.
+20
+Versioned notices and facilities
+Notice sequence/state; T24–T25.
+21–22
+Audit/dashboard and accessible UI states
+Audit schema; quality attributes; T26–T27.
+23–24
+Research decision record, field trials and release evidence
+Sections 8–13 and Appendix B; T28–T29.
+25–26
+Suggestions and contributor applications
+Community schemas, sequence and public forms; T30–T31.
+Scope dependencies
+Basic notices and community forms are in the initial scope. Future-departure planning, English/Urdu scope and automated reminders remain decisions in SRS Appendix C; this SDS describes compatible designs but does not claim those decisions are closed. Core keyboard accessibility and honest errors apply regardless. No payment component or privileged public self-registration endpoint exists.
+3 Detailed System Design
+3.1 Module Decomposition
+Figure 2  Controller, service, policy and repository dependencies
+3.2 Data Flow Description
+Figure 3  Public discovery data flow and privacy boundary
+A request supplies an origin only when the user chooses personalized travel estimates. Nearby filters use an entrance GeoJSON point and the proposed 5 km default / 7 km maximum. Whole City filters explicit city membership and ignores that cap. City-wide mode still shows only participating venues; it never claims complete mosque coverage.
+The resolver selects the effective approved schedule for the requested local date, applies dated exceptions and cancellation exclusions, then evaluates freshness and pending scope. Route estimates are requested for a bounded displayed batch. Recheck the applicable schedule revision before labeling; a concurrent update invalidates an older calculation. Public responses contain only the effective public values and understandable evidence status.
+Management write path
+Validate the current assignment → validate command → compare expected revision → write target version, review task, audit and outbox atomically → return submission status. A reviewer calls the Imam outside the system, records the outcome, and decides that exact version. Notification delivery failure does not roll back a valid submission or grant approval.
+3.3 Management data flow
+Figure 4  Management commands, manual verification and publication boundaries
+Representatives submit proposals; the worker delivers notifications; only a scoped independent reviewer can publish the exact verified version. Domain state, audit and outbox are one transaction. Manual Imam verification is outside the software boundary and does not require an Imam account.
+4 UML Diagrams
+4.1 Domain Class Diagram
+Figure 5  Core domain objects with attributes, operations and multiplicities
+ScheduleHead is the concurrency boundary for one venue. It references zero or more immutable ScheduleVersions and records the pending proposal and approved effective windows. ReviewDecision records evidence and disposition; it does not own the timetable. ScheduleSnapshot is composed into its immutable version. The separate service diagram shows ReachabilityPolicy consuming resolved session values. Multiplicity labels describe associations; dashed arrows describe dependencies. No inheritance is needed for user roles.
+Design invariant
+A full snapshot may include several prayer changes, but pending suppression is computed from the actual difference against the applicable approved baseline. An Asr-only change cannot suppress an unchanged Maghrib session. One active submitted schedule proposal per venue is a deliberate pilot simplification; a new full proposal supersedes the old one and recomputes the affected scopes.
+4.2 Service Class Diagram
+Figure 6  Application services depend on policies and provider interfaces
+DiscoveryService orchestrates querying and normalization; ReachabilityPolicy remains a pure function for deterministic tests. ScheduleService owns atomic state changes and optimistic concurrency. AccessPolicy checks current identity, venue/area assignment, delegation validity and independent review. RoutingAdapter implementations return the same typed RouteEstimate, including an explicit unsupported/unavailable result.
+Value object
+Minimum contract
+ResolvedSession
+key, venueId, localDate, prayer, startAt, scheduleRevision, cancellation/provisional flags and evidence timestamps.
+RouteEstimate
+mode, durationSeconds, distanceMeters, source, estimatedAt, supported, validated and failureReason.
+ReachabilityResult
+status, marginSeconds or null, reason codes, evaluatedAt, configVersion and scheduleRevision.
+Do not subclass Admin, Focal Person and Representative as persistent account types. A role plus active assignments expresses their authority. A person cannot review their own submission even if another role or temporary delegation would otherwise allow access.
+4.3 Sequence for timing submission
+Figure 7  Durable submission and in-account notification
+A successful submit returns 202 with the immutable version and review-task IDs. Within the same transaction, the ScheduleHead revision advances and affected pending scopes become visible. The worker can retry delivery without duplicating the recipient notification. A conflicting expected revision returns 409 and requires reloading; never overwrite silently. References: US-05–08, AC-05–08.
+4.4 Sequence for phone approval
+Figure 8  External Imam call followed by an exact-version decision
+The registered phone number is visible only to the scoped reviewer. A confirmed call is necessary under the proposed publication policy; an unreachable or disputed outcome cannot publish. A recorded call outcome is staff evidence, not telecom proof. Revalidate target state and revision inside the transaction. An approved future schedule is selected only at its effective time. Initial mosque registration follows the same decision pattern, with publication blocked until its initial schedule is also approved.
+4.5 Sequence for discovery and routing
+Figure 9  Timetable results first, then bounded route evaluation
+Base query order is stable by congregation time and session key. A route-evaluated batch may be re-ranked by eligibility, freshness, duration, start time and stable key. Mark the result as ranked within evaluated results; do not imply a global shortest journey when only one page has routes. Keep a stable base cursor so changing route order cannot skip or duplicate subsequent pages. A provider timeout or unsupported mode leaves timings usable and reachability unavailable.
+4.6 Sequence for contributor appointment
+Figure 10  Application review before invitation or authority
+Only Admin can approve a Focal Person appointment. A representative appointment may be processed by Admin or a Focal Person within their area, following the Admin-reviewed application path. Check contact ownership, independent mosque reference, existing assignments and availability. Use a single-use invitation; approval alone does not expose a reusable password. Waitlist/rejection creates no management account. A private tracking token provides limited applicant status without exposing review notes.
+4.7 Sequence for community notices
+Figure 11  Verified and expiring community notices
+A death/Janazah notice requires an authorized family or mosque source, recorded privately, before approval. The public notice needs only necessary details, actual venue, date/time and expiry. A submitted material correction or cancellation immediately marks the affected notice under review and hides its disputed event details until decided. Routine facility facts remain separate. No notice enters travel reachability unless a later scoped change introduces verified structured Janazah sessions.
+4.8 Sequence for reassignment
+Figure 12  Current assignments revoke old editing rights immediately
+Every protected request loads the active assignment. A removed representative cannot continue using an old session or a cached role claim. Reassignment does not rewrite old authorship or silently approve pending versions. Review tasks route to the new responsible area reviewer; in-progress decisions recheck authority at commit. A venue without a maintainer becomes Maintenance pending and loses positive reachability eligibility.
+4.9 State diagrams
+Figure 13  Schedule submission states
+A returned/rejected submission stays immutable; correction creates a new draft and version rather than editing review history. Superseded describes an undecided proposal replaced by a newer submission. Approved versions remain in history even when a later approved effective window takes over. Approval and effective activation are separate concepts; the resolver selects by time rather than relying on a precise worker tick.
+4.9.1 Notice state diagram
+Figure 14  Notice lifecycle, material corrections and time-based visibility
+Expiry is enforced in the read query even if a cleanup job has not run. Correction creates a new pending version, and cancellation is an explicit audited disposition. A submitted change can suppress public event details without being mistaken for approved replacement content.
+4.10 Reachability decision flow
+Figure 15  Timing and route eligibility gates before any positive estimate
+4.10.1 Reachability rules and ranking
+Figure 16  Arrival classification and deterministic ranking within an evaluated batch
+Use server-aligned departure time (or an explicitly labeled future forecast). Margin = session start − departure − route duration − preparation − uncertainty. Keep seconds for calculation and round only display values. Proposed minimum preparation: walking 300 seconds; motorcycle 480 seconds. Users may increase these. The uncertainty allowance must be locally calibrated; unvalidated values disable positive labels.
+Condition
+Public result
+Missing/expired/provisional/stale/disputed/pending/unmaintained session, unsupported mode or unavailable/unvalidated route
+Reachability unavailable with a specific reason.
+Eligible inputs and margin ≥ 0
+Estimated reachable; never a guarantee.
+Margin < 0, but departure + route duration < start
+Too tight: preparation/uncertainty margin is insufficient.
+Departure + route duration ≥ start
+Unlikely to reach the start. Started sessions excluded from upcoming results.
+Friday/Eid positive labels require a confirmed local date and the proposed final phone check within 48 hours. Proposed freshness windows remain ≤7 days recent, >7 to ≤14 needs confirmation, >14 stale. These thresholds are configuration with a recorded version, pending SRS decision validation.
+4.11 Public use cases
+Figure 17  Public discovery, conditional reachability and contribution goals
+Visitors browse without an account. Personalized reachability extends discovery only when an origin and eligible session are available. Applications and suggestions produce private receipts, not management authority. Detailed per-story use cases remain in Phase 1 SRS v1.2.
+4.12 Management use cases
+Figure 18  Scoped representative, Focal Person and Admin responsibilities
+All management goals require authenticated, current authority even where login is not repeated as a separate oval. A Focal Person verifies proposed timing changes by calling the registered Imam; the Imam does not need an account. Self-approval is prohibited. Admin appoints Focal Persons, and scoped Focal Persons manage representatives within their delegated authority.
+4.13 Venue registration activity
+Figure 19  From missing-mosque suggestion to verified participating venue
+Registration review verifies the venue profile; public activation also requires approval of its initial schedule. A draft venue may collect a proposed timetable before publication. Duplicate checks and registration review prevent suggestions from creating an automatically trusted mosque.
+4.14 Issue resolution activity
+Figure 20  Evidence-based dispute handling and independently verified correction
+A public report never directly replaces a timetable. The scoped reviewer determines whether the selected timing is disputed; a verified correction follows the standard proposal workflow. Clearing one resolved dispute does not clear other pending or disputed scopes.
+5 Database Design
+5.1.1 ER Diagram for identity and venues
+Figure 21  Identity and venue references in MongoDB
+These are logical ER diagrams over MongoDB collections, not relational tables or enforced SQL foreign keys. PK means _id; REF means a service-validated reference. Each relationship joins a child reference to its parent; endpoint labels give multiplicity (0..1 optional, 1 required, 0..* many). An Assignment targets exactly one area or one venue; area assignments support Focal Persons, venue assignments support representatives. Admin has platform scope without a fabricated area assignment.
+A city contains areas; each venue belongs to one area and one explicit city. The service checks city consistency. A prayer ground is a venue with type=PRAYER_GROUND, its own entrance and an optional parent mosque. PrivateContact keeps contact history; at most one contact is current for a venue. Changing the current contact requires independent verification.
+5.1.2 ER Diagram for schedules and review
+Figure 22  Schedule aggregate and review evidence
+A venue has at most one ScheduleHead. Every submitted ScheduleVersion belongs to it and is immutable. approvedWindows references approved versions with nonoverlapping effective intervals. A ReviewTask uses a typed target: venue registration revision, schedule version or notice version. The diagram shows the schedule case; targetType prevents interpreting an ID as a different collection.
+An unchanged rule copied into a new snapshot preserves its prior confirmation provenance; approving one changed prayer must not make every unchanged prayer newly phone-verified. Scope provenance references the originating confirmation and rule hash. Confirmations distinguish representative unchanged-checks from Imam phone checks and identity verification. They target an exact version and applicable scope; a later unchanged confirmation cannot clear pending changes, dispute or expiry. Public freshness is computed for the selected effective session, not from an unrelated mosque edit.
+5.1.3 ER Diagram for community workflows
+Figure 23  Community content and controlled onboarding
+A suggestion may eventually link to an existing or newly verified venue. Each application may link to at most one approved account; several historical applications may resolve to the same account without creating duplicates. An account may also originate through a management invitation. Duplicate applications are resolved without duplicating accounts. Notices and issue reports reference existing venues; reports may reference a logical session key without requiring a stored occurrence document.
+Supporting collections are AuthSession, AccessToken, OutboxEvent, Notification, AuditEvent and IdempotencyRecord. They reference Account or typed domain targets and are defined below. The following operational panel makes these support relationships explicit; their detailed fields and indexes appear in Section 5.2.5.
+5.1.4 ER Diagram for operational records
+Figure 24  Authentication, inbox delivery, audit and idempotency relationships
+AuthSession and AccessToken share the account relationship but remain separate collections with different lifecycle rules. Notification eventKey links to the durable outbox event, while recipientId links to Account. Audit actorId is optional for system actions. Idempotency actorKey can identify an authenticated account or a scoped public submission; it is not always an Account foreign key. Typed domain targets are validated by the application.
+5.2.1 Schema for identity and venues
+Notation: oid = ObjectId; str = bounded string; dt = UTC BSON Date; bool = Boolean; int = integer; enum = constrained string. All persisted collections have _id:oid and createdAt:dt unless noted. updatedAt applies only to mutable records. Required fields are listed; ? marks optional. No plaintext credentials or contact numbers in general-purpose logs.
+Collection
+Fields and types
+Constraints and access
+Account
+name:str; loginId:str; role:enum; active:bool; passwordHash?:str; authVersion:int; lastAuthorizedWriteAt?:dt; mfaSecretCipher?:str
+Unique normalized loginId. Roles ADMIN, FOCAL, REPRESENTATIVE. A password hash is required before account activation, absent while invited. Use a reviewed adaptive hash; no public role selection.
+Assignment
+accountId:oid; targetType:AREA|VENUE; targetId:oid; startsAt:dt; endsAt?:dt; active:bool; delegatedBy?:oid; revision:int; lastAuthorizedWriteAt?:dt
+Exactly one target. Single active primary representative per venue; one primary reviewer per area with explicit backups. Historical assignments retained.
+City / Area
+City: name:str; timezone:str. Area: name:str; cityId:oid; active:bool
+Asia/Karachi for launch. Stable IDs and explicit city membership. Boundary geometry optional; not needed for edit authority.
+Venue
+name:str; type:enum; cityId:oid; areaId:oid; entrance:GeoJSON Point; address:str; parentMosqueId?:oid; status:enum; revision:int; facilities:object
+Entrance [longitude, latitude]. Draft, Published, Suspended, MaintenancePending. Editable revisions require concurrency checks; name/address/entrance form the approved profile; pendingProfile?:object holds a proposed replacement. Review checks venue revision before copying it to public fields.
+PrivateContact
+venueId:oid; name:str; phoneCipher:str; phoneLookupHash:str; consentAt:dt; verificationState:enum; verifiedAt?:dt; current:bool; previousId?:oid
+Separate restricted collection. At most one current contact per venue. New number never verifies itself. Encryption key kept outside DB.
+Account invitation and recovery
+AuthSession stores accountId, hashed token, authVersion, expiresAt and revokedAt. AccessToken stores purpose (INVITE or RECOVERY), accountId, tokenHash, expiresAt and consumedAt. Check expiry and consumption in the request, not just TTL cleanup. Delivery through a verified channel must be selected before release; manual verified handoff is a pilot fallback, not a public reset shortcut. New invited accounts remain inactive until the invitation is validly consumed; any precreated assignment confers no usable authority while its account is inactive.
+5.2.2 Schema for schedules and decisions
+Collection
+Fields and types
+Constraints and access
+ScheduleHead
+venueId:oid; revision:int; approvedWindows:[{versionId:oid, from:dt, until?:dt}]; pendingId?:oid; affectedScopes:array; disputedScopes:array
+Unique venueId. Atomic compare-and-set on revision serializes edits/reviews. Windows do not overlap; pending scopes recomputed from complete proposal.
+ScheduleVersion
+headId:oid; version:int; baseRevision:int; submittedBy:oid; submittedAt:dt; effectiveFrom:dt; effectiveUntil?:dt; state:enum; snapshot:object; snapshotHash:str
+Unique (headId,version). Snapshot immutable after submission. State transitions via review service. Dated entries and exclusions described on next page.
+ReviewTask
+targetType:enum; targetId:oid; targetRevision:int; areaId:oid; submittedBy:oid; dueAt:dt; urgent:bool; status:enum; assignedReviewerId?:oid
+Unique target revision review task. Open/Resolved/Superseded. Read notification state is separate. A task may have call attempts before one terminal decision.
+ReviewDecision
+taskId:oid; reviewerId:oid; expectedRevision:int; outcome:enum; callOutcome:enum; contactId?:oid; checkedAt:dt; notePrivate:str; decidedAt:dt
+Append-only evidence. Approve requires correct scope, independent reviewer and required confirmation. Conflicting version returns 409; no partial decision.
+Confirmation
+versionId:oid; scope:object; ruleHash:str; sourceConfirmationId?:oid; type:REP_UNCHANGED|IMAM_PHONE|IDENTITY; actorId:oid; checkedAt:dt; contactId?:oid
+Append-only. Unchanged reconfirm checks no actual schedule edits. Only applicable confirmation affects selected-session freshness.
+Effective-time resolution
+Resolve an approvedWindow for the requested occurrence time, then apply dated session/exclusion precedence within that immutable snapshot. If an approved new plan begins later, the old plan remains effective until the boundary. Expired schedules have no valid fallback outside their defined windows. Reject overlapping or contradictory rules during submission and again before approval.
+5.2.3 Embedded schedule structures
+Structure
+Fields and validation
+RecurringRule
+ruleId:str; prayer:enum; weekdays:int[]; localTime:HH:mm; fromLocalDate:YYYY-MM-DD; untilLocalDate?:date; sermonTime?:HH:mm. Valid date range and one unambiguous effective rule per prayer/session.
+DatedSession
+sessionId:str; prayer:enum; localDate:date; localTime:HH:mm; venueId:oid; dateStatus:CONFIRMED|PROVISIONAL; canceled:bool; supersedesRuleId?:str; sermonTime?:HH:mm. Multiple Friday/Eid sessions retain distinct IDs.
+Exclusion
+localDate:date; ruleId or sessionId:str; reason:str. Cancellation explicitly suppresses matching recurring fallback. Deleting a dated row is not a cancellation.
+AffectedScope
+prayer:enum; fromLocalDate:date; untilLocalDate:date; ruleIds/sessionIds:str[]. Computed from approved-versus-proposed values. Full-venue suppression only for identity/maintenance problems.
+Logical session key
+venueId + localDate + stable ruleId/sessionId. scheduleRevision is a separate concurrency field; it does not create a new logical prayer simply because metadata changes.
+ResolvedSession value
+logicalKey, prayer, startAtUTC, localDate, venue/entrance, scheduleRevision, sourceVersionId, confirmation timestamps, timingStatus and reasonCodes. Derived on request; no persisted occurrence collection required for the pilot.
+Date, cancellation and Friday rules
+Convert the explicit local date and time in Asia/Karachi to UTC for comparisons. Reject ambiguous prayer/date combinations and past future-planning departures. Keep sermon time separate from Jama’at start. Eid date confirmation changes require a reviewed version. A canceled dated event stays excluded even if a recurring rule would otherwise match. Do not silently replace selected Asr with Maghrib.
+Submission simplification
+Keep one active schedule proposal per venue. A representative editing while a proposal is pending submits a new full snapshot against the current head revision. The service supersedes the old proposal, replaces its task and recalculates all pending differences. A reviewer holding the older version receives 409. Future parallel per-prayer proposals require a separate concurrency design.
+5.2.4 Schema for community content
+Collection
+Fields and types
+Constraints and access
+Notice
+venueId:oid; noticeKey:str; version:int; category:enum; title:str; body:str; eventAt?:dt; venueDetails:object; expiresAt:dt; state:enum; submittedBy:oid; sourceCheckPrivate:object
+Unique (noticeKey,version); partial unique noticeKey where currentApproved=true. Store currentApproved:bool and pendingMaterialChange:bool; switch these in the review transaction. One current approved version. ReligiousEvent, Service or DeathJanazah. Source-check contacts never public; every version reviewed.
+MosqueSuggestion
+name:str; areaId?:oid; cityId:oid; address or entrance; privateSubmitter?:object; trackingHash:str; state:enum; linkedVenueId?:oid; assignedAreaId?:oid; resolution?:str
+Anonymous submission allowed. Reference number alone cannot expose private status. Rate limits and duplicate checks; no automatic venue publication.
+ContributorApplication
+name:str; contactCipher:str; areaId:oid; requestedRole:FOCAL|REPRESENTATIVE; affiliation:str; availability:str; referenceCipher:object; consentAt:dt; checks:object; state:enum; accountId?:oid; trackingHash:str
+No automatic role/account. Admin review and explicit checks; applicant may withdraw. Do not collect identity documents by default.
+IssueReport
+venueId:oid; sessionKey?:str; category:enum; description:str; submitterPrivate?:object; state:enum; assignedAreaId:oid; duplicateOf?:oid; resolution?:object
+Open/InReview/Escalated/Resolved/Dismissed. Reports never directly overwrite timings. Rate-limit and consolidate duplicates.
+Public content lifecycle
+Do not cascade-delete a venue and erase its evidence. Suspend it and retain references under the adopted retention policy. Public serializers hide drafts, private source records and internal reasons containing personal information. Public notices require approved state, active dates, no pending material dispute and future expiry. Read-time filters enforce expiry independently of background deletion.
+Retention decision
+Set documented retention periods before launch for rejected applications, private reference contacts, reports, authentication records and audit history. The precise durations remain an owner/operations decision. Implement deletion/anonymization jobs only after that policy is approved; do not invent permanent retention as a default.
+5.2.5 Operational records and indexes
+Collection
+Fields and types
+Constraints and access
+OutboxEvent
+eventKey:str; type:enum; target:object; recipientIds:oid[]; status:enum; attempts:int; nextAttemptAt:dt; leaseUntil?:dt; processedAt?:dt
+Unique eventKey. Atomic lease claim; retry after crash. Failed jobs visible to Admin after a bounded configured retry policy.
+Notification
+eventKey:str; recipientId:oid; taskId?:oid; readAt?:dt; linkTarget:object
+Unique (eventKey,recipientId). Upsert before outbox acknowledgement; duplicate delivery produces one logical notification.
+AuditEvent
+actorId?:oid; action:str; targetType:str; targetId:oid; revision?:int; occurredAt:dt; requestId:str; redactedChange:object
+Append-only application permissions; no private phone, raw origin, tokens or secrets in change payload. Infrastructure admins are not assumed technically unable to alter storage.
+IdempotencyRecord
+actorKey:str; route:str; key:str; requestHash:str; responseSummary:object; expiresAt:dt
+Unique (actorKey,route,key). Same key + different body returns 409. Domain transaction and successful response reference persist together.
+Index / collection
+Purpose
+Venue entrance: 2dsphere; cityId/status; areaId/status
+Nearby spherical search and Whole City filtering [R4].
+ScheduleHead venueId UNIQUE; ScheduleVersion headId/version UNIQUE
+One aggregate and unique immutable versions.
+ReviewTask areaId/status/dueAt; Outbox status/nextAttemptAt
+Scoped queues and bounded job scans.
+Notification recipientId/readAt/createdAt; Notice venueId/state/expiresAt
+Dashboard and public notice queries.
+AuthSession / AccessToken / IdempotencyRecord expiresAt TTL
+Eventual cleanup only; requests enforce expiry explicitly [R5].
+5.3 Transactions and concurrency
+Command
+Atomic changes
+Submit schedule
+Compare ScheduleHead revision; supersede prior pending proposal/task; insert immutable version, new task, audit and outbox; advance head and affected scopes.
+Approve schedule
+Recheck assignment and exact submitted target; write evidence/decision; update approved windows and pending scope; increment revision; append audit/outbox.
+Approve registration
+Verify scoped actor, contact and registration revision; publish approved venue snapshot only with an approved initial schedule; append audit/outbox.
+Approve application
+Write reviewed decision; create or link disabled/invited account; create scoped invitation and proposed assignment; audit/outbox. Activate only after invitation acceptance.
+Reassign maintainer
+End current assignment, activate replacement, adjust maintenance status and review ownership, append audit/outbox.
+Deploy MongoDB with transaction support on a replica set. Keep transactions short and retry only documented transient conflicts; avoid external calls inside them [R2]. Conditional revision writes are the guard against concurrent approvals. If a duplicate submit is retried, idempotency returns the original logical result. A failed transaction leaves neither a published change nor a half-created review notification event. Protected writes also conditionally touch the current Account and Assignment revision guards inside the transaction; deactivation/reassignment writes the same guards. This prevents a concurrent revocation from being bypassed by a stale authorization read.
+Read consistency
+Only a scoped reviewer can confirm a report as a timing dispute and set ScheduleHead.disputedScopes; the report alone never changes public facts. Increment head revision on dispute, clearance or maintenance-status change. Read ScheduleHead and the referenced immutable version coherently. Immediately before returning positive reachability, confirm the head revision has not changed; if changed, resolve again once or return refreshing/unavailable. At future-window boundaries, resolve using current server time on every read. Polling within the SRS 60-second target refreshes active clients; foreground resume refreshes immediately.
+Provider and privacy boundary
+Do not persist precise anonymous origins by default. Route requests use POST bodies to avoid URL query logging, and request logging must redact coordinates. Provider disclosure and short-lived in-memory processing are documented to users. No route cache retaining personal origins is required for the pilot.
+6 API Design
+6.1 Shared contract rules
+Base path: /api/v1. JSON dates/times are ISO 8601 UTC except explicitly named localDate/localTime fields. Opaque IDs are strings on the wire. Return requestId and serverTime in every response. Success: {data, meta}; failure: {error:{code,message,fields?}, requestId}. Never expose internal stack traces or private evidence through public DTOs. Contracts below are proposed implementation interfaces, not running endpoints.
+Rule
+Contract
+Pagination
+Cursor plus limit (proposed default 20, maximum 50). Base session query has stable startAt/logicalKey ordering. Include nextCursor and coverage information.
+Concurrency
+Protected mutations require expectedRevision or If-Match. A stale target returns 409 VERSION_CONFLICT with a safe reload instruction.
+Idempotency
+Submission and decision POSTs require Idempotency-Key. Retry identical requests safely; key reuse with different content returns 409.
+Authentication
+Opaque secure cookie session for management routes; CSRF token and Origin checks for cookie-authenticated mutations. Public browsing needs no account.
+Validation
+400 malformed; 401 missing/expired auth; 403 scope denied; 404 absent or concealed object; 409 conflict; 422 domain validation; 429 rate limited; 503 dependency failure when no useful fallback exists.
+Routes
+Unsupported/timeout per-session results use reachableStatus=UNAVAILABLE in a successful batch response, not a fabricated travel estimate. Retry hints are bounded.
+Public forms
+202 receipt includes reference and high-entropy private status token. Tracking token is sent in POST body; public reference is not authorization.
+6.2 Public read and route endpoints
+Method and path
+Input
+Output
+GET /cities
+Optional name filter
+Participating cities and coverage state.
+POST /discovery/query
+scope; cityId; prayer/date; origin?; radiusKm?; cursor
+Published sessions, timing states, nextCursor, serverTime. Whole City ignores radius.
+POST /discovery/evaluate
+sessionKeys[] + revisions; origin; WALK/MOTORCYCLE; departure?; preparationSeconds
+Per-session route evidence, margin, status/reasons, evaluated subset order.
+GET /venues/{id}
+Public ID
+Public venue, entrance, facilities and current schedule summary; no private contact.
+GET /venues/{id}/notices
+cursor; limit
+Approved, unexpired, undisputed notice DTOs.
+6.3 Authentication and management APIs
+Method and path
+Authorized input
+Result
+POST /auth/login
+loginId, password, required Admin second factor
+Session cookie; account role and scoped navigation.
+POST /auth/logout
+Current session + CSRF
+Revoke session; 204.
+POST /auth/recovery/request
+loginId
+Generic 202 independent of account existence; verified-channel action.
+POST /auth/recovery/complete
+Single-use token, new password
+Consume token; revoke old sessions; 204.
+POST /invitations/accept
+Invitation token, chosen password
+Activate invited account and approved assignment; session according to policy.
+POST /management/accounts
+Admin: FOCAL; Focal: scoped REPRESENTATIVE
+201 invited account; no public escalation.
+POST /management/venues
+Identity, entrance, city/area, private Imam contact
+201 unpublished registration revision.
+PATCH /management/venues/{id}
+Scoped editor; expectedRevision; allowed identity/facility fields
+New identity revision for review, or permitted facility update; 409 if stale.
+POST /management/venues/{id}/schedules
+Full snapshot, effective dates, expectedRevision
+202 immutable submitted version + task.
+POST /management/schedules/{id}/reconfirm
+Exact approved version and unchanged scope
+201 representative confirmation; reject actual changes or stale target.
+POST /management/venues/{id}/contacts
+New contact and independent-reference evidence
+202 pending contact change; old verified contact retained until approved.
+POST /management/assignments/reassign
+Target, new account, dates, expectedRevision
+Atomic scoped assignment change and audit.
+PATCH venue identity never changes the public verified snapshot immediately. Facility updates cannot carry prayer-time fields. Contact approval uses a dedicated contact review outcome within the review service; the phone being proposed is not accepted as its own independent verification source. Public forms cannot call any management endpoint.
+Recovery decision still required
+Choose an independently verified delivery channel and operational fallback before launch. Do not assume email or SMS integration is already funded. A manual recovery check may issue an expiring token, but cannot bypass identity verification or Admin second-factor recovery controls.
+6.4 Review and community APIs
+Method and path
+Input / authorization
+Output
+GET /management/reviews
+Scoped reviewer; status/due filters
+Assigned tasks, exact revisions and allowed private contacts.
+POST /management/reviews/{id}/decisions
+Reviewer; expected revision, decision, call outcome, contactId, checkedAt, private notes
+201 decision; 409 if superseded; no self-approval.
+GET /management/notifications
+Current account; unread/cursor
+Own notifications and counts.
+PATCH /management/notifications/{id}
+Own notification; read=true
+Read timestamp only; never approval.
+POST /management/venues/{id}/notices
+Assigned representative; category, text, venue/time, expiry, source evidence
+202 pending notice revision and task.
+POST /management/notices/{id}/revisions
+Correction/cancellation; expectedRevision
+202 proposal; disputed event details suppressed pending review.
+POST /reports
+Venue/session, category, description
+202 categorized report receipt; bounded abuse controls.
+POST /mosque-suggestions
+Name, city/area, location; optional private contact
+202 reference and private tracking token.
+POST /contributor-applications
+Requested role, area, contact, affiliation, availability, reference and consent
+202 application; no account permissions.
+POST /requests/status
+Reference + private status token
+Limited own-request state; no internal notes.
+POST /management/applications/{id}/decisions
+Admin; checks, proposed role/scope and outcome
+Approved invitation, waitlist or rejection; auditable decision.
+PATCH /management/reports/{id}
+Scoped reviewer; status, reason and revision
+Recorded resolution/escalation; schedule unchanged.
+GET /management/dashboard
+Scoped management actor
+Aggregated coverage, overdue tasks, freshness and failures.
+Suggestion decisions use PATCH /management/mosque-suggestions/{id} with revision, state and optional linkedVenueId. Invitation and recovery secrets are one-time values returned/delivered only through protected workflows. Rate limits and form body limits apply to anonymous routes; abuse responses never reveal personal applicant information.
+6.5 Payload examples and invariants
+Illustrative route evaluation
+POST /api/v1/discovery/evaluate — fictional input and result, not a live service response.
+Request{ "sessionKeys": ["demo-venue:2026-10-04:asr"],  "revisions": [12], "origin": {"lat":31.50,"lng":74.30},  "mode":"MOTORCYCLE", "preparationSeconds":480 }Response data item{ "sessionKey":"demo-venue:2026-10-04:asr",  "scheduleRevision":12, "status":"UNAVAILABLE",  "reasonCodes":["ROUTE_NOT_VALIDATED"],  "marginSeconds":null, "route":null }meta: { "rankingScope":"EVALUATED_BATCH", "serverTime":"..." }
+Illustrative approval command
+POST /management/reviews/{taskId}/decisions with expectedRevision=12, decision=APPROVE, callOutcome=CONFIRMED, contactId, checkedAt and a private confirmation note. The service checks that the contact is currently verified, the target still matches revision 12 and the reviewer is independent. Client-supplied confirmed=true cannot bypass these checks.
+Invariant
+Response / action
+A new proposal exists after the call
+409; reload and verify the changed values before deciding.
+Same valid decision retried with same key
+Return original logical decision; do not double-publish.
+An unchanged confirmation includes altered times
+422; use the schedule submission workflow.
+Canceled Friday/Eid session matches a recurring rule
+Keep explicit exclusion; never reintroduce it as upcoming.
+Future departure is selected without predictive traffic
+Label forecast and source; no live-traffic accuracy claim.
+Public origin omitted
+Timetable browsing works; personal ETA unavailable.
+7 UI and UX Design
+7.1 Low-fidelity discovery wireframe
+Figure 25  Discovery wireframe with scope, mode and community actions
+7.2 Proposed visual design
+Figure 26  Detailed discovery concept using fictional data
+7.3 Focal Person review screen
+Figure 27  Exact-version review concept with private contact access
+7.3.1 Screen behavior and validation
+The default journey requires no account. Device-location refusal immediately exposes manual pin selection; an area name alone cannot imply a precise personal ETA. Nearby and Whole City are separate controls. The selected prayer/date stays visible. Cards show mosque-specific Jama’at, timing evidence and a route status using text as well as color. Missing mosque and contributor actions are available without confusing applicants with current staff.
+Small-screen design stacks the same controls in one column, with list results before an optional map. The initial page loads useful timetable content without waiting for a map or route batch. No subscription banner or payment screen is included.
+This is a static design concept, not a screenshot or completed interactive prototype. Apply the DiscoverSalah green brand accent sparingly while preserving black body text and accessible contrast. Validate at 360, 768 and 1280 CSS pixels and at 200% zoom. A keyboard user must reach location, filters, result details and forms in a sensible order.
+State
+Required interface behavior
+Loading routes
+Keep times visible; say calculating travel estimate.
+No matching sessions
+Explain selected prayer/date; offer change of filter without silently switching prayer.
+No participating mosque
+Explain coverage; offer suggestion and contributor application.
+Offline or stale content
+Show last update; disable live reachability claims.
+Partial Whole City routes
+State that ranking covers evaluated results; keep access to remaining matches.
+Show the changed scope, approved/proposed values, effective date and submission version before decision controls. Reveal private Imam contact only after scoped authorization. Approve is disabled until required confirmation fields are complete; the server still enforces every rule. An unanswered call records an attempt and leaves the submission pending. A conflict replaces the decision form with a reload instruction.
+Other screen contracts
+Representative: assigned venues, pending versions, corrections and unchanged reconfirmation. Admin: area staffing, contributor checks, backup delegation and operational failures. Applicant: minimal form and private receipt/status. Mosque detail: public timings, actual entrance, facilities, current approved notices and directions. Never expose the Imam number on the public page.
+7.4 Navigation Flow
+Figure 28  Public navigation and community contribution paths
+Management navigation begins at login, then shows only assigned work. Access restrictions apply to direct URLs and APIs, not only hidden menu items. Users returning from external navigation see a refreshed session state. Outbound directions carry the entrance and chosen mode only when the navigation service supports it; otherwise explain the mismatch instead of silently sending a car route.
+Language and usability review
+If English/Urdu support is accepted for release, use locale dictionaries and direction-aware layouts, preserve numeric dates/times and verify Urdu labels with a competent reader. The wireframes intentionally demonstrate structure in English and are not proof of Urdu usability. Run the SRS five-user task study before sign-off; record actual successes and issues.
+8 Sprint-wise Design Evolution
+No implementation sprint history was supplied. This is a proposed sequence of design checkpoints, not a retrospective of work completed. The original SRS eight-sprint forecast is not a commitment; new requests and expanded notice approval require re-estimation.
+Candidate sprint
+Design focus
+Review evidence required
+S1
+Identity, access model, routing feasibility and research
+Role matrix negative cases; supported mode evidence; recruitment findings.
+S2
+Venue registration, private contacts and initial review
+Exact-version registration walkthrough and duplicate handling.
+S3
+Schedules, effective dates and review transactions
+Conflict tests; dated cancellation and pending-scope examples.
+S4
+Discovery, origin, Whole City and urgent queues
+Stable pagination; partial coverage and no-origin prototype.
+S5
+Walking/motorcycle routes and deterministic ranking
+Adapter contract tests and local calibration plan.
+S6
+Friday/Eid, freshness and optional future forecasts
+Date confirmation, expiry and reconfirmation cases.
+S7
+Reports, reassignment, notices and community applications
+Privacy, reference checks and role-grant tests; split if capacity requires.
+S8
+Accessibility, restoration and field/launch evidence
+Actual journey results and recovery drill; unresolved gates block release.
+Change control
+Record an architecture decision whenever provider choice, schedule storage, authority, scope or deployment changes. Each entry names the problem, options, chosen approach, evidence, date and affected US/FR/AC IDs. Re-render diagrams and revise schema/API contracts together. Do not update one diagram while leaving incompatible endpoints in the specification.
+Recorded decisions in this document
+Proposed: modular monolith, transactional outbox, server sessions, one active schedule proposal per venue, on-demand session resolution and bounded route batches. Confirmed product direction: motorcycle mode, remote Imam verification, Whole City, free launch and future organizational funding. No proposal here substitutes for provider procurement or operating acceptance.
+9 Test Design
+All scenarios below are planned and Not executed. Unit tests cover pure rules; integration tests use transaction-capable MongoDB; API tests exercise actual authorization; UI tests cover the main roles. Provider stubs test failure handling but cannot establish real routing accuracy.
+Test / SRS link
+Scenario
+Expected result
+T01 / 01
+Public client injects ADMIN/FOCAL role
+Denied; no privileged account.
+T02 / 02
+Reuse consumed or expired recovery token
+Denied; generic response.
+T03 / 01–02
+Revoke account or remove assignment
+Next protected request denied.
+T04 / 03–04
+Unreachable Imam; duplicate registration
+Unpublished; duplicate reviewed.
+T05 / 05
+Dated cancellation overlaps recurring rule
+Canceled session never returns.
+T06 / 06
+Two decisions race on one head revision
+One valid commit; other conflict.
+T07 / 06
+Representative submits own approval
+Denied even with additional role.
+T08 / 06
+Asr changes while Maghrib unchanged
+Only affected scope loses positive label.
+T09 / 07
+Worker crashes after notification upsert
+Retry produces one notification.
+T10 / 08
+Backup tries outside delegated period
+Denied; task still pending.
+T11 / 09
+GPS denied; manual pin not confirmed
+Timetable available; no personal ETA.
+T12 / 10
+Same-city venue 20 km away
+Whole City includes; Nearby excludes.
+T13 / 11
+Wrong device clock; selected Asr absent
+Server time used; no prayer substitution.
+T14 / 12
+Unsupported motorcycle provider
+Unavailable; no relabeled car route.
+T15 / 13
+12:30 departure; 15m route; 8m prep; 5m uncertainty
+12:58 start → margin 0, reachable; 12:57 → too tight; 12:45 → unlikely.
+T16 / 13
+Head revision changes during routing
+Re-resolve or unavailable; never stale positive.
+T17 / 10–13
+Route sort changes between pages
+Stable base cursor; no skipped/duplicate matches.
+9 Test Design continued
+Test / SRS link
+Scenario
+Expected result
+T18 / 14
+Inspect public payload and directions
+Correct entrance; no private contacts.
+T19 / 15
+Provisional Eid date; canceled event
+No positive label; cancellation persists.
+T20 / 16
+Future forecast then leave now
+Explicit forecast; recalculation now.
+T21 / 17
+Unchanged check during pending/dispute
+Cannot clear pending/dispute; phone date unchanged.
+T22 / 18
+Anonymous report repeated many times
+Bounded abuse controls; no schedule overwrite.
+T23 / 19
+Replace Imam contact using new number only
+Cannot approve self-verification.
+T24 / 20
+Death notice lacks source confirmation
+Not public.
+T25 / 20
+Expire notice before cleanup; submit venue correction
+Read filter hides expired entry; changed detail under review.
+T26 / 21
+Area A requests Area B audit/dashboard
+Denied or correctly filtered.
+T27 / 22
+Keyboard, zoom, map failure and Urdu if in scope
+Usable list flow; readable state labels.
+T28 / 23
+Provider review lacks local evidence
+Decision stays open; no confident mode label.
+T29 / 24
+Restore backup and conduct real journeys
+Measured recovery and field evidence required.
+T30 / 25
+Submit unlisted mosque or duplicate
+Receipt; reviewer queue; no automatic publication.
+T31 / 26
+Apply as Focal Person then call management API
+Denied until reviewed invitation/activation.
+Non-functional verification
+Use the SRS proposed load profile: 1,000 venues, 5,000 sessions and 50 concurrent browsers for 15 minutes; non-route p95 target ≤2 seconds. Verify approved changes appear in active clients within 60 seconds, route timeout at 8 seconds, RPO ≤24 hours and RTO ≤4 hours. These are targets, not measured results. Observe at least the proposed 30 real journeys per mode across three areas, including Friday conditions; report every unsafe underestimate and sample limitations.
+10 Design Quality Attributes
+Attribute
+Mechanism
+Limit / evidence needed
+Integrity
+Immutable versions; exact-revision decisions; transactions; explicit cancellation.
+Race, retry and effective-time tests before release.
+Security
+Scoped per-request access; hashed credentials; secure sessions; Admin MFA; CSRF and rate limits.
+Threat review and negative direct-API tests; no claim of certification.
+Privacy
+Separate private contacts; allowlisted public DTOs; redacted logs; no default origin persistence.
+Retention and recovery delivery decisions still needed.
+Availability
+Durable outbox; retries; provider timeout; timetable fallback; monitored backups.
+SRS 99.5% target requires measurement, not diagram assurance.
+Performance
+Geospatial/status indexes; bounded pagination; small route batches; provider quotas.
+No claim of 10,000-user capacity until tested.
+Maintainability
+Domain modules, pure policy functions, schema validation and typed contracts.
+Version APIs and migration scripts; review coupled changes.
+Accessibility
+Keyboard flow, focus visibility, text labels, list fallback and responsive layout.
+Validate applicable WCAG 2.2 AA criteria [R7]; real-user review.
+Operational sustainability
+Manageable assignments, review hours, backup contact and funding-independent maintenance.
+Pause expansion when review/accuracy capacity is insufficient.
+Threat cases specific to DiscoverSalah
+A fake contributor appointment could control local timings; an attacker could change an Imam number then self-verify; a representative could approve their own submission; a guessed tracking reference could expose private applicant details; repeated route calls could consume budget. Enforce independent checks, per-record scope, secret status tokens and bounded route quotas. A public report must never become an automatic factual correction.
+11 Deployment Considerations
+Figure 29  Proposed pilot deployment with separate worker process
+Use a managed web host, a small Node API service, a worker process and a transaction-capable managed MongoDB replica set. Hosting vendor, service sizes, monthly budget and recovery-delivery channel are not selected. One repository and shared versioned build can deploy API and worker separately. Kubernetes, multi-region writes and microservices are unnecessary pilot commitments.
+11.1 Deployment and release controls
+Control
+Implementation requirement
+Environments
+Separate development, staging and production credentials/data; synthetic private contacts in tests.
+Release
+Short-lived branches, reviewed pull requests, protected main, CI tests and versioned releases; deploy staging before production.
+Rollback
+Retain previous image/config; compatible migrations; backup before destructive changes. An app rollback must not undo verified audit history.
+Secrets and monitoring
+Secret manager/environment injection; request IDs, redacted logs, queue lag, API error rates and restore evidence.
+Backups
+Daily encrypted backup as proposed; separately test restoration and access. Replica availability alone is not a backup.
+12 Future Enhancements
+Future work is deliberately outside the initial build unless explicitly accepted through a scope change. “Future” means not yet committed, not a feature that was attempted and abandoned.
+Possible later work
+Entry condition
+Islamic-organization funding and staff allowances
+Sustained useful coverage, measured maintenance costs and an actual funding agreement. No subscription required; no promise of secured funds.
+Automated external alerts
+Measured missed in-account tasks and a funded, verified delivery channel; preserve the same approval record.
+Native mobile applications
+Demonstrated repeat usage and need beyond the responsive website.
+Additional travel modes or providers
+Mode-specific coverage, licensing, cost and local validation.
+Structured Janazah reachability
+Explicitly approved scope; confirmed event date, actual venue/entrance and rapid verification capacity.
+Parallel per-prayer schedule proposals
+Measured contention sufficient to justify more complex conflict resolution.
+Route-based travel itinerary discovery
+Separate user requirement, routing design and cost review; current search is from a selected origin.
+Larger geographical coverage
+Maintainers, reviewers, reliable timings and tested capacity in each new area.
+Do not add a public social feed, comments, paid ranking, subscription checkout, donation collection or payroll merely to support this future list. Future funding must not affect mosque ordering, approval independence or free basic discovery.
+13 Revised Project Plan
+Known completion: proposal v4.0 and Phase 1 SRS v1.2 were prepared; this Phase 2 design document is prepared. No implementation, sprint velocity, recruited mosque count, field testing or deployment evidence has been supplied. The next phase follows the user’s template. The chart below is an editable Word Gantt-style planning table, satisfying the Office-based chart requirement without inventing calendar commitments.
+Workstream
+S1
+S2
+S3
+S4
+S5
+S6
+S7
+S8
+Access and feasibility
+D
+B
+V
+Verified onboarding
+D
+B
+V
+Schedules and review
+D
+B
+V
+Discovery and queues
+D
+B
+V
+Modes and ranking
+D
+D
+B
+V
+Events and freshness
+D
+B
+V
+Community workflows
+D
+B
+V
+Quality and field evidence
+D
+V
+V
+V
+V
+V
+V
+G
+D = design / feasibility; B = build; V = validation and feedback; G = release evidence gate. These letters show proposed work, not completed status.
+Each S column is a candidate two-week sprint bucket from Phase 1. Overlapping work is conditional on team capacity; the order of prerequisites still applies. Field journeys and recruitment should begin as early as prerequisites permit; S8 is the final evidence gate, not the first time testing occurs. US-25–26 and expanded notice controls require fresh sizing and may extend the plan. Calendar dates depend on actual team capacity and dependencies.
+Dependencies: authority and verified venue identity precede publication; approved session resolution precedes trustworthy route labels; source verification precedes public notices. Field calibration starts when a usable mode adapter exists. Every build increment includes its own validation; the final gate does not defer testing until S8.
+Milestones and readiness
+Milestone
+Exit evidence
+M1 Design baseline
+Review role matrix, provider feasibility, operating decisions and contracts.
+M2 Maintained discovery
+Working approved timings, safe pending states and functioning nearby/Whole City queries.
+M3 Trustworthy journey support
+Validated walking/motorcycle estimates and deterministic status tests.
+M4 Community operations
+Checked contributor invitations, moderated notices, reports and backups.
+M5 Pilot launch
+Actual field, restore, privacy and maintenance evidence; owner release decision.
+14 References
+Internal requirements establish scope. External primary sources support specific design choices only; they do not establish local provider coverage or completed validation. Online references consulted 4 October 2026. Library versions used: Phase 1 SRS v1.2 and the supplied Phase 2 template.
+R1 DiscoverSalah project documents
+Phase 1 Software Requirements Specification v1.2, 4 October 2026; Project Proposal v4.0; Phase 2 Document Template supplied by the Product Owner. Internal sources.
+R2 MongoDB Documentation
+Production Considerations for Transactions. Living documentation. https://www.mongodb.com/docs/manual/core/transactions-production-consideration/
+R3 OWASP Cheat Sheet Series
+Authorization Cheat Sheet. Living documentation. https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html
+R4 MongoDB Documentation
+2dsphere Indexes. Living documentation. https://www.mongodb.com/docs/manual/core/indexes/index-types/geospatial/2dsphere/
+R5 MongoDB Documentation
+TTL Indexes. Living documentation. https://www.mongodb.com/docs/manual/core/index-ttl/
+R6 Google for Developers
+Get a two-wheeled vehicle route, Routes API. Living documentation. https://developers.google.com/maps/documentation/routes/route_two_wheel
+R7 World Wide Web Consortium
+Web Content Accessibility Guidelines 2.2, Recommendation, 12 December 2024. https://www.w3.org/TR/WCAG22/
+Source limitations
+A provider’s general two-wheel feature does not prove suitability for the pilot city. Verify current coverage, permitted use, costs and warning requirements before implementation. Numeric service targets, freshness windows and buffers originate in the SRS as proposed values; no source here makes them measured or universally correct.
+Appendix A Glossary
+Term
+Meaning in this design
+Jama’at / Iqamah
+Mosque-specific congregation start used by discovery.
+Focal Person
+Assigned area reviewer who calls the registered Imam and decides submissions.
+Local Representative
+Scoped mosque maintainer; cannot approve their own submission.
+Modular monolith
+One application codebase with explicit module boundaries, deployed as API and worker processes.
+ScheduleHead
+Mutable per-venue revision and approved-window references used to serialize changes.
+ScheduleVersion
+Immutable submitted schedule snapshot with reviewed state.
+Affected scope
+Specific prayers/dates/sessions whose pending change invalidates positive timing recommendations.
+Logical session key
+Stable identity for one venue/date/rule occurrence; separate from changing schedule revision.
+Outbox
+Domain event written in the same transaction as the business change for reliable later delivery.
+Idempotency
+Repeating the same request key and body returns one logical effect.
+Optimistic concurrency
+Conditional write that succeeds only when the expected current revision still matches.
+DTO / serializer
+Explicit public or private response shape; public data is allowlisted.
+TTL
+Expiry-based background cleanup; not an authorization or public visibility check.
+GeoJSON / 2dsphere
+Point format and spherical geospatial index used for entrance search.
+Forecast
+Future journey estimate, explicitly qualified; no implied live traffic.
+RPO / RTO
+Target recoverable data-loss window / restoration time.
+IV and V
+Independent verification and validation by a reviewer who did not author the work.
+Proposed design
+Specified implementation approach awaiting review and empirical evidence; not proof of a running system.
+Appendix B IV and V Report
+Independent verification and validation has not been performed. No independent resource, signature, measured fix time or execution evidence was provided. This appendix records author design-review findings separately from the future independent review required by the template.
+Resource field
+Status
+Independent reviewer
+Not yet appointed; must be independent of the reviewed work.
+Date and signature
+Not performed / not signed.
+Inputs
+SRS v1.2, this SDS, proposal and implementation evidence when available.
+Method
+Trace every story; inspect UML/ER/API consistency; simulate failure cases; verify implementation and real journeys later.
+ID
+Non-trivial issue
+Design response
+Fix time
+DR-01
+Approval could publish a superseded version.
+Head revision comparison and immutable target; 409 on conflict.
+Not measured
+DR-02
+Canceled dated session could fall back to recurring.
+Explicit exclusion precedence in embedded snapshot.
+Not measured
+DR-03
+Notification retry could duplicate a review effect.
+Outbox plus recipient deduplication; decision separately idempotent.
+Not measured
+DR-04
+Route result could outlive a timing update.
+Recheck head revision before positive labeling.
+Not measured
+DR-05
+Applicant could gain role by submitting a form.
+Admin-reviewed invitation; no direct public role activation.
+Not measured
+DR-06
+Academic template could imply completed sprints or signed review.
+Proposed schedule and unperformed IV&V explicitly labeled.
+Not measured
+Disposition for DR-01–06: addressed in the proposed design; implementation verification remains pending. Independent reviewer logs actual severity, origin, owner, evidence, correction and retest result. Close a finding only after independent confirmation; document production tests separately from author diagram checks.
+Appendix C Review record and open decisions
+Project review record
+The template’s university attendance sheet is not used to invent an academic team or advisor. For this real-world project, keep date, participants, agenda, decision, owner and next action for each actual review. No meeting attendance has been supplied. The recorded owner direction is free initial launch, future Islamic-organization funding after useful coverage, and maintenance from day one.
+Decision
+Required before
+Pilot city/areas, staffing, review hours and backup contact
+Mosque onboarding and rollout.
+Routing provider, supported modes, budget and local calibration
+Positive reachability release.
+Phone-publication policy, freshness/event thresholds and uncertainty
+Baseline implementation of trust rules.
+English/Urdu, future planning and automated reminders scope
+Release backlog commitment.
+Session lifetime, token expiry, retention and verified recovery channel
+Security and privacy release review.
+Hosting sizing, monitoring ownership and restore procedures
+Production deployment.
+US-25–26 and expanded US-20 estimates; actual team capacity
+Revised sprint/calendar commitments.
+Design review checklist
+Confirm actor authority, one-active-proposal behavior, exact-version review, effective-time windows, session-specific pending suppression, canceled-event exclusions, route-unavailable behavior, partial ranking labels, private contact boundaries and future funding separation. Verify every diagram label against the corresponding schema and API. Sign-off must identify the accepted document version and any deviations.
+Next phase boundary
+This document supplies the Phase 2 design requested by the template. The next user-provided documentation template determines the next deliverable. It does not authorize deployment or imply that open operating decisions, independent review or implementation tests are complete.
+DISCOVERSALAH | PHASE 2 | SDS 1.1
+Design specification       Page 1

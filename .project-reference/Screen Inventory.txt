@@ -1,0 +1,472 @@
+Screen Inventory “DiscoverSalah”
+For DiscoverSalah, I recommend one responsive website with four experiences: Public Discovery, Local Representative, Focal Person, and System Admin. Shared screens should adapt to the person’s permissions.
+Below is a comprehensive screen inventory for the documented product. A page, tab, form, and dialog are different design deliverables—not every item needs a separate URL. Items marked Conditional require a scope decision; Recommended items are supporting UX additions.
+1. Public discovery and mosque information
+Public users should immediately access useful information without creating an account.
+ID
+Screen/page name
+Description and essential behavior
+Format
+P01
+Home / Find a Jama’at
+Main entry point with “Use my location,” manual location, prayer/date selection, Walking or Motorcycle, and Nearby or Whole City. Show useful discovery controls before promotional content.
+Page
+P02
+Choose Location
+Select city/area, search for a place, or confirm a starting-point pin. Explain location use before requesting permission. Browsing remains possible without a precise origin.
+Sheet / page
+P03
+Search Results
+Mosque/session cards showing Jama’at time, date, area, timing status, travel estimate, and arrival margin when available. Preserve selected filters and provide pagination.
+Page
+P04
+Map Results
+Alternative view of the same results, with selected-venue cards and clustered markers where needed. A map failure must leave the list usable.
+Results view
+P05
+Search Filters and Sorting
+Prayer, date, neighborhood, scope, travel mode, and applicable sorting. Explain when journey ranking covers only the evaluated results.
+Sheet / panel
+P06
+Whole City Discovery
+Searches participating venues throughout the selected city without the Nearby distance cap. Clearly identifies partial coverage and allows distant Friday/Eid venues to appear.
+Search mode
+P07
+Friday Prayer Finder
+Focused discovery for Jumu’ah with multiple sessions, separate Khutbah/Jama’at times, date, and confirmation status. Reuses the results layout.
+Filtered results
+P08
+Eid Prayer Finder
+Dated Eid sessions, including associated prayer grounds. Clearly distinguishes provisional dates, confirmed sessions, venue changes, and cancellations.
+Filtered results
+P09
+Mosque / Venue Details
+Shareable public page containing name, address, entrance, schedules, verified facilities, maintenance status, notices, and issue-reporting action. Private Imam numbers remain hidden.
+Page
+P10
+Full Timetable
+Daily timings, upcoming effective changes, dated exceptions, Friday sessions, and Eid sessions. Clearly distinguishes Jama’at from prayer-beginning or sermon times.
+Detail tab
+P11
+Session Details and Arrival Estimate
+Explains one congregation: exact date/time, timing evidence, travel duration, preparation allowance, uncertainty, and estimated arrival margin. Provides a directions action.
+Page / detail sheet
+P12
+Travel and Preparation Settings
+Switch Walking/Motorcycle and increase preparation time. Explain that motorcycle means a motorbike, and estimates are not arrival guarantees.
+Sheet
+P13
+Directions Handoff
+Opens an external navigation service using the correct entrance. Warns if the chosen navigation service cannot preserve the selected mode. Refresh information when the user returns.
+Action / dialog
+P14
+Future Departure Planner — Conditional
+Select a future departure for a dated session. Label estimates as forecasts and explain when predictive traffic is unavailable.
+Planning panel
+P15
+Timing Status Explained
+Explains identity verification, representative reconfirmation, phone verification, stale information, pending changes, and disputes in plain language.
+Help sheet
+P16
+Participating Areas and Coverage
+Shows supported cities/areas and explains that “Whole City” covers participating venues. Provides missing-mosque and contributor actions.
+Page
+Design recommendation: Nearby, Whole City, Friday, and Eid should share one discovery system. They need distinct states and entry points, but four independently built search products would create unnecessary complexity.
+2. Community notices and public requests
+ID
+Screen/page name
+Description and essential behavior
+Format
+C01
+Mosque Notice Board
+Approved, active notices for a mosque: religious events, mosque services, and verified death/Janazah announcements. Keep it attached to mosque details initially.
+Detail tab
+C02
+Announcement Details
+Public title, relevant details, actual venue, event date/time, and status. Show only permitted personal information. Janazah notices do not automatically receive reachability estimates.
+Page
+C03
+Report Incorrect Information
+Report a timing, location, duplicate listing, or other problem. Prefill the mosque/session being reported and explain that submission starts a review.
+Form
+C04
+Suggest a Missing Mosque
+Collect mosque name, city/area, address or pin, and optional private contact. Present possible existing matches before submission.
+Form page
+C05
+Become a Community Contributor
+Explain Local Representative and Focal Person duties, time commitment, approval process, and the initial voluntary operating model.
+Page
+C06
+Contributor Application
+Collect requested role, area, mosque affiliation, availability, private contact, reference, and permission to contact. An application grants no management access.
+Form page
+C07
+Submission Receipt
+Confirm successful submission and show a reference plus a secure status-access method. Do not imply that a mosque has been published or a role approved.
+Shared confirmation
+C08
+Track My Request
+Shows permitted status information for the visitor’s own request using secure access. Internal verification notes and other applicants’ information remain hidden.
+Page
+C09
+Application Decision / Withdrawal
+Explains approval with next steps, waiting-list status, or rejection. Allows an applicant to withdraw where applicable.
+Tracking view / dialog
+Important distinction: “Suggest a mosque” and “Apply to help maintain an area” should remain separate actions. Someone reporting a missing mosque should not have to volunteer.
+3. Management access and shared account screens
+These screens serve all three management roles with permission-aware variations.
+ID
+Screen/page name
+Description and essential behavior
+Format
+A01
+Management Sign In
+One sign-in page that routes authorized users to their assigned workspace. Keep public discovery accessible.
+Page
+A02
+Accept Invitation / Activate Account
+Validate the invitation, show the approved role/scope, and let the recipient establish credentials. Handle expired, revoked, and already-used invitations.
+Page
+A03
+Admin Second-Factor Verification
+Additional authentication step for administrators. Include an independently verified recovery route.
+Page
+A04
+Request Account Recovery
+Start recovery without revealing whether a particular account exists. The actual delivery channel remains an implementation decision.
+Page
+A05
+Reset Password / Recovery Completion
+Validate a single-use recovery token, set credentials, and confirm session revocation according to policy.
+Page
+A06
+My Account and Security
+View personal details, assigned role/scope, and change password. Users cannot promote themselves or change their own assignment.
+Page
+A07
+Notifications
+In-account submissions, decisions, urgent work, and assignment changes. Each notification links to the relevant item; marking it read does not resolve its task.
+Page / panel
+A08
+Access Unavailable
+Explain deactivation, removed assignment, missing permission, or pending activation without exposing restricted records.
+System page
+A09
+Session Expired
+Request sign-in again and restore the intended destination where safe. Avoid storing sensitive drafts insecurely.
+Dialog / page
+4. Local Representative workspace
+The Representative’s main job is to maintain assigned records accurately and respond to review feedback.
+ID
+Screen/page name
+Description and essential behavior
+Format
+R01
+Representative Dashboard
+Prioritize records needing confirmation, returned submissions, pending reviews, upcoming events, and unresolved assigned issues.
+Page
+R02
+My Mosques and Venues
+List assigned mosques/prayer grounds with publication, timetable, and maintenance status.
+Page
+R03
+Mosque Management Overview
+Workspace for one mosque with profile, schedules, contacts, notices, submissions, and history.
+Page
+R04
+Register Mosque / Associated Venue
+Guided registration covering identity, location/entrance, area, Imam contact permission, facilities, and initial timetable. Flag possible duplicates.
+Multi-step form
+R05
+Edit Mosque Information and Facilities
+Maintain allowed public fields. Identity changes follow review rules; unknown facilities remain explicitly unknown.
+Form / tab
+R06
+Private Imam Contact / Request Contact Change
+View authorized contact details and propose a replacement with supporting independent reference information. The new number cannot verify itself.
+Restricted tab / form
+R07
+Daily Timetable Editor
+Enter mosque-specific congregation times and effective dates. Clearly separate currently approved values from proposed changes.
+Form page
+R08
+Dated Overrides and Exceptions
+Enter a date-specific timing change or cancellation, showing precisely which prayer/date it affects.
+Schedule tab
+R09
+Friday and Eid Session Manager
+Manage multiple sessions, separate sermon times, provisional/confirmed dates, associated venues, and cancellations.
+Schedule tab
+R10
+Review and Submit Changes
+Show an old/new comparison, affected sessions, effective date, and reason before submission. Explain what remains public while review is pending.
+Review step
+R11
+My Submissions
+Filter by pending, approved, returned, rejected, and superseded. Distinguish an approved future schedule from one already effective.
+Page
+R12
+Submission Details / Correct and Resubmit
+View the exact submitted version and reviewer feedback. A correction creates a new version and invalidates the old review target.
+Page
+R13
+Confirm Timings Unchanged
+Confirm specified approved timings without editing them. Clearly state that this records representative confirmation, not a new Imam phone verification.
+Dialog / form
+R14
+Manage Mosque Notices
+List drafts, pending, published, expired, and canceled notices for assigned mosques.
+Tab / page
+R15
+Create / Revise / Cancel Notice
+Capture category, public content, venue/time, expiry, and private source evidence. Material revisions return for approval.
+Form
+R16
+Assigned Issues and Follow-up
+View relevant reports and provide factual corrections through the proper workflow. Representatives do not acquire independent approval authority.
+Page
+R17
+Mosque Activity History
+Read-only history of submissions, confirmations, decisions, and assignments, limited to authorized records.
+Tab
+5. Focal Person workspace
+This workspace should be task-oriented: what needs verification, how urgent it is, and what evidence is missing.
+ID
+Screen/page name
+Description and essential behavior
+Format
+F01
+Focal Person Dashboard
+Urgent reviews, overdue tasks, stale schedules, reports, and maintenance gaps within assigned areas.
+Page
+F02
+Review Queue
+Combined queue for registrations, timetable changes, identity/contact changes, and notices. Filter by type, urgency, mosque, and due status.
+Page
+F03
+Mosque Registration Review
+Verify identity, entrance, representative relationship, Imam contact, and initial schedule. Publication requires the complete required approvals.
+Review page
+F04
+Timing Change Review
+Side-by-side old/new timings, affected dates, representative details, exact version, and registered Imam contact. Record phone verification before approving.
+Review page
+F05
+Record Verification Call
+Record who was contacted, when, which version was checked, outcome, and private notes. Unreachable or inconclusive results remain unresolved.
+Embedded form
+F06
+Return / Reject Submission
+Require actionable reasons and explain the effect on publication. Show confirmation before applying the decision.
+Dialog
+F07
+Contact / Identity Change Review
+Check sensitive mosque identity or contact changes using an established contact or independently verified authority.
+Review variant
+F08
+Announcement Review
+Review content, venue/time, expiry, privacy, and source evidence. Sensitive death/Janazah notices need the specified confirmation.
+Review variant
+F09
+Area Mosques and Data Quality
+Identify unmaintained venues, stale schedules, expiring confirmations, and upcoming events requiring checks.
+Page
+F10
+Local Representatives
+View scoped representatives, assigned mosques, activation status, and outstanding maintenance work.
+Page
+F11
+Invite / Assign Representative
+Create an authorized invitation and assign responsibility within the Focal Person’s permitted scope. Show reassignment consequences.
+Form
+F12
+Public Reports Queue
+Group duplicates and prioritize timing/location issues. Keep public allegations separate from verified findings.
+Page
+F13
+Report Investigation and Resolution
+Record investigation, mark a specific schedule scope disputed when justified, resolve/dismiss with reasons, or escalate. Corrections still use approved workflows.
+Page
+F14
+Missing-Mosque Suggestions
+Assess suggestions, link existing listings, start onboarding, or close with a reason.
+Page / queue tab
+F15
+Urgent Work and Escalation
+Handle time-sensitive updates, record escalation, and show authorized backup ownership. No response never means approval.
+Queue view
+F16
+Area Review History
+Read-only record of decisions, call outcomes, and changes within assigned scope.
+Page / tab
+Critical UX rule: The “Approve” action should be unavailable when the reviewed version has changed, the person lacks current authority, or the reviewer authored the submission.
+6. System Admin workspace
+ID
+Screen/page name
+Description and essential behavior
+Format
+S01
+Service Overview Dashboard
+Coverage, maintained mosques, pending/overdue reviews, unresolved issues, and notification failures. Emphasize operational health.
+Page
+S02
+Cities and Areas
+Manage participating geography and city membership used by Whole City discovery. Show responsibility gaps before expanding coverage.
+Page
+S03
+Focal Persons
+Invite, view, suspend, and manage Focal Person accounts and area assignments.
+Page
+S04
+Focal Person Details and Assignment
+Review workload, active scope, coverage, and assignment history; make authorized changes.
+Page
+S05
+Management Accounts
+Search accounts, inspect current authority, deactivate access, and manage invitations.
+Page
+S06
+Contributor Applications
+Queue of submitted, awaiting-checks, waitlisted, approved, rejected, or withdrawn applications.
+Page
+S07
+Application Assessment
+Record contact/reference checks, availability, suitability, requested role, proposed scope, and decision. Approval leads to an invitation, not instant access.
+Page
+S08
+All Mosques and Venues
+Cross-area oversight of published, pending, suspended, and maintenance-pending venues. Reuse the mosque workspace.
+Page
+S09
+Reassignment and Backup Coverage
+Replace maintainers, appoint authorized temporary cover, and transfer outstanding responsibilities. Preserve history and remove former access.
+Form / page
+S10
+Escalated Reviews and Reports
+Handle unattended work and exceptions through the same evidence and independence rules as normal review.
+Queue
+S11
+Duplicate Listing Assessment
+Compare suspected duplicates, designate the appropriate listing, and resolve linked suggestions/reports. Avoid destructive automatic merging.
+Review view
+S12
+Maintenance and Coverage Reports
+Examine freshness, correction delays, workload, and areas lacking active maintainers. Support rollout decisions.
+Page
+S13
+Audit History
+Filter accountable changes by actor, record, action, version, and date. Routine users cannot edit audit entries.
+Page
+S14
+Notification Delivery Failures
+Inspect failed delivery work and support controlled retry/escalation. Approval state remains separate from notification delivery.
+Operations view
+S15
+Operational Policy Settings — Recommended
+If settings need a UI, restrict changes to approved thresholds, review targets, and related operating policies; audit changes. A dedicated page can wait if managed configuration is sufficient.
+Optional page
+Practical boundary: Hosting, backups, deployments, and technical monitoring need operational procedures, but they do not all need custom DiscoverSalah admin pages. Existing infrastructure tools can handle those duties.
+7. Supporting information pages
+These are recommended supporting pages; several can share a simple content template.
+Screen/page name
+Description
+About DiscoverSalah
+Purpose, participating coverage, community maintenance model, and free initial service.
+How DiscoverSalah Works
+Explain discovery, timing verification, travel estimates, and the responsibility of each role.
+Help / FAQs
+Explain Whole City, missing results, timing labels, motorcycle support, location permission, and reporting errors.
+Contact and Support
+Provide the actual supported contact route and realistic response expectations. Do not imply live support without staffing.
+Privacy and Location Use
+Explain private contact handling, origin processing, external provider disclosure, and approved retention practices.
+Terms of Use
+Set appropriate service-use expectations and explain that arrival estimates are not guarantees.
+Contributor Guidelines
+Duties, permitted actions, verification standards, privacy, and escalation procedures.
+Accessible Use / Accessibility Help
+Explain supported ways to use the service and how to report accessibility problems.
+Legal/policy wording should be finalized separately; these are page requirements, not completed policies.
+8. Essential states and dialogs
+These must appear in the design files and testing plan. Most are states within existing screens.
+State or dialog
+Required experience
+Location permission denied
+Offer manual location/pin selection immediately.
+Origin not selected
+Allow timetable browsing; explain why personal travel estimates are absent.
+No participating mosques
+Explain the coverage gap and offer suggestion/contributor actions.
+No matching upcoming sessions
+Retain selected prayer/date; offer explicit filter changes without silently switching prayer.
+Travel estimates loading
+Keep timetable results visible while estimates load.
+Route unsupported or unavailable
+Show timings and a reason; withhold a positive reachability label.
+Map unavailable
+Preserve list results and address information.
+Partial route evaluation
+Identify which results have been evaluated; avoid claiming a global shortest-journey ranking.
+Offline / connection lost
+Identify potentially stale content and stop live reachability claims.
+Timing under review / stale / disputed
+Explain the specific affected session and why confidence is reduced.
+Provisional Eid date
+Keep planning information visible with a clear provisional label.
+Session started or canceled
+Remove it from upcoming recommendations and explain its status on a directly opened detail page.
+Maintenance pending
+Retain useful location information while clearly limiting timing confidence.
+Version conflict
+Explain that someone submitted a newer version; require reload and renewed review.
+Imam unreachable
+Record the attempt, retain pending status, and provide follow-up/escalation.
+Possible duplicate
+Show potential matches before creating another record.
+Validation error
+Give field-specific instructions while retaining safe entered information.
+Unsaved changes
+Confirm before leaving an edited form.
+Submission outcome uncertain
+Check the result before retrying; avoid duplicate proposals or decisions.
+Rate limit reached
+Explain when to retry without losing the user’s safe form inputs.
+Expired invitation / tracking access invalid
+Provide a safe recovery path without revealing private information.
+Access revoked during work
+Stop protected actions and explain that permissions changed.
+404 / temporary service error
+Provide a useful return path and retry option.
+9. Features that should not become initial-release pages
+Keep the following outside the initial design backlog:
+Potential feature
+Treatment
+Subscription plans, checkout, wallet, payroll
+Outside the agreed initial scope.
+Donation collection or funding-organization portal
+Future funding is an organizational activity; a transactional portal is not currently justified.
+Imam dashboard
+No Imam login is required; verification happens through calls.
+Public account dashboard
+Anonymous discovery and secure request tracking meet the current requirements.
+Social feed, comments, ratings, public posting
+Outside the limited, verified notice-board model.
+In-app chat or automated phone calling
+Not part of the documented verification workflow.
+Native mobile onboarding/screens
+Design the responsive website first.
+Full-trip “mosques along my route” planner
+Separate future feature; current discovery starts from a selected origin.
+Janazah reachability calculator
+Requires separately approved structured-session rules.
+Automated WhatsApp/SMS alerts
+Deferred pending a funded, verified delivery channel.
+Language selection and Urdu layouts should be designed as conditional variants across the whole interface, not as a separate collection of pages.
+Recommended design order
+Public discovery → mosque details → session estimate → directions.
+Representative timetable update → Focal Person verification → public timing refresh.
+Mosque registration → approval → publication.
+Reports, missing-mosque suggestions, and contributor applications.
+Notices, account administration, reassignment, and operational oversight.
+Start by prototyping those first two journeys end to end. They will expose the most important usability risks: whether a traveler can find trustworthy information quickly, and whether mosque staff can keep that information accurate.
