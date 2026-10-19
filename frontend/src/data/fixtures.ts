@@ -1,0 +1,195 @@
+import { Database, Venue } from '../types/index';
+import { today } from '../utils/date';
+
+export const baseTimes = {
+  Fajr: '05:20',
+  Dhuhr: '13:30',
+  Asr: '16:15',
+  Maghrib: '17:40',
+  Isha: '19:15',
+};
+
+export function seed(): Database {
+  const d = today();
+  const venues: Venue[] = [
+    {
+      id: 'al-falah',
+      name: 'Jamia Masjid Al-Falah',
+      urdu: 'جامع مسجد الفلاح',
+      area: 'Gulberg III',
+      address: 'Main Boulevard, Gulberg III, Lahore',
+      distance: 0.6,
+      lat: 31.5103,
+      lng: 74.3441,
+      status: 'Published',
+      image: 0,
+    },
+    {
+      id: 'quba',
+      name: 'Masjid Quba & Islamic Center',
+      urdu: 'مسجد قبا',
+      area: 'Gulberg III',
+      address: 'Block C, Gulberg III, Lahore',
+      distance: 1.2,
+      lat: 31.514,
+      lng: 74.351,
+      status: 'Published',
+      image: 1,
+    },
+    {
+      id: 'noor',
+      name: 'Masjid Noor-e-Madina',
+      urdu: 'مسجد نور مدینہ',
+      area: 'Canal Park',
+      address: 'Canal Park, Lahore',
+      distance: 2.4,
+      lat: 31.523,
+      lng: 74.337,
+      status: 'Maintenance pending',
+      image: 2,
+    },
+    {
+      id: 'bait',
+      name: 'Bait-ul-Mukarram Central Mosque',
+      urdu: 'بیت المکرم جامع مسجد',
+      area: 'Model Town',
+      address: 'Block A, Model Town, Lahore',
+      distance: 12,
+      lat: 31.485,
+      lng: 74.324,
+      status: 'Published',
+      image: 0,
+    },
+  ].map((v, i) => ({
+    ...v,
+    times: { ...baseTimes, Asr: i === 1 ? '16:30' : '16:15' },
+    special: [
+      {
+        id: 'friday-1',
+        prayer: 'Jumu’ah',
+        date: d,
+        time: '13:30',
+        khutbah: '13:10',
+        provisional: false,
+        canceled: false,
+      },
+      {
+        id: 'friday-2',
+        prayer: 'Jumu’ah',
+        date: d,
+        time: '14:15',
+        khutbah: '13:55',
+        provisional: false,
+        canceled: false,
+      },
+    ],
+    rep: i === 2 ? '' : 'rep-1',
+    focal: 'focal-1',
+    revision: 1,
+    reconfirmed: d,
+    phoneVerified: d,
+    facilities: {
+      'Wudu area': 'Available',
+      'Women’s space': i === 0 ? 'Available' : 'Unknown',
+      'Wheelchair access': i === 0 ? 'Available' : 'Unknown',
+      Parking: 'Available',
+    },
+  }));
+  return {
+    venues,
+    proposals: [
+      {
+        id: 'DS-1001',
+        venueId: 'al-falah',
+        version: 2,
+        baseRevision: 1,
+        author: 'rep-1',
+        state: 'Submitted',
+        times: { ...baseTimes, Asr: '16:30' },
+        before: { ...baseTimes },
+        special: venues[0].special,
+        effective: d,
+        reason: 'Seasonal timetable adjustment confirmed for review.',
+        created: new Date().toISOString(),
+      },
+    ],
+    requests: [
+      {
+        id: 'REQ-1001',
+        token: 'demo-request',
+        kind: 'report',
+        title: 'Entrance location needs checking',
+        status: 'Open',
+        values: {
+          venue: 'al-falah',
+          category: 'Location',
+          description: 'Please confirm the entrance on the service road.',
+        },
+        created: new Date().toISOString(),
+      },
+    ],
+    notices: [
+      {
+        id: 'notice-1',
+        venueId: 'al-falah',
+        title: 'Weekly Dars-e-Quran',
+        body: 'A community gathering after Maghrib in the main prayer hall. All are welcome.',
+        category: 'Religious event',
+        event: d + 'T18:00',
+        expires: d + 'T23:59',
+        state: 'Published',
+        source: 'Synthetic mosque authority',
+        author: 'rep-1',
+      },
+    ],
+    accounts: [
+      {
+        id: 'rep-1',
+        name: 'Tariq Mahmood',
+        role: 'representative',
+        area: 'Gulberg III',
+        active: true,
+        status: 'Active',
+      },
+      {
+        id: 'focal-1',
+        name: 'Ahmed Raza',
+        role: 'focal',
+        area: 'Gulberg III',
+        active: true,
+        status: 'Active',
+      },
+      {
+        id: 'admin-1',
+        name: 'Service Administrator',
+        role: 'admin',
+        area: 'All areas',
+        active: true,
+        status: 'Active',
+      },
+    ],
+    notifications: [
+      {
+        id: 'n1',
+        title: 'Al-Falah timetable is awaiting verification',
+        href: '/manage/review/DS-1001',
+        role: 'focal',
+        read: false,
+      },
+    ],
+    audit: [
+      {
+        id: 'a1',
+        action: 'Timetable submitted · DS-1001',
+        actor: 'Tariq Mahmood',
+        at: new Date().toISOString(),
+        target: 'al-falah',
+      },
+    ],
+    areas: [
+      { name: 'Gulberg III', city: 'Lahore', focal: 'focal-1' },
+      { name: 'Canal Park', city: 'Lahore', focal: 'focal-1' },
+      { name: 'Model Town', city: 'Lahore', focal: '' },
+    ],
+  };
+}

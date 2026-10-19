@@ -159,3 +159,22 @@ Still needed before live launch: actual consenting mosque/city/staff/backup and 
 ## Current handoff
 
 User asked to read and understand Documents first, then move to screens for complete frontend work. Document content has been reviewed and consolidated here. No frontend implementation has started in this step. Next: inspect the screen design guide, HTML and available assets; reconcile them with this baseline; implement the complete connected responsive frontend including supporting flows and bilingual states when the user proceeds.
+
+### Frontend implementation update — 16 October 2026
+
+The frontend now exists in `frontend/` using React, TypeScript, React Router and Vite. Core and supporting screens are connected using explicitly fictional browser-persisted records. The user requested a maintainable folder structure; source is separated into app, pages by audience, layouts, components, hooks, domain, services, data, types, i18n, styles and utilities. Read `frontend/README.md` for architecture rationale and `frontend/docs/SCREEN_COVERAGE.md` for route mapping and integration limits.
+
+The production build and thirteen domain tests passed before the final input-event adjustment. Browser testing then exposed native time inputs failing to update the controlled draft; temporal inputs now use input events. Verified in the browser: change Asr, retain the draft through English/Urdu switching, submit a new immutable version, supersede the old proposal, switch to independent Focal Person preview, supply evidence, confirm approval. These are sample actions, not real mosque verification. A final build/test rerun follows that correction.
+
+No real backend, secure authentication, live maps/routes or external notification delivery is connected. Do not describe client-only sample permissions as security. Remaining backend-dependent behavior and copy review are documented. Future-departure forecasts remain excluded. All original project documents and screen sources are unchanged by frontend implementation.
+
+### Continuation — 17 October 2026
+
+Completed the local backup-coverage workflow: administrator validation, stored Pakistan-time windows, review-only scope, expiry checked on decisions, revocation, account deactivation cleanup, and preserved primary ownership/publication. Domain commands live in frontend/src/domain/assignments.ts. Added scoped report disputes with explicit investigation/resolution reasons and public warnings in cards, timetable and session details. These are still client-side preview rules, not secure server authority. See updated screen coverage notes. TypeScript and the 17-test backup suite passed; final build and 19-test suite include disputes.
+
+
+### Inventory audit — 17 October 2026
+
+Compared the original Screen Inventory.docx with the extracted reference: 82 unique numbered items and every source paragraph matches. `frontend/docs/SCREEN_COVERAGE.md` now maps each item individually: 80 in-scope frontend surfaces, P14 excluded by scope, S15 optional/deferred. Added combined reviews, account detail/workload, focal filters, notice drafts/moderation/expiry, delivery retry/escalation, associated venue selection, application assessment, report grouping, maintenance details and audit filters. Fixed unscoped request access, separate private investigation/public responses, published-notice revision continuity and date-scoped pending changes. Timetable/notice/registration forms have navigation guards; management pages are lazy loaded. Public timetable honors dated cancellations and Friday behavior.
+
+Validation: 24 tests passed; production build passed with no oversized-chunk warning (initial JS 433.68 kB, gzip 135.64 kB); formatting passed. Browser QA could not run because CUA failed to initialize its kernel assets. Vite restarted at 127.0.0.1:5173 for preview. Do not claim visual acceptance or production completeness: live auth, private storage, routing, delivery and API-driven failure/concurrency states still require integration. See coverage report for explicit acceptance boundaries.

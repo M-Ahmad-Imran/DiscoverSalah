@@ -1,0 +1,49 @@
+.mosque-guide-dim {
+  position: fixed;
+  inset: 0;
+  background: rgb(9 24 18 / 65%);
+  z-index: 210;
+  pointer-events: none;
+}
+.mosque-guide-active .sidebar {
+  z-index: 220;
+  box-shadow:
+    0 0 0 2px #69e0a9,
+    0 0 28px #4cdb9b80;
+}
+.mosque-guide-active .sidebar nav > a:not(.mosque-guide-target),
+.mosque-guide-active .sidebar-bottom {
+  opacity: 0.4;
+}
+.mosque-guide-active .sidebar nav > .mosque-guide-target {
+  position: relative;
+  outline: 3px solid #8af0bc;
+  outline-offset: 3px;
+  background: #e6fff0;
+  color: #123d2a;
+  box-shadow: 0 0 22px #6ce5a7;
+  opacity: 1;
+}
+.mosque-guide-arrow {
+  font-size: 24px;
+  color: #146b4a;
+}
+[dir='rtl'] .mosque-guide-arrow {
+  transform: rotate(180deg);
+}
+.mosque-guide-note {
+  padding: 12px;
+  margin: 8px 0 18px;
+  border: 1px solid #8af0bc;
+  border-radius: 12px;
+  background: #e6fff0;
+  color: #123d2a;
+}
+.mosque-guide-note p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+.mosque-guide-note button {
+  min-height: 44px;
+}
