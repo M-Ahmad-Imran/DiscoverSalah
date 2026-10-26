@@ -35,8 +35,7 @@ export function canReview(
     p.state === 'Submitted' &&
     p.author !== actor &&
     (role === 'admin' || role === 'focal') &&
-    canViewVenue(role, venue, actor, now) &&
-    p.baseRevision === venue.revision
+    canViewVenue(role, venue, actor, now)
   );
 }
 

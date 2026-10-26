@@ -5,16 +5,13 @@ import { Alert } from '../../components/ui/Alert';
 import { Field } from '../../components/ui/Field';
 import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
-import {
-  applyAssignment,
-  assignmentError,
-  type AssignmentInput,
-} from '../../domain/assignments';
+import { RecordSelect } from '../../components/ui/RecordSelect';
+import { assignmentError, type AssignmentInput } from '../../domain/assignments';
 import { useApp } from '../../hooks/useApp';
-import { uid } from '../../utils/id';
+import { tr } from '../../i18n/translate';
 
 export function Assignments() {
-  const { db, role, actor, update, t, toast } = useApp();
+  const { db, role, actor, mutate, t, toast } = useApp();
   const [params] = useSearchParams();
   const [operation, setOperation] = useState<AssignmentInput['operation']>(
     params.get('area') ? 'focal' : 'representative',
@@ -40,26 +37,45 @@ export function Assignments() {
       <Panel title={t('Assignment operation', 'ذمہ داری کی کارروائی')}>
         <form
           className="stack"
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (!consent) return;
-            const input = {
-              operation,
-              target,
-              assignee,
-              reason,
-              startsAt: startsAt ? startsAt + ':00+05:00' : '',
-              endsAt: endsAt ? endsAt + ':00+05:00' : '',
-            };
-            const invalid = assignmentError(db, role, actor, input);
-            if (invalid) {
-              setError(invalid);
+          onSubmit={async (e) => {
+            try {
+              e.preventDefault();
+              if (!consent) return;
+              const input = {
+                operation,
+                target,
+                assignee,
+                reason,
+                startsAt: startsAt ? startsAt + ':00+05:00' : '',
+                endsAt: endsAt ? endsAt + ':00+05:00' : '',
+              };
+              const invalid = assignmentError(db, role, actor, input);
+              if (invalid) {
+                setError(invalid);
+                return;
+              }
+              await mutate('/management/assignments', {
+                operation: input.operation,
+                targetId:
+                  input.operation === 'focal'
+                    ? db.areas.find((a) => a.name === input.target)?.id
+                    : input.target,
+                assigneeId: input.assignee,
+                expectedRevision:
+                  input.operation === 'focal'
+                    ? db.areas.find((a) => a.name === input.target)?.revision
+                    : db.venues.find((v) => v.id === input.target)?.revision,
+                reason: input.reason,
+                ...(input.operation === 'backup'
+                  ? { startsAt: input.startsAt, endsAt: input.endsAt }
+                  : {}),
+              });
+              setError('');
+              toast(t('Assignment saved.', 'ذمہ داری محفوظ ہو گئی۔'));
+              setConsent(false);
+            } catch {
               return;
             }
-            update((d) => applyAssignment(d, role, actor, input, uid('A')));
-            setError('');
-            toast(t('Assignment saved in this preview.', 'نمونہ ذمہ داری محفوظ ہو گئی۔'));
-            setConsent(false);
           }}
         >
           <div className="two-grid">
@@ -77,19 +93,28 @@ export function Assignments() {
                   setAssignee('');
                 }}
               >
-                <option value="representative">Replace representative</option>
+                <option value="representative">{tr('Replace representative')}</option>
                 {role === 'admin' && (
-                  <option value="focal">Assign primary Focal Person</option>
+                  <option value="focal">{tr('Assign primary Focal Person')}</option>
                 )}
                 {role === 'admin' && (
-                  <option value="backup">Temporary backup reviewer</option>
+                  <option value="backup">{tr('Temporary backup reviewer')}</option>
                 )}
               </select>
             </Field>
             <Field label={t('Target mosque or area', 'مسجد یا علاقہ')}>
-              <select value={target} onChange={(e) => setTarget(e.target.value)}>
+              <RecordSelect
+                resource={operation === 'focal' ? 'areas' : 'venues'}
+                nameValue={operation === 'focal'}
+                value={target}
+                onChange={(e) => setTarget(e.target.value)}
+              >
                 {operation === 'focal'
-                  ? db.areas.map((a) => <option key={a.name}>{a.name}</option>)
+                  ? db.areas.map((a) => (
+                      <option key={a.name} value={a.name}>
+                        {a.name}
+                      </option>
+                    ))
                   : db.venues
                       .filter((v) => role === 'admin' || v.focal === actor)
                       .map((v) => (
@@ -97,11 +122,13 @@ export function Assignments() {
                           {v.name}
                         </option>
                       ))}
-              </select>
+              </RecordSelect>
             </Field>
           </div>
           <Field label={t('Authorized assignee', 'مجاز ذمہ دار')}>
-            <select
+            <RecordSelect
+              resource="accounts"
+              roleFilter={operation === 'representative' ? 'representative' : 'focal'}
               required
               value={assignee}
               onChange={(e) => setAssignee(e.target.value)}
@@ -121,7 +148,7 @@ export function Assignments() {
                     {a.name} · {a.area}
                   </option>
                 ))}
-            </select>
+            </RecordSelect>
           </Field>
           {operation === 'backup' && (
             <div className="two-grid">
@@ -197,33 +224,27 @@ export function Assignments() {
                 </div>
                 <button
                   className="secondary danger-text"
-                  onClick={() => {
-                    if (
-                      !window.confirm(
-                        t(
-                          'Revoke this backup assignment now?',
-                          'یہ متبادل ذمہ داری ابھی ختم کریں؟',
-                        ),
+                  onClick={async () => {
+                    try {
+                      if (
+                        !window.confirm(
+                          t(
+                            'Revoke this backup assignment now?',
+                            'یہ متبادل ذمہ داری ابھی ختم کریں؟',
+                          ),
+                        )
                       )
-                    )
+                        return;
+                      await mutate('/management/assignments', {
+                        operation: 'revoke-backup',
+                        targetId: v.id,
+                        expectedRevision: v.revision,
+                        reason: 'Backup coverage revoked by administrator',
+                      });
+                      toast(t('Backup access revoked.', 'متبادل رسائی ختم ہو گئی۔'));
+                    } catch {
                       return;
-                    update((d) => ({
-                      ...d,
-                      venues: d.venues.map((x) =>
-                        x.id === v.id ? { ...x, backup: undefined } : x,
-                      ),
-                      audit: [
-                        {
-                          id: uid('A'),
-                          actor,
-                          target: v.id,
-                          at: new Date().toISOString(),
-                          action: 'Backup coverage revoked · ' + v.backup!.reviewer,
-                        },
-                        ...d.audit,
-                      ],
-                    }));
-                    toast(t('Backup access revoked.', 'متبادل رسائی ختم ہو گئی۔'));
+                    }
                   }}
                 >
                   {t('Revoke coverage', 'نگرانی ختم کریں')}

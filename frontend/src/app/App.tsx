@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom';
 import { ButtonLink } from '../components/ui/ButtonLink';
 import { Empty } from '../components/ui/Empty';
+import { useApp } from '../hooks/useApp';
+import { tr } from '../i18n/translate';
 import { ManagementLayout } from '../layouts/ManagementLayout';
 import { PublicLayout } from '../layouts/PublicLayout';
 import { Root } from '../layouts/RootLayout';
@@ -15,8 +17,10 @@ import { SignIn } from '../pages/auth/SignInPage';
 import { Contribute } from '../pages/community/ContributePage';
 import { PublicForm } from '../pages/community/RequestFormPage';
 import { RequestStatus } from '../pages/community/RequestStatusPage';
+import { PublicNotices } from '../pages/public/NoticesPage';
 
 import { Coverage } from '../pages/public/CoveragePage';
+import { Directions } from '../pages/public/DirectionsPage';
 import { Home } from '../pages/public/HomePage';
 import { Information } from '../pages/public/InformationPage';
 import { LocationPage } from '../pages/public/LocationPage';
@@ -167,18 +171,41 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean
   render() {
     return this.state.failed ? (
       <div className="container narrow">
-        <h1>We couldn’t display this page</h1>
-        <p>Your saved demo records are still on this device. Reload to try again.</p>
-        <button onClick={() => window.location.reload()}>Reload page</button>
+        <h1>{tr('We couldn’t display this page')}</h1>
+        <p>{tr('Reload to retrieve the current records from the server.')}</p>
+        <button onClick={() => window.location.reload()}>{tr('Reload page')}</button>
       </div>
     ) : (
       this.props.children
     );
   }
 }
+function MissingPage({ management = false }: { management?: boolean }) {
+  const { t } = useApp();
+  return (
+    <Empty
+      title={
+        management
+          ? t('Workspace page not found', 'انتظامی صفحہ نہیں ملا')
+          : t('Page not found', 'صفحہ نہیں ملا')
+      }
+      action={
+        <ButtonLink to={management ? '/manage' : '/'}>
+          {t('Return home', 'ہوم پر واپس')}
+        </ButtonLink>
+      }
+    />
+  );
+}
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<Root />}>
+    <Route
+      element={
+        <Provider>
+          <Root />
+        </Provider>
+      }
+    >
       <Route element={<PublicLayout />}>
         <Route index element={<Home />} />
         <Route path="results" element={<Results />} />
@@ -186,7 +213,7 @@ const router = createBrowserRouter(
         <Route path="location" element={<LocationPage />} />
         <Route path="mosque/:id" element={<MosqueDetails />} />
         <Route path="mosque/:id/session" element={<SessionDetails />} />
-        <Route path="mosque/:id/directions" element={<SessionDetails directions />} />
+        <Route path="mosque/:id/directions" element={<Directions />} />
         <Route path="contribute" element={<Contribute />} />
         <Route path="apply" element={<PublicForm kind="application" />} />
         <Route path="suggest" element={<PublicForm kind="suggestion" />} />
@@ -195,6 +222,7 @@ const router = createBrowserRouter(
         <Route path="receipt/:id" element={<RequestStatus receipt />} />
         <Route path="track" element={<RequestStatus />} />
         <Route path="coverage" element={<Coverage />} />
+        <Route path="notices" element={<PublicNotices />} />
         <Route path="notice/:id" element={<NoticeDetail />} />
         {[
           'about',
@@ -215,16 +243,7 @@ const router = createBrowserRouter(
         <Route path="mfa" element={<AuthSupport mode="mfa" />} />
         <Route path="session-expired" element={<AuthSupport mode="expired" />} />
         <Route path="access-unavailable" element={<AuthSupport mode="denied" />} />
-        <Route
-          path="*"
-          element={
-            <Empty
-              title="Page not found"
-              description="The page may have moved. Return to mosque discovery."
-              action={<ButtonLink to="/">Find a mosque</ButtonLink>}
-            />
-          }
-        />
+        <Route path="*" element={<MissingPage />} />
       </Route>
       <Route path="manage" element={<ManagementLayout />}>
         <Route index element={<Dashboard />} />
@@ -239,6 +258,7 @@ const router = createBrowserRouter(
         <Route path="reviews" element={<ReviewQueue />} />
         <Route path="review/:id" element={<Verification />} />
         <Route path="register" element={<Registration />} />
+        <Route path="registrations/:id/edit" element={<Registration />} />
         <Route path="reports" element={<RecordQueue kind="report" />} />
         <Route path="suggestions" element={<RecordQueue kind="suggestion" />} />
         <Route path="applications" element={<RecordQueue kind="application" />} />
@@ -262,33 +282,23 @@ const router = createBrowserRouter(
         <Route path="delivery" element={<Delivery />} />
         <Route path="maintenance" element={<Maintenance />} />
         <Route path="escalations" element={<Escalations />} />
-        <Route
-          path="*"
-          element={
-            <Empty
-              title="Workspace page not found"
-              action={<ButtonLink to="/manage">Back to overview</ButtonLink>}
-            />
-          }
-        />
+        <Route path="*" element={<MissingPage management />} />
       </Route>
     </Route>,
   ),
 );
 export function App() {
   return (
-    <Provider>
-      <ErrorBoundary>
-        <Suspense
-          fallback={
-            <div className="container narrow" role="status" aria-live="polite">
-              Loading workspace… / ورک اسپیس لوڈ ہو رہی ہے…
-            </div>
-          }
-        >
-          <RouterProvider router={router} />
-        </Suspense>
-      </ErrorBoundary>
-    </Provider>
+    <ErrorBoundary>
+      <Suspense
+        fallback={
+          <div className="container narrow" role="status" aria-live="polite">
+            {'Loading workspace… / ورک اسپیس لوڈ ہو رہی ہے…'}{' '}
+          </div>
+        }
+      >
+        <RouterProvider router={router} />
+      </Suspense>
+    </ErrorBoundary>
   );
 }

@@ -178,3 +178,36 @@ Completed the local backup-coverage workflow: administrator validation, stored P
 Compared the original Screen Inventory.docx with the extracted reference: 82 unique numbered items and every source paragraph matches. `frontend/docs/SCREEN_COVERAGE.md` now maps each item individually: 80 in-scope frontend surfaces, P14 excluded by scope, S15 optional/deferred. Added combined reviews, account detail/workload, focal filters, notice drafts/moderation/expiry, delivery retry/escalation, associated venue selection, application assessment, report grouping, maintenance details and audit filters. Fixed unscoped request access, separate private investigation/public responses, published-notice revision continuity and date-scoped pending changes. Timetable/notice/registration forms have navigation guards; management pages are lazy loaded. Public timetable honors dated cancellations and Friday behavior.
 
 Validation: 24 tests passed; production build passed with no oversized-chunk warning (initial JS 433.68 kB, gzip 135.64 kB); formatting passed. Browser QA could not run because CUA failed to initialize its kernel assets. Vite restarted at 127.0.0.1:5173 for preview. Do not claim visual acceptance or production completeness: live auth, private storage, routing, delivery and API-driven failure/concurrency states still require integration. See coverage report for explicit acceptance boundaries.
+
+
+## Backend handoff — 20 October 2026
+
+New `backend/` contains the first TypeScript/Express/MongoDB replica-set implementation. User confirmed no database or SMS provider exists yet: use local setup and replaceable phone provider interfaces. Latest account identity requirement is verified contact number, superseding older email references. Frontend remains browser-storage demo and is not wired to this API.
+
+Read `backend/README.md`, `backend/docs/FRONTEND_HANDOFF.md`, and `backend/docs/IMPLEMENTATION_REPORT.md` before continuing. Core auth/MFA/invitation/recovery, timetable submissions and independent approvals, registration, discovery, community requests, notices, assignments, outbox and application privacy cleanup are implemented. Build passed, 22 tests passed against a temporary replica set, npm audit reported zero known vulnerabilities. `.env` was privately generated and ignored; do not print it. Docker is absent; Compose has not been run. SMS is disabled by default, routing explicitly unavailable. Report lists specialized workflows, frontend integration, provider setup and operational work still needed; do not claim full production backend completion.
+
+
+## Persistent integration update — 21 October 2026
+
+Runtime frontend now uses real API sessions/commands and persistent MongoDB, superseding historical demo and SMS notes above. Owner requires admin → focal → representative credential issuance with issuer-confirmed numbers, no SMS OTP. Admin retains free local TOTP MFA. Initial administrator Muhammad Ahmad (+923224235919) is provisioned; private setup details are in ignored backend/.local-admin-setup.txt. Never copy MFA secrets or recovery codes into documentation/chat. Owner explicitly requested the temporary password in chat; do not duplicate it in project files.
+
+Backend build and 25 tests passed; frontend build and 24 tests passed. Isolated mobile-viewport Edge flow passed representative submission, focal approval, credential issuance and admin first-login MFA/password change. Persistent DB verified with one admin and zero venues; no fictional records imported. API :4000, worker and Vite :5173 started locally. API commands are authoritative, provider refreshes scoped DTOs, and browser fixtures are not loaded at runtime. Older-browser unsupported application APIs removed and build targets Chrome 80; actual old-device acceptance remains unverified.
+
+Read backend/docs/IMPLEMENTATION_REPORT.md for evidence and remaining boundaries; backend/docs/FRONTEND_HANDOFF.md for contracts; backend/docs/MAPS_AND_MFA_SETUP.md for current official pricing/setup. Google API routing remains disabled. No-cost Maps URL navigation is documented as an option, not integrated routing. Google currently bills motorcycle routes at Enterprise tier (1,000 free monthly events), unlike Essentials routes (10,000). Local TOTP needs no paid provider or email service. Large-scale pagination, dedicated registration resubmission editor, full Urdu copy review and production operational acceptance remain documented follow-ups.
+
+Final compatibility browser smoke passed with randomUUID/structuredClone disabled; persistent readiness and proxied empty catalog rechecked successfully. Brief machine-load/browser timing failures recovered on retest; no measured performance SLA is claimed.
+
+
+## Navigation decision 22 October 2026
+
+Owner selected recommended no-key external Google Maps URLs and requested Documents updates. Directions now work independently of selected session; walking and two-wheeler modes are explicit, no precise origin/private data is shared in the URL, no automatic Google SDK/network call occurs, and no in-app ETA is claimed. Fake geography is replaced with location choices. Documents/CURRENT_SYSTEM.md is the current summary; five original Word files received a current-release opening page and 52 targeted revisions with comments. Originals remain in .project-reference/original-documents-2026-10-22. Requirement and screen IDs remain intact.
+
+Final navigation verification recorded 23 October 2026: frontend build and 27 tests passed; extended isolated browser flow passed directions without a session, walking/two-wheeler, Urdu RTL and no automatic Google requests, plus management and MFA flows. All 52 Word changes were confirmed in rendered PDFs and modified pages visually reviewed. Remaining local feature work: combined returned-registration editor, per-screen pagination and full Urdu copy review. Production operations and physical old-Android/load acceptance remain outstanding. Documents/CURRENT_SYSTEM.md and backend/docs/IMPLEMENTATION_REPORT.md contain current status.
+
+
+## Returned-registration editor — 23 October 2026
+
+Implemented the next functional priority: shared RegistrationPage creation/correction form at /manage/registrations/:id/edit, with feedback and links from venue/request pages. Server resubmit command atomically archives encrypted prior state, updates unpublished draft/contact, resets verification, reopens task, queues focal notification and preserves decisions. Explicit registrationState with legacy latest-decision fallback; exact revision and assigned-representative/authorized-submitter checks; decisions require Submitted state. Area fixed, special/effective preserved. See backend/docs/RETURNED_REGISTRATION.md. Combined editor is no longer outstanding; pagination, full Urdu review and production/device acceptance remain.
+
+
+Returned-registration verification completed 23 October 2026: both production builds passed, 26 backend tests and 27 frontend tests passed, and the extended mobile browser flow passed without runtime errors. Configured MongoDB indexes were applied without adding synthetic records. The local API readiness check and frontend responded successfully; a direct worker cycle passed after one startup retry. API, frontend and worker are running locally.

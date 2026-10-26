@@ -11,15 +11,14 @@ import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { Steps } from '../../components/ui/Steps';
 import { canManage } from '../../domain/permissions';
-import { resolveSpecial, resolveTimes } from '../../domain/schedules';
+import { resolveTimes } from '../../domain/schedules';
 import { useApp } from '../../hooks/useApp';
-import { Proposal } from '../../types/index';
+import { tr } from '../../i18n/translate';
 import { timeLabel, today } from '../../utils/date';
-import { uid } from '../../utils/id';
 
 export function ReviewChanges() {
   const { id } = useParams();
-  const { db, actor, role, draft, setDraft, update, t } = useApp();
+  const { db, actor, role, draft, setDraft, mutate, t } = useApp();
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -36,69 +35,30 @@ export function ReviewChanges() {
         }
       />
     );
-  const submit = () => {
-    if (!checked) return;
-    if (v.revision !== draft.baseRevision) {
-      setError(
-        t(
-          'Version conflict. The mosque changed since editing began. Reload before submitting.',
-          'ورژن کا تضاد۔ مسجد کی معلومات بدل گئی ہیں۔ پہلے دوبارہ لوڈ کریں۔',
-        ),
-      );
+  const submit = async () => {
+    try {
+      if (!checked) return;
+      if (v.revision !== draft.baseRevision) {
+        setError(
+          t(
+            'Version conflict. The mosque changed since editing began. Reload before submitting.',
+            'ورژن کا تضاد۔ مسجد کی معلومات بدل گئی ہیں۔ پہلے دوبارہ لوڈ کریں۔',
+          ),
+        );
+        return;
+      }
+      const saved = await mutate('/management/venues/' + id + '/proposals', {
+        baseRevision: draft.baseRevision,
+        times: draft.times,
+        special: draft.special,
+        effective: draft.effective,
+        reason: draft.reason,
+      });
+      setDraft(null);
+      navigate('/manage/submissions/' + saved.id);
+    } catch {
       return;
     }
-    const pid = uid();
-    const p: Proposal = {
-      id: pid,
-      venueId: id!,
-      version:
-        Math.max(
-          v.revision,
-          ...db.proposals.filter((x) => x.venueId === id).map((x) => x.version),
-        ) + 1,
-      baseRevision: v.revision + 1,
-      author: actor,
-      state: 'Submitted',
-      times: { ...draft.times },
-      before: resolveTimes(v, db.proposals, today()),
-      special: structuredClone(draft.special),
-      beforeSpecial: structuredClone(resolveSpecial(v, db.proposals, draft.effective)),
-      effective: draft.effective,
-      reason: draft.reason,
-      created: new Date().toISOString(),
-    };
-    update((d) => ({
-      ...d,
-      venues: d.venues.map((x) => (x.id === id ? { ...x, revision: x.revision + 1 } : x)),
-      proposals: [
-        p,
-        ...d.proposals.map((x) =>
-          x.venueId === id && x.state === 'Submitted' ? { ...x, state: 'Superseded' } : x,
-        ),
-      ],
-      notifications: [
-        {
-          id: uid('N'),
-          title: `${v.name}: timetable submitted`,
-          href: '/manage/review/' + pid,
-          role: 'focal',
-          read: false,
-        },
-        ...d.notifications,
-      ],
-      audit: [
-        {
-          id: uid('A'),
-          action: 'Timetable submitted · ' + pid,
-          actor,
-          at: new Date().toISOString(),
-          target: id!,
-        },
-        ...d.audit,
-      ],
-    }));
-    setDraft(null);
-    navigate('/manage/submissions/' + pid);
   };
   return (
     <>
@@ -130,18 +90,21 @@ export function ReviewChanges() {
             {draft.special.map((s) => (
               <div className="list-row" key={s.id}>
                 <strong>
-                  {s.prayer} · {s.date}
+                  {tr(s.prayer)} · {s.date}
                 </strong>
                 <span>
-                  {s.canceled ? 'Canceled' : timeLabel(s.time)}{' '}
-                  {s.provisional ? '· Provisional' : ''}
+                  {s.canceled ? tr('Canceled') : timeLabel(s.time)}{' '}
+                  {s.provisional ? tr('· Provisional') : ''}
                 </span>
               </div>
             ))}
           </Panel>
           <Panel title={t('Reason & effective date', 'وجہ اور لاگو ہونے کی تاریخ')}>
             <p>{draft.reason}</p>
-            <Badge tone="neutral">{draft.effective} · Asia/Karachi</Badge>
+            <Badge tone="neutral">
+              {draft.effective}
+              {tr('· Asia/Karachi')}
+            </Badge>
           </Panel>
         </div>
         <Panel title={t('What happens next?', 'اب کیا ہوگا؟')}>

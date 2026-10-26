@@ -8,16 +8,18 @@ import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { useApp } from '../../hooks/useApp';
 import { useScopedVenues } from '../../hooks/useScopedVenues';
-import { uid } from '../../utils/id';
 
 export function Escalations() {
-  const { db, role, actor, update, t, toast } = useApp();
+  const { db, role, actor, mutate, t, toast } = useApp();
   const venues = useScopedVenues();
   const [target, setTarget] = useState('');
   const [reason, setReason] = useState('');
   if (role === 'representative') return <AccessDenied />;
   const pending = db.proposals.filter(
-    (p) => p.state === 'Submitted' && venues.some((v) => v.id === p.venueId),
+    (p) =>
+      p.state === 'Submitted' &&
+      (!db.page || db.page.ids.includes(p.id)) &&
+      venues.some((v) => v.id === p.venueId),
   );
   const reports = db.requests.filter(
     (r) =>
@@ -55,40 +57,22 @@ export function Escalations() {
         <Panel title={t('Record an escalation', 'حوالگی درج کریں')}>
           <form
             className="stack"
-            onSubmit={(e) => {
-              e.preventDefault();
-              const p = pending.find((p) => p.id === target);
-              if (!p) return;
-              update((d) => ({
-                ...d,
-                audit: [
-                  {
-                    id: uid('A'),
-                    action: 'Escalation · ' + p.id + ' · ' + reason,
-                    actor,
-                    at: new Date().toISOString(),
-                    target: p.venueId,
-                  },
-                  ...d.audit,
-                ],
-                notifications: [
-                  {
-                    id: uid('N'),
-                    title: 'Escalated review: ' + p.id,
-                    href: '/manage/review/' + p.id,
-                    role: 'admin',
-                    read: false,
-                  },
-                  ...d.notifications,
-                ],
-              }));
-              setReason('');
-              toast(
-                t(
-                  'Escalation recorded. Approval remains pending.',
-                  'حوالگی درج ہو گئی۔ منظوری زیر التوا ہے۔',
-                ),
-              );
+            onSubmit={async (e) => {
+              try {
+                e.preventDefault();
+                const p = pending.find((p) => p.id === target);
+                if (!p) return;
+                await mutate('/management/proposals/' + p.id + '/escalate', { reason });
+                setReason('');
+                toast(
+                  t(
+                    'Escalation recorded. Approval remains pending.',
+                    'حوالگی درج ہو گئی۔ منظوری زیر التوا ہے۔',
+                  ),
+                );
+              } catch {
+                return;
+              }
             }}
           >
             <Field label={t('Submission', 'درخواست')}>
@@ -97,7 +81,9 @@ export function Escalations() {
                   {t('Select a pending version', 'زیر التوا ورژن منتخب کریں')}
                 </option>
                 {pending.map((p) => (
-                  <option key={p.id}>{p.id}</option>
+                  <option key={p.id} value={p.id}>
+                    {p.id}
+                  </option>
                 ))}
               </select>
             </Field>
@@ -112,8 +98,8 @@ export function Escalations() {
             <button>{t('Record escalation', 'حوالگی درج کریں')}</button>
             <Alert>
               {t(
-                'This creates an in-app sample notification. External delivery and backup authorization require the backend.',
-                'یہ نمونہ اندرونی اطلاع بنائے گا۔ بیرونی ترسیل اور متبادل اختیار کے لیے سرور ضروری ہے۔',
+                'This queues an in-app notification for administrators without approving the submission.',
+                'اس سے منتظمین کے لیے ایپ میں اطلاع قطار میں شامل ہوگی۔ درخواست کی منظوری نہیں ہوگی۔',
               )}
             </Alert>
           </form>

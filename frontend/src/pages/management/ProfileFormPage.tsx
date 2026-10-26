@@ -7,11 +7,11 @@ import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { canManage } from '../../domain/permissions';
 import { useApp } from '../../hooks/useApp';
-import { uid } from '../../utils/id';
+import { tr } from '../../i18n/translate';
 
 export function ProfileForm({ contact = false }: { contact?: boolean }) {
   const { id } = useParams();
-  const { db, role, actor, update, t, toast } = useApp();
+  const { db, role, actor, mutate, t, toast } = useApp();
   const navigate = useNavigate();
   const v = db.venues.find((x) => x.id === id);
   if (!v || !role || !canManage(role, v, actor)) return <AccessDenied />;
@@ -27,41 +27,53 @@ export function ProfileForm({ contact = false }: { contact?: boolean }) {
       <Panel>
         <form
           className="stack"
-          onSubmit={(e) => {
-            e.preventDefault();
-            const values = Object.fromEntries(new FormData(e.currentTarget)) as Record<
-              string,
-              string
-            >;
-            update((d) => ({
-              ...d,
-              requests: [
-                {
-                  id: uid('CHANGE'),
-                  token: crypto.randomUUID(),
-                  kind: contact ? 'contact-change' : 'profile-change',
-                  title: v.name,
-                  values: { ...values, venue: v.id, author: actor },
-                  status: 'Submitted',
-                  created: new Date().toISOString(),
-                },
-                ...d.requests,
-              ],
-            }));
-            toast(
-              t(
-                'Change request saved for independent review. Public information is unchanged.',
-                'تبدیلی آزاد جائزے کے لیے محفوظ ہے۔ عوامی معلومات تبدیل نہیں ہوئیں۔',
-              ),
-            );
-            navigate('/manage/mosques/' + id);
+          onSubmit={async (e) => {
+            try {
+              e.preventDefault();
+              const values = Object.fromEntries(new FormData(e.currentTarget)) as Record<
+                string,
+                string
+              >;
+              await mutate('/management/venues/' + id + '/changes', {
+                revision: v.revision,
+                content: contact
+                  ? {
+                      kind: 'contact-change',
+                      name: values.name,
+                      phone: values.phone,
+                      reference: values.reference,
+                      consent: true,
+                      reason: values.reason,
+                    }
+                  : {
+                      kind: 'profile-change',
+                      name: values.name,
+                      address: values.address,
+                      facilities: Object.fromEntries(
+                        Object.entries(values)
+                          .filter(([k]) => k.startsWith('facility:'))
+                          .map(([k, val]) => [k.slice(9), val]),
+                      ),
+                      reason: values.reason,
+                    },
+              });
+              toast(
+                t(
+                  'Change request saved for independent review. Public information is unchanged.',
+                  'تبدیلی آزاد جائزے کے لیے محفوظ ہے۔ عوامی معلومات تبدیل نہیں ہوئیں۔',
+                ),
+              );
+              navigate('/manage/mosques/' + id);
+            } catch {
+              return;
+            }
           }}
         >
           {contact ? (
             <>
               <Alert tone="warning">
                 {t(
-                  'A new phone number cannot verify itself. Provide an established contact or independent mosque authority. Use synthetic data here.',
+                  'A new phone number cannot verify itself. Provide an established contact or independent mosque authority. Do not publish private contact details.',
                   'نیا نمبر خود اپنی تصدیق نہیں کر سکتا۔ موجودہ معتبر رابطہ یا آزاد مسجد اتھارٹی دیں۔',
                 )}
               </Alert>
@@ -99,7 +111,9 @@ export function ProfileForm({ contact = false }: { contact?: boolean }) {
                   <Field key={key} label={key}>
                     <select name={'facility:' + key} defaultValue={val}>
                       {['Available', 'Unavailable', 'Unknown'].map((x) => (
-                        <option key={x}>{x}</option>
+                        <option key={x} value={x}>
+                          {tr(x)}
+                        </option>
                       ))}
                     </select>
                   </Field>

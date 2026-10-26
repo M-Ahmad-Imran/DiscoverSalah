@@ -16,16 +16,17 @@ import { Empty } from '../../components/ui/Empty';
 import { Field } from '../../components/ui/Field';
 import { Modal } from '../../components/ui/Modal';
 import { PageTitle } from '../../components/ui/PageTitle';
+import { RecordSelect } from '../../components/ui/RecordSelect';
 import { useApp } from '../../hooks/useApp';
 import { useQuery } from '../../hooks/useDiscoveryQuery';
 import { useSessions } from '../../hooks/useSessions';
 import { prayerUr } from '../../i18n/prayerLabels';
+import { tr } from '../../i18n/translate';
 
 export function Results({ map = false }: { map?: boolean }) {
-  const { t } = useApp();
+  const { t, db } = useApp();
   const { params, query, change } = useQuery();
   const sessions = useSessions();
-  const [limit, setLimit] = useState(6);
   const [filter, setFilter] = useState(false);
   const [selected, setSelected] = useState('al-falah');
   return (
@@ -39,7 +40,7 @@ export function Results({ map = false }: { map?: boolean }) {
       <PageTitle
         eyebrow={t('FIND YOUR CONGREGATION', 'اپنی جماعت تلاش کریں')}
         title={`${t('Upcoming', 'آئندہ')} ${t(query.prayer, prayerUr[query.prayer])} ${t('Jama’ats', 'جماعتیں')}`}
-        description={`${sessions.length} ${t('sample sessions', 'نمونہ جماعتیں')} · ${query.date} · ${t(query.scope === 'city' ? 'Whole City · Lahore' : 'Nearby · sample area', query.scope === 'city' ? 'پورا شہر · لاہور' : 'قریبی نمونہ علاقہ')}`}
+        description={`${sessions.length} ${t('sessions', 'جماعتیں')} · ${query.date} · ${t(query.scope === 'city' ? 'Whole City' : 'Nearby', query.scope === 'city' ? 'پورا شہر' : 'قریبی علاقہ')}`}
       />
       <div className="results-toolbar">
         <div className="row">
@@ -48,7 +49,7 @@ export function Results({ map = false }: { map?: boolean }) {
             {t('Filters', 'فلٹرز')}
           </button>
           <select
-            aria-label="Sort results"
+            aria-label={tr('Sort results')}
             value={query.sort}
             onChange={(e) => change('sort', e.target.value)}
           >
@@ -63,14 +64,14 @@ export function Results({ map = false }: { map?: boolean }) {
           </Link>
           <Link className={map ? 'active' : ''} to={'/map?' + params}>
             <MapIcon size={17} />
-            {t('Map', 'نقشہ')}
+            {t('Locations', 'مقامات')}
           </Link>
         </div>
       </div>
       <Alert>
         {t(
-          'Sample timetable results. Arrival estimates are unavailable until validated walking and motorcycle routes are connected.',
-          'نمونہ اوقات۔ تصدیق شدہ راستے منسلک ہونے تک آمد کے اندازے دستیاب نہیں۔',
+          'Participating mosque timetables. Directions open in Google Maps; arrival estimates are not shown in this app.',
+          'شریک مساجد کے اوقات۔ راستہ گوگل میپس میں کھلتا ہے؛ اس ایپ میں آمد کا اندازہ دستیاب نہیں۔',
         )}
       </Alert>
       {map && (
@@ -120,7 +121,7 @@ export function Results({ map = false }: { map?: boolean }) {
         />
       ) : (
         <div className="results-grid">
-          {sessions.slice(0, limit).map((s) => (
+          {sessions.map((s) => (
             <MosqueCard
               key={s.venue.id + s.id}
               venue={s.venue}
@@ -131,11 +132,6 @@ export function Results({ map = false }: { map?: boolean }) {
             />
           ))}
         </div>
-      )}
-      {sessions.length > limit && (
-        <button className="secondary load-more" onClick={() => setLimit((x) => x + 6)}>
-          {t('Load more sessions', 'مزید جماعتیں')}
-        </button>
       )}
       <div className="suggest-strip">
         <div>
@@ -159,12 +155,19 @@ export function Results({ map = false }: { map?: boolean }) {
         >
           <div className="stack">
             <Field label={t('Area', 'علاقہ')}>
-              <select value={query.area} onChange={(e) => change('area', e.target.value)}>
+              <RecordSelect
+                resource="areas"
+                nameValue
+                value={query.area}
+                onChange={(e) => change('area', e.target.value)}
+              >
                 <option value="">{t('All areas', 'تمام علاقے')}</option>
-                {['Gulberg III', 'Canal Park', 'Model Town'].map((a) => (
-                  <option key={a}>{a}</option>
+                {[...new Set(db.areas.map((area) => area.name))].map((a) => (
+                  <option key={a} value={a}>
+                    {tr(a)}
+                  </option>
                 ))}
-              </select>
+              </RecordSelect>
             </Field>
             <Field label={t('Nearby radius', 'قریبی دائرہ')}>
               <select
@@ -172,8 +175,8 @@ export function Results({ map = false }: { map?: boolean }) {
                 value={query.radius}
                 onChange={(e) => change('radius', e.target.value)}
               >
-                <option value="5">5 km</option>
-                <option value="7">7 km</option>
+                <option value="5">{tr('5 km')}</option>
+                <option value="7">{tr('7 km')}</option>
               </select>
             </Field>
             <Alert>

@@ -1,5 +1,5 @@
 import { LockKeyhole } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Alert } from '../../components/ui/Alert';
 import { Badge } from '../../components/ui/Badge';
 import { Field } from '../../components/ui/Field';
@@ -7,9 +7,12 @@ import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { roleNames } from '../../domain/constants';
 import { useApp } from '../../hooks/useApp';
+import { tr } from '../../i18n/translate';
+import { api } from '../../services/api';
 
 export function MyAccount() {
-  const { db, actor, role, t, toast } = useApp();
+  const { db, actor, role, t, toast, restoreSession, refresh } = useApp();
+  const navigate = useNavigate();
   const a = db.accounts.find((a) => a.id === actor)!;
   return (
     <>
@@ -20,17 +23,15 @@ export function MyAccount() {
           <h2>{a.name}</h2>
           <dl>
             <dt>{t('Account contact number', 'اکاؤنٹ کا رابطہ نمبر')}</dt>
+            <dd>{a.contactNumber || t('Not recorded', 'درج نہیں')}</dd>
+            <dt>{t('Contact confirmation by issuer', 'نمبر کی تصدیق')}</dt>
             <dd>
-              {a.contactNumber ||
-                t('Not provided in this sample account', 'اس نمونہ اکاؤنٹ میں درج نہیں')}
-            </dd>
-            <dt>{t('Number verification', 'نمبر کی تصدیق')}</dt>
-            <dd>
-              {a.contactVerifiedAt ||
-                t('Not verified by a live service', 'حقیقی سروس سے تصدیق نہیں ہوئی')}
+              {a.contactConfirmedAt ||
+                a.contactVerifiedAt ||
+                t('Not confirmed by issuer', 'حقیقی سروس سے تصدیق نہیں ہوئی')}
             </dd>
           </dl>
-          <p>{roleNames[role!]}</p>
+          <p>{tr(roleNames[role!])}</p>
           <Badge>{a.area}</Badge>
           <Alert>
             {t(
@@ -42,21 +43,33 @@ export function MyAccount() {
         <Panel title={t('Change password', 'پاس ورڈ تبدیل کریں')}>
           <form
             className="stack"
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              toast(
-                t(
-                  'Password changes require the authentication API. No credentials were stored.',
-                  'پاس ورڈ کی تبدیلی کے لیے تصدیقی API ضروری ہے۔ کوئی پاس ورڈ محفوظ نہیں ہوا۔',
-                ),
-              );
+              const f = new FormData(e.currentTarget);
+              try {
+                await api('/auth/change-password', {
+                  currentPassword: f.get('current'),
+                  newPassword: f.get('password'),
+                });
+                await restoreSession();
+                await refresh();
+                navigate('/sign-in');
+              } catch (e) {
+                toast((e as Error).message);
+              }
             }}
           >
             <Field label={t('Current password', 'موجودہ پاس ورڈ')}>
-              <input type="password" autoComplete="current-password" required />
+              <input
+                name="current"
+                type="password"
+                autoComplete="current-password"
+                required
+              />
             </Field>
             <Field label={t('New password', 'نیا پاس ورڈ')}>
               <input
+                name="password"
                 type="password"
                 autoComplete="new-password"
                 minLength={12}

@@ -10,14 +10,15 @@ import { noticeState } from '../../domain/notices';
 import { useApp } from '../../hooks/useApp';
 import { useNow } from '../../hooks/useNow';
 import { useScopedVenues } from '../../hooks/useScopedVenues';
-import { uid } from '../../utils/id';
+import { useScreenFilter } from '../../hooks/useScreenFilter';
+import { tr } from '../../i18n/translate';
 
 export function Notices() {
-  const { db, role, actor, update, t, toast } = useApp();
+  const { db, role, actor, mutate, t, toast } = useApp();
   const venues = useScopedVenues();
   const now = useNow();
   const [reasons, setReasons] = useState<Record<string, string>>({});
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter] = useScreenFilter('status', 'All');
   const list = db.notices.filter(
     (n) =>
       venues.some((v) => v.id === n.venueId) &&
@@ -54,7 +55,7 @@ export function Notices() {
             className={filter === x ? 'active' : ''}
             onClick={() => setFilter(x)}
           >
-            {x}
+            {tr(x)}
           </button>
         ))}
       </div>
@@ -67,7 +68,7 @@ export function Notices() {
             <h2>{n.title}</h2>
             <p>{n.body}</p>
             <small>
-              {db.venues.find((v) => v.id === n.venueId)?.name} · {n.category}
+              {db.venues.find((v) => v.id === n.venueId)?.name} · {tr(n.category)}
             </small>
             <dl className="definition-list">
               <dt>{t('Event / expires', 'تقریب / اختتام')}</dt>
@@ -95,33 +96,20 @@ export function Notices() {
                         className="secondary"
                         key={decision}
                         disabled={(reasons[n.id] || '').trim().length < 5}
-                        onClick={() => {
-                          if (!window.confirm(decision + '?')) return;
-                          update((d) => ({
-                            ...d,
-                            notices: d.notices.map((x) =>
-                              x.id === n.id ? { ...x, state: decision } : x,
-                            ),
-                            audit: [
-                              {
-                                id: uid('A'),
-                                action:
-                                  'Notice ' +
-                                  decision +
-                                  ' · ' +
-                                  n.id +
-                                  ' · ' +
-                                  reasons[n.id],
-                                actor,
-                                at: new Date().toISOString(),
-                                target: n.venueId,
-                              },
-                              ...d.audit,
-                            ],
-                          }));
+                        onClick={async () => {
+                          try {
+                            if (!window.confirm(decision + '?')) return;
+                            await mutate('/management/notices/' + n.id + '/decision', {
+                              revision: n.revision,
+                              decision,
+                              reason: reasons[n.id],
+                            });
+                          } catch {
+                            return;
+                          }
                         }}
                       >
-                        {decision}
+                        {tr(decision)}
                       </button>
                     ))}
                   </div>
@@ -135,37 +123,36 @@ export function Notices() {
                 n.author !== actor &&
                 n.state === 'Submitted' && (
                   <button
-                    onClick={() => {
-                      if (
-                        !n.source.trim() ||
-                        Date.parse(n.expires + '+05:00') <= Date.now()
-                      ) {
-                        toast(
-                          t(
-                            'Source evidence and a future expiry are required.',
-                            'ماخذ کے شواہد اور آئندہ اختتامی وقت درکار ہیں۔',
-                          ),
-                        );
+                    onClick={async () => {
+                      try {
+                        if (!n.source.trim() || Date.parse(n.expires) <= Date.now()) {
+                          toast(
+                            t(
+                              'Source evidence and a future expiry are required.',
+                              'ماخذ کے شواہد اور آئندہ اختتامی وقت درکار ہیں۔',
+                            ),
+                          );
+                          return;
+                        }
+                        if (
+                          window.confirm(
+                            t(
+                              'Confirm source authority, privacy, event details and expiry before approving this notice.',
+                              'منظوری سے پہلے ماخذ، رازداری، تقریب اور اختتام کی تصدیق کریں۔',
+                            ),
+                          )
+                        )
+                          await mutate('/management/notices/' + n.id + '/decision', {
+                            revision: n.revision,
+                            decision: 'Published',
+                            reason:
+                              reasons[n.id] ||
+                              'Source, privacy, dates and details independently confirmed',
+                            sourcePrivacyChecked: true,
+                          });
+                      } catch {
                         return;
                       }
-                      if (
-                        window.confirm(
-                          t(
-                            'Confirm source authority, privacy, event details and expiry before approving this notice.',
-                            'منظوری سے پہلے ماخذ، رازداری، تقریب اور اختتام کی تصدیق کریں۔',
-                          ),
-                        )
-                      )
-                        update((d) => ({
-                          ...d,
-                          notices: d.notices.map((x) =>
-                            x.id === n.id
-                              ? { ...x, state: 'Published' }
-                              : x.id === n.replacesId
-                                ? { ...x, state: 'Superseded' }
-                                : x,
-                          ),
-                        }));
                     }}
                   >
                     {t('Approve notice', 'اعلان منظور کریں')}
@@ -174,21 +161,24 @@ export function Notices() {
               {n.state !== 'Canceled' && (
                 <button
                   className="secondary danger-text"
-                  onClick={() => {
-                    if (
-                      window.confirm(
-                        t(
-                          'Cancel this notice and remove it from public display?',
-                          'اعلان منسوخ کر کے عوامی صفحے سے ہٹائیں؟',
-                        ),
+                  onClick={async () => {
+                    try {
+                      if (
+                        window.confirm(
+                          t(
+                            'Cancel this notice and remove it from public display?',
+                            'اعلان منسوخ کر کے عوامی صفحے سے ہٹائیں؟',
+                          ),
+                        )
                       )
-                    )
-                      update((d) => ({
-                        ...d,
-                        notices: d.notices.map((x) =>
-                          x.id === n.id ? { ...x, state: 'Canceled' } : x,
-                        ),
-                      }));
+                        await mutate('/management/notices/' + n.id + '/decision', {
+                          revision: n.revision,
+                          decision: 'Canceled',
+                          reason: 'Canceled by authorized management',
+                        });
+                    } catch {
+                      return;
+                    }
                   }}
                 >
                   {t('Cancel notice', 'اعلان منسوخ')}

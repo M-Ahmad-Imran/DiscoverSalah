@@ -1,3 +1,4 @@
+import { useApp } from '../../hooks/useApp';
 export function MosqueArt({
   index = 0,
   className = '',
@@ -5,6 +6,7 @@ export function MosqueArt({
   index?: number;
   className?: string;
 }) {
+  useApp();
   return (
     <div className={`mosque-art art-${index} ${className}`} aria-hidden="true">
       <svg viewBox="0 0 400 260" role="presentation">

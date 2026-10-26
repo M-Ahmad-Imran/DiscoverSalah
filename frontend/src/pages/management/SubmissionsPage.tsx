@@ -1,5 +1,4 @@
 import { ArrowRight } from 'lucide-react';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AccessDenied } from '../../components/feedback/AccessDenied';
 import { Badge } from '../../components/ui/Badge';
@@ -9,21 +8,16 @@ import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { useApp } from '../../hooks/useApp';
 import { useScopedVenues } from '../../hooks/useScopedVenues';
+import { useScreenFilter } from '../../hooks/useScreenFilter';
+import { tr } from '../../i18n/translate';
 
 export function Submissions({ review = false }: { review?: boolean }) {
   const { db, t, role } = useApp();
   const venues = useScopedVenues(true);
-  const [q, setQ] = useState('');
-  const [filter, setFilter] = useState(review ? 'Submitted' : 'All');
+  const [q, setQ] = useScreenFilter('q', '');
+  const [filter, setFilter] = useScreenFilter('status', review ? 'Submitted' : 'All');
   if (review && role === 'representative') return <AccessDenied />;
-  const rows = db.proposals.filter(
-    (p) =>
-      venues.some((v) => v.id === p.venueId) &&
-      (filter === 'All' || p.state === filter) &&
-      `${p.id} ${db.venues.find((v) => v.id === p.venueId)?.name}`
-        .toLowerCase()
-        .includes(q.toLowerCase()),
-  );
+  const rows = db.proposals.filter(p => (!db.page || db.page.ids.includes(p.id)) && venues.some(v => v.id === p.venueId));
   return (
     <>
       <PageTitle
@@ -39,18 +33,20 @@ export function Submissions({ review = false }: { review?: boolean }) {
       <div className="results-toolbar">
         <input
           placeholder={t('Search mosque or reference…', 'مسجد یا حوالہ تلاش کریں…')}
-          aria-label="Search submissions"
+          aria-label={tr('Search submissions')}
           value={q}
           onChange={(e) => setQ(e.target.value)}
         />
         <select
-          aria-label="Submission status"
+          aria-label={tr('Submission status')}
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
         >
           {['All', 'Submitted', 'Approved', 'Returned', 'Rejected', 'Superseded'].map(
             (s) => (
-              <option key={s}>{s}</option>
+              <option key={s} value={s}>
+                {tr(s)}
+              </option>
             ),
           )}
         </select>
@@ -86,7 +82,7 @@ export function Submissions({ review = false }: { review?: boolean }) {
                             : 'amber'
                       }
                     >
-                      {p.state}
+                      {tr(p.state)}
                     </Badge>
                   </td>
                   <td>

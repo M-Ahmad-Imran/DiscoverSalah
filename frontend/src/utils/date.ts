@@ -1,3 +1,4 @@
+import { tr } from '../i18n/translate';
 export const today = () =>
   new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Asia/Karachi',
@@ -9,5 +10,5 @@ export const today = () =>
 export const timeLabel = (time: string) => {
   if (!time) return '—';
   const [h, m] = time.split(':').map(Number);
-  return `${h % 12 || 12}:${String(m).padStart(2, '0')} ${h < 12 ? 'AM' : 'PM'}`;
+  return `${h % 12 || 12}:${String(m).padStart(2, '0')} ${tr(h < 12 ? 'AM' : 'PM')}`;
 };

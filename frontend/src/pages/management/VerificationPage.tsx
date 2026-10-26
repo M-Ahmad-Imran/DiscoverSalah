@@ -11,11 +11,11 @@ import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { canReview, canViewVenue } from '../../domain/permissions';
 import { useApp } from '../../hooks/useApp';
-import { uid } from '../../utils/id';
+import { tr } from '../../i18n/translate';
 
 export function Verification() {
   const { id } = useParams();
-  const { db, role, actor, update, t, toast } = useApp();
+  const { db, role, actor, mutate, t, toast } = useApp();
   const navigate = useNavigate();
   const p = db.proposals.find((x) => x.id === id);
   const v = db.venues.find((x) => x.id === p?.venueId);
@@ -37,57 +37,33 @@ export function Verification() {
     !!when &&
     !!notes &&
     confirmed;
-  const commit = () => {
-    if (!eligible || !canReview(p, role, actor, v)) {
-      toast(
-        t(
-          'Version or authority changed. Reload this review.',
-          'ورژن یا اختیار بدل گیا۔ جائزہ دوبارہ کھولیں۔',
-        ),
-      );
-      setDecision('');
+  const commit = async () => {
+    try {
+      if (!eligible || !canReview(p, role, actor, v)) {
+        toast(
+          t(
+            'Version or authority changed. Reload this review.',
+            'ورژن یا اختیار بدل گیا۔ جائزہ دوبارہ کھولیں۔',
+          ),
+        );
+        setDecision('');
+        return;
+      }
+      if (decision === 'Approved' && !valid) return;
+      if (decision !== 'Approved' && !message.trim()) return;
+      await mutate('/management/proposals/' + p.id + '/decision', {
+        decision,
+        expectedVersion: p.version,
+        expectedVenueRevision: v.revision,
+        publicReason: message || 'Confirmed with registered Imam',
+        ...(outcome && when
+          ? { evidence: { outcome, person, calledAt: when + ':00+05:00', notes } }
+          : {}),
+      });
+      navigate('/manage/submissions/' + p.id);
+    } catch {
       return;
     }
-    if (decision === 'Approved' && !valid) return;
-    if (decision !== 'Approved' && !message.trim()) return;
-    update((d) => ({
-      ...d,
-      proposals: d.proposals.map((x) =>
-        x.id === p.id
-          ? {
-              ...x,
-              state: decision,
-              decision: message || 'Confirmed by registered Imam; sample decision.',
-              reviewer: actor,
-              evidence: { outcome, person, calledAt: when, notes },
-            }
-          : x,
-      ),
-      venues: d.venues.map((x) =>
-        x.id === v.id ? { ...x, revision: x.revision + 1 } : x,
-      ),
-      notifications: [
-        {
-          id: uid('N'),
-          title: `${v.name}: ${decision.toLowerCase()}`,
-          href: '/manage/submissions/' + p.id,
-          role: 'representative',
-          read: false,
-        },
-        ...d.notifications,
-      ],
-      audit: [
-        {
-          id: uid('A'),
-          action: `${p.id} ${decision.toLowerCase()} · ${person || 'reviewer decision'} · ${when || new Date().toISOString()}`,
-          actor,
-          at: new Date().toISOString(),
-          target: v.id,
-        },
-        ...d.audit,
-      ],
-    }));
-    navigate('/manage/submissions/' + p.id);
   };
   return (
     <>
@@ -125,8 +101,9 @@ export function Verification() {
                 <h4>{t('Before', 'پہلے')}</h4>
                 {(p.beforeSpecial || v.special).map((s) => (
                   <p key={s.id}>
-                    {s.prayer} · {s.date} · {s.time} · Khutbah {s.khutbah || '—'}{' '}
-                    {s.canceled ? 'Canceled' : ''}
+                    {tr(s.prayer)} · {s.date} · {s.time}
+                    {tr('· Khutbah')} {s.khutbah || '—'}{' '}
+                    {s.canceled ? tr('Canceled') : ''}
                   </p>
                 ))}
               </div>
@@ -134,8 +111,10 @@ export function Verification() {
                 <h4>{t('Proposed', 'مجوزہ')}</h4>
                 {p.special.map((s) => (
                   <p key={s.id}>
-                    {s.prayer} · {s.date} · {s.time} · Khutbah {s.khutbah || '—'}{' '}
-                    {s.canceled ? 'Canceled' : ''} {s.provisional ? 'Provisional' : ''}
+                    {tr(s.prayer)} · {s.date} · {s.time}
+                    {tr('· Khutbah')} {s.khutbah || '—'}{' '}
+                    {s.canceled ? tr('Canceled') : ''}{' '}
+                    {s.provisional ? tr('Provisional') : ''}
                   </p>
                 ))}
               </div>
@@ -164,7 +143,7 @@ export function Verification() {
                     checked={outcome === o}
                     onChange={() => setOutcome(o)}
                   />
-                  {o}
+                  {tr(o)}
                 </label>
               ))}
               <div className="two-grid spaced">
@@ -185,8 +164,8 @@ export function Verification() {
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder={t(
-                    'Record the checked scope and outcome. Use sample data only.',
-                    'تصدیق شدہ اوقات اور نتیجہ درج کریں۔ صرف نمونہ ڈیٹا۔',
+                    'Record the checked scope and outcome. Record the actual call details.',
+                    'جن اوقات کی تصدیق کی گئی اور کال کا اصل نتیجہ درج کریں۔',
                   )}
                 />
               </Field>
@@ -222,10 +201,14 @@ export function Verification() {
               <Phone />
             </div>
             <h3>{t('Registered Imam', 'رجسٹرڈ امام')}</h3>
+            <p>{v.contactName}</p>
+            <a href={v.contactNumber ? 'tel:' + v.contactNumber : undefined}>
+              {v.contactNumber || 'Contact not recorded'}
+            </a>
             <Badge tone="neutral">{t('Private contact', 'نجی رابطہ')}</Badge>
             <p>
               {t(
-                'No real phone number is included in this sample workspace. Production contact access is restricted to assigned reviewers.',
+                'Private contact access is restricted to authorized management.',
                 'اس نمونے میں حقیقی نمبر نہیں۔ حقیقی رابطہ صرف مقررہ نگران دیکھ سکتا ہے۔',
               )}
             </p>
@@ -248,37 +231,23 @@ export function Verification() {
                 disabled={
                   !eligible || !outcome || !person.trim() || !when || !notes.trim()
                 }
-                onClick={() => {
-                  update((d) => ({
-                    ...d,
-                    proposals: d.proposals.map((x) =>
-                      x.id === p.id
-                        ? {
-                            ...x,
-                            callAttempts: [
-                              ...(x.callAttempts || []),
-                              { outcome, person, calledAt: when, notes },
-                            ],
-                          }
-                        : x,
-                    ),
-                    audit: [
-                      {
-                        id: uid('A'),
-                        action: `Call attempt: ${outcome} · ${p.id}`,
-                        actor,
-                        at: new Date().toISOString(),
-                        target: v.id,
-                      },
-                      ...d.audit,
-                    ],
-                  }));
-                  toast(
-                    t(
-                      'Call attempt saved. Submission remains pending.',
-                      'کال کی کوشش محفوظ۔ درخواست زیر التوا ہے۔',
-                    ),
-                  );
+                onClick={async () => {
+                  try {
+                    await mutate('/management/proposals/' + p.id + '/call-attempts', {
+                      outcome,
+                      person,
+                      calledAt: when + ':00+05:00',
+                      notes,
+                    });
+                    toast(
+                      t(
+                        'Call attempt saved. Submission remains pending.',
+                        'کال کی کوشش محفوظ۔ درخواست زیر التوا ہے۔',
+                      ),
+                    );
+                  } catch {
+                    return;
+                  }
                 }}
               >
                 {t('Record attempt · keep pending', 'کوشش درج کریں · زیر التوا رکھیں')}
@@ -306,12 +275,12 @@ export function Verification() {
           onClose={() => setDecision('')}
         >
           <p>
-            {decision} · {p.id} · v{p.version}
+            {tr(decision)} · {p.id} · v{p.version}
           </p>
           <p>
             {t(
-              'This records your decision for this exact sample version and notifies the representative in the preview.',
-              'یہ اسی نمونہ ورژن کا فیصلہ درج کرے گا اور نمائندے کو اطلاع دے گا۔',
+              'This records your decision for this exact version and queues a notification for the representative.',
+              'یہ اسی ورژن کا فیصلہ درج کرے گا اور نمائندے کو اطلاع بھیجے گا۔',
             )}
           </p>
           <div className="form-actions">

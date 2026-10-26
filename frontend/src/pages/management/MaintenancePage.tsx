@@ -1,16 +1,17 @@
-import { today } from '../../utils/date';
-import { resolveSpecial } from '../../domain/schedules';
 import { Link } from 'react-router-dom';
 import { AccessDenied } from '../../components/feedback/AccessDenied';
 import { Alert } from '../../components/ui/Alert';
 import { Badge } from '../../components/ui/Badge';
 import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
+import { resolveSpecial } from '../../domain/schedules';
 import { useApp } from '../../hooks/useApp';
 import { useScopedVenues } from '../../hooks/useScopedVenues';
+import { tr } from '../../i18n/translate';
+import { today } from '../../utils/date';
 
 export function Maintenance() {
-  const { db, role, t } = useApp();
+  const { db, role, t, mutate } = useApp();
   const venues = useScopedVenues();
   if (role === 'representative') return <AccessDenied />;
   return (
@@ -52,16 +53,7 @@ export function Maintenance() {
                   .sort()[0] || '—'}
               </dd>
               <dt>{t('Unresolved reports', 'غیر حل شدہ رپورٹس')}</dt>
-              <dd>
-                {
-                  db.requests.filter(
-                    (r) =>
-                      r.kind === 'report' &&
-                      r.values.venue === v.id &&
-                      !['Resolved', 'Dismissed'].includes(r.status),
-                  ).length
-                }
-              </dd>
+              <dd>{db.counts?.['reports:' + v.id] ?? 0}</dd>
               <dt>{t('Upcoming dated sessions', 'آئندہ تاریخ وار جماعتیں')}</dt>
               <dd>
                 {resolveSpecial(v, db.proposals, today())
@@ -81,6 +73,35 @@ export function Maintenance() {
                 }
               </dd>
             </dl>
+            {role === 'admin' && v.status !== 'Draft' && (
+              <div className="row wrap">
+                {['Published', 'Suspended', 'Maintenance pending']
+                  .filter((status) => status !== v.status)
+                  .map((status) => (
+                    <button
+                      key={status}
+                      className="secondary"
+                      onClick={async () => {
+                        const reason = window.prompt(
+                          'Reason for changing venue status to ' + status,
+                        );
+                        if (!reason || reason.trim().length < 5) return;
+                        try {
+                          await mutate('/management/venues/' + v.id + '/status', {
+                            revision: v.revision,
+                            status,
+                            reason,
+                          });
+                        } catch {
+                          return;
+                        }
+                      }}
+                    >
+                      {tr(status)}
+                    </button>
+                  ))}
+              </div>
+            )}
             <Link className="text-link" to={'/manage/mosques/' + v.id}>
               {t('Open mosque workspace', 'مسجد کا انتظام کھولیں')}
             </Link>

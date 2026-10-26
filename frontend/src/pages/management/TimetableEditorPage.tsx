@@ -15,6 +15,7 @@ import { resolveSpecial, resolveTimes, validateTimes } from '../../domain/schedu
 import { useApp } from '../../hooks/useApp';
 import { useUnsavedChanges } from '../../hooks/useUnsavedChanges';
 import { urPrayers } from '../../i18n/prayerLabels';
+import { tr } from '../../i18n/translate';
 import { SpecialSession } from '../../types/index';
 import { timeLabel, today } from '../../utils/date';
 import { uid } from '../../utils/id';
@@ -34,7 +35,9 @@ export function TimetableEditor() {
       setDraft({
         venueId: v.id,
         times: { ...resolveTimes(v, db.proposals, today()) },
-        special: structuredClone(resolveSpecial(v, db.proposals, today())),
+        special: resolveSpecial(v, db.proposals, today()).map((session) => ({
+          ...session,
+        })),
         effective: today(),
         reason: '',
         baseRevision: v.revision,
@@ -210,7 +213,9 @@ export function TimetableEditor() {
                       onChange={(e) => specialChange(s.id, { prayer: e.target.value })}
                     >
                       {[...daily, 'Jumu’ah', 'Eid'].map((p) => (
-                        <option key={p}>{p}</option>
+                        <option key={p} value={p}>
+                          {tr(p)}
+                        </option>
                       ))}
                     </select>
                   </Field>

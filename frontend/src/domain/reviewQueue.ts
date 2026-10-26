@@ -28,12 +28,18 @@ export function reviewItems(db: Database, role: Role, actor: string): ReviewItem
       href: '/manage/review/' + p.id,
       created: p.created,
       due: p.effective,
-      urgent: db.audit.some(
-        (a) => a.action.startsWith('Escalation') && a.action.includes(p.id),
-      ),
+      urgent:
+        !!p.escalated ||
+        db.audit.some(
+          (a) => a.action.startsWith('Escalation') && a.action.includes(p.id),
+        ),
     }));
   for (const r of db.requests) {
-    if (!['Submitted', 'In review', 'Awaiting checks', 'Escalated'].includes(r.status))
+    if (
+      !['Submitted', 'Open', 'In review', 'Awaiting checks', 'Escalated'].includes(
+        r.status,
+      )
+    )
       continue;
     if (!canAccessRequest(db, role, actor, r)) continue;
     items.push({

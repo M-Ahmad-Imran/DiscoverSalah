@@ -1,4 +1,3 @@
-import '../pages/management/guidance/sidebar-guide.css';
 import {
   ArrowUpRight,
   Bell,
@@ -20,18 +19,14 @@ import {
   Users,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import {
-  Link,
-  Navigate,
-  NavLink,
-  Outlet,
-  useLocation,
-  useNavigate,
-} from 'react-router-dom';
+import { Link, Navigate, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Brand } from '../components/common/Brand';
 import { LocaleButton } from '../components/common/LanguageSwitch';
+import { ScreenContent } from '../components/ui/ScreenContent';
 import { roleNames } from '../domain/constants';
 import { useApp } from '../hooks/useApp';
+import { tr } from '../i18n/translate';
+import '../pages/management/guidance/sidebar-guide.css';
 
 export function ManagementLayout() {
   const { role, actor, db, logout, t } = useApp();
@@ -49,9 +44,11 @@ export function ManagementLayout() {
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
   }, []);
+  const { account } = useApp();
+  if (account?.mustChangePassword) return <Navigate to="/reset-password" replace />;
   if (!role)
     return <Navigate to={'/sign-in?next=' + encodeURIComponent(loc.pathname)} replace />;
-  if (!db.accounts.find((a) => a.id === actor)?.active)
+  if (db.accounts.some((a) => a.id === actor && !a.active))
     return <Navigate to="/access-unavailable" replace />;
   const common = [
     ['/manage', 'Overview', LayoutDashboard, 'خلاصہ'],
@@ -136,7 +133,7 @@ export function ManagementLayout() {
             </button>
           </section>
         )}
-        <nav aria-label="Management navigation">
+        <nav aria-label={tr('Management navigation')}>
           {links.map(([url, en, Icon, ur]) => {
             const I = Icon as typeof Building2;
             return (
@@ -156,8 +153,8 @@ export function ManagementLayout() {
                 )}
                 <I size={19} />
                 <span>{t(en as string, ur as string)}</span>
-                {url === '/manage/reviews' && (
-                  <b>{db.proposals.filter((p) => p.state === 'Submitted').length}</b>
+                {url === '/manage/reviews' && db.counts?.pending !== undefined && (
+                  <b>{db.counts?.pending}</b>
                 )}
               </NavLink>
             );
@@ -169,23 +166,21 @@ export function ManagementLayout() {
             {t('View public website', 'عوامی ویب سائٹ')}
           </Link>
           <button
-            onClick={() => {
-              logout();
+            onClick={async () => {
+              await logout();
               navigate('/sign-in');
             }}
           >
             <LogOut size={18} />
             {t('Sign out', 'سائن آؤٹ')}
           </button>
-          <small>
-            {t('Preview workspace · sample accounts', 'نمونہ ورک اسپیس · فرضی اکاؤنٹس')}
-          </small>
+          <small>{t('Connected management workspace', 'منسلک انتظامی ورک اسپیس')}</small>
         </div>
       </aside>
       {open && (
         <button
           className="sidebar-backdrop"
-          aria-label="Close navigation"
+          aria-label={tr('Close navigation')}
           onClick={() => setOpen(false)}
         />
       )}
@@ -195,7 +190,7 @@ export function ManagementLayout() {
             <button
               className="icon-button mobile-menu"
               onClick={() => setOpen(!open)}
-              aria-label="Toggle navigation"
+              aria-label={tr('Toggle navigation')}
             >
               <Menu />
             </button>
@@ -208,10 +203,10 @@ export function ManagementLayout() {
             <Link
               to="/manage/notifications"
               className="notification-button"
-              aria-label="Notifications"
+              aria-label={tr('Notifications')}
             >
               <Bell size={21} />
-              {unread > 0 && <b>{unread}</b>}
+              {(db.counts?.unread || 0) > 0 && <b>{db.counts?.unread}</b>}
             </Link>
             <span className="avatar">
               {db.accounts
@@ -223,12 +218,12 @@ export function ManagementLayout() {
             </span>
             <div className="account-caption">
               <strong>{db.accounts.find((a) => a.id === actor)?.name}</strong>
-              <small>{roleNames[role]}</small>
+              <small>{tr(roleNames[role])}</small>
             </div>
           </div>
         </header>
         <main id="main-content" className="management-main">
-          <Outlet />
+          <ScreenContent />
         </main>
         <div className="workspace-foot">
           <ShieldCheck size={15} />

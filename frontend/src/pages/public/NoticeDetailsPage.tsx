@@ -24,7 +24,7 @@ export function NoticeDetail() {
     <div className="container narrow">
       <PageTitle eyebrow={n.category} title={n.title} />
       <Panel>
-        <Badge>{t('Approved sample notice', 'منظور شدہ نمونہ اعلان')}</Badge>
+        <Badge>{t('Approved notice', 'منظور شدہ اعلان')}</Badge>
         <p>{n.body}</p>
         <dl className="definition-list">
           <dt>{t('Event', 'تقریب')}</dt>

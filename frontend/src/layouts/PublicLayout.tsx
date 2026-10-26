@@ -11,10 +11,12 @@ import {
   X,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Brand } from '../components/common/Brand';
 import { LocaleButton } from '../components/common/LanguageSwitch';
+import { ScreenContent } from '../components/ui/ScreenContent';
 import { useApp } from '../hooks/useApp';
+import { tr } from '../i18n/translate';
 
 export function PublicLayout() {
   const { t } = useApp();
@@ -28,7 +30,7 @@ export function PublicLayout() {
           <Brand />
           <nav
             className={open ? 'public-nav open' : 'public-nav'}
-            aria-label="Main navigation"
+            aria-label={tr('Main navigation')}
           >
             <NavLink to="/sign-in" className="mobile-management">
               {t('Management', 'انتظامیہ')}
@@ -56,7 +58,7 @@ export function PublicLayout() {
             <button
               className="icon-button mobile-menu"
               onClick={() => setOpen(!open)}
-              aria-label="Toggle navigation"
+              aria-label={tr('Toggle navigation')}
               aria-expanded={open}
             >
               {open ? <X /> : <Menu />}
@@ -65,7 +67,7 @@ export function PublicLayout() {
         </div>
       </header>
       <main id="main-content" className="public-main">
-        <Outlet />
+        <ScreenContent />
       </main>
       <footer className="footer">
         <div>

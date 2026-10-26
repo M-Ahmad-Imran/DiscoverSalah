@@ -15,6 +15,17 @@ export interface SpecialSession {
 }
 
 export interface Venue {
+  registrationRelationship?: string;
+  city?: string;
+  initialEffective?: string;
+  pendingScopes?: {
+    effective: string;
+    prayers: string[];
+    dated: { prayer: string; date: string }[];
+  }[];
+  areaId?: string;
+  contactName?: string;
+  contactNumber?: string;
   kind?: 'Mosque' | 'Prayer ground';
   parentVenueId?: string;
   duplicateOf?: string;
@@ -69,12 +80,14 @@ export interface Proposal {
   created: string;
   decision?: string;
   reviewer?: string;
+  escalated?: boolean;
   beforeSpecial?: SpecialSession[];
   callAttempts?: { outcome: string; person: string; calledAt: string; notes: string }[];
   evidence?: { outcome: string; person: string; calledAt: string; notes: string };
 }
 
 export interface RequestRecord {
+  revision?: number;
   id: string;
   token: string;
   kind: string;
@@ -88,6 +101,7 @@ export interface RequestRecord {
 }
 
 export interface Notice {
+  revision?: number;
   replacesId?: string;
   id: string;
   venueId: string;
@@ -102,6 +116,9 @@ export interface Notice {
 }
 
 export interface Account {
+  areaIds?: string[];
+  authVersion?: number;
+  contactConfirmedAt?: string;
   contactNumber?: string;
   contactVerifiedAt?: string;
   id: string;
@@ -137,6 +154,15 @@ export interface DeliveryJob {
   history: string[];
 }
 export interface Database {
+  page?: {
+    view: string;
+    ids: string[];
+    nextCursor: string | null;
+    size: number;
+    hasPrevious: boolean;
+  };
+  counts?: Record<string, number>;
+  discoverySessions?: (SpecialSession & { venueId: string })[];
   deliveryJobs?: DeliveryJob[];
   venues: Venue[];
   proposals: Proposal[];
@@ -145,5 +171,12 @@ export interface Database {
   accounts: Account[];
   notifications: Notification[];
   audit: Audit[];
-  areas: { name: string; city: string; focal: string }[];
+  areas: {
+    venueCount?: number;
+    id?: string;
+    revision?: number;
+    name: string;
+    city: string;
+    focal: string;
+  }[];
 }

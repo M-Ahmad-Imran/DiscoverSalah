@@ -1,31 +1,24 @@
-import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Empty } from '../../components/ui/Empty';
 import { Field } from '../../components/ui/Field';
 import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
+import { RecordSelect } from '../../components/ui/RecordSelect';
 import { useApp } from '../../hooks/useApp';
 import { useScopedVenues } from '../../hooks/useScopedVenues';
+import { useScreenFilter } from '../../hooks/useScreenFilter';
+import { displayDate, tr } from '../../i18n/translate';
 
 export function Activity() {
   const { db, t, role, actor } = useApp();
   const [params] = useSearchParams();
-  const [q, setQ] = useState('');
-  const [from, setFrom] = useState('');
-  const [to, setTo] = useState('');
-  const [record, setRecord] = useState('');
-  const [person, setPerson] = useState('');
+  const [q, setQ] = useScreenFilter('q', '');
+  const [from, setFrom] = useScreenFilter('from', '');
+  const [to, setTo] = useScreenFilter('to', '');
+  const [record, setRecord] = useScreenFilter('venue', '');
+  const [person, setPerson] = useScreenFilter('person', '');
   const venues = useScopedVenues();
-  const rows = db.audit.filter(
-    (a) =>
-      (role === 'admin' || a.actor === actor || venues.some((v) => v.id === a.target)) &&
-      (!params.get('venue') || a.target === params.get('venue')) &&
-      (!from || a.at >= from) &&
-      (!to || a.at.slice(0, 10) <= to) &&
-      (!record || a.target === record) &&
-      (!person || a.actor === person) &&
-      `${a.action} ${a.actor}`.toLowerCase().includes(q.toLowerCase()),
-  );
+  const rows = db.audit;
   return (
     <>
       <PageTitle
@@ -37,7 +30,7 @@ export function Activity() {
       />
       <input
         className="search-input"
-        aria-label="Search audit"
+        aria-label={tr('Search audit')}
         placeholder={t('Filter by action or actor…', 'عمل یا شخص سے فلٹر…')}
         value={q}
         onChange={(e) => setQ(e.target.value)}
@@ -60,18 +53,26 @@ export function Activity() {
             />
           </Field>
           <Field label={t('Record', 'ریکارڈ')}>
-            <select value={record} onChange={(e) => setRecord(e.target.value)}>
-              <option value="">All</option>
+            <RecordSelect
+              resource="venues"
+              value={record}
+              onChange={(e) => setRecord(e.target.value)}
+            >
+              <option value="">{tr('All')}</option>
               {venues.map((v) => (
                 <option value={v.id} key={v.id}>
                   {v.name}
                 </option>
               ))}
-            </select>
+            </RecordSelect>
           </Field>
           <Field label={t('Actor', 'شخص')}>
-            <select value={person} onChange={(e) => setPerson(e.target.value)}>
-              <option value="">All</option>
+            <RecordSelect
+              resource="accounts"
+              value={person}
+              onChange={(e) => setPerson(e.target.value)}
+            >
+              <option value="">{tr('All')}</option>
               {db.accounts
                 .filter(
                   (a) =>
@@ -84,7 +85,7 @@ export function Activity() {
                     {a.name}
                   </option>
                 ))}
-            </select>
+            </RecordSelect>
           </Field>
         </div>
       </Panel>
@@ -102,11 +103,11 @@ export function Activity() {
               {rows.map((a) => (
                 <tr key={a.id}>
                   <td>
-                    {a.action}
+                    {tr(a.action)}
                     <small>{a.target}</small>
                   </td>
                   <td>{a.actor}</td>
-                  <td>{new Date(a.at).toLocaleString()}</td>
+                  <td>{displayDate(a.at, true)}</td>
                 </tr>
               ))}
             </tbody>

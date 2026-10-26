@@ -22,6 +22,12 @@ export function sessionsFor(
   prayer: string,
   date: string,
 ) {
+  if (
+    v.initialEffective &&
+    date < v.initialEffective &&
+    !effectiveProposal(v, proposals, date)
+  )
+    return [];
   const dated = resolveSpecial(v, proposals, date).filter(
     (s) => s.date === date && s.prayer === prayer,
   );
@@ -50,6 +56,15 @@ export function pendingPrayer(
   prayer: string,
   date: string,
 ) {
+  if (
+    v.pendingScopes?.some(
+      (scope) =>
+        scope.effective <= date &&
+        (scope.prayers.includes(prayer) ||
+          scope.dated.some((s) => s.prayer === prayer && s.date === date)),
+    )
+  )
+    return true;
   return proposals.some(
     (p) =>
       p.venueId === v.id &&

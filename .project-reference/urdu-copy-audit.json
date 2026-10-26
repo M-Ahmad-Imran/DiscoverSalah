@@ -1,0 +1,5819 @@
+[
+  {
+    "file": "app\\App.tsx",
+    "line": 185,
+    "kind": "translated",
+    "value": [
+      "Workspace page not found",
+      "انتظامی صفحہ نہیں ملا"
+    ]
+  },
+  {
+    "file": "app\\App.tsx",
+    "line": 185,
+    "kind": "translated",
+    "value": [
+      "Page not found",
+      "صفحہ نہیں ملا"
+    ]
+  },
+  {
+    "file": "app\\App.tsx",
+    "line": 185,
+    "kind": "translated",
+    "value": [
+      "Return home",
+      "ہوم پر واپس"
+    ]
+  },
+  {
+    "file": "components\\common\\Brand.tsx",
+    "line": 12,
+    "kind": "text",
+    "value": "Discover"
+  },
+  {
+    "file": "components\\common\\Brand.tsx",
+    "line": 13,
+    "kind": "text",
+    "value": "Salah"
+  },
+  {
+    "file": "components\\common\\LanguageSwitch.tsx",
+    "line": 9,
+    "kind": "translated",
+    "value": [
+      "اردو",
+      "English"
+    ]
+  },
+  {
+    "file": "components\\discovery\\MapPreview.tsx",
+    "line": 23,
+    "kind": "translated",
+    "value": [
+      "Locations and external navigation",
+      "مقامات اور بیرونی راستہ"
+    ]
+  },
+  {
+    "file": "components\\discovery\\MapPreview.tsx",
+    "line": 27,
+    "kind": "translated",
+    "value": [
+      "Directions with Google Maps",
+      "گوگل میپس سے راستہ دیکھیں"
+    ]
+  },
+  {
+    "file": "components\\discovery\\MapPreview.tsx",
+    "line": 30,
+    "kind": "translated",
+    "value": [
+      "Choose a mosque to view its entrance and open Google Maps. No embedded map or travel-time estimate is loaded here.",
+      "مسجد کا داخلی مقام دیکھنے اور گوگل میپس کھولنے کے لیے مسجد منتخب کریں۔ یہاں نقشہ یا سفر کے دورانیے کا اندازہ لوڈ نہیں ہوتا۔"
+    ]
+  },
+  {
+    "file": "components\\discovery\\MapPreview.tsx",
+    "line": 60,
+    "kind": "translated",
+    "value": [
+      "Use the location fields on this page. An entrance link becomes available after the mosque is published.",
+      "اس صفحے کے مقام والے خانے استعمال کریں۔ مسجد شائع ہونے کے بعد داخلی مقام کا لنک دستیاب ہوگا۔"
+    ]
+  },
+  {
+    "file": "components\\discovery\\MosqueCard.tsx",
+    "line": 56,
+    "kind": "translated",
+    "value": [
+      "Lahore",
+      "لاہور"
+    ]
+  },
+  {
+    "file": "components\\discovery\\MosqueCard.tsx",
+    "line": 66,
+    "kind": "translated",
+    "value": [
+      "Jama’at",
+      "جماعت"
+    ]
+  },
+  {
+    "file": "components\\discovery\\MosqueCard.tsx",
+    "line": 72,
+    "kind": "translated",
+    "value": [
+      "Today",
+      "آج"
+    ]
+  },
+  {
+    "file": "components\\discovery\\MosqueCard.tsx",
+    "line": 87,
+    "kind": "translated",
+    "value": [
+      "Provisional date",
+      "عارضی تاریخ"
+    ]
+  },
+  {
+    "file": "components\\discovery\\MosqueCard.tsx",
+    "line": 92,
+    "kind": "translated",
+    "value": [
+      "Arrival estimate unavailable · routes not connected",
+      "آمد کا اندازہ دستیاب نہیں · راستے منسلک نہیں"
+    ]
+  },
+  {
+    "file": "components\\discovery\\MosqueCard.tsx",
+    "line": 99,
+    "kind": "translated",
+    "value": [
+      "View details",
+      "تفصیلات"
+    ]
+  },
+  {
+    "file": "components\\discovery\\MosqueCard.tsx",
+    "line": 104,
+    "kind": "translated",
+    "value": [
+      "Directions",
+      "راستہ"
+    ]
+  },
+  {
+    "file": "components\\discovery\\SearchControls.tsx",
+    "line": 27,
+    "kind": "translated",
+    "value": [
+      "YOUR STARTING POINT",
+      "آپ کا ابتدائی مقام"
+    ]
+  },
+  {
+    "file": "components\\discovery\\SearchControls.tsx",
+    "line": 29,
+    "kind": "translated",
+    "value": [
+      "Choose your location",
+      "اپنا مقام منتخب کریں"
+    ]
+  },
+  {
+    "file": "components\\discovery\\SearchControls.tsx",
+    "line": 51,
+    "kind": "translated",
+    "value": [
+      "Prayer / congregation",
+      "نماز / جماعت"
+    ]
+  },
+  {
+    "file": "components\\discovery\\SearchControls.tsx",
+    "line": 60,
+    "kind": "translated",
+    "value": [
+      "Date",
+      "تاریخ"
+    ]
+  },
+  {
+    "file": "components\\discovery\\SearchControls.tsx",
+    "line": 69,
+    "kind": "translated",
+    "value": [
+      "Travel mode",
+      "سفر کا طریقہ"
+    ]
+  },
+  {
+    "file": "components\\discovery\\SearchControls.tsx",
+    "line": 92,
+    "kind": "translated",
+    "value": [
+      "Find Jama’at",
+      "جماعت تلاش کریں"
+    ]
+  },
+  {
+    "file": "components\\discovery\\TrustNote.tsx",
+    "line": 11,
+    "kind": "translated",
+    "value": [
+      "Local knowledge. Accountable verification.",
+      "مقامی معلومات۔ ذمہ دارانہ تصدیق۔"
+    ]
+  },
+  {
+    "file": "components\\discovery\\TrustNote.tsx",
+    "line": 17,
+    "kind": "translated",
+    "value": [
+      "Representatives maintain schedules. Focal Persons verify changes with the registered Imam.",
+      "نمائندے اوقات درج کرتے ہیں۔ فوکل پرسن امام سے تبدیلیوں کی تصدیق کرتے ہیں۔"
+    ]
+  },
+  {
+    "file": "components\\feedback\\AccessDenied.tsx",
+    "line": 9,
+    "kind": "translated",
+    "value": [
+      "This record is outside your assignment",
+      "یہ ریکارڈ آپ کی ذمہ داری سے باہر ہے"
+    ]
+  },
+  {
+    "file": "components\\feedback\\AccessDenied.tsx",
+    "line": 13,
+    "kind": "translated",
+    "value": [
+      "Return to your workspace or contact your administrator.",
+      "اپنی ورک اسپیس پر واپس جائیں یا منتظم سے رابطہ کریں۔"
+    ]
+  },
+  {
+    "file": "components\\feedback\\AccessDenied.tsx",
+    "line": 18,
+    "kind": "translated",
+    "value": [
+      "Back to overview",
+      "خلاصے پر واپس"
+    ]
+  },
+  {
+    "file": "components\\management\\DisputePanel.tsx",
+    "line": 30,
+    "kind": "translated",
+    "value": [
+      "Investigation recorded. Official times remain unchanged.",
+      "تحقیق درج ہو گئی۔ سرکاری اوقات تبدیل نہیں ہوئے۔"
+    ]
+  },
+  {
+    "file": "components\\management\\DisputePanel.tsx",
+    "line": 41,
+    "kind": "translated",
+    "value": [
+      "Investigated timing dispute",
+      "تحقیق شدہ اوقات کا تنازع"
+    ]
+  },
+  {
+    "file": "components\\management\\DisputePanel.tsx",
+    "line": 43,
+    "kind": "translated",
+    "value": [
+      "Mark only the prayer and date supported by your investigation. A public report alone is not a verified finding. Resolving the report does not silently clear this flag.",
+      "صرف تحقیق سے ثابت نماز اور تاریخ منتخب کریں۔ عوامی رپورٹ بذات خود تصدیق نہیں۔ رپورٹ حل کرنے سے یہ نشان خود نہیں ہٹتا۔"
+    ]
+  },
+  {
+    "file": "components\\management\\DisputePanel.tsx",
+    "line": 56,
+    "kind": "translated",
+    "value": [
+      "Affected prayer",
+      "متاثرہ نماز"
+    ]
+  },
+  {
+    "file": "components\\management\\DisputePanel.tsx",
+    "line": 63,
+    "kind": "translated",
+    "value": [
+      "Affected date",
+      "متاثرہ تاریخ"
+    ]
+  },
+  {
+    "file": "components\\management\\DisputePanel.tsx",
+    "line": 72,
+    "kind": "translated",
+    "value": [
+      "Investigation or resolution reason",
+      "تحقیق یا حل کی وجہ"
+    ]
+  },
+  {
+    "file": "components\\management\\DisputePanel.tsx",
+    "line": 86,
+    "kind": "translated",
+    "value": [
+      "Mark selected scope disputed",
+      "منتخب اوقات متنازع درج کریں"
+    ]
+  },
+  {
+    "file": "components\\management\\DisputePanel.tsx",
+    "line": 99,
+    "kind": "translated",
+    "value": [
+      "Resolve dispute with reason",
+      "وجہ کے ساتھ تنازع حل کریں"
+    ]
+  },
+  {
+    "file": "components\\management\\Timetable.tsx",
+    "line": 22,
+    "kind": "translated",
+    "value": [
+      "Congregation",
+      "جماعت"
+    ]
+  },
+  {
+    "file": "components\\management\\Timetable.tsx",
+    "line": 23,
+    "kind": "translated",
+    "value": [
+      "Currently approved",
+      "موجودہ منظور شدہ"
+    ]
+  },
+  {
+    "file": "components\\management\\Timetable.tsx",
+    "line": 30,
+    "kind": "translated",
+    "value": [
+      "Change",
+      "تبدیلی"
+    ]
+  },
+  {
+    "file": "components\\management\\Timetable.tsx",
+    "line": 52,
+    "kind": "translated",
+    "value": [
+      "Changed",
+      "تبدیل شدہ"
+    ]
+  },
+  {
+    "file": "components\\management\\Timetable.tsx",
+    "line": 54,
+    "kind": "translated",
+    "value": [
+      "Unchanged",
+      "کوئی تبدیلی نہیں"
+    ]
+  },
+  {
+    "file": "components\\ui\\RecordSelect.tsx",
+    "line": 61,
+    "kind": "translated",
+    "value": [
+      "Search available records",
+      "دستیاب ریکارڈ تلاش کریں"
+    ]
+  },
+  {
+    "file": "components\\ui\\RecordSelect.tsx",
+    "line": 61,
+    "kind": "translated",
+    "value": [
+      "Search by name…",
+      "نام سے تلاش کریں…"
+    ]
+  },
+  {
+    "file": "components\\ui\\RecordSelect.tsx",
+    "line": 65,
+    "kind": "translated",
+    "value": [
+      "Loading…",
+      "لوڈ ہو رہا ہے…"
+    ]
+  },
+  {
+    "file": "components\\ui\\RecordSelect.tsx",
+    "line": 66,
+    "kind": "translated",
+    "value": [
+      "First page",
+      "پہلا صفحہ"
+    ]
+  },
+  {
+    "file": "components\\ui\\RecordSelect.tsx",
+    "line": 67,
+    "kind": "translated",
+    "value": [
+      "More options",
+      "مزید اختیارات"
+    ]
+  },
+  {
+    "file": "components\\ui\\ScreenContent.tsx",
+    "line": 8,
+    "kind": "translated",
+    "value": [
+      "Loading…",
+      "لوڈ ہو رہا ہے…"
+    ]
+  },
+  {
+    "file": "components\\ui\\ScreenPagination.tsx",
+    "line": 12,
+    "kind": "translated",
+    "value": [
+      "Pagination",
+      "صفحات کی تبدیلی"
+    ]
+  },
+  {
+    "file": "components\\ui\\ScreenPagination.tsx",
+    "line": 13,
+    "kind": "translated",
+    "value": [
+      "Loading…",
+      "لوڈ ہو رہا ہے…"
+    ]
+  },
+  {
+    "file": "components\\ui\\ScreenPagination.tsx",
+    "line": 14,
+    "kind": "translated",
+    "value": [
+      "records on this page",
+      "اس صفحے پر ریکارڈ"
+    ]
+  },
+  {
+    "file": "components\\ui\\ScreenPagination.tsx",
+    "line": 15,
+    "kind": "translated",
+    "value": [
+      "First page",
+      "پہلا صفحہ"
+    ]
+  },
+  {
+    "file": "components\\ui\\ScreenPagination.tsx",
+    "line": 20,
+    "kind": "translated",
+    "value": [
+      "Previous page",
+      "پچھلا صفحہ"
+    ]
+  },
+  {
+    "file": "components\\ui\\ScreenPagination.tsx",
+    "line": 21,
+    "kind": "translated",
+    "value": [
+      "Next page",
+      "اگلا صفحہ"
+    ]
+  },
+  {
+    "file": "layouts\\ManagementLayout.tsx",
+    "line": 129,
+    "kind": "translated",
+    "value": [
+      "My mosques guide",
+      "میری مساجد کی رہنمائی"
+    ]
+  },
+  {
+    "file": "layouts\\ManagementLayout.tsx",
+    "line": 131,
+    "kind": "translated",
+    "value": [
+      "Start here",
+      "یہاں سے شروع کریں"
+    ]
+  },
+  {
+    "file": "layouts\\ManagementLayout.tsx",
+    "line": 133,
+    "kind": "translated",
+    "value": [
+      "Click My mosques in the sidebar to open your assigned mosques.",
+      "اپنی مقررہ مساجد کھولنے کے لیے سائیڈ بار میں میری مساجد پر کلک کریں۔"
+    ]
+  },
+  {
+    "file": "layouts\\ManagementLayout.tsx",
+    "line": 139,
+    "kind": "translated",
+    "value": [
+      "Dismiss guide",
+      "رہنمائی بند کریں"
+    ]
+  },
+  {
+    "file": "layouts\\ManagementLayout.tsx",
+    "line": 173,
+    "kind": "translated",
+    "value": [
+      "View public website",
+      "عوامی ویب سائٹ"
+    ]
+  },
+  {
+    "file": "layouts\\ManagementLayout.tsx",
+    "line": 182,
+    "kind": "translated",
+    "value": [
+      "Sign out",
+      "سائن آؤٹ"
+    ]
+  },
+  {
+    "file": "layouts\\ManagementLayout.tsx",
+    "line": 184,
+    "kind": "translated",
+    "value": [
+      "Connected management workspace",
+      "منسلک انتظامی ورک اسپیس"
+    ]
+  },
+  {
+    "file": "layouts\\ManagementLayout.tsx",
+    "line": 205,
+    "kind": "translated",
+    "value": [
+      "Management workspace",
+      "انتظامی ورک اسپیس"
+    ]
+  },
+  {
+    "file": "layouts\\ManagementLayout.tsx",
+    "line": 237,
+    "kind": "translated",
+    "value": [
+      "Every change has a responsible person.",
+      "ہر تبدیلی ایک ذمہ دار شخص سے منسلک ہے۔"
+    ]
+  },
+  {
+    "file": "layouts\\PublicLayout.tsx",
+    "line": 36,
+    "kind": "translated",
+    "value": [
+      "Management",
+      "انتظامیہ"
+    ]
+  },
+  {
+    "file": "layouts\\PublicLayout.tsx",
+    "line": 40,
+    "kind": "translated",
+    "value": [
+      "Find a Mosque",
+      "مسجد تلاش کریں"
+    ]
+  },
+  {
+    "file": "layouts\\PublicLayout.tsx",
+    "line": 44,
+    "kind": "translated",
+    "value": [
+      "How it works",
+      "طریقہ کار"
+    ]
+  },
+  {
+    "file": "layouts\\PublicLayout.tsx",
+    "line": 48,
+    "kind": "translated",
+    "value": [
+      "Get involved",
+      "شامل ہوں"
+    ]
+  },
+  {
+    "file": "layouts\\PublicLayout.tsx",
+    "line": 55,
+    "kind": "translated",
+    "value": [
+      "Management",
+      "انتظامیہ"
+    ]
+  },
+  {
+    "file": "layouts\\PublicLayout.tsx",
+    "line": 76,
+    "kind": "translated",
+    "value": [
+      "A community effort. A clearer path to prayer.",
+      "اجتماعی کوشش۔ نماز تک واضح راستہ۔"
+    ]
+  },
+  {
+    "file": "layouts\\PublicLayout.tsx",
+    "line": 98,
+    "kind": "translated",
+    "value": [
+      "Free public browsing. No account required.",
+      "مفت عوامی رسائی۔ اکاؤنٹ ضروری نہیں۔"
+    ]
+  },
+  {
+    "file": "layouts\\PublicLayout.tsx",
+    "line": 102,
+    "kind": "text",
+    "value": "DiscoverSalah"
+  },
+  {
+    "file": "layouts\\PublicLayout.tsx",
+    "line": 108,
+    "kind": "translated",
+    "value": [
+      "Find",
+      "تلاش"
+    ]
+  },
+  {
+    "file": "layouts\\PublicLayout.tsx",
+    "line": 112,
+    "kind": "translated",
+    "value": [
+      "Timings",
+      "اوقات"
+    ]
+  },
+  {
+    "file": "layouts\\PublicLayout.tsx",
+    "line": 116,
+    "kind": "translated",
+    "value": [
+      "Coverage",
+      "دستیابی"
+    ]
+  },
+  {
+    "file": "layouts\\PublicLayout.tsx",
+    "line": 120,
+    "kind": "translated",
+    "value": [
+      "Help out",
+      "تعاون"
+    ]
+  },
+  {
+    "file": "layouts\\RootLayout.tsx",
+    "line": 19,
+    "kind": "translated",
+    "value": [
+      "Skip to content",
+      "مواد پر جائیں"
+    ]
+  },
+  {
+    "file": "layouts\\RootLayout.tsx",
+    "line": 22,
+    "kind": "translated",
+    "value": [
+      "LOCAL WORKSPACE",
+      "مقامی ورک اسپیس"
+    ]
+  },
+  {
+    "file": "layouts\\RootLayout.tsx",
+    "line": 24,
+    "kind": "translated",
+    "value": [
+      "Connected database · Route estimates unavailable",
+      "ڈیٹابیس منسلک · راستے کا تخمینہ دستیاب نہیں"
+    ]
+  },
+  {
+    "file": "layouts\\RootLayout.tsx",
+    "line": 32,
+    "kind": "translated",
+    "value": [
+      "You are offline. Saved content may be outdated. Live arrival estimates are unavailable.",
+      "آپ آف لائن ہیں۔ محفوظ معلومات پرانی ہو سکتی ہیں۔"
+    ]
+  },
+  {
+    "file": "pages\\auth\\SignInPage.tsx",
+    "line": 24,
+    "kind": "translated",
+    "value": [
+      "A TRUSTED COMMUNITY EFFORT",
+      "ایک قابل اعتماد اجتماعی کاوش"
+    ]
+  },
+  {
+    "file": "pages\\auth\\SignInPage.tsx",
+    "line": 27,
+    "kind": "translated",
+    "value": [
+      "Small updates.",
+      "چھوٹی تبدیلیاں۔"
+    ]
+  },
+  {
+    "file": "pages\\auth\\SignInPage.tsx",
+    "line": 29,
+    "kind": "translated",
+    "value": [
+      "A meaningful difference.",
+      "ایک اہم فرق۔"
+    ]
+  },
+  {
+    "file": "pages\\auth\\SignInPage.tsx",
+    "line": 32,
+    "kind": "translated",
+    "value": [
+      "Help your community find accurate Jama’at times. Your care keeps every listing useful and every change accountable.",
+      "اپنی کمیونٹی کو جماعت کے درست اوقات فراہم کریں۔ آپ کی توجہ ہر تبدیلی کو ذمہ دار بناتی ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\auth\\SignInPage.tsx",
+    "line": 39,
+    "kind": "translated",
+    "value": [
+      "Want to help? Become a contributor",
+      "تعاون کرنا چاہتے ہیں؟ رضاکار بنیں"
+    ]
+  },
+  {
+    "file": "pages\\auth\\SignInPage.tsx",
+    "line": 47,
+    "kind": "translated",
+    "value": [
+      "Welcome back",
+      "خوش آمدید"
+    ]
+  },
+  {
+    "file": "pages\\auth\\SignInPage.tsx",
+    "line": 49,
+    "kind": "translated",
+    "value": [
+      "Sign in to manage your assigned mosques.",
+      "اپنی مقررہ مساجد کا انتظام کرنے کے لیے سائن ان کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\auth\\SignInPage.tsx",
+    "line": 80,
+    "kind": "translated",
+    "value": [
+      "Contact number",
+      "تصدیق شدہ رابطہ نمبر"
+    ]
+  },
+  {
+    "file": "pages\\auth\\SignInPage.tsx",
+    "line": 85,
+    "kind": "attribute",
+    "value": "+92 3XX XXXXXXX"
+  },
+  {
+    "file": "pages\\auth\\SignInPage.tsx",
+    "line": 90,
+    "kind": "translated",
+    "value": [
+      "Password",
+      "پاس ورڈ"
+    ]
+  },
+  {
+    "file": "pages\\auth\\SignInPage.tsx",
+    "line": 109,
+    "kind": "translated",
+    "value": [
+      "Forgot password?",
+      "پاس ورڈ بھول گئے؟"
+    ]
+  },
+  {
+    "file": "pages\\auth\\SignInPage.tsx",
+    "line": 113,
+    "kind": "translated",
+    "value": [
+      "Sign in",
+      "سائن ان"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 14,
+    "kind": "translated",
+    "value": [
+      "BUILT BY THE COMMUNITY",
+      "کمیونٹی کی کاوش"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 15,
+    "kind": "translated",
+    "value": [
+      "Be the reason someone finds their Jama’at.",
+      "کسی کو جماعت تک پہنچانے کا ذریعہ بنیں۔"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 19,
+    "kind": "translated",
+    "value": [
+      "A little local knowledge can make a meaningful difference. Help maintain information you know and people can trust.",
+      "آپ کی مقامی معلومات اہم فرق پیدا کر سکتی ہیں۔ قابل اعتماد معلومات فراہم کرنے میں مدد کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 29,
+    "kind": "translated",
+    "value": [
+      "Local Representative",
+      "مقامی نمائندہ"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 31,
+    "kind": "translated",
+    "value": [
+      "Keep assigned mosque profiles and timetables current. Submit changes for independent review and follow up on reports.",
+      "اپنی مسجد کے اوقات اور معلومات درست رکھیں۔ تبدیلیاں تصدیق کے لیے بھیجیں۔"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 37,
+    "kind": "translated",
+    "value": [
+      "Maintain a mosque you know",
+      "اپنی واقف مسجد کی دیکھ بھال"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 38,
+    "kind": "translated",
+    "value": [
+      "Confirm unchanged timings regularly",
+      "اوقات کی باقاعدہ تصدیق"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 39,
+    "kind": "translated",
+    "value": [
+      "Respond to corrections and feedback",
+      "اصلاحات اور آرا کا جواب"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 42,
+    "kind": "translated",
+    "value": [
+      "Apply as representative",
+      "نمائندے کے لیے درخواست"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 50,
+    "kind": "translated",
+    "value": [
+      "Focal Person",
+      "فوکل پرسن"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 52,
+    "kind": "translated",
+    "value": [
+      "Support your area’s representatives. Call registered Imams, independently verify submissions and help resolve local issues.",
+      "نمائندوں کی مدد کریں، امام سے فون پر تصدیق کریں اور مسائل حل کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 59,
+    "kind": "translated",
+    "value": [
+      "Review within your assigned area",
+      "اپنے علاقے کی درخواستوں کا جائزہ"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 62,
+    "kind": "translated",
+    "value": [
+      "Record exact-version verification",
+      "درست ورژن کی تصدیق درج کریں"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 65,
+    "kind": "translated",
+    "value": [
+      "Coordinate responsible coverage",
+      "ذمہ دارانہ دیکھ بھال میں تعاون"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 69,
+    "kind": "translated",
+    "value": [
+      "Apply as Focal Person",
+      "فوکل پرسن کے لیے درخواست"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 75,
+    "kind": "translated",
+    "value": [
+      "Initial roles are voluntary. Applying does not grant management access. Contact and reference checks precede an invitation and assignment.",
+      "ابتدائی کردار رضاکارانہ ہیں۔ درخواست سے انتظامی رسائی نہیں ملتی؛ پہلے رابطہ اور حوالہ چیک ہوگا۔"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 83,
+    "kind": "translated",
+    "value": [
+      "Just want to suggest a mosque?",
+      "صرف مسجد کی تجویز دینا چاہتے ہیں؟"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 86,
+    "kind": "translated",
+    "value": [
+      "You do not need to volunteer to help us find a missing mosque.",
+      "مسجد کی تجویز دینے کے لیے رضاکار بننا ضروری نہیں۔"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 93,
+    "kind": "translated",
+    "value": [
+      "Suggest a mosque",
+      "مسجد تجویز کریں"
+    ]
+  },
+  {
+    "file": "pages\\community\\ContributePage.tsx",
+    "line": 97,
+    "kind": "translated",
+    "value": [
+      "Read contributor guidelines",
+      "رضاکاروں کی رہنمائی پڑھیں"
+    ]
+  },
+  {
+    "file": "pages\\community\\RequestFormPage.tsx",
+    "line": 60,
+    "kind": "translated",
+    "value": [
+      "COMMUNITY SUPPORT",
+      "کمیونٹی کی مدد"
+    ]
+  },
+  {
+    "file": "pages\\community\\RequestFormPage.tsx",
+    "line": 62,
+    "kind": "translated",
+    "value": [
+      "Your request is saved securely for authorized review. Keep the private tracking token.",
+      "درخواست محفوظ ڈیٹابیس میں درج ہوگی۔ درست معلومات دیں اور نجی رسائی کی کلید اپنے پاس محفوظ رکھیں۔"
+    ]
+  },
+  {
+    "file": "pages\\community\\RequestFormPage.tsx",
+    "line": 115,
+    "kind": "translated",
+    "value": [
+      "Mosque",
+      "مسجد"
+    ]
+  },
+  {
+    "file": "pages\\community\\RequestFormPage.tsx",
+    "line": 127,
+    "kind": "translated",
+    "value": [
+      "What needs checking?",
+      "کیا درست کرنا ہے؟"
+    ]
+  },
+  {
+    "file": "pages\\community\\RequestFormPage.tsx",
+    "line": 158,
+    "kind": "translated",
+    "value": [
+      "City",
+      "شہر"
+    ]
+  },
+  {
+    "file": "pages\\community\\RequestFormPage.tsx",
+    "line": 168,
+    "kind": "translated",
+    "value": [
+      "Possible existing matches — check before submitting:",
+      "ممکنہ موجودہ اندراجات — پہلے دیکھیں:"
+    ]
+  },
+  {
+    "file": "pages\\community\\RequestFormPage.tsx",
+    "line": 185,
+    "kind": "translated",
+    "value": [
+      "Role you are interested in",
+      "آپ کس کردار میں دلچسپی رکھتے ہیں"
+    ]
+  },
+  {
+    "file": "pages\\community\\RequestFormPage.tsx",
+    "line": 192,
+    "kind": "translated",
+    "value": [
+      "Local Representative",
+      "مقامی نمائندہ"
+    ]
+  },
+  {
+    "file": "pages\\community\\RequestFormPage.tsx",
+    "line": 194,
+    "kind": "translated",
+    "value": [
+      "Focal Person",
+      "فوکل پرسن"
+    ]
+  },
+  {
+    "file": "pages\\community\\RequestFormPage.tsx",
+    "line": 203,
+    "kind": "translated",
+    "value": [
+      "Area",
+      "علاقہ"
+    ]
+  },
+  {
+    "file": "pages\\community\\RequestFormPage.tsx",
+    "line": 242,
+    "kind": "translated",
+    "value": [
+      "I permit contact about this request and understand that submission starts a review, not publication or account activation.",
+      "میں اس درخواست کے بارے میں رابطے کی اجازت دیتا ہوں۔ درخواست سے اشاعت یا اکاؤنٹ فعال نہیں ہوتا۔"
+    ]
+  },
+  {
+    "file": "pages\\community\\RequestFormPage.tsx",
+    "line": 248,
+    "kind": "translated",
+    "value": [
+      "Submit request",
+      "درخواست جمع کریں"
+    ]
+  },
+  {
+    "file": "pages\\community\\RequestFormPage.tsx",
+    "line": 252,
+    "kind": "translated",
+    "value": [
+      "Already submitted? Track your request",
+      "درخواست پہلے جمع کی؟ حیثیت دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountDetailsPage.tsx",
+    "line": 112,
+    "kind": "translated",
+    "value": [
+      "Assignments & workload",
+      "ذمہ داریاں اور کام"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountDetailsPage.tsx",
+    "line": 113,
+    "kind": "translated",
+    "value": [
+      "View assigned mosques",
+      "مقررہ مساجد دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountDetailsPage.tsx",
+    "line": 115,
+    "kind": "translated",
+    "value": [
+      "Manage assignment",
+      "ذمہ داری کا انتظام"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountDetailsPage.tsx",
+    "line": 119,
+    "kind": "translated",
+    "value": [
+      "Account and assignment history",
+      "اکاؤنٹ اور ذمہ داری کی تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountDetailsPage.tsx",
+    "line": 121,
+    "kind": "translated",
+    "value": [
+      "View activity history",
+      "سرگرمیوں کی تاریخ دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountDetailsPage.tsx",
+    "line": 122,
+    "kind": "translated",
+    "value": [
+      "Back to accounts",
+      "اکاؤنٹس پر واپس"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountsPage.tsx",
+    "line": 36,
+    "kind": "translated",
+    "value": [
+      "Issuer-created credentials and assignments determine access. Each account belongs to one person.",
+      "مجاز شخص کے بنائے گئے اکاؤنٹ اور مقررہ ذمہ داریوں کے مطابق رسائی ملتی ہے۔ ہر اکاؤنٹ ایک شخص کا ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountsPage.tsx",
+    "line": 43,
+    "kind": "translated",
+    "value": [
+      "Create credentials",
+      "اکاؤنٹ کی اسناد بنائیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountsPage.tsx",
+    "line": 50,
+    "kind": "translated",
+    "value": [
+      "Search by name…",
+      "نام سے تلاش…"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountsPage.tsx",
+    "line": 71,
+    "kind": "translated",
+    "value": [
+      "Name",
+      "نام"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountsPage.tsx",
+    "line": 72,
+    "kind": "translated",
+    "value": [
+      "Role / scope",
+      "کردار / دائرہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountsPage.tsx",
+    "line": 73,
+    "kind": "translated",
+    "value": [
+      "Status",
+      "حیثیت"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountsPage.tsx",
+    "line": 74,
+    "kind": "translated",
+    "value": [
+      "Actions",
+      "اعمال"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountsPage.tsx",
+    "line": 99,
+    "kind": "translated",
+    "value": [
+      "Assignments",
+      "ذمہ داریاں"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountsPage.tsx",
+    "line": 107,
+    "kind": "translated",
+    "value": [
+      "Change this account’s access? Existing assignments are preserved in history.",
+      "اکاؤنٹ کی رسائی بدلیں؟ تاریخ محفوظ رہے گی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\AccountsPage.tsx",
+    "line": 127,
+    "kind": "translated",
+    "value": [
+      "Deactivate",
+      "غیر فعال کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\ActivityPage.tsx",
+    "line": 26,
+    "kind": "translated",
+    "value": [
+      "Activity & audit history",
+      "سرگرمی اور آڈٹ کی تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\ActivityPage.tsx",
+    "line": 27,
+    "kind": "translated",
+    "value": [
+      "A read-only record of accountable changes in your scope.",
+      "آپ کے دائرے میں ذمہ دارانہ تبدیلیوں کا صرف پڑھنے والا ریکارڈ۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ActivityPage.tsx",
+    "line": 35,
+    "kind": "translated",
+    "value": [
+      "Filter by action or actor…",
+      "عمل یا شخص سے فلٹر…"
+    ]
+  },
+  {
+    "file": "pages\\management\\ActivityPage.tsx",
+    "line": 41,
+    "kind": "translated",
+    "value": [
+      "From date",
+      "ابتدائی تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\ActivityPage.tsx",
+    "line": 48,
+    "kind": "translated",
+    "value": [
+      "Through date",
+      "آخری تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\ActivityPage.tsx",
+    "line": 56,
+    "kind": "translated",
+    "value": [
+      "Record",
+      "ریکارڈ"
+    ]
+  },
+  {
+    "file": "pages\\management\\ActivityPage.tsx",
+    "line": 66,
+    "kind": "translated",
+    "value": [
+      "Actor",
+      "شخص"
+    ]
+  },
+  {
+    "file": "pages\\management\\ActivityPage.tsx",
+    "line": 90,
+    "kind": "translated",
+    "value": [
+      "Action",
+      "عمل"
+    ]
+  },
+  {
+    "file": "pages\\management\\ActivityPage.tsx",
+    "line": 91,
+    "kind": "translated",
+    "value": [
+      "Actor",
+      "شخص"
+    ]
+  },
+  {
+    "file": "pages\\management\\ActivityPage.tsx",
+    "line": 92,
+    "kind": "translated",
+    "value": [
+      "Time",
+      "وقت"
+    ]
+  },
+  {
+    "file": "pages\\management\\ActivityPage.tsx",
+    "line": 110,
+    "kind": "translated",
+    "value": [
+      "No matching activity",
+      "کوئی متعلقہ سرگرمی نہیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\AreasPage.tsx",
+    "line": 21,
+    "kind": "translated",
+    "value": [
+      "Cities & participating areas",
+      "شہر اور شریک علاقے"
+    ]
+  },
+  {
+    "file": "pages\\management\\AreasPage.tsx",
+    "line": 25,
+    "kind": "translated",
+    "value": [
+      "Add area",
+      "علاقہ شامل کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\AreasPage.tsx",
+    "line": 30,
+    "kind": "translated",
+    "value": [
+      "Do not imply nationwide coverage. Assign a responsible reviewer before expanding participation.",
+      "پورے ملک کی دستیابی کا تاثر نہ دیں۔ توسیع سے پہلے ذمہ دار نگران مقرر کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\AreasPage.tsx",
+    "line": 45,
+    "kind": "translated",
+    "value": [
+      "venues",
+      "مقامات"
+    ]
+  },
+  {
+    "file": "pages\\management\\AreasPage.tsx",
+    "line": 51,
+    "kind": "translated",
+    "value": [
+      "Manage supervision",
+      "نگرانی کا انتظام"
+    ]
+  },
+  {
+    "file": "pages\\management\\AreasPage.tsx",
+    "line": 58,
+    "kind": "translated",
+    "value": [
+      "Add participating area",
+      "شریک علاقہ شامل کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\AreasPage.tsx",
+    "line": 79,
+    "kind": "translated",
+    "value": [
+      "Area name",
+      "علاقے کا نام"
+    ]
+  },
+  {
+    "file": "pages\\management\\AreasPage.tsx",
+    "line": 82,
+    "kind": "translated",
+    "value": [
+      "City",
+      "شہر"
+    ]
+  },
+  {
+    "file": "pages\\management\\AreasPage.tsx",
+    "line": 86,
+    "kind": "translated",
+    "value": [
+      "Add area with responsibility gap",
+      "نگران کے بغیر علاقہ شامل کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 30,
+    "kind": "translated",
+    "value": [
+      "Assignments & backup coverage",
+      "ذمہ داریاں اور متبادل نگرانی"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 31,
+    "kind": "translated",
+    "value": [
+      "Keep every mosque connected to an accountable representative and independent reviewer.",
+      "ہر مسجد کو ذمہ دار نمائندے اور آزاد نگران سے منسلک رکھیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 37,
+    "kind": "translated",
+    "value": [
+      "Assignment operation",
+      "ذمہ داری کی کارروائی"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 74,
+    "kind": "translated",
+    "value": [
+      "Assignment saved.",
+      "ذمہ داری محفوظ ہو گئی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 82,
+    "kind": "translated",
+    "value": [
+      "Operation",
+      "کارروائی"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 105,
+    "kind": "translated",
+    "value": [
+      "Target mosque or area",
+      "مسجد یا علاقہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 119,
+    "kind": "translated",
+    "value": [
+      "Authorized assignee",
+      "مجاز ذمہ دار"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 126,
+    "kind": "translated",
+    "value": [
+      "Choose an active account",
+      "فعال اکاؤنٹ منتخب کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 144,
+    "kind": "translated",
+    "value": [
+      "Starts at (Pakistan time)",
+      "آغاز (پاکستانی وقت)"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 152,
+    "kind": "translated",
+    "value": [
+      "Ends at (Pakistan time)",
+      "اختتام (پاکستانی وقت)"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 162,
+    "kind": "translated",
+    "value": [
+      "Mandatory reason",
+      "ضروری وجہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 178,
+    "kind": "translated",
+    "value": [
+      "I understand that replacement changes access immediately and must preserve historical attribution.",
+      "میں سمجھتا ہوں کہ تبدیلی فوراً رسائی بدلتی ہے اور پرانی تاریخ محفوظ رہے گی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 184,
+    "kind": "translated",
+    "value": [
+      "Commit assignment",
+      "ذمہ داری درج کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 189,
+    "kind": "translated",
+    "value": [
+      "Recorded backup coverage",
+      "درج متبادل نگرانی"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 191,
+    "kind": "translated",
+    "value": [
+      "Coverage grants timetable review only. It expires at the recorded end time; independent verification still applies.",
+      "متبادل نگرانی صرف اوقات کے جائزے کے لیے ہے۔ مقررہ اختتام پر ختم ہوگی اور آزاد تصدیق لازم ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 197,
+    "kind": "translated",
+    "value": [
+      "No backup coverage recorded.",
+      "کوئی متبادل نگرانی درج نہیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 219,
+    "kind": "translated",
+    "value": [
+      "Revoke this backup assignment now?",
+      "یہ متبادل ذمہ داری ابھی ختم کریں؟"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 233,
+    "kind": "translated",
+    "value": [
+      "Backup access revoked.",
+      "متبادل رسائی ختم ہو گئی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\AssignmentsPage.tsx",
+    "line": 239,
+    "kind": "translated",
+    "value": [
+      "Revoke coverage",
+      "نگرانی ختم کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 29,
+    "kind": "translated",
+    "value": [
+      "YOUR COMMUNITY, CONNECTED",
+      "آپ کی کمیونٹی، باہم مربوط"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 106,
+    "kind": "translated",
+    "value": [
+      "View details",
+      "تفصیلات دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 115,
+    "kind": "translated",
+    "value": [
+      "PRIORITY WORK",
+      "ترجیحی کام"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 116,
+    "kind": "translated",
+    "value": [
+      "Attention required",
+      "توجہ درکار"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 119,
+    "kind": "translated",
+    "value": [
+      "pending",
+      "زیر التوا"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 129,
+    "kind": "translated",
+    "value": [
+      "Timetable review",
+      "اوقات کا جائزہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 132,
+    "kind": "translated",
+    "value": [
+      "Effective",
+      "لاگو"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 149,
+    "kind": "translated",
+    "value": [
+      "All caught up",
+      "تمام کام مکمل"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 151,
+    "kind": "translated",
+    "value": [
+      "There are no pending timetable reviews in your workspace.",
+      "آپ کی ورک اسپیس میں اوقات کا کوئی جائزہ زیر التوا نہیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 166,
+    "kind": "translated",
+    "value": [
+      "View all",
+      "سب دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 190,
+    "kind": "translated",
+    "value": [
+      "Recent activity",
+      "حالیہ سرگرمی"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 203,
+    "kind": "translated",
+    "value": [
+      "View activity history",
+      "سرگرمی کی تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 209,
+    "kind": "translated",
+    "value": [
+      "Participating areas & supervision",
+      "شریک علاقے اور نگرانی"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 214,
+    "kind": "translated",
+    "value": [
+      "Area",
+      "علاقہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 215,
+    "kind": "translated",
+    "value": [
+      "Focal Person",
+      "فوکل پرسن"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 216,
+    "kind": "translated",
+    "value": [
+      "Coverage",
+      "دستیابی"
+    ]
+  },
+  {
+    "file": "pages\\management\\DashboardPage.tsx",
+    "line": 241,
+    "kind": "translated",
+    "value": [
+      "Manage assignment",
+      "ذمہ داری کا انتظام"
+    ]
+  },
+  {
+    "file": "pages\\management\\DeliveryPage.tsx",
+    "line": 14,
+    "kind": "translated",
+    "value": [
+      "Notification delivery failures",
+      "اطلاعات کی ترسیل کی ناکامیاں"
+    ]
+  },
+  {
+    "file": "pages\\management\\DeliveryPage.tsx",
+    "line": 17,
+    "kind": "translated",
+    "value": [
+      "Retries are processed by the notification worker. Delivery actions never approve or reject a submission.",
+      "اطلاعات کی ترسیل کا نظام دوبارہ کوشش کرتا ہے۔ اس کارروائی سے درخواست منظور یا مسترد نہیں ہوتی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\DeliveryPage.tsx",
+    "line": 26,
+    "kind": "translated",
+    "value": [
+      "attempts",
+      "کوششیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\DeliveryPage.tsx",
+    "line": 30,
+    "kind": "translated",
+    "value": [
+      "Attempt history",
+      "کوششوں کی تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\DeliveryPage.tsx",
+    "line": 46,
+    "kind": "translated",
+    "value": [
+      "Queue retry",
+      "دوبارہ کوشش قطار میں رکھیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\DeliveryPage.tsx",
+    "line": 61,
+    "kind": "translated",
+    "value": [
+      "Escalate failure",
+      "ناکامی حوالے کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\DuplicatesPage.tsx",
+    "line": 25,
+    "kind": "translated",
+    "value": [
+      "Duplicate listing assessment",
+      "دہرے اندراج کا جائزہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\DuplicatesPage.tsx",
+    "line": 26,
+    "kind": "translated",
+    "value": [
+      "Compare records without destructive automatic merging.",
+      "خودکار حذف کے بغیر ریکارڈ کا موازنہ کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\DuplicatesPage.tsx",
+    "line": 62,
+    "kind": "translated",
+    "value": [
+      "Inspect record",
+      "ریکارڈ دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\DuplicatesPage.tsx",
+    "line": 69,
+    "kind": "translated",
+    "value": [
+      "Assessment and evidence",
+      "جائزہ اور شواہد"
+    ]
+  },
+  {
+    "file": "pages\\management\\DuplicatesPage.tsx",
+    "line": 83,
+    "kind": "translated",
+    "value": [
+      "Assessment recorded. Neither listing was deleted or merged.",
+      "جائزہ درج ہو گیا۔ کوئی اندراج حذف یا ضم نہیں ہوا۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\DuplicatesPage.tsx",
+    "line": 95,
+    "kind": "translated",
+    "value": [
+      "Record assessment",
+      "جائزہ درج کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\EscalationsPage.tsx",
+    "line": 30,
+    "kind": "translated",
+    "value": [
+      "Urgent work & escalation",
+      "فوری کام اور حوالگی"
+    ]
+  },
+  {
+    "file": "pages\\management\\EscalationsPage.tsx",
+    "line": 31,
+    "kind": "translated",
+    "value": [
+      "Escalation preserves independent verification. No response is never approval.",
+      "حوالگی آزاد تصدیق برقرار رکھتی ہے۔ جواب نہ آنا منظوری نہیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\EscalationsPage.tsx",
+    "line": 37,
+    "kind": "translated",
+    "value": [
+      "Outstanding reviews",
+      "باقی جائزے"
+    ]
+  },
+  {
+    "file": "pages\\management\\EscalationsPage.tsx",
+    "line": 52,
+    "kind": "translated",
+    "value": [
+      "No outstanding work",
+      "کوئی کام باقی نہیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\EscalationsPage.tsx",
+    "line": 55,
+    "kind": "translated",
+    "value": [
+      "Record an escalation",
+      "حوالگی درج کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\EscalationsPage.tsx",
+    "line": 65,
+    "kind": "translated",
+    "value": [
+      "Escalation recorded. Approval remains pending.",
+      "حوالگی درج ہو گئی۔ منظوری زیر التوا ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\EscalationsPage.tsx",
+    "line": 76,
+    "kind": "translated",
+    "value": [
+      "Submission",
+      "درخواست"
+    ]
+  },
+  {
+    "file": "pages\\management\\EscalationsPage.tsx",
+    "line": 79,
+    "kind": "translated",
+    "value": [
+      "Select a pending version",
+      "زیر التوا ورژن منتخب کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\EscalationsPage.tsx",
+    "line": 86,
+    "kind": "translated",
+    "value": [
+      "Reason and urgency",
+      "وجہ اور فوری ضرورت"
+    ]
+  },
+  {
+    "file": "pages\\management\\EscalationsPage.tsx",
+    "line": 94,
+    "kind": "translated",
+    "value": [
+      "Record escalation",
+      "حوالگی درج کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\EscalationsPage.tsx",
+    "line": 96,
+    "kind": "translated",
+    "value": [
+      "This queues an in-app notification for administrators without approving the submission.",
+      "اس سے منتظمین کے لیے ایپ میں اطلاع قطار میں شامل ہوگی۔ درخواست کی منظوری نہیں ہوگی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\MaintenancePage.tsx",
+    "line": 20,
+    "kind": "translated",
+    "value": [
+      "Maintenance & coverage",
+      "دیکھ بھال اور دستیابی"
+    ]
+  },
+  {
+    "file": "pages\\management\\MaintenancePage.tsx",
+    "line": 21,
+    "kind": "translated",
+    "value": [
+      "Review ownership gaps and recorded evidence before expanding coverage.",
+      "دستیابی بڑھانے سے پہلے ذمہ داری اور شواہد کا جائزہ لیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\MaintenancePage.tsx",
+    "line": 27,
+    "kind": "translated",
+    "value": [
+      "Dates are evidence, not expiry guarantees. A freshness threshold has not yet been approved.",
+      "تاریخیں شواہد ہیں، درستگی کی ضمانت نہیں۔ تازگی کی مدت ابھی منظور نہیں ہوئی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\MaintenancePage.tsx",
+    "line": 42,
+    "kind": "translated",
+    "value": [
+      "Area",
+      "علاقہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\MaintenancePage.tsx",
+    "line": 44,
+    "kind": "translated",
+    "value": [
+      "Representative reconfirmation",
+      "نمائندے کی دوبارہ تصدیق"
+    ]
+  },
+  {
+    "file": "pages\\management\\MaintenancePage.tsx",
+    "line": 45,
+    "kind": "translated",
+    "value": [
+      "Not recorded",
+      "درج نہیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\MaintenancePage.tsx",
+    "line": 46,
+    "kind": "translated",
+    "value": [
+      "Imam phone verification",
+      "امام سے فون تصدیق"
+    ]
+  },
+  {
+    "file": "pages\\management\\MaintenancePage.tsx",
+    "line": 47,
+    "kind": "translated",
+    "value": [
+      "Not recorded",
+      "درج نہیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\MaintenancePage.tsx",
+    "line": 48,
+    "kind": "translated",
+    "value": [
+      "Oldest pending review",
+      "سب سے پرانا زیر التوا جائزہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\MaintenancePage.tsx",
+    "line": 55,
+    "kind": "translated",
+    "value": [
+      "Unresolved reports",
+      "غیر حل شدہ رپورٹس"
+    ]
+  },
+  {
+    "file": "pages\\management\\MaintenancePage.tsx",
+    "line": 61,
+    "kind": "translated",
+    "value": [
+      "Upcoming dated sessions",
+      "آئندہ تاریخ وار جماعتیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\MaintenancePage.tsx",
+    "line": 71,
+    "kind": "translated",
+    "value": [
+      "Pending proposals",
+      "زیر التوا تجاویز"
+    ]
+  },
+  {
+    "file": "pages\\management\\MaintenancePage.tsx",
+    "line": 110,
+    "kind": "translated",
+    "value": [
+      "Open mosque workspace",
+      "مسجد کا انتظام کھولیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\MyAccountPage.tsx",
+    "line": 19,
+    "kind": "translated",
+    "value": [
+      "My account & security",
+      "میرا اکاؤنٹ اور حفاظت"
+    ]
+  },
+  {
+    "file": "pages\\management\\MyAccountPage.tsx",
+    "line": 21,
+    "kind": "translated",
+    "value": [
+      "Your assigned role",
+      "آپ کا مقررہ کردار"
+    ]
+  },
+  {
+    "file": "pages\\management\\MyAccountPage.tsx",
+    "line": 25,
+    "kind": "translated",
+    "value": [
+      "Account contact number",
+      "اکاؤنٹ کا رابطہ نمبر"
+    ]
+  },
+  {
+    "file": "pages\\management\\MyAccountPage.tsx",
+    "line": 27,
+    "kind": "translated",
+    "value": [
+      "Not recorded",
+      "درج نہیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\MyAccountPage.tsx",
+    "line": 29,
+    "kind": "translated",
+    "value": [
+      "Contact confirmation by issuer",
+      "نمبر کی تصدیق"
+    ]
+  },
+  {
+    "file": "pages\\management\\MyAccountPage.tsx",
+    "line": 32,
+    "kind": "translated",
+    "value": [
+      "Not confirmed by issuer",
+      "حقیقی سروس سے تصدیق نہیں ہوئی"
+    ]
+  },
+  {
+    "file": "pages\\management\\MyAccountPage.tsx",
+    "line": 39,
+    "kind": "translated",
+    "value": [
+      "Your role and scope are assigned by authorized management. You cannot promote your own account.",
+      "آپ کا کردار اور دائرہ مجاز انتظامیہ طے کرتی ہے۔ آپ خود اپنا کردار نہیں بڑھا سکتے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\MyAccountPage.tsx",
+    "line": 45,
+    "kind": "translated",
+    "value": [
+      "Change password",
+      "پاس ورڈ تبدیل کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\MyAccountPage.tsx",
+    "line": 64,
+    "kind": "translated",
+    "value": [
+      "Current password",
+      "موجودہ پاس ورڈ"
+    ]
+  },
+  {
+    "file": "pages\\management\\MyAccountPage.tsx",
+    "line": 72,
+    "kind": "translated",
+    "value": [
+      "New password",
+      "نیا پاس ورڈ"
+    ]
+  },
+  {
+    "file": "pages\\management\\MyAccountPage.tsx",
+    "line": 83,
+    "kind": "translated",
+    "value": [
+      "Update password",
+      "پاس ورڈ بدلیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\MyAccountPage.tsx",
+    "line": 87,
+    "kind": "translated",
+    "value": [
+      "Recover account access",
+      "اکاؤنٹ کی رسائی بحال کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticeFormPage.tsx",
+    "line": 73,
+    "kind": "translated",
+    "value": [
+      "Mosque",
+      "مسجد"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticeFormPage.tsx",
+    "line": 85,
+    "kind": "translated",
+    "value": [
+      "Category",
+      "قسم"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticeFormPage.tsx",
+    "line": 93,
+    "kind": "translated",
+    "value": [
+      "Public title",
+      "عوامی عنوان"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticeFormPage.tsx",
+    "line": 96,
+    "kind": "translated",
+    "value": [
+      "Public details",
+      "عوامی تفصیلات"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticeFormPage.tsx",
+    "line": 100,
+    "kind": "translated",
+    "value": [
+      "Event date & time",
+      "تقریب کی تاریخ اور وقت"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticeFormPage.tsx",
+    "line": 108,
+    "kind": "translated",
+    "value": [
+      "Expiry date & time",
+      "اختتام کی تاریخ اور وقت"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticeFormPage.tsx",
+    "line": 119,
+    "kind": "translated",
+    "value": [
+      "Private source authority / consent evidence",
+      "نجی ماخذ / اجازت کے شواہد"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticeFormPage.tsx",
+    "line": 127,
+    "kind": "translated",
+    "value": [
+      "Sensitive death/Janazah notices need an authorized family or mosque source. No private family details, fundraising or automatic arrival estimates.",
+      "وفات یا جنازے کی اطلاع کے لیے اہل خاندان یا مسجد کی تصدیق ضروری ہے۔ نجی معلومات یا چندہ شامل نہ کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticeFormPage.tsx",
+    "line": 139,
+    "kind": "translated",
+    "value": [
+      "Save draft",
+      "مسودہ محفوظ کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticeFormPage.tsx",
+    "line": 142,
+    "kind": "translated",
+    "value": [
+      "Submit for moderation",
+      "جائزے کے لیے بھیجیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticesPage.tsx",
+    "line": 30,
+    "kind": "translated",
+    "value": [
+      "Mosque notice board",
+      "مسجد کے اعلانات"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticesPage.tsx",
+    "line": 31,
+    "kind": "translated",
+    "value": [
+      "Relevant, reviewed and time-limited community information.",
+      "متعلقہ، تصدیق شدہ اور محدود مدت کی اجتماعی معلومات۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticesPage.tsx",
+    "line": 38,
+    "kind": "translated",
+    "value": [
+      "Create notice",
+      "اعلان بنائیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticesPage.tsx",
+    "line": 74,
+    "kind": "translated",
+    "value": [
+      "Event / expires",
+      "تقریب / اختتام"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticesPage.tsx",
+    "line": 80,
+    "kind": "translated",
+    "value": [
+      "Private source evidence",
+      "نجی ماخذ کے شواہد"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticesPage.tsx",
+    "line": 81,
+    "kind": "translated",
+    "value": [
+      "No evidence recorded",
+      "شواہد درج نہیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticesPage.tsx",
+    "line": 87,
+    "kind": "translated",
+    "value": [
+      "Moderation reason",
+      "جائزے کی وجہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticesPage.tsx",
+    "line": 120,
+    "kind": "translated",
+    "value": [
+      "Revise notice",
+      "اعلان میں ترمیم"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticesPage.tsx",
+    "line": 129,
+    "kind": "translated",
+    "value": [
+      "Source evidence and a future expiry are required.",
+      "ماخذ کے شواہد اور آئندہ اختتامی وقت درکار ہیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticesPage.tsx",
+    "line": 138,
+    "kind": "translated",
+    "value": [
+      "Confirm source authority, privacy, event details and expiry before approving this notice.",
+      "منظوری سے پہلے ماخذ، رازداری، تقریب اور اختتام کی تصدیق کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticesPage.tsx",
+    "line": 158,
+    "kind": "translated",
+    "value": [
+      "Approve notice",
+      "اعلان منظور کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticesPage.tsx",
+    "line": 167,
+    "kind": "translated",
+    "value": [
+      "Cancel this notice and remove it from public display?",
+      "اعلان منسوخ کر کے عوامی صفحے سے ہٹائیں؟"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticesPage.tsx",
+    "line": 184,
+    "kind": "translated",
+    "value": [
+      "Cancel notice",
+      "اعلان منسوخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\NoticesPage.tsx",
+    "line": 192,
+    "kind": "translated",
+    "value": [
+      "No notices in this view",
+      "اس فہرست میں کوئی اعلان نہیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\NotificationsPage.tsx",
+    "line": 15,
+    "kind": "translated",
+    "value": [
+      "Your notifications",
+      "آپ کی اطلاعات"
+    ]
+  },
+  {
+    "file": "pages\\management\\NotificationsPage.tsx",
+    "line": 27,
+    "kind": "translated",
+    "value": [
+      "Mark all read",
+      "سب پڑھی ہوئی نشان زد"
+    ]
+  },
+  {
+    "file": "pages\\management\\NotificationsPage.tsx",
+    "line": 32,
+    "kind": "translated",
+    "value": [
+      "Reading a notification does not resolve its review task or approve a submission.",
+      "اطلاع پڑھنے سے جائزہ مکمل یا درخواست منظور نہیں ہوتی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\NotificationsPage.tsx",
+    "line": 55,
+    "kind": "translated",
+    "value": [
+      "Read",
+      "پڑھی گئی"
+    ]
+  },
+  {
+    "file": "pages\\management\\NotificationsPage.tsx",
+    "line": 55,
+    "kind": "translated",
+    "value": [
+      "Unread",
+      "نہیں پڑھی گئی"
+    ]
+  },
+  {
+    "file": "pages\\management\\NotificationsPage.tsx",
+    "line": 62,
+    "kind": "translated",
+    "value": [
+      "You’re all caught up",
+      "تمام اطلاعات دیکھ لی گئیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\ProfileFormPage.tsx",
+    "line": 60,
+    "kind": "translated",
+    "value": [
+      "Change request saved for independent review. Public information is unchanged.",
+      "تبدیلی آزاد جائزے کے لیے محفوظ ہے۔ عوامی معلومات تبدیل نہیں ہوئیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ProfileFormPage.tsx",
+    "line": 75,
+    "kind": "translated",
+    "value": [
+      "A new phone number cannot verify itself. Provide an established contact or independent mosque authority. Do not publish private contact details.",
+      "نیا نمبر خود اپنی تصدیق نہیں کر سکتا۔ موجودہ معتبر رابطہ یا آزاد مسجد اتھارٹی دیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ProfileFormPage.tsx",
+    "line": 80,
+    "kind": "translated",
+    "value": [
+      "New Imam contact name",
+      "امام کا نیا نام"
+    ]
+  },
+  {
+    "file": "pages\\management\\ProfileFormPage.tsx",
+    "line": 83,
+    "kind": "translated",
+    "value": [
+      "New private phone",
+      "نیا نجی فون"
+    ]
+  },
+  {
+    "file": "pages\\management\\ProfileFormPage.tsx",
+    "line": 87,
+    "kind": "translated",
+    "value": [
+      "Existing trusted contact / independent authority",
+      "موجودہ معتبر رابطہ / آزاد اتھارٹی"
+    ]
+  },
+  {
+    "file": "pages\\management\\ProfileFormPage.tsx",
+    "line": 96,
+    "kind": "translated",
+    "value": [
+      "Permission to contact has been obtained.",
+      "رابطے کی اجازت حاصل ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ProfileFormPage.tsx",
+    "line": 102,
+    "kind": "translated",
+    "value": [
+      "Mosque name",
+      "مسجد کا نام"
+    ]
+  },
+  {
+    "file": "pages\\management\\ProfileFormPage.tsx",
+    "line": 105,
+    "kind": "translated",
+    "value": [
+      "Address",
+      "پتہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\ProfileFormPage.tsx",
+    "line": 121,
+    "kind": "translated",
+    "value": [
+      "Identity changes remain proposals until reviewed. This form does not modify prayer times.",
+      "شناخت کی تبدیلی جائزے تک تجویز رہے گی۔ یہ فارم نماز کے اوقات نہیں بدلتا۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ProfileFormPage.tsx",
+    "line": 128,
+    "kind": "translated",
+    "value": [
+      "Reason for change",
+      "تبدیلی کی وجہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\ProfileFormPage.tsx",
+    "line": 133,
+    "kind": "translated",
+    "value": [
+      "Submit change request",
+      "تبدیلی کی درخواست بھیجیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\RecordQueuePage.tsx",
+    "line": 52,
+    "kind": "translated",
+    "value": [
+      "Review evidence, record a decision and preserve a clear history.",
+      "شواہد دیکھیں، فیصلہ درج کریں اور واضح تاریخ برقرار رکھیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RecordQueuePage.tsx",
+    "line": 60,
+    "kind": "translated",
+    "value": [
+      "Search requests…",
+      "درخواستیں تلاش کریں…"
+    ]
+  },
+  {
+    "file": "pages\\management\\RecordQueuePage.tsx",
+    "line": 84,
+    "kind": "translated",
+    "value": [
+      "Group related reports by mosque and issue type",
+      "متعلقہ رپورٹس مسجد اور مسئلے کے مطابق جمع کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\RecordQueuePage.tsx",
+    "line": 116,
+    "kind": "translated",
+    "value": [
+      "No matching requests",
+      "کوئی متعلقہ درخواست نہیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\RecordQueuePage.tsx",
+    "line": 117,
+    "kind": "translated",
+    "value": [
+      "Requests submitted through the public forms will appear here.",
+      "عوامی فارم سے موصول درخواستیں یہاں آئیں گی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 117,
+    "kind": "translated",
+    "value": [
+      "Correct returned registration",
+      "واپس کیے گئے اندراج کی اصلاح"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 118,
+    "kind": "translated",
+    "value": [
+      "Register a mosque",
+      "مسجد درج کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 120,
+    "kind": "translated",
+    "value": [
+      "Build a complete record for independent registration and timetable verification. Provide accurate details for independent review.",
+      "آزاد تصدیق کے لیے مکمل ریکارڈ بنائیں۔ درست معلومات فراہم کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 128,
+    "kind": "translated",
+    "value": [
+      "Your draft stays in this page while it is open.",
+      "صفحہ کھلا رہنے تک مسودہ یہیں محفوظ ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 136,
+    "kind": "translated",
+    "value": [
+      "Keep draft",
+      "مسودہ رکھیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 142,
+    "kind": "translated",
+    "value": [
+      "Reviewer feedback",
+      "نگران کی ہدایات"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 144,
+    "kind": "translated",
+    "value": [
+      "Review all registration details before resubmitting.",
+      "دوبارہ بھیجنے سے پہلے تمام تفصیلات دیکھیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 151,
+    "kind": "translated",
+    "value": [
+      "This mosque stays unpublished until an independent reviewer approves the corrected registration.",
+      "آزاد نگران کی منظوری تک یہ مسجد شائع نہیں ہوگی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 160,
+    "kind": "translated",
+    "value": [
+      "Details",
+      "تفصیلات"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 161,
+    "kind": "translated",
+    "value": [
+      "Location",
+      "مقام"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 162,
+    "kind": "translated",
+    "value": [
+      "Imam",
+      "امام"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 163,
+    "kind": "translated",
+    "value": [
+      "Timings",
+      "اوقات"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 164,
+    "kind": "translated",
+    "value": [
+      "Review",
+      "جائزہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 219,
+    "kind": "translated",
+    "value": [
+      "Registration saved for review. The mosque is not public.",
+      "اندراج جائزے کے لیے محفوظ ہے۔ مسجد عوامی نہیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 236,
+    "kind": "translated",
+    "value": [
+      "Mosque details",
+      "مسجد کی تفصیلات"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 237,
+    "kind": "translated",
+    "value": [
+      "Venue type",
+      "مقام کی قسم"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 247,
+    "kind": "translated",
+    "value": [
+      "Associated mosque",
+      "متعلقہ مسجد"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 281,
+    "kind": "translated",
+    "value": [
+      "Area",
+      "علاقہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 294,
+    "kind": "translated",
+    "value": [
+      "Possible duplicates. Review existing listings first:",
+      "ممکنہ دہرے اندراجات۔ پہلے موجودہ ریکارڈ دیکھیں:"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 309,
+    "kind": "translated",
+    "value": [
+      "Location & entrance",
+      "مقام اور داخلی دروازہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 317,
+    "kind": "translated",
+    "value": [
+      "Entrance latitude",
+      "داخلی دروازے کا عرض البلد"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 328,
+    "kind": "translated",
+    "value": [
+      "Entrance longitude",
+      "داخلی دروازے کا طول البلد"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 341,
+    "kind": "translated",
+    "value": [
+      "Use the actual entrance coordinates, including a separate entrance for prayer grounds. Published directions will use these coordinates.",
+      "اصل داخلی دروازے کے مختصات دیں۔ شائع شدہ مسجد کا راستہ انہی مختصات سے کھلے گا۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 350,
+    "kind": "translated",
+    "value": [
+      "Private Imam contact",
+      "امام کا نجی رابطہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 352,
+    "kind": "translated",
+    "value": [
+      "Provide the real authorized Imam contact. These details are private and require independent verification.",
+      "مجاز امام کا اصل رابطہ دیں۔ یہ معلومات نجی ہیں اور آزاد تصدیق ضروری ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 371,
+    "kind": "translated",
+    "value": [
+      "Permission to contact the Imam for service verification has been obtained.",
+      "سروس کی تصدیق کے لیے امام سے رابطے کی اجازت حاصل ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 380,
+    "kind": "translated",
+    "value": [
+      "Initial timetable & facilities",
+      "ابتدائی اوقات اور سہولیات"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 416,
+    "kind": "translated",
+    "value": [
+      "Review registration",
+      "اندراج کا جائزہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 429,
+    "kind": "translated",
+    "value": [
+      "Private verification contact",
+      "نجی تصدیقی رابطہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 432,
+    "kind": "translated",
+    "value": [
+      "Contact permission recorded",
+      "رابطے کی اجازت درج"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 443,
+    "kind": "translated",
+    "value": [
+      "I checked these details and understand this registration remains unpublished until an independent reviewer verifies it and the initial timetable.",
+      "میں نے تفصیلات دیکھی ہیں۔ آزاد نگران کی تصدیق سے پہلے یہ شائع نہیں ہوگا۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RegistrationPage.tsx",
+    "line": 458,
+    "kind": "translated",
+    "value": [
+      "Back",
+      "واپس"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 130,
+    "kind": "translated",
+    "value": [
+      "Correct and resubmit registration",
+      "اندراج درست کر کے دوبارہ بھیجیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 138,
+    "kind": "translated",
+    "value": [
+      "Submitted information",
+      "جمع شدہ معلومات"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 150,
+    "kind": "translated",
+    "value": [
+      "Entrance coordinates",
+      "داخلی دروازے کے مختصات"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 154,
+    "kind": "translated",
+    "value": [
+      "Representative relationship",
+      "نمائندے کا تعلق"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 158,
+    "kind": "translated",
+    "value": [
+      "Private Imam contact",
+      "امام کا نجی رابطہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 163,
+    "kind": "translated",
+    "value": [
+      "Effective date",
+      "نفاذ کی تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 184,
+    "kind": "translated",
+    "value": [
+      "This review is closed. Returned registrations must be corrected and resubmitted before another decision.",
+      "یہ جائزہ بند ہے۔ نئے فیصلے سے پہلے واپس کیا گیا اندراج درست کر کے دوبارہ بھیجیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 207,
+    "kind": "translated",
+    "value": [
+      "Record this decision for the current request?",
+      "موجودہ درخواست کا فیصلہ درج کریں؟"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 216,
+    "kind": "translated",
+    "value": [
+      "Review saved.",
+      "جائزہ محفوظ ہو گیا۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 244,
+    "kind": "translated",
+    "value": [
+      "Disposition",
+      "فیصلہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 256,
+    "kind": "translated",
+    "value": [
+      "Existing listing",
+      "موجودہ اندراج"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 262,
+    "kind": "translated",
+    "value": [
+      "Select a mosque",
+      "مسجد منتخب کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 273,
+    "kind": "translated",
+    "value": [
+      "Application assessment",
+      "درخواست کی جانچ"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 297,
+    "kind": "translated",
+    "value": [
+      "An independent reviewer must decide this request.",
+      "اس درخواست کا فیصلہ آزاد نگران کرے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 301,
+    "kind": "translated",
+    "value": [
+      "Assign a representative and focal person before publication.",
+      "اشاعت سے پہلے نمائندہ اور نگران مقرر کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 330,
+    "kind": "translated",
+    "value": [
+      "I am independent of the submitter and have verified the trusted reference.",
+      "میں درخواست دینے والے سے الگ ہوں اور معتبر حوالہ چیک کیا ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 337,
+    "kind": "translated",
+    "value": [
+      "Approval records the application decision. An authorized issuer must create account credentials separately.",
+      "منظوری سے درخواست کا فیصلہ درج ہوتا ہے۔ مجاز شخص کو اکاؤنٹ کی اسناد الگ بنانا ہوں گی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 346,
+    "kind": "translated",
+    "value": [
+      "Private investigation notes / decision reason",
+      "نجی تحقیق / فیصلے کی وجہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 360,
+    "kind": "translated",
+    "value": [
+      "Public response for the request owner",
+      "درخواست دینے والے کے لیے جواب"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 384,
+    "kind": "translated",
+    "value": [
+      "Save review",
+      "جائزہ محفوظ کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\RequestReviewPage.tsx",
+    "line": 387,
+    "kind": "translated",
+    "value": [
+      "Reports do not automatically change official timings. Schedule corrections use the independent timetable workflow.",
+      "رپورٹ خود اوقات تبدیل نہیں کرتی۔ اصلاح کے لیے اوقات کا آزاد تصدیقی عمل استعمال کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 30,
+    "kind": "translated",
+    "value": [
+      "No draft to review",
+      "جائزے کے لیے مسودہ نہیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 33,
+    "kind": "translated",
+    "value": [
+      "Open editor",
+      "ایڈیٹر کھولیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 42,
+    "kind": "translated",
+    "value": [
+      "Version conflict. The mosque changed since editing began. Reload before submitting.",
+      "ورژن کا تضاد۔ مسجد کی معلومات بدل گئی ہیں۔ پہلے دوبارہ لوڈ کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 67,
+    "kind": "translated",
+    "value": [
+      "Review your timing changes",
+      "اوقات کی تبدیلیوں کا جائزہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 68,
+    "kind": "translated",
+    "value": [
+      "Check every value before submitting this version for independent verification.",
+      "آزاد تصدیق کے لیے بھیجنے سے پہلے ہر وقت دیکھیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 75,
+    "kind": "translated",
+    "value": [
+      "Edit timetable",
+      "اوقات میں ترمیم"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 76,
+    "kind": "translated",
+    "value": [
+      "Review changes",
+      "تبدیلیاں دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 77,
+    "kind": "translated",
+    "value": [
+      "Submit for verification",
+      "تصدیق کے لیے جمع"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 83,
+    "kind": "translated",
+    "value": [
+      "Changed congregations",
+      "تبدیل شدہ جماعتیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 89,
+    "kind": "translated",
+    "value": [
+      "Special sessions",
+      "خصوصی جماعتیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 102,
+    "kind": "translated",
+    "value": [
+      "Reason & effective date",
+      "وجہ اور لاگو ہونے کی تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 107,
+    "kind": "translated",
+    "value": [
+      "What happens next?",
+      "اب کیا ہوگا؟"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 110,
+    "kind": "translated",
+    "value": [
+      "A new immutable version is saved.",
+      "نیا مستقل ورژن محفوظ ہوگا۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 113,
+    "kind": "translated",
+    "value": [
+      "Your Focal Person receives a review task.",
+      "فوکل پرسن کو جائزے کا کام ملے گا۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 119,
+    "kind": "translated",
+    "value": [
+      "The registered Imam is called to verify this version.",
+      "اس ورژن کی تصدیق امام سے فون پر ہوگی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 125,
+    "kind": "translated",
+    "value": [
+      "Approved timings activate on the effective date.",
+      "منظور شدہ اوقات مقررہ تاریخ پر لاگو ہوں گے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 132,
+    "kind": "translated",
+    "value": [
+      "Submission is not publication. Only the affected prayer/date loses confident arrival estimates while under review.",
+      "جمع کرانا اشاعت نہیں۔ صرف متاثرہ نماز اور تاریخ کے اندازے رکیں گے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 146,
+    "kind": "translated",
+    "value": [
+      "I checked the proposed times and dates. I understand that independent verification is required.",
+      "میں نے مجوزہ اوقات اور تاریخیں دیکھی ہیں۔ آزاد تصدیق ضروری ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 155,
+    "kind": "translated",
+    "value": [
+      "Back to edit",
+      "ترمیم پر واپس"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewChangesPage.tsx",
+    "line": 159,
+    "kind": "translated",
+    "value": [
+      "Submit for verification",
+      "تصدیق کے لیے جمع کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewQueuePage.tsx",
+    "line": 28,
+    "kind": "translated",
+    "value": [
+      "Combined review queue",
+      "مشترکہ جائزہ قطار"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewQueuePage.tsx",
+    "line": 29,
+    "kind": "translated",
+    "value": [
+      "All review types in one place. Event dates are not review deadlines; no unapproved deadline is assumed.",
+      "تمام جائزے ایک جگہ۔ تقریب کی تاریخ جائزے کی آخری تاریخ نہیں ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewQueuePage.tsx",
+    "line": 36,
+    "kind": "translated",
+    "value": [
+      "Review type",
+      "جائزے کی قسم"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewQueuePage.tsx",
+    "line": 43,
+    "kind": "translated",
+    "value": [
+      "Mosque",
+      "مسجد"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewQueuePage.tsx",
+    "line": 45,
+    "kind": "translated",
+    "value": [
+      "All assigned mosques",
+      "تمام مقررہ مساجد"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewQueuePage.tsx",
+    "line": 55,
+    "kind": "translated",
+    "value": [
+      "Event / effective date",
+      "تقریب / لاگو تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewQueuePage.tsx",
+    "line": 69,
+    "kind": "translated",
+    "value": [
+      "Escalated work only",
+      "صرف فوری حوالے"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewQueuePage.tsx",
+    "line": 82,
+    "kind": "translated",
+    "value": [
+      "Escalated",
+      "حوالہ شدہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewQueuePage.tsx",
+    "line": 82,
+    "kind": "translated",
+    "value": [
+      "Review",
+      "جائزہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\ReviewQueuePage.tsx",
+    "line": 87,
+    "kind": "translated",
+    "value": [
+      "No matching review tasks",
+      "کوئی متعلقہ جائزہ نہیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionDetailPage.tsx",
+    "line": 37,
+    "kind": "translated",
+    "value": [
+      "Timing submission details",
+      "اوقات کی درخواست کی تفصیلات"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionDetailPage.tsx",
+    "line": 62,
+    "kind": "translated",
+    "value": [
+      "Changes in this proposal",
+      "اس تجویز کی تبدیلیاں"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionDetailPage.tsx",
+    "line": 65,
+    "kind": "translated",
+    "value": [
+      "Effective schedule & rationale",
+      "لاگو اوقات اور وجہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionDetailPage.tsx",
+    "line": 70,
+    "kind": "translated",
+    "value": [
+      "Version lineage",
+      "ورژن کی تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionDetailPage.tsx",
+    "line": 75,
+    "kind": "text",
+    "value": "v"
+  },
+  {
+    "file": "pages\\management\\SubmissionDetailPage.tsx",
+    "line": 84,
+    "kind": "translated",
+    "value": [
+      "Submission record",
+      "درخواست کا ریکارڈ"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionDetailPage.tsx",
+    "line": 86,
+    "kind": "translated",
+    "value": [
+      "Submitted by",
+      "جمع کرانے والا"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionDetailPage.tsx",
+    "line": 88,
+    "kind": "translated",
+    "value": [
+      "Submitted at",
+      "جمع کرنے کا وقت"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionDetailPage.tsx",
+    "line": 90,
+    "kind": "translated",
+    "value": [
+      "Focal Person",
+      "فوکل پرسن"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionDetailPage.tsx",
+    "line": 96,
+    "kind": "translated",
+    "value": [
+      "Revise as new proposal",
+      "نئی تجویز کے طور پر ترمیم"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionDetailPage.tsx",
+    "line": 101,
+    "kind": "translated",
+    "value": [
+      "Open verification",
+      "تصدیق کھولیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionDetailPage.tsx",
+    "line": 106,
+    "kind": "translated",
+    "value": [
+      "Activity history",
+      "سرگرمی کی تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionsPage.tsx",
+    "line": 36,
+    "kind": "translated",
+    "value": [
+      "Every submission keeps its own version, history and decision.",
+      "ہر درخواست کا اپنا ورژن، تاریخ اور فیصلہ برقرار ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionsPage.tsx",
+    "line": 43,
+    "kind": "translated",
+    "value": [
+      "Search mosque or reference…",
+      "مسجد یا حوالہ تلاش کریں…"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionsPage.tsx",
+    "line": 65,
+    "kind": "translated",
+    "value": [
+      "Mosque / version",
+      "مسجد / ورژن"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionsPage.tsx",
+    "line": 66,
+    "kind": "translated",
+    "value": [
+      "Effective",
+      "لاگو"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionsPage.tsx",
+    "line": 67,
+    "kind": "translated",
+    "value": [
+      "Status",
+      "حیثیت"
+    ]
+  },
+  {
+    "file": "pages\\management\\SubmissionsPage.tsx",
+    "line": 77,
+    "kind": "text",
+    "value": "· v"
+  },
+  {
+    "file": "pages\\management\\SubmissionsPage.tsx",
+    "line": 112,
+    "kind": "translated",
+    "value": [
+      "No matching submissions",
+      "کوئی متعلقہ درخواست نہیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 49,
+    "kind": "translated",
+    "value": [
+      "Preparing your draft…",
+      "مسودہ تیار ہو رہا ہے…"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 63,
+    "kind": "translated",
+    "value": [
+      "Edit timetable",
+      "اوقات میں ترمیم"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 66,
+    "kind": "translated",
+    "value": [
+      "Update Jama’at timings",
+      "جماعت کے اوقات بدلیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 67,
+    "kind": "translated",
+    "value": [
+      "Enter the actual congregation times. Changes are reviewed before publication.",
+      "حقیقی جماعت کے اوقات درج کریں۔ اشاعت سے پہلے تبدیلیوں کا جائزہ ہوگا۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 74,
+    "kind": "translated",
+    "value": [
+      "Edit timetable",
+      "اوقات میں ترمیم"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 75,
+    "kind": "translated",
+    "value": [
+      "Review changes",
+      "تبدیلیاں دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 76,
+    "kind": "translated",
+    "value": [
+      "Submit for verification",
+      "تصدیق کے لیے جمع"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 85,
+    "kind": "translated",
+    "value": [
+      "Enter valid times for all five daily prayers.",
+      "پانچوں نمازوں کے درست اوقات درج کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 94,
+    "kind": "translated",
+    "value": [
+      "A newer revision exists. Reload the mosque and reconcile your changes.",
+      "نیا ورژن موجود ہے۔ مسجد دوبارہ کھول کر تبدیلیوں کا جائزہ لیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 113,
+    "kind": "translated",
+    "value": [
+      "Recurring daily",
+      "روزانہ اوقات"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 121,
+    "kind": "translated",
+    "value": [
+      "Friday, Eid & dated exceptions",
+      "جمعہ، عید اور تاریخ وار استثنا"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 125,
+    "kind": "translated",
+    "value": [
+      "Prayer schedule matrix",
+      "نماز کے اوقات"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 130,
+    "kind": "translated",
+    "value": [
+      "Prayer",
+      "نماز"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 131,
+    "kind": "translated",
+    "value": [
+      "Approved time",
+      "منظور شدہ وقت"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 132,
+    "kind": "translated",
+    "value": [
+      "Proposed Jama’at",
+      "مجوزہ جماعت"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 160,
+    "kind": "translated",
+    "value": [
+      "Changed",
+      "تبدیل شدہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 171,
+    "kind": "translated",
+    "value": [
+      "Date-specific sessions & cancellations",
+      "تاریخ وار جماعتیں اور منسوخیاں"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 197,
+    "kind": "translated",
+    "value": [
+      "Add session",
+      "جماعت شامل کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 205,
+    "kind": "translated",
+    "value": [
+      "Session",
+      "جماعت"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 207,
+    "kind": "translated",
+    "value": [
+      "Canceled",
+      "منسوخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 210,
+    "kind": "translated",
+    "value": [
+      "Prayer / event",
+      "نماز / تقریب"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 220,
+    "kind": "translated",
+    "value": [
+      "Local date",
+      "مقامی تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 230,
+    "kind": "translated",
+    "value": [
+      "Jama’at time",
+      "جماعت کا وقت"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 240,
+    "kind": "translated",
+    "value": [
+      "Khutbah (optional)",
+      "خطبہ (اختیاری)"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 259,
+    "kind": "translated",
+    "value": [
+      "Date is provisional",
+      "تاریخ عارضی ہے"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 269,
+    "kind": "translated",
+    "value": [
+      "Explicitly cancel this session",
+      "یہ جماعت واضح طور پر منسوخ کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 278,
+    "kind": "translated",
+    "value": [
+      "Cancellation is explicit: a canceled dated session must never reappear through a recurring timetable.",
+      "منسوخی واضح ہے؛ منسوخ جماعت روزانہ اوقات سے دوبارہ ظاہر نہیں ہوگی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 285,
+    "kind": "translated",
+    "value": [
+      "Effective period & reason",
+      "لاگو ہونے کی تاریخ اور وجہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 288,
+    "kind": "translated",
+    "value": [
+      "Effective from (Asia/Karachi)",
+      "لاگو ہونے کی تاریخ (پاکستان)"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 301,
+    "kind": "translated",
+    "value": [
+      "Future approved schedules activate on their effective date. Today’s affected sessions stay under review until a decision.",
+      "آئندہ اوقات مقررہ تاریخ پر لاگو ہوں گے۔ آج کی متاثرہ جماعتیں فیصلے تک زیر تصدیق رہیں گی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 308,
+    "kind": "translated",
+    "value": [
+      "Reason for change",
+      "تبدیلی کی وجہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 327,
+    "kind": "translated",
+    "value": [
+      "Cancel",
+      "منسوخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 334,
+    "kind": "translated",
+    "value": [
+      "Draft retained in this tab. Nothing has been submitted.",
+      "مسودہ اس ٹیب میں محفوظ ہے۔ جمع نہیں ہوا۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 342,
+    "kind": "translated",
+    "value": [
+      "Keep draft",
+      "مسودہ رکھیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\TimetableEditorPage.tsx",
+    "line": 345,
+    "kind": "translated",
+    "value": [
+      "Review changes",
+      "تبدیلیاں دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueListPage.tsx",
+    "line": 36,
+    "kind": "translated",
+    "value": [
+      "Manage the records within your current assignment.",
+      "اپنی موجودہ ذمہ داری کے ریکارڈ سنبھالیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueListPage.tsx",
+    "line": 43,
+    "kind": "translated",
+    "value": [
+      "Register mosque",
+      "مسجد درج کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueListPage.tsx",
+    "line": 50,
+    "kind": "translated",
+    "value": [
+      "Search mosques…",
+      "مساجد تلاش کریں…"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueListPage.tsx",
+    "line": 92,
+    "kind": "translated",
+    "value": [
+      "Manage mosque",
+      "مسجد کا انتظام"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueListPage.tsx",
+    "line": 95,
+    "kind": "translated",
+    "value": [
+      "Update timings",
+      "اوقات بدلیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueListPage.tsx",
+    "line": 104,
+    "kind": "translated",
+    "value": [
+      "No matching assigned mosques",
+      "کوئی متعلقہ مقررہ مسجد نہیں ملی"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueListPage.tsx",
+    "line": 112,
+    "kind": "translated",
+    "value": [
+      "Clear filters",
+      "فلٹر ہٹائیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 42,
+    "kind": "translated",
+    "value": [
+      "My mosques",
+      "میری مساجد"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 52,
+    "kind": "translated",
+    "value": [
+      "View public page",
+      "عوامی صفحہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 62,
+    "kind": "translated",
+    "value": [
+      "Correct and resubmit registration",
+      "اندراج درست کر کے دوبارہ بھیجیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 72,
+    "kind": "translated",
+    "value": [
+      "Pending schedule proposal",
+      "اوقات کی تجویز زیر التوا"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 75,
+    "kind": "translated",
+    "value": [
+      "Current approved times stay separate from this proposal.",
+      "موجودہ منظور شدہ اوقات تجویز سے الگ ہیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 82,
+    "kind": "translated",
+    "value": [
+      "View proposal",
+      "تجویز دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 89,
+    "kind": "translated",
+    "value": [
+      "Current approved timetable",
+      "موجودہ منظور شدہ اوقات"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 93,
+    "kind": "translated",
+    "value": [
+      "Edit timetable",
+      "اوقات میں ترمیم"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 100,
+    "kind": "translated",
+    "value": [
+      "Confirm timings unchanged",
+      "اوقات نہ بدلنے کی تصدیق"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 104,
+    "kind": "translated",
+    "value": [
+      "Special congregations & exceptions",
+      "خصوصی جماعتیں اور استثنا"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 107,
+    "kind": "translated",
+    "value": [
+      "Manage Friday sessions, dated overrides, provisional Eid dates and explicit cancellations.",
+      "جمعہ، تاریخ وار تبدیلیوں، عارضی عید اور منسوخی کا انتظام کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 113,
+    "kind": "translated",
+    "value": [
+      "Manage sessions",
+      "جماعتوں کا انتظام"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 118,
+    "kind": "translated",
+    "value": [
+      "Mosque profile & facilities",
+      "مسجد کی معلومات اور سہولیات"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 121,
+    "kind": "translated",
+    "value": [
+      "Edit information",
+      "معلومات بدلیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 135,
+    "kind": "translated",
+    "value": [
+      "Mosque notice board",
+      "مسجد کے اعلانات"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 139,
+    "kind": "translated",
+    "value": [
+      "Create notice",
+      "اعلان بنائیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 144,
+    "kind": "translated",
+    "value": [
+      "Notices require review before public display and cannot change the official timetable.",
+      "اعلانات اشاعت سے پہلے جائزے کے لیے جاتے ہیں اور اوقات تبدیل نہیں کر سکتے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 150,
+    "kind": "translated",
+    "value": [
+      "Manage notices",
+      "اعلانات کا انتظام"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 155,
+    "kind": "translated",
+    "value": [
+      "Verification record",
+      "تصدیق کا ریکارڈ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 158,
+    "kind": "translated",
+    "value": [
+      "Last Focal phone verification",
+      "آخری فوکل فون تصدیق"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 160,
+    "kind": "translated",
+    "value": [
+      "Representative reconfirmation",
+      "نمائندے کی دوبارہ تصدیق"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 162,
+    "kind": "translated",
+    "value": [
+      "Current revision",
+      "موجودہ ورژن"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 163,
+    "kind": "text",
+    "value": "v"
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 166,
+    "kind": "translated",
+    "value": [
+      "Private Imam contact",
+      "امام کا نجی رابطہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 168,
+    "kind": "translated",
+    "value": [
+      "Private contact details are visible only to authorized management.",
+      "نجی رابطے کی معلومات صرف مجاز انتظامیہ دیکھ سکتی ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 174,
+    "kind": "translated",
+    "value": [
+      "Registered Imam",
+      "رجسٹرڈ امام"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 180,
+    "kind": "translated",
+    "value": [
+      "Private · authorized management only",
+      "نجی · صرف مجاز انتظامیہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 184,
+    "kind": "translated",
+    "value": [
+      "Request contact change",
+      "رابطے کی تبدیلی"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 187,
+    "kind": "translated",
+    "value": [
+      "Governance & assignment",
+      "انتظام اور ذمہ داری"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 189,
+    "kind": "translated",
+    "value": [
+      "Representative",
+      "نمائندہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 193,
+    "kind": "translated",
+    "value": [
+      "Focal Person",
+      "فوکل پرسن"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 198,
+    "kind": "translated",
+    "value": [
+      "Activity history",
+      "سرگرمی کی تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 205,
+    "kind": "translated",
+    "value": [
+      "Confirm unchanged timings",
+      "اوقات نہ بدلنے کی تصدیق"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 209,
+    "kind": "translated",
+    "value": [
+      "This records your reconfirmation of the displayed daily timetable. It does not create a new Imam phone verification or clear pending changes.",
+      "یہ موجودہ روزانہ اوقات کی آپ کی تصدیق ہے۔ یہ نئی فون تصدیق نہیں اور زیر التوا تبدیلیاں ختم نہیں کرتی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 224,
+    "kind": "translated",
+    "value": [
+      "Representative reconfirmation recorded",
+      "نمائندے کی دوبارہ تصدیق درج ہو گئی"
+    ]
+  },
+  {
+    "file": "pages\\management\\VenueOverviewPage.tsx",
+    "line": 235,
+    "kind": "translated",
+    "value": [
+      "Confirm unchanged",
+      "کوئی تبدیلی نہیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 43,
+    "kind": "translated",
+    "value": [
+      "Version or authority changed. Reload this review.",
+      "ورژن یا اختیار بدل گیا۔ جائزہ دوبارہ کھولیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 73,
+    "kind": "translated",
+    "value": [
+      "Verify the exact proposed version with the registered Imam.",
+      "مجوزہ ورژن کی رجسٹرڈ امام سے تصدیق کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 81,
+    "kind": "translated",
+    "value": [
+      "This version cannot be approved: it is superseded, already decided, changed, or authored by you. Reload the queue.",
+      "یہ ورژن منظور نہیں ہو سکتا: بدل گیا، فیصلہ ہو گیا یا آپ ہی مصنف ہیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 89,
+    "kind": "translated",
+    "value": [
+      "Timing comparisons",
+      "اوقات کا موازنہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 94,
+    "kind": "translated",
+    "value": [
+      "Dated and special session comparison",
+      "تاریخ وار اور خصوصی جماعتوں کا موازنہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 101,
+    "kind": "translated",
+    "value": [
+      "Before",
+      "پہلے"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 110,
+    "kind": "translated",
+    "value": [
+      "Proposed",
+      "مجوزہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 120,
+    "kind": "translated",
+    "value": [
+      "Effective from",
+      "لاگو تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 123,
+    "kind": "translated",
+    "value": [
+      "Representative justification",
+      "نمائندے کی وجہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 126,
+    "kind": "translated",
+    "value": [
+      "Verification evidence",
+      "تصدیق کے شواہد"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 128,
+    "kind": "translated",
+    "value": [
+      "Call outcome",
+      "کال کا نتیجہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 147,
+    "kind": "translated",
+    "value": [
+      "Person spoken to",
+      "جس سے بات ہوئی"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 150,
+    "kind": "translated",
+    "value": [
+      "Call date & time (PKT)",
+      "کال کی تاریخ اور وقت"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 158,
+    "kind": "translated",
+    "value": [
+      "Private verification notes",
+      "نجی تصدیقی نوٹس"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 163,
+    "kind": "translated",
+    "value": [
+      "Record the checked scope and outcome. Record the actual call details.",
+      "جن اوقات کی تصدیق کی گئی اور کال کا اصل نتیجہ درج کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 175,
+    "kind": "translated",
+    "value": [
+      "I verified all changed times, special sessions and the effective date against this exact version.",
+      "میں نے اس ورژن کے تمام تبدیل شدہ اوقات، جماعتوں اور تاریخ کی تصدیق کی۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 181,
+    "kind": "translated",
+    "value": [
+      "Message to representative / decision reason",
+      "نمائندے کو پیغام / فیصلے کی وجہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 196,
+    "kind": "translated",
+    "value": [
+      "Registered mosque authority",
+      "رجسٹرڈ مسجد کی اتھارٹی"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 200,
+    "kind": "translated",
+    "value": [
+      "Registered Imam",
+      "رجسٹرڈ امام"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 205,
+    "kind": "translated",
+    "value": [
+      "Private contact",
+      "نجی رابطہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 207,
+    "kind": "translated",
+    "value": [
+      "Private contact access is restricted to authorized management.",
+      "اس نمونے میں حقیقی نمبر نہیں۔ حقیقی رابطہ صرف مقررہ نگران دیکھ سکتا ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 213,
+    "kind": "translated",
+    "value": [
+      "Verification decision",
+      "تصدیقی فیصلہ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 217,
+    "kind": "translated",
+    "value": [
+      "Approve verified timings",
+      "تصدیق شدہ اوقات منظور"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 224,
+    "kind": "translated",
+    "value": [
+      "Return for correction",
+      "اصلاح کے لیے واپس"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 239,
+    "kind": "translated",
+    "value": [
+      "Call attempt saved. Submission remains pending.",
+      "کال کی کوشش محفوظ۔ درخواست زیر التوا ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 250,
+    "kind": "translated",
+    "value": [
+      "Record attempt · keep pending",
+      "کوشش درج کریں · زیر التوا رکھیں"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 257,
+    "kind": "translated",
+    "value": [
+      "Reject submission",
+      "درخواست رد کریں"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 261,
+    "kind": "translated",
+    "value": [
+      "Return and reject require an actionable reason. Unreachable is never verification.",
+      "واپسی اور رد کرنے کے لیے واضح وجہ ضروری ہے۔ جواب نہ آنا تصدیق نہیں۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 271,
+    "kind": "translated",
+    "value": [
+      "Confirm decision",
+      "فیصلے کی تصدیق"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 275,
+    "kind": "text",
+    "value": "· v"
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 278,
+    "kind": "translated",
+    "value": [
+      "This records your decision for this exact version and queues a notification for the representative.",
+      "یہ اسی ورژن کا فیصلہ درج کرے گا اور نمائندے کو اطلاع بھیجے گا۔"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 285,
+    "kind": "translated",
+    "value": [
+      "Cancel",
+      "منسوخ"
+    ]
+  },
+  {
+    "file": "pages\\management\\VerificationPage.tsx",
+    "line": 287,
+    "kind": "translated",
+    "value": [
+      "Confirm decision",
+      "فیصلہ درج کریں"
+    ]
+  },
+  {
+    "file": "pages\\public\\CoveragePage.tsx",
+    "line": 15,
+    "kind": "translated",
+    "value": [
+      "GROWING WITH CARE",
+      "ذمہ داری کے ساتھ آگے بڑھنا"
+    ]
+  },
+  {
+    "file": "pages\\public\\CoveragePage.tsx",
+    "line": 16,
+    "kind": "translated",
+    "value": [
+      "Participating areas & coverage",
+      "شریک علاقے اور دستیابی"
+    ]
+  },
+  {
+    "file": "pages\\public\\CoveragePage.tsx",
+    "line": 17,
+    "kind": "translated",
+    "value": [
+      "Whole City includes participating venues. A missing result does not mean there is no mosque nearby.",
+      "پورے شہر کی تلاش میں شریک مساجد شامل ہیں۔ نتیجہ نہ ملنے کا مطلب مسجد کا نہ ہونا نہیں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\CoveragePage.tsx",
+    "line": 23,
+    "kind": "translated",
+    "value": [
+      "Coverage includes only the participating areas shown below.",
+      "دستیابی صرف نیچے درج شریک علاقوں تک محدود ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\CoveragePage.tsx",
+    "line": 42,
+    "kind": "translated",
+    "value": [
+      "participating venues",
+      "شریک مقامات"
+    ]
+  },
+  {
+    "file": "pages\\public\\CoveragePage.tsx",
+    "line": 48,
+    "kind": "translated",
+    "value": [
+      "Explore area",
+      "علاقہ دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\CoveragePage.tsx",
+    "line": 57,
+    "kind": "translated",
+    "value": [
+      "Help put your community on the map",
+      "اپنی کمیونٹی کو نقشے پر لائیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\CoveragePage.tsx",
+    "line": 60,
+    "kind": "translated",
+    "value": [
+      "Suggest a mosque or apply to help maintain its information.",
+      "مسجد تجویز کریں یا معلومات کی دیکھ بھال کے لیے درخواست دیں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\CoveragePage.tsx",
+    "line": 66,
+    "kind": "translated",
+    "value": [
+      "Get involved",
+      "شامل ہوں"
+    ]
+  },
+  {
+    "file": "pages\\public\\DirectionsPage.tsx",
+    "line": 21,
+    "kind": "translated",
+    "value": [
+      "Mosque not found",
+      "مسجد نہیں ملی"
+    ]
+  },
+  {
+    "file": "pages\\public\\DirectionsPage.tsx",
+    "line": 27,
+    "kind": "translated",
+    "value": [
+      "Directions to the mosque",
+      "مسجد کا راستہ"
+    ]
+  },
+  {
+    "file": "pages\\public\\DirectionsPage.tsx",
+    "line": 29,
+    "kind": "translated",
+    "value": [
+      "Destination entrance",
+      "منزل کا داخلی دروازہ"
+    ]
+  },
+  {
+    "file": "pages\\public\\DirectionsPage.tsx",
+    "line": 31,
+    "kind": "translated",
+    "value": [
+      "Travel mode",
+      "سفر کا طریقہ"
+    ]
+  },
+  {
+    "file": "pages\\public\\DirectionsPage.tsx",
+    "line": 36,
+    "kind": "translated",
+    "value": [
+      "Walking",
+      "پیدل"
+    ]
+  },
+  {
+    "file": "pages\\public\\DirectionsPage.tsx",
+    "line": 37,
+    "kind": "translated",
+    "value": [
+      "Motorcycle",
+      "موٹر سائیکل"
+    ]
+  },
+  {
+    "file": "pages\\public\\DirectionsPage.tsx",
+    "line": 41,
+    "kind": "translated",
+    "value": [
+      "Google Maps opens after you tap the button. Only the mosque entrance is included in the link; choose your starting point in Google Maps.",
+      "بٹن دبانے پر گوگل میپس کھلے گا۔ لنک میں صرف مسجد کا داخلی مقام شامل ہے؛ اپنا ابتدائی مقام گوگل میپس میں منتخب کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\DirectionsPage.tsx",
+    "line": 48,
+    "kind": "translated",
+    "value": [
+      "Motorcycle directions depend on Google Maps coverage. Check the selected mode there; DiscoverSalah does not substitute a car route.",
+      "موٹر سائیکل کا راستہ گوگل میپس کی دستیابی پر منحصر ہے۔ وہاں منتخب طریقہ چیک کریں؛ ڈسکور صلاح گاڑی کے راستے کو موٹر سائیکل کا راستہ نہیں سمجھتا۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\DirectionsPage.tsx",
+    "line": 63,
+    "kind": "translated",
+    "value": [
+      "Open Google Maps",
+      "گوگل میپس کھولیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\DirectionsPage.tsx",
+    "line": 67,
+    "kind": "translated",
+    "value": [
+      "Entrance coordinates are unavailable. Please report the location issue.",
+      "داخلی مقام کے مختصات دستیاب نہیں۔ مقام کی خرابی کی اطلاع دیں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\DirectionsPage.tsx",
+    "line": 74,
+    "kind": "translated",
+    "value": [
+      "Check the mosque timetable separately. DiscoverSalah does not calculate travel time or whether you will arrive before Jama’at.",
+      "مسجد کے اوقات الگ سے چیک کریں۔ ڈسکور صلاح سفر کا دورانیہ یا جماعت سے پہلے پہنچنے کا اندازہ نہیں لگاتا۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\DirectionsPage.tsx",
+    "line": 80,
+    "kind": "translated",
+    "value": [
+      "View mosque timetable",
+      "مسجد کے اوقات دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 36,
+    "kind": "translated",
+    "value": [
+      "ROOTED IN COMMUNITY. OPEN TO EVERYONE.",
+      "کمیونٹی کی خدمت۔ سب کے لیے۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 39,
+    "kind": "translated",
+    "value": [
+      "Find a mosque.",
+      "مسجد تلاش کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 41,
+    "kind": "translated",
+    "value": [
+      "Know the Jama’at time.",
+      "جماعت کا وقت جانیں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 44,
+    "kind": "translated",
+    "value": [
+      "Mosque-specific prayer times, maintained by local people. Find your next congregation, wherever the day takes you.",
+      "مقامی لوگوں کے فراہم کردہ مسجد کے مخصوص اوقات۔ اپنی اگلی جماعت تلاش کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 52,
+    "kind": "translated",
+    "value": [
+      "Accountable verification",
+      "ذمہ دارانہ تصدیق"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 56,
+    "kind": "translated",
+    "value": [
+      "Free public access",
+      "مفت عوامی رسائی"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 67,
+    "kind": "translated",
+    "value": [
+      "A place to pray.",
+      "نماز کی جگہ۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 68,
+    "kind": "translated",
+    "value": [
+      "A community to belong to.",
+      "ایک کمیونٹی سے تعلق۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 72,
+    "kind": "translated",
+    "value": [
+      "Community mosque illustration",
+      "مسجد کی تمثیلی تصویر"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 81,
+    "kind": "translated",
+    "value": [
+      "EXPLORE PARTICIPATING MOSQUES",
+      "شریک مساجد دریافت کریں"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 84,
+    "kind": "translated",
+    "value": [
+      "Your next congregation starts here",
+      "آپ کی اگلی جماعت یہاں سے شروع ہوتی ہے"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 91,
+    "kind": "translated",
+    "value": [
+      "View all results",
+      "تمام نتائج"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 110,
+    "kind": "translated",
+    "value": [
+      "No upcoming sessions for this selection",
+      "اس انتخاب کے لیے آئندہ جماعت دستیاب نہیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 114,
+    "kind": "translated",
+    "value": [
+      "Choose another date or prayer above. Coverage is limited to participating mosques.",
+      "اوپر تاریخ یا نماز تبدیل کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 122,
+    "kind": "translated",
+    "value": [
+      "Around your community",
+      "آپ کی کمیونٹی کے آس پاس"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 128,
+    "kind": "translated",
+    "value": [
+      "Choose a participating mosque and open Google Maps for directions.",
+      "شریک مساجد دیکھیں اور راستے کے لیے گوگل میپس کھولیں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 135,
+    "kind": "translated",
+    "value": [
+      "Explore locations",
+      "مقامات دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 141,
+    "kind": "translated",
+    "value": [
+      "Understand timing status",
+      "اوقات کی حیثیت سمجھیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 148,
+    "kind": "translated",
+    "value": [
+      "Whole City searches participating mosques, not every mosque in the city.",
+      "پورے شہر کی تلاش صرف شریک مساجد میں ہوتی ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 159,
+    "kind": "translated",
+    "value": [
+      "SIMPLE STEPS. A CLEARER JOURNEY.",
+      "آسان مراحل۔ واضح سفر۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 161,
+    "kind": "translated",
+    "value": [
+      "Less searching. More peace of mind.",
+      "کم تلاش۔ زیادہ اطمینان۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 202,
+    "kind": "translated",
+    "value": [
+      "Good information begins with good neighbours.",
+      "اچھی معلومات کا آغاز اچھے پڑوسیوں سے ہوتا ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 208,
+    "kind": "translated",
+    "value": [
+      "Help keep your local mosque connected to its community.",
+      "اپنی مسجد کو کمیونٹی سے جوڑنے میں مدد کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\HomePage.tsx",
+    "line": 215,
+    "kind": "translated",
+    "value": [
+      "Become a contributor",
+      "رضاکار بنیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\InformationPage.tsx",
+    "line": 26,
+    "kind": "translated",
+    "value": [
+      "Find a mosque",
+      "مسجد تلاش کریں"
+    ]
+  },
+  {
+    "file": "pages\\public\\InformationPage.tsx",
+    "line": 28,
+    "kind": "translated",
+    "value": [
+      "Contact support",
+      "مدد کے لیے رابطہ"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 29,
+    "kind": "translated",
+    "value": [
+      "Location is unsupported. Enter your starting point below.",
+      "مقام دستیاب نہیں۔ اپنا مقام درج کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 43,
+    "kind": "translated",
+    "value": [
+      "My confirmed location",
+      "میرا تصدیق شدہ مقام"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 47,
+    "kind": "translated",
+    "value": [
+      "Location access was denied or unavailable. You can enter your location manually.",
+      "مقام کی اجازت نہیں ملی۔ اپنا مقام خود درج کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 61,
+    "kind": "translated",
+    "value": [
+      "A GOOD JOURNEY STARTS HERE",
+      "سفر یہاں سے شروع ہوتا ہے"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 62,
+    "kind": "translated",
+    "value": [
+      "Where would you like to find a mosque?",
+      "آپ کہاں مسجد تلاش کرنا چاہتے ہیں؟"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 66,
+    "kind": "translated",
+    "value": [
+      "Choose a starting point. Your precise location is used only for this session.",
+      "ابتدائی مقام منتخب کریں۔ درست مقام صرف اس سیشن میں استعمال ہوتا ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 75,
+    "kind": "translated",
+    "value": [
+      "Finding your location…",
+      "مقام تلاش ہو رہا ہے…"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 76,
+    "kind": "translated",
+    "value": [
+      "Use my current location",
+      "میرا موجودہ مقام استعمال کریں"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 79,
+    "kind": "translated",
+    "value": [
+      "or choose manually",
+      "یا خود منتخب کریں"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 95,
+    "kind": "translated",
+    "value": [
+      "Starting point confirmed",
+      "ابتدائی مقام کی تصدیق ہو گئی"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 99,
+    "kind": "translated",
+    "value": [
+      "City",
+      "شہر"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 102,
+    "kind": "translated",
+    "value": [
+      "Area, address or landmark",
+      "علاقہ، پتہ یا مشہور مقام"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 107,
+    "kind": "translated",
+    "value": [
+      "e.g. Main Boulevard, Gulberg III",
+      "مثلاً مین بلیوارڈ، گلبرگ III"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 115,
+    "kind": "translated",
+    "value": [
+      "Enter coordinates below for nearby discovery, or browse by area. Directions open separately in Google Maps.",
+      "قریبی مساجد کے لیے مختصات درج کریں یا علاقے کے اوقات دیکھیں۔ راستہ گوگل میپس میں الگ کھلے گا۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 121,
+    "kind": "translated",
+    "value": [
+      "Latitude (optional)",
+      "عرض البلد (اختیاری)"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 131,
+    "kind": "translated",
+    "value": [
+      "Longitude (optional)",
+      "طول البلد (اختیاری)"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 144,
+    "kind": "translated",
+    "value": [
+      "Confirm location",
+      "مقام کی تصدیق"
+    ]
+  },
+  {
+    "file": "pages\\public\\LocationPage.tsx",
+    "line": 147,
+    "kind": "translated",
+    "value": [
+      "Browse timings without a starting point",
+      "ابتدائی مقام کے بغیر اوقات دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 54,
+    "kind": "translated",
+    "value": [
+      "Mosque not found",
+      "مسجد نہیں ملی"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 56,
+    "kind": "translated",
+    "value": [
+      "Back to results",
+      "نتائج پر واپس"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 70,
+    "kind": "translated",
+    "value": [
+      "Search results",
+      "تلاش کے نتائج"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 77,
+    "kind": "translated",
+    "value": [
+      "Participating mosque",
+      "شریک مسجد"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 86,
+    "kind": "translated",
+    "value": [
+      "Get directions",
+      "راستہ دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 114,
+    "kind": "translated",
+    "value": [
+      "Link copied",
+      "لنک کاپی ہو گیا"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 116,
+    "kind": "translated",
+    "value": [
+      "Copy the link from your address bar",
+      "ایڈریس بار سے لنک کاپی کریں"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 149,
+    "kind": "translated",
+    "value": [
+      "Complete Jama’at timetable",
+      "جماعت کے مکمل اوقات"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 154,
+    "kind": "translated",
+    "value": [
+      "Approved future schedules",
+      "منظور شدہ آئندہ اوقات"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 169,
+    "kind": "translated",
+    "value": [
+      "Prayer",
+      "نماز"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 170,
+    "kind": "translated",
+    "value": [
+      "Jama’at",
+      "جماعت"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 171,
+    "kind": "translated",
+    "value": [
+      "Timing status",
+      "اوقات کی حیثیت"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 186,
+    "kind": "translated",
+    "value": [
+      "No session on this date",
+      "اس تاریخ پر جماعت نہیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 212,
+    "kind": "translated",
+    "value": [
+      "Friday & special sessions",
+      "جمعہ اور خصوصی جماعتیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 219,
+    "kind": "translated",
+    "value": [
+      "Khutbah",
+      "خطبہ"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 221,
+    "kind": "translated",
+    "value": [
+      "Canceled",
+      "منسوخ"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 223,
+    "kind": "translated",
+    "value": [
+      "Provisional",
+      "عارضی"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 224,
+    "kind": "translated",
+    "value": [
+      "Confirmed date",
+      "تصدیق شدہ تاریخ"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 231,
+    "kind": "translated",
+    "value": [
+      "Jama’at is the congregation start. Prayer beginnings and Khutbah are different times.",
+      "جماعت، نماز کے آغاز اور خطبے کے اوقات مختلف ہیں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 237,
+    "kind": "translated",
+    "value": [
+      "Session & arrival details",
+      "جماعت اور آمد کی تفصیلات"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 243,
+    "kind": "translated",
+    "value": [
+      "Facilities & accessibility",
+      "سہولیات اور رسائی"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 256,
+    "kind": "translated",
+    "value": [
+      "Unknown facilities are not assumed to be available. Please check with the mosque.",
+      "نامعلوم سہولیات کو دستیاب نہیں سمجھا جاتا۔ مسجد سے تصدیق کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 264,
+    "kind": "translated",
+    "value": [
+      "Active notices",
+      "فعال اعلانات"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 265,
+    "kind": "translated",
+    "value": [
+      "View all notices",
+      "تمام اعلانات دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 279,
+    "kind": "translated",
+    "value": [
+      "No active notices",
+      "کوئی فعال اعلان نہیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 285,
+    "kind": "translated",
+    "value": [
+      "Timing confidence",
+      "اوقات پر اعتماد"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 288,
+    "kind": "translated",
+    "value": [
+      "Last phone verification",
+      "آخری فون تصدیق"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 289,
+    "kind": "translated",
+    "value": [
+      "Not recorded",
+      "درج نہیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 290,
+    "kind": "translated",
+    "value": [
+      "Representative reconfirmation",
+      "نمائندے کی دوبارہ تصدیق"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 292,
+    "kind": "translated",
+    "value": [
+      "Maintenance",
+      "دیکھ بھال"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 296,
+    "kind": "translated",
+    "value": [
+      "What these labels mean",
+      "ان اصطلاحات کا مطلب"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 300,
+    "kind": "translated",
+    "value": [
+      "Entrance & navigation",
+      "داخلی دروازہ اور راستہ"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 304,
+    "kind": "translated",
+    "value": [
+      "Open directions",
+      "راستہ کھولیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 307,
+    "kind": "translated",
+    "value": [
+      "Something not quite right?",
+      "کیا معلومات درست نہیں؟"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 309,
+    "kind": "translated",
+    "value": [
+      "Let the responsible team know about an incorrect time or location.",
+      "غلط وقت یا مقام سے ذمہ دار ٹیم کو آگاہ کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\MosqueDetailsPage.tsx",
+    "line": 315,
+    "kind": "translated",
+    "value": [
+      "Report an issue",
+      "مسئلہ رپورٹ کریں"
+    ]
+  },
+  {
+    "file": "pages\\public\\NoticeDetailsPage.tsx",
+    "line": 20,
+    "kind": "translated",
+    "value": [
+      "This notice is no longer active",
+      "یہ اعلان اب فعال نہیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\NoticeDetailsPage.tsx",
+    "line": 21,
+    "kind": "translated",
+    "value": [
+      "Return home",
+      "ہوم پر واپس"
+    ]
+  },
+  {
+    "file": "pages\\public\\NoticeDetailsPage.tsx",
+    "line": 28,
+    "kind": "translated",
+    "value": [
+      "Approved notice",
+      "منظور شدہ اعلان"
+    ]
+  },
+  {
+    "file": "pages\\public\\NoticeDetailsPage.tsx",
+    "line": 31,
+    "kind": "translated",
+    "value": [
+      "Event",
+      "تقریب"
+    ]
+  },
+  {
+    "file": "pages\\public\\NoticeDetailsPage.tsx",
+    "line": 33,
+    "kind": "translated",
+    "value": [
+      "Expires",
+      "اختتام"
+    ]
+  },
+  {
+    "file": "pages\\public\\NoticeDetailsPage.tsx",
+    "line": 37,
+    "kind": "translated",
+    "value": [
+      "View mosque",
+      "مسجد دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\NoticesPage.tsx",
+    "line": 10,
+    "kind": "translated",
+    "value": [
+      "Active notices",
+      "فعال اعلانات"
+    ]
+  },
+  {
+    "file": "pages\\public\\NoticesPage.tsx",
+    "line": 14,
+    "kind": "translated",
+    "value": [
+      "No active notices",
+      "کوئی فعال اعلان نہیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 35,
+    "kind": "translated",
+    "value": [
+      "Home",
+      "ہوم"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 37,
+    "kind": "translated",
+    "value": [
+      "Search results",
+      "تلاش کے نتائج"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 41,
+    "kind": "translated",
+    "value": [
+      "FIND YOUR CONGREGATION",
+      "اپنی جماعت تلاش کریں"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 42,
+    "kind": "translated",
+    "value": [
+      "Upcoming",
+      "آئندہ"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 42,
+    "kind": "translated",
+    "value": [
+      "Jama’ats",
+      "جماعتیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 43,
+    "kind": "translated",
+    "value": [
+      "sessions",
+      "جماعتیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 49,
+    "kind": "translated",
+    "value": [
+      "Filters",
+      "فلٹرز"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 56,
+    "kind": "translated",
+    "value": [
+      "Earliest Jama’at",
+      "سب سے پہلے جماعت"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 57,
+    "kind": "translated",
+    "value": [
+      "Mosque name",
+      "مسجد کا نام"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 63,
+    "kind": "translated",
+    "value": [
+      "List",
+      "فہرست"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 67,
+    "kind": "translated",
+    "value": [
+      "Locations",
+      "مقامات"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 72,
+    "kind": "translated",
+    "value": [
+      "Participating mosque timetables. Directions open in Google Maps; arrival estimates are not shown in this app.",
+      "شریک مساجد کے اوقات۔ راستہ گوگل میپس میں کھلتا ہے؛ اس ایپ میں آمد کا اندازہ دستیاب نہیں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 103,
+    "kind": "translated",
+    "value": [
+      "No upcoming Jama’at matches your selection",
+      "آپ کے انتخاب سے کوئی آئندہ جماعت نہیں ملی"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 107,
+    "kind": "translated",
+    "value": [
+      "Your prayer and date are unchanged. Try a different date, area, or Whole City.",
+      "نماز اور تاریخ تبدیل نہیں کی گئی۔ مختلف تاریخ یا علاقہ منتخب کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 118,
+    "kind": "translated",
+    "value": [
+      "Search Whole City",
+      "پورے شہر میں تلاش"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 138,
+    "kind": "translated",
+    "value": [
+      "Can’t find your mosque?",
+      "آپ کی مسجد نہیں مل رہی؟"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 140,
+    "kind": "translated",
+    "value": [
+      "Help us grow responsibly, one mosque at a time.",
+      "ایک ایک مسجد کے ساتھ ذمہ داری سے آگے بڑھیں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 148,
+    "kind": "translated",
+    "value": [
+      "Suggest a mosque",
+      "مسجد تجویز کریں"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 153,
+    "kind": "translated",
+    "value": [
+      "Search filters",
+      "تلاش کے فلٹرز"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 157,
+    "kind": "translated",
+    "value": [
+      "Area",
+      "علاقہ"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 159,
+    "kind": "translated",
+    "value": [
+      "All areas",
+      "تمام علاقے"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 165,
+    "kind": "translated",
+    "value": [
+      "Nearby radius",
+      "قریبی دائرہ"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 176,
+    "kind": "translated",
+    "value": [
+      "Whole City has no nearby radius cap. Journey sorting requires validated routes.",
+      "پورے شہر کی تلاش پر فاصلے کی حد نہیں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\ResultsPage.tsx",
+    "line": 182,
+    "kind": "translated",
+    "value": [
+      "Show results",
+      "نتائج دکھائیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\SessionDetailsPage.tsx",
+    "line": 23,
+    "kind": "translated",
+    "value": [
+      "Mosque not found",
+      "مسجد نہیں ملی"
+    ]
+  },
+  {
+    "file": "pages\\public\\SessionDetailsPage.tsx",
+    "line": 30,
+    "kind": "translated",
+    "value": [
+      "Session unavailable",
+      "جماعت دستیاب نہیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\SessionDetailsPage.tsx",
+    "line": 31,
+    "kind": "translated",
+    "value": [
+      "This session may have been canceled or changed. Check the current timetable.",
+      "یہ جماعت منسوخ یا تبدیل ہو سکتی ہے۔ موجودہ اوقات چیک کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\SessionDetailsPage.tsx",
+    "line": 37,
+    "kind": "translated",
+    "value": [
+      "View timetable",
+      "اوقات دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\SessionDetailsPage.tsx",
+    "line": 46,
+    "kind": "translated",
+    "value": [
+      "Session details",
+      "جماعت کی تفصیلات"
+    ]
+  },
+  {
+    "file": "pages\\public\\SessionDetailsPage.tsx",
+    "line": 54,
+    "kind": "translated",
+    "value": [
+      "This session has already started. It is not an upcoming recommendation.",
+      "یہ جماعت شروع ہو چکی ہے۔ یہ آئندہ جماعت نہیں ہے۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\SessionDetailsPage.tsx",
+    "line": 62,
+    "kind": "translated",
+    "value": [
+      "Khutbah",
+      "خطبہ"
+    ]
+  },
+  {
+    "file": "pages\\public\\SessionDetailsPage.tsx",
+    "line": 67,
+    "kind": "translated",
+    "value": [
+      "Provisional session — confirm with the mosque.",
+      "عارضی جماعت — مسجد سے تصدیق کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\SessionDetailsPage.tsx",
+    "line": 75,
+    "kind": "translated",
+    "value": [
+      "This prayer and date are disputed. Confirm with the mosque before travelling.",
+      "یہ نماز اور تاریخ متنازع ہیں۔ سفر سے پہلے مسجد سے تصدیق کریں۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\SessionDetailsPage.tsx",
+    "line": 82,
+    "kind": "translated",
+    "value": [
+      "Travel times are provided separately by Google Maps. DiscoverSalah does not calculate arrival estimates.",
+      "سفر کا دورانیہ گوگل میپس میں الگ دستیاب ہے۔ ڈسکور صلاح آمد کا اندازہ نہیں لگاتا۔"
+    ]
+  },
+  {
+    "file": "pages\\public\\SessionDetailsPage.tsx",
+    "line": 88,
+    "kind": "translated",
+    "value": [
+      "Travel mode",
+      "سفر کا طریقہ"
+    ]
+  },
+  {
+    "file": "pages\\public\\SessionDetailsPage.tsx",
+    "line": 95,
+    "kind": "translated",
+    "value": [
+      "Destination entrance",
+      "منزل کا داخلی دروازہ"
+    ]
+  },
+  {
+    "file": "pages\\public\\SessionDetailsPage.tsx",
+    "line": 100,
+    "kind": "translated",
+    "value": [
+      "Directions with Google Maps",
+      "گوگل میپس سے راستہ دیکھیں"
+    ]
+  },
+  {
+    "file": "pages\\public\\SessionDetailsPage.tsx",
+    "line": 103,
+    "kind": "translated",
+    "value": [
+      "Back to mosque details",
+      "مسجد کی تفصیلات پر واپس"
+    ]
+  }
+]

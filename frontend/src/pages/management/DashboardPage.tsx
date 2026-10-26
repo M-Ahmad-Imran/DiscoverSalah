@@ -15,6 +15,7 @@ import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { useApp } from '../../hooks/useApp';
 import { useScopedVenues } from '../../hooks/useScopedVenues';
+import { displayDate, tr } from '../../i18n/translate';
 
 export function Dashboard() {
   const { db, role, t } = useApp();
@@ -52,8 +53,8 @@ export function Dashboard() {
           >
             <Plus size={18} />
             {t(
-              role === 'admin' ? 'Invite Focal Person' : 'Register mosque',
-              role === 'admin' ? 'فوکل پرسن کو دعوت' : 'مسجد درج کریں',
+              role === 'admin' ? 'Create focal-person credentials' : 'Register mosque',
+              role === 'admin' ? 'فوکل پرسن کا اکاؤنٹ بنائیں' : 'مسجد درج کریں',
             )}
           </ButtonLink>
         }
@@ -62,29 +63,28 @@ export function Dashboard() {
         {[
           [
             Building2,
-            venues.length,
+            db.counts?.venues ?? venues.length,
             isRep ? 'Assigned mosques' : 'Participating mosques',
             'شریک مساجد',
             '/manage/mosques',
           ],
           [
             ClipboardList,
-            pending.length,
+            db.counts?.pending ?? pending.length,
             'Pending reviews',
             'زیر التوا جائزے',
             '/manage/' + (isRep ? 'submissions' : 'reviews'),
           ],
           [
             Clock,
-            venues.filter((v) => v.status !== 'Published').length,
+            db.counts?.maintenance ?? 0,
             'Maintenance gaps',
             'دیکھ بھال کی کمی',
             '/manage/mosques?status=Maintenance%20pending',
           ],
           [
             AlertTriangle,
-            db.requests.filter((r) => r.kind === 'report' && r.status !== 'Resolved')
-              .length,
+            db.counts?.reports ?? 0,
             'Open issues',
             'کھلے مسائل',
             '/manage/reports',
@@ -149,8 +149,8 @@ export function Dashboard() {
           <h3>{t('All caught up', 'تمام کام مکمل')}</h3>
           <p>
             {t(
-              'There are no pending timetable reviews in your workspace.',
-              'آپ کی ورک اسپیس میں اوقات کا کوئی جائزہ زیر التوا نہیں۔',
+              'No pending timetable reviews are shown in this preview. Open the review queue for the complete list.',
+              'اس خلاصے میں اوقات کا کوئی زیر التوا جائزہ نہیں۔ مکمل فہرست کے لیے جائزوں کی قطار کھولیں۔',
             )}
           </p>
         </Panel>
@@ -192,9 +192,9 @@ export function Dashboard() {
             {db.audit.slice(0, 4).map((a) => (
               <div key={a.id}>
                 <span className="timeline-dot" />
-                <strong>{a.action}</strong>
+                <strong>{tr(a.action)}</strong>
                 <small>
-                  {a.actor} · {new Date(a.at).toLocaleDateString()}
+                  {a.actor} · {displayDate(a.at)}
                 </small>
               </div>
             ))}
@@ -206,7 +206,7 @@ export function Dashboard() {
         </Panel>
       </div>
       {role === 'admin' && (
-        <Panel title={t('Participating areas & supervision', 'شریک علاقے اور نگرانی')}>
+        <Panel title={t('Participating areas & supervision', 'شریک علاقے اور نگرانی')} action={<Link to='/manage/areas'>{t('View all', 'سب دیکھیں')}</Link>}>
           <div className="table-wrap">
             <table>
               <thead>

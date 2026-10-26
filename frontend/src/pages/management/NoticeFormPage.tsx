@@ -6,15 +6,16 @@ import { Alert } from '../../components/ui/Alert';
 import { Field } from '../../components/ui/Field';
 import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
+import { RecordSelect } from '../../components/ui/RecordSelect';
 import { useApp } from '../../hooks/useApp';
 import { useScopedVenues } from '../../hooks/useScopedVenues';
 import { useUnsavedChanges } from '../../hooks/useUnsavedChanges';
-import { uid } from '../../utils/id';
+import { tr } from '../../i18n/translate';
 
 export function NoticeForm() {
   const { id } = useParams();
   const [params] = useSearchParams();
-  const { db, update, actor, t } = useApp();
+  const { db, mutate, actor, t } = useApp();
   const venues = useScopedVenues();
   const n = db.notices.find((n) => n.id === id);
   const navigate = useNavigate();
@@ -33,51 +34,50 @@ export function NoticeForm() {
         <form
           className="stack"
           onInput={() => setDirty(true)}
-          onSubmit={(e) => {
-            e.preventDefault();
-            const savingDraft =
-              (e.nativeEvent as SubmitEvent).submitter?.getAttribute('value') === 'draft';
-            const x = Object.fromEntries(new FormData(e.currentTarget)) as Record<
-              string,
-              string
-            >;
-            if (!savingDraft && new Date(x.expires) <= new Date(x.event)) {
-              e.currentTarget
-                .querySelector<HTMLInputElement>('[name=expires]')
-                ?.setCustomValidity('Expiry must be after the event.');
-              e.currentTarget.reportValidity();
+          onSubmit={async (e) => {
+            try {
+              e.preventDefault();
+              const savingDraft =
+                (e.nativeEvent as SubmitEvent).submitter?.getAttribute('value') ===
+                'draft';
+              const x = Object.fromEntries(new FormData(e.currentTarget)) as Record<
+                string,
+                string
+              >;
+              if (!savingDraft && new Date(x.expires) <= new Date(x.event)) {
+                e.currentTarget
+                  .querySelector<HTMLInputElement>('[name=expires]')
+                  ?.setCustomValidity(
+                    t(
+                      'Expiry must be after the event.',
+                      'اختتام کا وقت تقریب کے بعد ہونا چاہیے۔',
+                    ),
+                  );
+                e.currentTarget.reportValidity();
+                return;
+              }
+              await mutate('/management/notices', {
+                venueId: x.venue,
+                title: x.title,
+                body: x.body,
+                category: x.category,
+                event: x.event + ':00+05:00',
+                expires: x.expires + ':00+05:00',
+                source: x.source,
+                draft: savingDraft,
+                ...(n ? { replacesId: n.id } : {}),
+              });
+              allowLeave();
+              navigate('/manage/notices');
+            } catch {
               return;
             }
-            update((d) => ({
-              ...d,
-              notices: [
-                {
-                  id: uid('notice'),
-                  replacesId: n?.state === 'Published' ? n.id : n?.replacesId,
-                  venueId: x.venue,
-                  title: x.title || 'Untitled draft',
-                  body: x.body,
-                  category: x.category,
-                  event: x.event,
-                  expires: x.expires,
-                  state: savingDraft ? 'Draft' : 'Submitted',
-                  source: x.source,
-                  author: actor,
-                },
-                ...d.notices.map((old) =>
-                  old.id === id && old.state !== 'Published'
-                    ? { ...old, state: 'Superseded' }
-                    : old,
-                ),
-              ],
-            }));
-            allowLeave();
-            navigate('/manage/notices');
           }}
         >
           <div className="two-grid">
             <Field label={t('Mosque', 'مسجد')}>
-              <select
+              <RecordSelect
+                resource="venues"
                 name="venue"
                 defaultValue={n?.venueId || params.get('venue') || venues[0]?.id}
               >
@@ -86,12 +86,14 @@ export function NoticeForm() {
                     {v.name}
                   </option>
                 ))}
-              </select>
+              </RecordSelect>
             </Field>
             <Field label={t('Category', 'قسم')}>
               <select name="category" defaultValue={n?.category}>
                 {['Religious event', 'Mosque service', 'Death / Janazah'].map((x) => (
-                  <option key={x}>{x}</option>
+                  <option key={x} value={x}>
+                    {tr(x)}
+                  </option>
                 ))}
               </select>
             </Field>

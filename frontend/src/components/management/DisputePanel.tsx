@@ -2,63 +2,40 @@ import { useState } from 'react';
 import { prayers } from '../../domain/constants';
 import { canManage } from '../../domain/permissions';
 import { useApp } from '../../hooks/useApp';
+import { tr } from '../../i18n/translate';
 import type { Venue } from '../../types';
 import { today } from '../../utils/date';
-import { uid } from '../../utils/id';
 import { Alert } from '../ui/Alert';
 import { Field } from '../ui/Field';
 import { Panel } from '../ui/Panel';
 
 export function DisputePanel({ venue, reportId }: { venue: Venue; reportId: string }) {
-  const { role, actor, update, t, toast } = useApp();
+  const { role, actor, mutate, t, toast } = useApp();
   const [prayer, setPrayer] = useState('Asr');
   const [date, setDate] = useState(today());
   const [reason, setReason] = useState('');
   if (!role || role === 'representative' || !canManage(role, venue, actor)) return null;
   const active =
     venue.disputes?.filter((d) => d.reportId === reportId && !d.resolved) || [];
-  const record = (resolvedId?: string) => {
-    if (reason.trim().length < 5) return;
-    update((db) => ({
-      ...db,
-      venues: db.venues.map((v) => {
-        if (v.id !== venue.id || !canManage(role, v, actor)) return v;
-        const disputes = v.disputes || [];
-        return {
-          ...v,
-          disputes: resolvedId
-            ? disputes.map((d) => (d.id === resolvedId ? { ...d, resolved: true } : d))
-            : [
-                ...disputes,
-                {
-                  id: uid('D'),
-                  prayer,
-                  date,
-                  reason: reason.trim(),
-                  reportId,
-                  recordedBy: actor,
-                },
-              ],
-        };
-      }),
-      audit: [
-        {
-          id: uid('A'),
-          actor,
-          at: new Date().toISOString(),
-          target: venue.id,
-          action: `${resolvedId ? 'Dispute resolved' : 'Schedule scope disputed'} · ${reportId} · ${resolvedId || prayer + ' ' + date} · ${reason.trim()}`,
-        },
-        ...db.audit,
-      ],
-    }));
-    setReason('');
-    toast(
-      t(
-        'Investigation recorded. Official times remain unchanged.',
-        'تحقیق درج ہو گئی۔ سرکاری اوقات تبدیل نہیں ہوئے۔',
-      ),
-    );
+  const record = async (resolvedId?: string) => {
+    try {
+      if (reason.trim().length < 5) return;
+      await mutate(
+        resolvedId
+          ? '/management/disputes/' + resolvedId + '/resolve'
+          : '/management/venues/' + venue.id + '/disputes',
+        resolvedId ? { reason } : { prayer, date, reason, revision: venue.revision },
+      );
+      setReason('');
+      toast(
+        t(
+          'Investigation recorded. Official times remain unchanged.',
+          'تحقیق درج ہو گئی۔ سرکاری اوقات تبدیل نہیں ہوئے۔',
+        ),
+      );
+    } catch {
+      return;
+    }
   };
   return (
     <Panel title={t('Investigated timing dispute', 'تحقیق شدہ اوقات کا تنازع')}>
@@ -79,7 +56,9 @@ export function DisputePanel({ venue, reportId }: { venue: Venue; reportId: stri
           <Field label={t('Affected prayer', 'متاثرہ نماز')}>
             <select value={prayer} onChange={(e) => setPrayer(e.target.value)}>
               {prayers.map((p) => (
-                <option key={p}>{p}</option>
+                <option key={p} value={p}>
+                  {tr(p)}
+                </option>
               ))}
             </select>
           </Field>
@@ -111,7 +90,7 @@ export function DisputePanel({ venue, reportId }: { venue: Venue; reportId: stri
         {active.map((d) => (
           <div className="list-row" key={d.id}>
             <span>
-              {d.prayer} · {d.date}
+              {tr(d.prayer)} · {d.date}
             </span>
             <button
               type="button"

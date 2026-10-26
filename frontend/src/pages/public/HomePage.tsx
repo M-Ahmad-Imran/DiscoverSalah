@@ -1,13 +1,13 @@
 import {
-  ArrowRight,
-  Building2,
-  CalendarDays,
-  HeartHandshake,
-  Info,
-  Map as MapIcon,
-  MapPin,
-  Navigation,
-  ShieldCheck,
+ArrowRight,
+Building2,
+CalendarDays,
+HeartHandshake,
+Info,
+Map as MapIcon,
+MapPin,
+Navigation,
+ShieldCheck,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { MapPreview } from '../../components/discovery/MapPreview';
@@ -125,13 +125,13 @@ export function Home() {
               />
               <p className="small muted">
                 {t(
-                  'Sample map of participating venues. Live maps will be connected during integration.',
-                  'شریک مساجد کا نمونہ نقشہ۔ حقیقی نقشہ بعد میں منسلک ہوگا۔',
+                  'Choose a participating mosque and open Google Maps for directions.',
+                  'شریک مساجد دیکھیں اور راستے کے لیے گوگل میپس کھولیں۔',
                 )}
               </p>
               <ButtonLink secondary to="/map">
                 <MapIcon size={18} />
-                {t('Explore map', 'نقشہ دیکھیں')}
+                {t('Explore locations', 'مقامات دیکھیں')}
               </ButtonLink>
             </Panel>
             <Panel>

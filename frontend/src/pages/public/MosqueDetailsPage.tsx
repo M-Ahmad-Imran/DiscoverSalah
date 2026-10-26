@@ -12,7 +12,6 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { MapPreview } from '../../components/discovery/MapPreview';
 import { MosqueArt } from '../../components/discovery/MosqueArt';
 import { status } from '../../components/discovery/timingLabel';
 import { Alert } from '../../components/ui/Alert';
@@ -32,6 +31,7 @@ import { useApp } from '../../hooks/useApp';
 import { useQuery } from '../../hooks/useDiscoveryQuery';
 import { useNow } from '../../hooks/useNow';
 import { prayerUr } from '../../i18n/prayerLabels';
+import { tr } from '../../i18n/translate';
 import { timeLabel } from '../../utils/date';
 
 export function MosqueDetails() {
@@ -74,7 +74,7 @@ export function MosqueDetails() {
       <div className="venue-hero">
         <MosqueArt index={v.image} />
         <div>
-          <Badge>{t('Participating mosque · sample', 'شریک مسجد · نمونہ')}</Badge>
+          <Badge>{t('Participating mosque', 'شریک مسجد')}</Badge>
           <h1>{t(v.name, v.urdu)}</h1>
           <p>
             <MapPin size={17} />
@@ -107,7 +107,7 @@ export function MosqueDetails() {
             </button>
             <button
               className="icon-button secondary"
-              aria-label="Share mosque"
+              aria-label={tr('Share mosque')}
               onClick={async () => {
                 try {
                   await navigator.clipboard.writeText(window.location.href);
@@ -246,7 +246,7 @@ export function MosqueDetails() {
                   <div className="facility" key={key}>
                     <Check size={20} />
                     <div>
-                      <strong>{key}</strong>
+                      <strong>{tr(key)}</strong>
                       <small>{t(val, val === 'Available' ? 'دستیاب' : 'نامعلوم')}</small>
                     </div>
                   </div>
@@ -262,12 +262,15 @@ export function MosqueDetails() {
           )}
           {tab === 'notices' && (
             <Panel title={t('Active notices', 'فعال اعلانات')}>
+              <ButtonLink secondary to={'/notices?venue=' + v.id}>
+                {t('View all notices', 'تمام اعلانات دیکھیں')}
+              </ButtonLink>
               {notices.length ? (
                 notices.map((n) => (
                   <Link to={'/notice/' + n.id} className="notice-row" key={n.id}>
                     <CalendarDays />
                     <div>
-                      <Badge tone="neutral">{n.category}</Badge>
+                      <Badge tone="neutral">{tr(n.category)}</Badge>
                       <h3>{n.title}</h3>
                       <p>{n.body}</p>
                     </div>
@@ -285,13 +288,11 @@ export function MosqueDetails() {
             <ShieldCheck className="green-text" size={30} />
             <dl className="definition-list">
               <dt>{t('Last phone verification', 'آخری فون تصدیق')}</dt>
-              <dd>
-                {v.phoneVerified} · {t('Sample record', 'نمونہ ریکارڈ')}
-              </dd>
+              <dd>{v.phoneVerified || t('Not recorded', 'درج نہیں')}</dd>
               <dt>{t('Representative reconfirmation', 'نمائندے کی دوبارہ تصدیق')}</dt>
               <dd>{v.reconfirmed}</dd>
               <dt>{t('Maintenance', 'دیکھ بھال')}</dt>
-              <dd>{v.status}</dd>
+              <dd>{tr(v.status)}</dd>
             </dl>
             <Link className="text-link" to="/timing-status">
               {t('What these labels mean', 'ان اصطلاحات کا مطلب')}
@@ -299,7 +300,6 @@ export function MosqueDetails() {
             </Link>
           </Panel>
           <Panel title={t('Entrance & navigation', 'داخلی دروازہ اور راستہ')}>
-            <MapPreview items={[v]} />
             <p>{v.address}</p>
             <ButtonLink secondary to={`/mosque/${id}/directions${suffix}`}>
               <Navigation size={17} />

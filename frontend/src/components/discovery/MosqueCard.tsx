@@ -12,6 +12,7 @@ import { pendingPrayer } from '../../domain/schedules';
 import { useApp } from '../../hooks/useApp';
 import { useQuery } from '../../hooks/useDiscoveryQuery';
 import { prayerUr } from '../../i18n/prayerLabels';
+import { tr } from '../../i18n/translate';
 import { Venue } from '../../types/index';
 import { timeLabel, today } from '../../utils/date';
 import { Badge } from '../ui/Badge';
@@ -69,7 +70,7 @@ export function MosqueCard({
           <div className="date-caption">
             <CalendarDays size={16} />
             {query.date === today() ? t('Today', 'آج') : query.date}
-            <span>Asia/Karachi</span>
+            <span>{tr('Asia/Karachi')}</span>
           </div>
         </div>
         <Badge

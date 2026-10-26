@@ -1,5 +1,7 @@
 import { X } from 'lucide-react';
 import { useEffect, useId, useRef, type ReactNode } from 'react';
+import { useApp } from '../../hooks/useApp';
+import { tr } from '../../i18n/translate';
 
 export function Modal({
   title,
@@ -10,6 +12,7 @@ export function Modal({
   children: ReactNode;
   onClose: () => void;
 }) {
+  useApp();
   const ref = useRef<HTMLDialogElement>(null);
   const titleId = useId();
   useEffect(() => {
@@ -27,7 +30,7 @@ export function Modal({
     >
       <div className="section-title">
         <h2 id={titleId}>{title}</h2>
-        <button className="icon-button" onClick={onClose} aria-label="Close">
+        <button className="icon-button" onClick={onClose} aria-label={tr('Close')}>
           <X />
         </button>
       </div>

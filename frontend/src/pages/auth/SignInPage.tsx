@@ -1,12 +1,4 @@
-import {
-  ArrowRight,
-  Building2,
-  Eye,
-  EyeOff,
-  LockKeyhole,
-  ShieldCheck,
-  Users,
-} from 'lucide-react';
+import { ArrowRight, Eye, EyeOff, LockKeyhole, ShieldCheck } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { TrustNote } from '../../components/discovery/TrustNote';
@@ -14,7 +6,7 @@ import { Alert } from '../../components/ui/Alert';
 import { Field } from '../../components/ui/Field';
 import { Panel } from '../../components/ui/Panel';
 import { useApp } from '../../hooks/useApp';
-import { Role } from '../../types/index';
+import { tr } from '../../i18n/translate';
 
 export function SignIn() {
   const { login, t } = useApp();
@@ -22,15 +14,6 @@ export function SignIn() {
   const [error, setError] = useState('');
   const [params] = useSearchParams();
   const navigate = useNavigate();
-  const enter = (role: Role) => {
-    if (role === 'admin') {
-      navigate('/mfa');
-      return;
-    }
-    login(role);
-    const next = params.get('next');
-    navigate(next?.startsWith('/manage') ? next : '/manage');
-  };
   return (
     <div className="container auth-layout">
       <section className="auth-story">
@@ -70,17 +53,31 @@ export function SignIn() {
         </p>
         <form
           className="stack"
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
-            setError(
-              t(
-                'Live authentication is not connected. Use a sample workspace below to explore the frontend.',
-                'حقیقی تصدیق منسلک نہیں۔ نیچے نمونہ ورک اسپیس استعمال کریں۔',
-              ),
-            );
+            setError('');
+            const fields = new FormData(e.currentTarget);
+            try {
+              const account = await login(
+                String(fields.get('contactNumber')),
+                String(fields.get('password')),
+              );
+              const next = params.get('next');
+              navigate(
+                !account
+                  ? '/mfa'
+                  : account.mustChangePassword
+                    ? '/reset-password'
+                    : next?.startsWith('/manage')
+                      ? next
+                      : '/manage',
+              );
+            } catch (error) {
+              setError((error as Error).message);
+            }
           }}
         >
-          <Field label={t('Verified contact number', 'تصدیق شدہ رابطہ نمبر')}>
+          <Field label={t('Contact number', 'تصدیق شدہ رابطہ نمبر')}>
             <input
               type="tel"
               inputMode="tel"
@@ -93,6 +90,7 @@ export function SignIn() {
           <Field label={t('Password', 'پاس ورڈ')}>
             <span className="password-input">
               <input
+                name="password"
                 type={show ? 'text' : 'password'}
                 required
                 autoComplete="current-password"
@@ -100,7 +98,7 @@ export function SignIn() {
               <button
                 type="button"
                 className="icon-button"
-                aria-label={show ? 'Hide password' : 'Show password'}
+                aria-label={show ? tr('Hide password') : tr('Show password')}
                 onClick={() => setShow(!show)}
               >
                 {show ? <EyeOff size={18} /> : <Eye size={18} />}
@@ -116,29 +114,6 @@ export function SignIn() {
             <ArrowRight size={18} />
           </button>
         </form>
-        <div className="or-divider">
-          {t('EXPLORE SAMPLE WORKSPACES', 'نمونہ ورک اسپیس دیکھیں')}
-        </div>
-        <div className="demo-logins">
-          <button className="secondary" onClick={() => enter('representative')}>
-            <Building2 size={18} />
-            {t('Representative preview', 'نمائندے کا پیش نظارہ')}
-          </button>
-          <button className="secondary" onClick={() => enter('focal')}>
-            <Users size={18} />
-            {t('Focal Person preview', 'فوکل پرسن کا پیش نظارہ')}
-          </button>
-          <button className="secondary" onClick={() => enter('admin')}>
-            <ShieldCheck size={18} />
-            {t('Admin preview', 'منتظم کا پیش نظارہ')}
-          </button>
-        </div>
-        <small className="muted">
-          {t(
-            'Preview sessions are not secure authentication. All data is fictional and stored on this device.',
-            'پیش نظارے کا سیشن حقیقی تصدیق نہیں۔ تمام ڈیٹا فرضی اور اس ڈیوائس پر ہے۔',
-          )}
-        </small>
       </Panel>
     </div>
   );

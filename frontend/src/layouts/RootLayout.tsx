@@ -11,7 +11,7 @@ export function Root() {
       'DiscoverSalah · ' +
       (pathname === '/'
         ? 'Find your congregation'
-        : pathname.split('/').filter(Boolean).at(-1)?.replaceAll('-', ' '));
+        : pathname.split('/').filter(Boolean).slice(-1)[0]?.replace(/-/g, ' '));
   }, [pathname]);
   return (
     <>
@@ -19,11 +19,11 @@ export function Root() {
         {t('Skip to content', 'مواد پر جائیں')}
       </a>
       <div className="demo-strip">
-        {t('FRONTEND PREVIEW', 'فرنٹ اینڈ پیش نظارہ')}
+        {t('LOCAL WORKSPACE', 'مقامی ورک اسپیس')}
         <span>
           {t(
-            'Sample records · No live mosque or routing data',
-            'نمونہ ریکارڈ · حقیقی مسجد یا راستوں کا ڈیٹا نہیں',
+            'Connected database · Route estimates unavailable',
+            'ڈیٹابیس منسلک · راستے کا تخمینہ دستیاب نہیں',
           )}
         </span>
       </div>

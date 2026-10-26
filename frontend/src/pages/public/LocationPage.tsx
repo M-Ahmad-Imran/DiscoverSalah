@@ -9,10 +9,12 @@ import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { useApp } from '../../hooks/useApp';
 import { useQuery } from '../../hooks/useDiscoveryQuery';
+import { setOrigin } from '../../services/origin';
 
 export function LocationPage() {
-  const { t, toast } = useApp();
+  const { t, toast, db } = useApp();
   const { params, query } = useQuery();
+  const [city, setCity] = useState(query.city || db.areas[0]?.city || '');
   const [area, setArea] = useState(query.origin || '');
   const [coords, setCoords] = useState({ lat: '', lng: '' });
   const [error, setError] = useState('');
@@ -77,18 +79,29 @@ export function LocationPage() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            params.delete('cursor');
             params.set('origin', area);
-            if (coords.lat && coords.lng)
-              sessionStorage.setItem('ds-origin', JSON.stringify(coords));
+            params.set('city', city);
+            params.delete('area');
+            if (coords.lat && coords.lng) {
+              setOrigin({ lat: Number(coords.lat), lng: Number(coords.lng) });
+              params.set('scope', 'nearby');
+            } else {
+              setOrigin(null);
+              params.set('scope', 'city');
+            }
             navigate('/results?' + params);
             toast(t('Starting point confirmed', 'ابتدائی مقام کی تصدیق ہو گئی'));
           }}
           className="stack"
         >
           <Field label={t('City', 'شہر')}>
-            <select>
-              <option>Lahore — sample coverage</option>
-            </select>
+            <input
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              required
+              maxLength={100}
+            />
           </Field>
           <Field label={t('Area, address or landmark', 'علاقہ، پتہ یا مشہور مقام')}>
             <input
@@ -104,8 +117,8 @@ export function LocationPage() {
           <MapPreview items={[]} large />
           <Alert>
             {t(
-              'This is an illustrative map. Enter coordinates below to confirm a precise origin, or browse by area without arrival estimates.',
-              'یہ نمونہ نقشہ ہے۔ درست مقام کے لیے مختصات درج کریں یا علاقے کے اوقات دیکھیں۔',
+              'Enter coordinates below for nearby discovery, or browse by area. Directions open separately in Google Maps.',
+              'قریبی مساجد کے لیے مختصات درج کریں یا علاقے کے اوقات دیکھیں۔ راستہ گوگل میپس میں الگ کھلے گا۔',
             )}
           </Alert>
           <div className="two-grid">

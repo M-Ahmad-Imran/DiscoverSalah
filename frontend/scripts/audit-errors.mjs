@@ -1,0 +1,3 @@
+import ts from 'typescript'; import fs from 'node:fs'; import path from 'node:path';
+const messages=new Map();
+function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())walk(p);else if(p.endsWith('.ts')){const sf=ts.createSourceFile(p,fs.readFileSync(p,'utf8'),ts.ScriptTarget.Latest,true);function visit(n){if(ts.isCallExpression(n)&&n.expression.getText(sf)==='assert'&&ts.isStringLiteral(n.arguments[2])&&ts.isStringLiteral(n.arguments[3]))messages.set(n.arguments[2].text,n.arguments[3].text);ts.forEachChild(n,visit);}visit(sf);}}}walk('../backend/src');console.log(JSON.stringify(Object.fromEntries(messages),null,2));

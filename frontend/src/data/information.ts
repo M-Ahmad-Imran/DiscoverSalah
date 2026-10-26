@@ -49,8 +49,8 @@ export const content: Record<
       [
         '3. Check your journey',
         '۳۔ سفر دیکھیں',
-        'Travel estimates require supported, validated routes and allowances. Unavailable estimates never imply a guaranteed arrival.',
-        'سفر کے اندازوں کے لیے تصدیق شدہ راستے ضروری ہیں۔',
+        'Open Google Maps for walking or motorcycle directions. This app does not calculate travel time or guarantee arrival before Jama’at.',
+        'پیدل یا موٹر سائیکل کا راستہ گوگل میپس میں کھولیں۔ یہ ایپ سفر کا وقت یا جماعت سے پہلے پہنچنے کی ضمانت نہیں دیتی۔',
       ],
     ],
   },
@@ -64,8 +64,8 @@ export const content: Record<
       [
         'Why is an arrival estimate unavailable?',
         'آمد کا اندازہ کیوں دستیاب نہیں؟',
-        'A route may be unsupported, a timing under review, or the schedule stale. Timetable browsing remains available.',
-        'راستہ دستیاب نہ ہو یا اوقات زیر تصدیق ہوں تو اندازہ نہیں دیا جاتا۔',
+        'This version opens directions externally in Google Maps and receives no travel-time estimate. Mosque timetables remain available.',
+        'اس ورژن میں راستہ گوگل میپس میں کھلتا ہے اور سفر کا تخمینہ ایپ کو نہیں ملتا۔ مساجد کے اوقات دستیاب رہتے ہیں۔',
       ],
       [
         'Does Whole City include every mosque?',
@@ -124,8 +124,8 @@ export const content: Record<
       [
         'Your location',
         'آپ کا مقام',
-        'Anonymous precise origins are used transiently. Google receives destination/origin information when its services are requested.',
-        'درست مقام عارضی استعمال ہوتا ہے۔ گوگل کی سروس استعمال کرنے پر متعلقہ مقام اسے ملتا ہے۔',
+        'Nearby search sends your selected coordinates to this service transiently. Opening Google Maps shares only the mosque entrance in the link; Google handles your starting point separately.',
+        'قریبی تلاش کے لیے منتخب مختصات عارضی طور پر اس سروس کو بھیجے جاتے ہیں۔ گوگل میپس کے لنک میں صرف مسجد کا داخلی مقام ہوتا ہے؛ آپ کا ابتدائی مقام گوگل الگ سنبھالتا ہے۔',
       ],
       [
         'Private contacts',
@@ -136,14 +136,14 @@ export const content: Record<
       [
         'Retention',
         'ڈیٹا کی مدت',
-        'Unsuccessful or withdrawn application contact data and security logs: 90 days. Change/approval history: 12 months, retaining active provenance. Encrypted backups: rolling 30 days.',
-        'ناکام یا واپس لی گئی درخواستوں کے رابطے اور حفاظتی لاگز ۹۰ دن، تبدیلیوں کی تاریخ ۱۲ ماہ، بیک اپ ۳۰ دن۔',
+        'Contact details from rejected or withdrawn applications are redacted after 90 days. Production backup schedules and wider retention policies still require operational approval.',
+        'مسترد یا واپس لی گئی درخواستوں کی نجی رابطہ معلومات ۹۰ دن بعد ہٹا دی جاتی ہیں۔ پیداواری بیک اپ اور دیگر ڈیٹا کی مدت کے لیے عملی منظوری باقی ہے۔',
       ],
       [
-        'About this preview',
-        'اس پیش نظارے کے بارے میں',
-        'Sample records are stored in this browser. Do not enter real private contacts. Clear site data to remove this local demo data.',
-        'نمونہ ریکارڈ اسی براؤزر میں محفوظ ہیں۔ حقیقی نجی معلومات درج نہ کریں۔',
+        'About this local service',
+        'اس مقامی سروس کے بارے میں',
+        'Records are stored in the connected database. Only language preferences are kept in browser storage. Clearing browser data does not delete submitted records.',
+        'ریکارڈ منسلک ڈیٹابیس میں محفوظ ہیں۔ براؤزر میں صرف زبان کی ترجیح رکھی جاتی ہے۔ براؤزر کا ڈیٹا صاف کرنے سے جمع شدہ ریکارڈ حذف نہیں ہوتے۔',
       ],
     ],
   },
@@ -220,8 +220,8 @@ export const content: Record<
       [
         'Report an accessibility issue',
         'رسائی کا مسئلہ بتائیں',
-        'Use the contact form to describe an obstacle. This preview does not claim a completed accessibility certification.',
-        'رابطہ فارم میں مسئلہ بتائیں۔ یہ پیش نظارہ مکمل تصدیق کا دعویٰ نہیں کرتا۔',
+        'Use the contact form to describe an obstacle. Accessibility certification has not yet been completed.',
+        'رابطہ فارم میں مسئلہ بتائیں۔ مختلف آلات پر رسائی کی مکمل جانچ ابھی باقی ہے۔',
       ],
     ],
   },

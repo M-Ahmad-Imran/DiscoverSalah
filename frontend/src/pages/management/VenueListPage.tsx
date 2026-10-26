@@ -1,6 +1,4 @@
 import { ArrowRight, Building2, MapPin, Plus } from 'lucide-react';
-import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { Badge } from '../../components/ui/Badge';
 import { ButtonLink } from '../../components/ui/ButtonLink';
 import { Empty } from '../../components/ui/Empty';
@@ -8,20 +6,17 @@ import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { useApp } from '../../hooks/useApp';
 import { useScopedVenues } from '../../hooks/useScopedVenues';
+import { useScreenFilter } from '../../hooks/useScreenFilter';
 import { urPrayers } from '../../i18n/prayerLabels';
+import { tr } from '../../i18n/translate';
 import { timeLabel } from '../../utils/date';
 
 export function VenueList() {
-  const { t, role } = useApp();
+  const { t, role, db } = useApp();
   const venues = useScopedVenues();
-  const [q, setQ] = useState('');
-  const [params] = useSearchParams();
-  const [filter, setFilter] = useState(params.get('status') || 'All');
-  const list = venues.filter(
-    (v) =>
-      v.name.toLowerCase().includes(q.toLowerCase()) &&
-      (filter === 'All' || v.status === filter),
-  );
+  const [q, setQ] = useScreenFilter('q', '');
+  const [filter, setFilter] = useScreenFilter('status', 'All');
+  const list = venues.filter(v => !db.page || db.page.ids.includes(v.id));
   return (
     <>
       <PageTitle
@@ -44,18 +39,20 @@ export function VenueList() {
       />
       <div className="results-toolbar">
         <input
-          aria-label="Search mosques"
+          aria-label={tr('Search mosques')}
           placeholder={t('Search mosques…', 'مساجد تلاش کریں…')}
           value={q}
           onChange={(e) => setQ(e.target.value)}
         />
         <select
-          aria-label="Filter status"
+          aria-label={tr('Filter status')}
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
         >
           {['All', 'Published', 'Draft', 'Maintenance pending'].map((s) => (
-            <option key={s}>{s}</option>
+            <option key={s} value={s}>
+              {tr(s)}
+            </option>
           ))}
         </select>
       </div>
@@ -67,7 +64,7 @@ export function VenueList() {
                 <Building2 />
               </span>
               <Badge tone={v.status === 'Published' ? 'green' : 'amber'}>
-                {v.status}
+                {tr(v.status)}
               </Badge>
             </div>
             <h2>{t(v.name, v.urdu)}</h2>

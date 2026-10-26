@@ -1,0 +1,314 @@
+[
+  {
+    "file": "DiscoverSalah_Proposal.docx",
+    "index": 68,
+    "before": "Deliver a mobile-friendly web application with Urdu and English interfaces, mosque lists and maps, manual and device location, Walking and Motorcycle modes, Nearby and Whole City search, daily schedules, multiple Jumu’ah sessions, dated Eid sessions, countdowns, estimated arrival margins and directions. Include basic confirmed facility details, announcements and public reporting.",
+    "after": "Current local release: a responsive Urdu/English React web application with participating mosque lists, location controls, Nearby and Whole City discovery, daily and dated Jama’at schedules, public reporting and external Google Maps directions. No embedded live map, route duration, arrival margin or arrive-before-Jama’at ranking is enabled. Some newly integrated account/tracking text still needs Urdu review."
+  },
+  {
+    "file": "DiscoverSalah_Proposal.docx",
+    "index": 69,
+    "before": "Management capabilities include three scoped dashboards, mosque registration, private Imam contacts, versioned schedule submissions, durable account notifications, phone-verification decisions, reminders, escalation, reassignment, freshness monitoring and audit history. The first release supports future departure planning with clearly qualified estimates. Native apps, car routing and automated timetable extraction can follow after the operating model is proven.",
+    "after": "Management uses scoped representative, focal-person and administrator workspaces backed by the API and MongoDB. Registration, private Imam contacts, immutable timing submissions, independent review, in-app notifications, reassignment, escalation and audit history are implemented. Future-departure forecasts, native apps, paid routing and external SMS/email delivery are outside the current local release."
+  },
+  {
+    "file": "DiscoverSalah_Proposal.docx",
+    "index": 71,
+    "before": "Retain the original proposal’s React web frontend, Node.js and Express backend, and MongoDB geospatial data model as the baseline, subject to implementation review. Separate discovery, schedules, identity and authorization, verification, reporting and notifications into clear modules. A routing adapter should allow provider replacement without changing business rules.",
+    "after": "Implemented architecture: React and TypeScript frontend; Node.js and Express modular API; persistent transaction-capable MongoDB; separate outbox and retention worker. Modules separate authentication, venues, timetables, community, notices and administration. Server commands enforce authorization and persistence; browser fixtures are not runtime records."
+  },
+  {
+    "file": "DiscoverSalah_Proposal.docx",
+    "index": 72,
+    "before": "Map rendering, map tiles, geocoding, route estimation and external navigation are separate dependencies with separate capacity and cost considerations. Select production service arrangements after evaluating the launch city; do not assume map display also provides motorcycle travel estimates or unrestricted infrastructure.",
+    "after": "Selected navigation approach: Google Maps URLs open externally after a user click, without an API key, billing account, embedded SDK or route API. The URL contains the published entrance coordinates and walking or two-wheeler mode, never the visitor’s precise origin. Google Maps handles the starting point and supported directions. DiscoverSalah receives no route duration or navigation result."
+  },
+  {
+    "file": "DiscoverSalah_Proposal.docx",
+    "index": 74,
+    "before": "Approval must refer to the exact version reviewed. Concurrent edits cannot silently overwrite each other. Persist schedule decisions and their notification work reliably so retries do not create duplicate approvals or tasks. Cache route estimates by origin, destination, mode and relevant time window; expire them appropriately. City-wide lists use pagination and map clustering while retaining access to all matching records.",
+    "after": "Approval refers to the reviewed immutable version. Transactions, current-account checks, expected revisions, idempotency and durable outbox records protect concurrent writes. The current compatibility workspace is bounded to 200 venues and 1,000 proposals with smaller supporting feeds; per-screen pagination is required before larger deployment. Route caching and clustered embedded maps remain deferred design."
+  },
+  {
+    "file": "DiscoverSalah_Proposal.docx",
+    "index": 81,
+    "before": "Use secure password hashing, encrypted transport, scoped authorization, login throttling, secure session handling and revocation on deactivation or reassignment. Administrative accounts should have an additional authentication factor. Initial credentials require a first-use change, and recovery must verify the account owner. Never include Imam numbers in public APIs, analytics events or broad exports.",
+    "after": "Accounts use contact-number/password authentication. Only Admin issues focal-person credentials; only the responsible focal person issues representative credentials in their assigned areas. The issuer independently confirms identity and contact details. Temporary passwords expire after 24 hours and require a first-use change. Issuer resets and contact-number changes revoke sessions. No SMS OTP or verified email is required. Administrator TOTP and single-use recovery codes provide MFA."
+  },
+  {
+    "file": "DiscoverSalah_Proposal.docx",
+    "index": 82,
+    "before": "Avoid persistent storage of precise public-user locations unless justified and consented to. Disclose location sharing with routing providers. Restrict verification notes and audit access. Validate submitted times, effective dates, coordinates and account scope on the server. Define retention, backup access and restoration procedures before launch.",
+    "after": "Sensitive contacts and evidence are encrypted and excluded from public DTOs. Precise visitor location remains in memory and is not included in external Maps links. Origin/CSRF checks, body limits, rate limits and server schemas guard commands. Closed rejected/withdrawn applications are redacted after 90 days; production backups, restore rehearsal and key rotation remain outstanding."
+  },
+  {
+    "file": "DiscoverSalah_Phase_3_DTS.docx",
+    "index": 78,
+    "before": "The 15 October 2026 decisions in Section 7.4 select Google Maps and Routes API, bilingual launch, private contacts, controlled recovery and owner-led operations. Remaining prerequisites are listed in Section 7.3. A city outside the pilot can be selected only when coverage is explicitly available; the system must not imply nationwide completeness.",
+    "after": "The owner’s 22 October 2026 decision replaces the earlier Google Maps/Routes API selection with external Google Maps URLs for the current local release. No route API, embedded map, geocoding service, API key or Google billing account is needed. Current credentials and deployment follow the revision page at the start of this document. Earlier route calculations remain deferred design."
+  },
+  {
+    "file": "DiscoverSalah_Phase_3_DTS.docx",
+    "index": 107,
+    "before": "Use React and TypeScript for the responsive browser interface, Node.js/Express with TypeScript for the API and worker, and a MongoDB replica set for transaction support. These are design selections; pin supported versions and dependencies when the repository is initialized. The supplied standalone HTML is a UI reference, not the production React implementation.",
+    "after": "Implemented stack: React and TypeScript, Vite, Node.js/Express TypeScript API, native MongoDB driver and a separate worker. The configured persistent MongoDB replica set is connected. Dependencies are recorded in repository lockfiles. The original standalone HTML remains a visual reference."
+  },
+  {
+    "file": "DiscoverSalah_Phase_3_DTS.docx",
+    "index": 108,
+    "before": "Host the website on Vercel. The Product Owner initially owns monitoring, support, backups and recovery. MongoDB remains a separate transaction-capable database; its hosting and backup mechanism still require selection. Adapt API execution to the chosen deployment and use a durable scheduled or queue-driven runner for outbox work; do not assume a permanent process inside a request function. Keep staging separate and secrets server-side. Internet access is needed for clients and chosen providers; offline editing and offline verification are not promised. Size the pilot from load measurements, not invented user forecasts.",
+    "after": "Current deployment is local: frontend http://127.0.0.1:5173, API on loopback port 4000 and a separately running notification/retention worker. The frontend proxies /api to the backend. MongoDB uses the private backend environment configuration. No Vercel or other production hosting has been provisioned. Production HTTPS, supervision, backup automation and restore acceptance remain future work."
+  },
+  {
+    "file": "DiscoverSalah_Phase_3_DTS.docx",
+    "index": 111,
+    "before": "Use Google Maps for mapping and Google Routes API with WALK and TWO_WHEELER. Validate local routes, restrictions, licensing, privacy, quotas and costs before enabling positive estimates. Do not substitute a car route and relabel it motorcycle. Until a suitable mode is validated, show the timetable and clearly unavailable arrival estimates.",
+    "after": "Use no-key Google Maps URLs for external directions. The URL contains a validated published entrance and travelmode=walking or travelmode=two-wheeler. Omit the visitor origin and private contacts. Open only after a user click with referrer/opener protection. Do not call a Google route API, infer travel duration or substitute a car route for motorcycle travel."
+  },
+  {
+    "file": "DiscoverSalah_Phase_3_DTS.docx",
+    "index": 131,
+    "before": "Use Google Maps and Google Routes API for distinct walking and motorcycle modes. Confirm the real entrance pin during onboarding. Never relabel car or bicycle routing as motorcycle. Show Estimated reachable, Time is tight or Arrival estimate unavailable with reasons and assumptions; no arrival or attendance guarantee.",
+    "after": "Current public behavior: show timetable and timing-confidence information, then offer external Google Maps directions. Directions remain available even when no session exists for the selected prayer/date. No Estimated reachable or Time is tight claim is calculated in this release. A future route adapter requires separate approval, implementation, cost controls and field validation."
+  },
+  {
+    "file": "DiscoverSalah_Phase_3_DTS.docx",
+    "index": 175,
+    "before": "Actor: Invited management user. Enter account identifier and password; complete required MFA where applicable.",
+    "after": "Actor: management account owner. Sign in with the issuer-confirmed contact number and password. Administrators complete TOTP or single-use recovery-code MFA. A temporary password must be changed before management commands become available."
+  },
+  {
+    "file": "DiscoverSalah_Phase_3_DTS.docx",
+    "index": 229,
+    "before": "Actor: Admin. Review uncovered areas, staff assignments, invitations and maintenance responsibility.",
+    "after": "Actor: Admin. Review uncovered areas and assignments, issue focal credentials, manage authorized credential resets/contact changes and maintenance responsibility. Representative credentials are issued only by the responsible focal person, not directly by Admin."
+  },
+  {
+    "file": "DiscoverSalah_Phase_3_DTS.docx",
+    "index": 250,
+    "before": "Management accounts are individual and invitation-only. Use verified email for password recovery. Reset tokens are securely generated, stored hashed, single-use and expire after 15 minutes. Rate-limit requests and use the same response for known and unknown emails. On successful reset, invalidate existing sessions and notify the account holder. Do not automatically log the user in.",
+    "after": "Management accounts are individually issued. Only Admin creates focal credentials; only the responsible focal person creates representative credentials within assigned areas. Issuers confirm identity and contact details independently, then privately hand over a generated temporary password valid for 24 hours. The account owner must change it before managing records. No verified-email or SMS OTP onboarding/recovery channel is required."
+  },
+  {
+    "file": "DiscoverSalah_Phase_3_DTS.docx",
+    "index": 251,
+    "before": "If email access is lost, the Product Owner checks identity through an existing trusted mosque contact before changing recovery details. Record the evidence and decision; a newly supplied number alone is insufficient. Require admin MFA and offline recovery codes. Never transmit shared or replacement passwords to staff.",
+    "after": "Recovery follows the same issuer hierarchy. The issuer rechecks identity/contact before resetting credentials or changing the account contact number. These commands revoke sessions; temporary-password reset requires a new private password. Administrator sign-in uses locally verified TOTP with single-use offline recovery codes. Lost administrator MFA requires controlled operator recovery, never a public bypass."
+  },
+  {
+    "file": "DiscoverSalah_Phase_3_DTS.docx",
+    "index": 541,
+    "before": "Durable in-account notification and review queue. Email/SMS/push task alerts are deferred. Transactional invitation and password-recovery email is included; it is not a user reminder.",
+    "after": "Durable in-app notifications and review queues are implemented through a transactional outbox worker. External email/SMS/push delivery and reminder services are not enabled. Issued credentials are handed over privately; SMS/email invitation and recovery endpoints are retired."
+  },
+  {
+    "file": "DiscoverSalah_SDS_Phase_2.docx",
+    "index": 65,
+    "before": "The proposed solution is a modular, layered web application backed by MongoDB. Immutable schedule submissions, scoped authority, explicit pending states and atomic review decisions protect timing integrity. A provider adapter makes routing replaceable and allows honest timetable-only operation when route evidence is unavailable. The intended result is an implementable, testable service design; no code, field accuracy, interview result or deployment is claimed as completed.",
+    "after": "The implemented local solution is a modular React/TypeScript web application, Node.js/Express API, background worker and persistent MongoDB replica set. Immutable submissions and independent reviews protect timing integrity. External Google Maps URLs provide navigation; embedded maps, routing APIs, arrival calculations and forecasts remain deferred."
+  },
+  {
+    "file": "DiscoverSalah_SDS_Phase_2.docx",
+    "index": 138,
+    "before": "Only Admin can approve a Focal Person appointment. A representative appointment may be processed by Admin or a Focal Person within their area, following the Admin-reviewed application path. Check contact ownership, independent mosque reference, existing assignments and availability. Use a single-use invitation; approval alone does not expose a reusable password. Waitlist/rejection creates no management account. A private tracking token provides limited applicant status without exposing review notes.",
+    "after": "Only Admin issues focal-person credentials. Only the responsible focal person issues local representative credentials in their assigned areas; Admin does not create representatives directly. Application approval alone grants no access. The issuer checks identity, contact, authority and scope, then privately provides a generated 24-hour temporary password. The recipient must change it on first login. No OTP invitation acceptance is used."
+  },
+  {
+    "file": "DiscoverSalah_SDS_Phase_2.docx",
+    "index": 209,
+    "before": "Account invitation and recovery",
+    "after": "Account credentials and recovery"
+  },
+  {
+    "file": "DiscoverSalah_SDS_Phase_2.docx",
+    "index": 210,
+    "before": "AuthSession stores accountId, hashed token, authVersion, expiresAt and revokedAt. AccessToken stores purpose (INVITE or RECOVERY), accountId, tokenHash, expiresAt and consumedAt. Check expiry and consumption in the request, not just TTL cleanup. Delivery through a verified channel must be selected before release; manual verified handoff is a pilot fallback, not a public reset shortcut. New invited accounts remain inactive until the invitation is validly consumed; any precreated assignment confers no usable authority while its account is inactive.",
+    "after": "Opaque AuthSession records and HttpOnly cookies authenticate the account with authVersion checks, CSRF and origin validation. Administrator sign-in first creates a short-lived MFA challenge, then verifies TOTP or a single-use recovery code. Temporary credentials carry mustChangePassword and temporaryPasswordExpiresAt. Protected credential issuance/reset/contact-change commands enforce the issuer hierarchy and revoke sessions when needed. Legacy SMS invitation/recovery endpoints return 410."
+  },
+  {
+    "file": "DiscoverSalah_SDS_Phase_2.docx",
+    "index": 240,
+    "before": "Suggestion decisions use PATCH /management/mosque-suggestions/{id} with revision, state and optional linkedVenueId. Invitation and recovery secrets are one-time values returned/delivered only through protected workflows. Rate limits and form body limits apply to anonymous routes; abuse responses never reveal personal applicant information.",
+    "after": "Community and management screens use explicit versioned API commands; consult backend route schemas and backend/docs/FRONTEND_HANDOFF.md for implemented paths and fields. Older PATCH sketches in this design are not the runtime API contract. Credential passwords are displayed only to the authorized issuer and kept out of browser storage. Public tracking tokens authorize only the associated receipt."
+  },
+  {
+    "file": "DiscoverSalah_SDS_Phase_2.docx",
+    "index": 281,
+    "before": "All scenarios below are planned and Not executed. Unit tests cover pure rules; integration tests use transaction-capable MongoDB; API tests exercise actual authorization; UI tests cover the main roles. Provider stubs test failure handling but cannot establish real routing accuracy.",
+    "after": "Validation baseline: backend compilation and 25 policy/replica-set tests passed; frontend compilation and 24 domain tests passed before the navigation update. Mobile-viewport browser tests passed representative submission, independent focal approval, credential issuance and administrator MFA/password change. The numbered design acceptance scenarios below remain a broader plan; they have not all been executed. Routing accuracy, load targets and physical old-Android acceptance are unverified."
+  },
+  {
+    "file": "DiscoverSalah_SDS_Phase_2.docx",
+    "index": 292,
+    "before": "Use a managed web host, a small Node API service, a worker process and a transaction-capable managed MongoDB replica set. Hosting vendor, service sizes, monthly budget and recovery-delivery channel are not selected. One repository and shared versioned build can deploy API and worker separately. Kubernetes, multi-region writes and microservices are unnecessary pilot commitments.",
+    "after": "Current execution is local: Vite on 127.0.0.1:5173, Express on loopback port 4000, a separate worker and the configured persistent MongoDB replica set. No production hosting is deployed. Select supervised production hosting, HTTPS, backup and recovery operations only when the deployment scope changes."
+  },
+  {
+    "file": "DiscoverSalah_SRS_Phase_1.docx",
+    "index": 65,
+    "before": "The launch city, staffing, budget, dates and routing provider are unassigned. An Imam contact can be reached with permission, and each area has an accountable reviewer. These assumptions must be checked. Administrative city membership defines Whole City results; a nearby radius may cross area boundaries.",
+    "after": "Current scope is a local application with a connected persistent MongoDB replica set. External Google Maps URLs are selected; no billed Maps/Routes API is enabled. Launch city, real mosque/staff onboarding and production operations remain owner responsibilities. Whole City uses administrative city membership; Nearby uses confirmed coordinates and a radius."
+  },
+  {
+    "file": "DiscoverSalah_SRS_Phase_1.docx",
+    "index": 149,
+    "before": "Acceptance: Changing mode recalculates; motorcycle is not relabeled car routing; provider failure shows unavailable and leaves timings usable.",
+    "after": "Current acceptance: changing Walking/Motorcycle changes the external Maps URL to walking/two-wheeler. The app never relabels a car or bicycle route as motorcycle. No travel duration or arrive-before-Jama’at ranking is calculated locally; timetable browsing remains available."
+  },
+  {
+    "file": "DiscoverSalah_SRS_Phase_1.docx",
+    "index": 216,
+    "before": "FR-01  Create scoped management accounts; validate parent role and area on every request; public account creation shall not grant management privileges.",
+    "after": "FR-01  Admin alone issues focal-person credentials. The responsible focal person alone issues representative credentials within assigned areas. Validate role, current scope and independently confirmed contact details on every command. Public applications do not grant management privileges."
+  },
+  {
+    "file": "DiscoverSalah_SRS_Phase_1.docx",
+    "index": 217,
+    "before": "FR-02  Authenticate management users, require initial password change, provide verified recovery, logout and session revocation, and deny inactive accounts.",
+    "after": "FR-02  Authenticate with contact number and password; require temporary-password change, issuer-controlled recovery, logout, session revocation and inactive-account denial. Administrator MFA uses local TOTP or a single-use recovery code. No verified email or SMS OTP is required."
+  },
+  {
+    "file": "DiscoverSalah_SRS_Phase_1.docx",
+    "index": 224,
+    "before": "FR-09  Support permission-based location and manual area/pin selection; allow timetable browsing without an origin and require a confirmed origin for personal travel estimates.",
+    "after": "FR-09  Support permission-based device coordinates and manual location fields. Keep precise origin in memory; allow timetable browsing without it. External navigation receives only the mosque entrance, with starting point chosen in Google Maps."
+  },
+  {
+    "file": "DiscoverSalah_SRS_Phase_1.docx",
+    "index": 227,
+    "before": "FR-12  Obtain mode-appropriate route duration and distance through a provider adapter or validated local model; label source and freshness and fail honestly when unsupported.",
+    "after": "FR-12  Current release opens Google Maps URLs with validated published entrance coordinates and walking/two-wheeler mode. No key, billing account or embedded map/routing SDK is required. Provider-derived route duration and distance are deferred."
+  },
+  {
+    "file": "DiscoverSalah_SRS_Phase_1.docx",
+    "index": 233,
+    "before": "FR-13  Calculate arrival margin using departure, route duration, preparation and uncertainty; assign defined statuses and rank eligible sessions deterministically.",
+    "after": "FR-13  Current release does not calculate arrival margins, confident reachability or route-duration rankings. Display timetable status and explain that Google Maps handles directions separately. The earlier arrival algorithm is retained only as deferred design pending a validated routing provider."
+  },
+  {
+    "file": "DiscoverSalah_SRS_Phase_1.docx",
+    "index": 234,
+    "before": "FR-14  Display public identity, timings, confirmation indicators and known facilities; hand off entrance coordinates and travel mode where supported without exposing private contacts.",
+    "after": "FR-14  Display public mosque identity, timings, confidence and facilities. Provide external Google Maps directions even if no session exists for the selected date. Do not expose private Imam contacts or visitor origin in the URL."
+  },
+  {
+    "file": "DiscoverSalah_SRS_Phase_1.docx",
+    "index": 236,
+    "before": "FR-16  Allow future departure selection for dated sessions, label estimates as forecasts and refresh on departure; reject invalid past planning inputs.",
+    "after": "FR-16  Future-departure forecasts remain excluded from the current local release. Do not present external navigation as an in-app forecast or promise of reaching Jama’at."
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 43,
+    "before": "Select city/area, search for a place, or confirm a starting-point pin. Explain location use before requesting permission. Browsing remains possible without a precise origin.",
+    "after": "Select a city and enter location details or use permission-based device coordinates. Precise location stays in memory. No geocoding API or interactive pin map is enabled; browsing remains possible without a precise origin."
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 47,
+    "before": "Mosque/session cards showing Jama’at time, date, area, timing status, travel estimate, and arrival margin when available. Preserve selected filters and provide pagination.",
+    "after": "Mosque/session cards show Jama’at time, date, area and timing status. No route duration or arrival margin is calculated. Preserve selected filters. Current workspace reads are bounded; complete pagination remains required before larger coverage."
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 50,
+    "before": "Map Results",
+    "after": "Location Results and External Navigation"
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 51,
+    "before": "Alternative view of the same results, with selected-venue cards and clustered markers where needed. A map failure must leave the list usable.",
+    "after": "Keep the same result selection and venue cards, using a location list instead of simulated map geography. A selected published mosque opens the external directions screen. No embedded map SDK, tiles or clustering is loaded in the current release."
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 78,
+    "before": "Session Details and Arrival Estimate",
+    "after": "Session Details"
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 79,
+    "before": "Explains one congregation: exact date/time, timing evidence, travel duration, preparation allowance, uncertainty, and estimated arrival margin. Provides a directions action.",
+    "after": "Explain the selected congregation date/time and timing evidence. Link to directions while explicitly stating that DiscoverSalah does not calculate travel duration or an arrive-before-Jama’at estimate."
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 82,
+    "before": "Travel and Preparation Settings",
+    "after": "Travel Mode Selection"
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 83,
+    "before": "Switch Walking/Motorcycle and increase preparation time. Explain that motorcycle means a motorbike, and estimates are not arrival guarantees.",
+    "after": "Choose Walking or Motorcycle for the external navigation URL. Preparation-margin calculations are deferred. Use walking or two-wheeler; do not silently substitute driving or bicycling."
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 87,
+    "before": "Opens an external navigation service using the correct entrance. Warns if the chosen navigation service cannot preserve the selected mode. Refresh information when the user returns.",
+    "after": "Open Google Maps only after a click, using api=1, validated published entrance coordinates and walking/two-wheeler mode. Omit visitor origin, contact data and keys; use opener/referrer protection. No timetable/session is required for this screen. Revalidate app data on return."
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 147,
+    "before": "One sign-in page that routes authorized users to their assigned workspace. Keep public discovery accessible.",
+    "after": "Sign in with the issuer-confirmed contact number and password. Administrator completes MFA; temporary-password users change their password before workspace access. Public discovery remains accessible."
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 150,
+    "before": "Accept Invitation / Activate Account",
+    "after": "Issued Credentials and First Password Change"
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 151,
+    "before": "Validate the invitation, show the approved role/scope, and let the recipient establish credentials. Handle expired, revoked, and already-used invitations.",
+    "after": "The authorized issuer privately provides a generated temporary password valid for 24 hours. Sign in, then change it before management access. No invitation token or SMS OTP activation is required; the legacy invitation page explains the issuer process."
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 155,
+    "before": "Additional authentication step for administrators. Include an independently verified recovery route.",
+    "after": "Administrator only: verify a time-based authenticator code or unused recovery code after password sign-in. Codes are checked locally with no SMS/email provider fee."
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 159,
+    "before": "Start recovery without revealing whether a particular account exists. The actual delivery channel remains an implementation decision.",
+    "after": "Explain issuer-assisted reset: representative contacts the responsible focal person; focal person contacts Admin. Identity/contact are independently checked. Administrator recovery uses offline recovery material or a controlled operator process."
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 163,
+    "before": "Validate a single-use recovery token, set credentials, and confirm session revocation according to policy.",
+    "after": "An authenticated owner enters the current/temporary password and a new private password. A successful change revokes prior sessions and requires sign-in again. An issuer reset creates another 24-hour temporary password."
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 298,
+    "before": "Invite / Assign Representative",
+    "after": "Create Representative Credentials and Assign"
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 299,
+    "before": "Create an authorized invitation and assign responsibility within the Focal Person’s permitted scope. Show reassignment consequences.",
+    "after": "The responsible focal person creates representative credentials only within their areas after independent identity/contact checks. Show the temporary password for private handoff; assign mosque responsibility through authorized commands. No SMS OTP is required."
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 343,
+    "before": "Search accounts, inspect current authority, deactivate access, and manage invitations.",
+    "after": "Search scoped accounts, inspect authority, deactivate access and perform authorized resets/contact changes. Admin creates focal credentials; the responsible focal person creates representative credentials. Session revocation accompanies resets and contact changes."
+  },
+  {
+    "file": "Screen Inventory.docx",
+    "index": 351,
+    "before": "Record contact/reference checks, availability, suitability, requested role, proposed scope, and decision. Approval leads to an invitation, not instant access.",
+    "after": "Record contact/reference checks, availability, suitability, role, scope and disposition. Approval alone grants no authority. The appropriate issuer subsequently creates credentials under the admin-to-focal and focal-to-representative hierarchy."
+  }
+]

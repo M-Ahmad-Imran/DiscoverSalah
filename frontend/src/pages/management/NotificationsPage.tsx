@@ -7,7 +7,7 @@ import { Panel } from '../../components/ui/Panel';
 import { useApp } from '../../hooks/useApp';
 
 export function Notifications() {
-  const { db, role, update, t } = useApp();
+  const { db, role, mutate, t } = useApp();
   const rows = db.notifications.filter((n) => n.role === role);
   return (
     <>
@@ -16,14 +16,13 @@ export function Notifications() {
         action={
           <button
             className="secondary"
-            onClick={() =>
-              update((d) => ({
-                ...d,
-                notifications: d.notifications.map((n) =>
-                  n.role === role ? { ...n, read: true } : n,
-                ),
-              }))
-            }
+            onClick={async () => {
+              try {
+                return await mutate('/management/notifications/read-all', {});
+              } catch {
+                return;
+              }
+            }}
           >
             {t('Mark all read', 'سب پڑھی ہوئی نشان زد')}
           </button>
@@ -43,16 +42,15 @@ export function Notifications() {
             </span>
             <Link
               to={n.href}
-              onClick={() =>
-                update((d) => ({
-                  ...d,
-                  notifications: d.notifications.map((x) =>
-                    x.id === n.id ? { ...x, read: true } : x,
-                  ),
-                }))
-              }
+              onClick={async () => {
+                try {
+                  return await mutate('/management/notifications/' + n.id + '/read', {});
+                } catch {
+                  return;
+                }
+              }}
             >
-              <strong>{n.title}</strong>
+              <strong>{t(n.title)}</strong>
               <small>
                 {n.read ? t('Read', 'پڑھی گئی') : t('Unread', 'نہیں پڑھی گئی')}
               </small>

@@ -1,3 +1,5 @@
+> **21 October 2026 integration update:** Runtime data and authentication now come from the MongoDB-backed API, superseding older browser-demo descriptions below. See `backend/docs/IMPLEMENTATION_REPORT.md` and `backend/docs/FRONTEND_HANDOFF.md` for current behavior and limits. Routing remains unavailable by the project owner's choice. Screen presence is not a claim of production acceptance.
+
 # Screen inventory audit
 
 Audited against `Documents/Screen Inventory.docx` on 2026-10-17. The source contains **82 unique numbered items**. All source paragraphs match `.project-reference/Screen Inventory.txt`.

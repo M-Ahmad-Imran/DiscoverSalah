@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AccessDenied } from '../../components/feedback/AccessDenied';
 import { Badge } from '../../components/ui/Badge';
@@ -6,27 +5,21 @@ import { Empty } from '../../components/ui/Empty';
 import { Field } from '../../components/ui/Field';
 import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
+import { RecordSelect } from '../../components/ui/RecordSelect';
 import { reviewItems } from '../../domain/reviewQueue';
 import { useApp } from '../../hooks/useApp';
-import { today } from '../../utils/date';
+import { useScreenFilter } from '../../hooks/useScreenFilter';
+import { tr } from '../../i18n/translate';
 export function ReviewQueue() {
   const { db, role, actor, t } = useApp();
-  const [type, setType] = useState('All');
-  const [venue, setVenue] = useState('');
-  const [due, setDue] = useState('All');
-  const [urgent, setUrgent] = useState(false);
+  const [type, setType] = useScreenFilter('type', 'All');
+  const [venue, setVenue] = useScreenFilter('venue', '');
+  const [due, setDue] = useScreenFilter('due', 'all');
+  const [urgentValue, setUrgent] = useScreenFilter('urgent', 'false');
+  const urgent = urgentValue === 'true';
   if (!role || role === 'representative') return <AccessDenied />;
   const items = reviewItems(db, role, actor);
-  const rows = items.filter(
-    (x) =>
-      (type === 'All' || x.type === type) &&
-      (!venue || x.venueId === venue) &&
-      (!urgent || x.urgent) &&
-      (due === 'All' ||
-        (due === 'Today or earlier'
-          ? !!x.due && x.due <= today()
-          : !!x.due && x.due > today())),
-  );
+  const rows = items.filter((x) => !db.page || db.page.ids.includes(x.id));
   return (
     <>
       <PageTitle
@@ -40,13 +33,29 @@ export function ReviewQueue() {
         <div className="three-grid">
           <Field label={t('Review type', 'جائزے کی قسم')}>
             <select value={type} onChange={(e) => setType(e.target.value)}>
-              {['All', ...new Set(items.map((x) => x.type))].map((x) => (
-                <option key={x}>{x}</option>
+              {[
+                'All',
+                'Timetable',
+                'registration',
+                'contact-change',
+                'profile-change',
+                'Notice',
+                'report',
+                'suggestion',
+                'application',
+              ].map((x) => (
+                <option key={x} value={x}>
+                  {tr(x)}
+                </option>
               ))}
             </select>
           </Field>
           <Field label={t('Mosque', 'مسجد')}>
-            <select value={venue} onChange={(e) => setVenue(e.target.value)}>
+            <RecordSelect
+              resource="venues"
+              value={venue}
+              onChange={(e) => setVenue(e.target.value)}
+            >
               <option value="">{t('All assigned mosques', 'تمام مقررہ مساجد')}</option>
               {db.venues
                 .filter((v) => items.some((x) => x.venueId === v.id))
@@ -55,12 +64,14 @@ export function ReviewQueue() {
                     {v.name}
                   </option>
                 ))}
-            </select>
+            </RecordSelect>
           </Field>
           <Field label={t('Event / effective date', 'تقریب / لاگو تاریخ')}>
             <select value={due} onChange={(e) => setDue(e.target.value)}>
-              {['All', 'Today or earlier', 'Future dated'].map((x) => (
-                <option key={x}>{x}</option>
+              {['all', 'past', 'future'].map((x) => (
+                <option key={x} value={x}>
+                  {tr(x)}
+                </option>
               ))}
             </select>
           </Field>
@@ -69,7 +80,7 @@ export function ReviewQueue() {
           <input
             type="checkbox"
             checked={urgent}
-            onChange={(e) => setUrgent(e.target.checked)}
+            onChange={(e) => setUrgent(String(e.target.checked))}
           />
           {t('Escalated work only', 'صرف فوری حوالے')}
         </label>
@@ -80,7 +91,7 @@ export function ReviewQueue() {
             <div>
               <strong>{x.title}</strong>
               <p>
-                {x.id} · {x.type} {x.due && ' · ' + x.due}
+                {x.id} · {tr(x.type)} {x.due && ' · ' + x.due}
               </p>
             </div>
             <Badge tone={x.urgent ? 'amber' : 'neutral'}>

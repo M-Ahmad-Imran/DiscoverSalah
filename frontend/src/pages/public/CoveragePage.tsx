@@ -20,8 +20,8 @@ export function Coverage() {
       />
       <Alert>
         {t(
-          'Lahore is the sample dataset, not a confirmed launch city.',
-          'لاہور نمونہ ڈیٹا ہے، منظور شدہ آغاز کا شہر نہیں۔',
+          'Browse the pages below for all participating areas.',
+          'تمام شریک علاقوں کے لیے نیچے دی گئی فہرست کے صفحات دیکھیں۔',
         )}
       </Alert>
       <div className="three-grid">
@@ -37,8 +37,7 @@ export function Coverage() {
               )}
             </Badge>
             <p>
-              {db.venues.filter((v) => v.area === a.name).length}{' '}
-              {t('sample venues', 'نمونہ مقامات')}
+              {a.venueCount ?? 0} {t('participating venues', 'شریک مقامات')}
             </p>
             <ButtonLink
               secondary

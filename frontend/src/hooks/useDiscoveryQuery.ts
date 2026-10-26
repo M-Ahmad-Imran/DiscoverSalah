@@ -6,17 +6,19 @@ export function useQuery() {
   const query = {
     prayer: params.get('prayer') || 'Asr',
     date: params.get('date') || today(),
-    scope: params.get('scope') || 'nearby',
+    scope: params.get('scope') || 'city',
     mode: params.get('mode') || 'walking',
     origin: params.get('origin') || '',
     sort: params.get('sort') || 'time',
     radius: params.get('radius') || '5',
     area: params.get('area') || '',
+    city: params.get('city') || '',
   };
   const change = (key: string, value: string) =>
     setParams(
       (p) => {
         p.set(key, value);
+        p.delete('cursor');
         return p;
       },
       {

@@ -9,11 +9,13 @@ import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { canAccessRequest } from '../../domain/permissions';
 import { useApp } from '../../hooks/useApp';
+import { useScreenFilter } from '../../hooks/useScreenFilter';
+import { displayDate, tr } from '../../i18n/translate';
 
 export function RecordQueue({ kind }: { kind: string }) {
   const { db, t, role, actor } = useApp();
-  const [q, setQ] = useState('');
-  const [filter, setFilter] = useState('All');
+  const [q, setQ] = useScreenFilter('q', '');
+  const [filter, setFilter] = useScreenFilter('status', 'All');
   const [grouped, setGrouped] = useState(false);
   if (['application'].includes(kind) && role !== 'admin') return <AccessDenied />;
   if (
@@ -29,13 +31,7 @@ export function RecordQueue({ kind }: { kind: string }) {
     'contact-change': ['Contact change reviews', 'رابطے کی تبدیلیوں کا جائزہ'],
     'profile-change': ['Identity & profile reviews', 'شناخت اور معلومات کا جائزہ'],
   };
-  const rows = db.requests.filter(
-    (r) =>
-      r.kind === kind &&
-      canAccessRequest(db, role, actor, r) &&
-      (filter === 'All' || r.status === filter) &&
-      `${r.id} ${r.title}`.toLowerCase().includes(q.toLowerCase()),
-  );
+  const rows = db.requests.filter(r => (!db.page || db.page.ids.includes(r.id)) && r.kind === kind && canAccessRequest(db, role, actor, r));
   if (grouped)
     rows.sort(
       (a, b) =>
@@ -54,21 +50,37 @@ export function RecordQueue({ kind }: { kind: string }) {
       />
       <div className="results-toolbar">
         <input
-          aria-label="Search requests"
+          aria-label={tr('Search requests')}
           placeholder={t('Search requests…', 'درخواستیں تلاش کریں…')}
           value={q}
           onChange={(e) => setQ(e.target.value)}
         />
         <select
-          aria-label="Filter requests"
+          aria-label={tr('Filter requests')}
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
         >
           {[
             'All',
-            ...new Set(db.requests.filter((r) => r.kind === kind).map((r) => r.status)),
+            'Submitted',
+            'Open',
+            'In review',
+            'Awaiting checks',
+            'Escalated',
+            'Approved',
+            'Returned',
+            'Rejected',
+            'Resolved',
+            'Dismissed',
+            'Waitlisted',
+            'Withdrawn',
+            'Onboarding',
+            'Linked',
+            'Closed',
           ].map((x) => (
-            <option key={x}>{x}</option>
+            <option key={x} value={x}>
+              {tr(x)}
+            </option>
           ))}
         </select>
       </div>
@@ -94,8 +106,7 @@ export function RecordQueue({ kind }: { kind: string }) {
             <div>
               <strong>{r.title}</strong>
               <small>
-                {r.id} · {new Date(r.created).toLocaleDateString()} ·{' '}
-                {r.values.type || r.values.issue} ·{' '}
+                {r.id} · {displayDate(r.created)} · {r.values.type || r.values.issue} ·{' '}
                 {db.venues.find((v) => v.id === r.values.venue)?.name || r.values.area}
               </small>
             </div>
@@ -104,7 +115,7 @@ export function RecordQueue({ kind }: { kind: string }) {
                 r.status === 'Resolved' || r.status === 'Approved' ? 'green' : 'amber'
               }
             >
-              {r.status}
+              {tr(r.status)}
             </Badge>
             <ArrowRight size={17} />
           </Link>

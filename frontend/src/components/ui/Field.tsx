@@ -1,5 +1,11 @@
-import { type ReactNode } from 'react';
-
+import {
+  cloneElement,
+  isValidElement,
+  useId,
+  type ReactElement,
+  type ReactNode,
+} from 'react';
+import { useApp } from '../../hooks/useApp';
 export function Field({
   label,
   children,
@@ -9,11 +15,22 @@ export function Field({
   children: ReactNode;
   hint?: string;
 }) {
+  const { t } = useApp();
+  const id = useId();
+  const child = isValidElement(children)
+    ? (children as ReactElement<{ id?: string; 'aria-describedby'?: string }>)
+    : null;
+  const controlId = child?.props.id || id;
   return (
-    <label className="field">
-      <span>{label}</span>
-      {children}
-      {hint && <small>{hint}</small>}
-    </label>
+    <div className="field">
+      <label htmlFor={controlId}>{t(label)}</label>
+      {child
+        ? cloneElement(child, {
+            id: controlId,
+            ...(hint ? { 'aria-describedby': controlId + '-hint' } : {}),
+          })
+        : children}
+      {hint && <small id={controlId + '-hint'}>{hint}</small>}
+    </div>
   );
 }

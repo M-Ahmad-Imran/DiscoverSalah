@@ -59,12 +59,13 @@ describe('scope, proposal and effective date policies', () => {
     const d = seed();
     expect(canReview(d.proposals[0], 'admin', 'rep-1', d.venues[0])).toBe(false);
   });
-  it('denies a superseded or stale review', () => {
+  it('denies superseded reviews but leaves revision concurrency to the server', () => {
     const d = seed(),
       p = d.proposals[0],
       v = d.venues[0];
     expect(canReview({ ...p, state: 'Superseded' }, 'focal', 'focal-1', v)).toBe(false);
-    expect(canReview({ ...p, baseRevision: 0 }, 'focal', 'focal-1', v)).toBe(false);
+    // Metadata revisions must not strand a pending proposal; the API checks the current revision at commit.
+    expect(canReview({ ...p, baseRevision: 0 }, 'focal', 'focal-1', v)).toBe(true);
   });
   it('permits an independent assigned reviewer', () => {
     const d = seed();

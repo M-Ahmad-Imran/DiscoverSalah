@@ -3,11 +3,10 @@ import { Alert } from '../../components/ui/Alert';
 import { Badge } from '../../components/ui/Badge';
 import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
-import { deliveryFixtures } from '../../data/deliveryFixtures';
-import { updateDelivery } from '../../domain/delivery';
 import { useApp } from '../../hooks/useApp';
+import { tr } from '../../i18n/translate';
 export function Delivery() {
-  const { db, role, actor, t, update } = useApp();
+  const { db, role, actor, t, mutate } = useApp();
   if (role !== 'admin') return <AccessDenied />;
   return (
     <>
@@ -16,13 +15,13 @@ export function Delivery() {
       />
       <Alert>
         {t(
-          'Sample outbox records. Retry requests remain queued until a real worker is connected. These actions never approve or reject a submission.',
-          'نمونہ ترسیلی ریکارڈ۔ حقیقی سرور کے بغیر دوبارہ کوشش قطار میں رہے گی۔ درخواست کی منظوری تبدیل نہیں ہوگی۔',
+          'Retries are processed by the notification worker. Delivery actions never approve or reject a submission.',
+          'اطلاعات کی ترسیل کا نظام دوبارہ کوشش کرتا ہے۔ اس کارروائی سے درخواست منظور یا مسترد نہیں ہوتی۔',
         )}
       </Alert>
-      {(db.deliveryJobs ?? deliveryFixtures).map((j) => (
+      {(db.deliveryJobs ?? []).map((j) => (
         <Panel key={j.id} title={j.id}>
-          <Badge tone="amber">{j.state}</Badge>
+          <Badge tone="amber">{tr(j.state)}</Badge>
           <p>
             {j.target} · {j.attempts} {t('attempts', 'کوششیں')}
           </p>
@@ -36,22 +35,28 @@ export function Delivery() {
           <div className="row wrap">
             <button
               disabled={j.state === 'Retry queued'}
-              onClick={() =>
-                update((d) =>
-                  updateDelivery(d, j.id, 'retry', actor, new Date().toISOString()),
-                )
-              }
+              onClick={async () => {
+                try {
+                  return await mutate('/management/delivery/' + j.id + '/retry', {});
+                } catch {
+                  return;
+                }
+              }}
             >
               {t('Queue retry', 'دوبارہ کوشش قطار میں رکھیں')}
             </button>
             <button
               className="secondary"
               disabled={j.state === 'Escalated'}
-              onClick={() =>
-                update((d) =>
-                  updateDelivery(d, j.id, 'escalate', actor, new Date().toISOString()),
-                )
-              }
+              onClick={async () => {
+                try {
+                  return await mutate('/management/delivery/' + j.id + '/escalate', {
+                    reason: 'Delivery failure requires investigation',
+                  });
+                } catch {
+                  return;
+                }
+              }}
             >
               {t('Escalate failure', 'ناکامی حوالے کریں')}
             </button>

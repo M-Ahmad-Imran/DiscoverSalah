@@ -5,21 +5,22 @@ import { Alert } from '../../components/ui/Alert';
 import { Field } from '../../components/ui/Field';
 import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
+import { RecordSelect } from '../../components/ui/RecordSelect';
 import { useApp } from '../../hooks/useApp';
-import { uid } from '../../utils/id';
+import { tr } from '../../i18n/translate';
 
 export function PublicForm({
   kind,
 }: {
   kind: 'report' | 'suggestion' | 'application' | 'contact';
 }) {
-  const { db, update, t } = useApp();
+  const { db, mutate, t } = useApp();
   const [params] = useSearchParams();
   const navigate = useNavigate();
   const [values, setValues] = useState<Record<string, string>>({
     venue: params.get('venue') || db.venues[0]?.id,
     role: params.get('role') || 'representative',
-    area: 'Gulberg III',
+    area: db.areas[0]?.name || '',
     category: 'Timing',
     prayer: params.get('prayer') || '',
     date: params.get('date') || '',
@@ -59,44 +60,61 @@ export function PublicForm({
         eyebrow={t('COMMUNITY SUPPORT', 'کمیونٹی کی مدد')}
         title={t(titles[kind][0], titles[kind][1])}
         description={t(
-          'This preview saves sample requests on this device only. Please use fictional contact details.',
-          'یہ پیش نظارہ صرف اس ڈیوائس پر نمونہ درخواست محفوظ کرتا ہے۔ فرضی رابطہ استعمال کریں۔',
+          'Your request is saved securely for authorized review. Keep the private tracking token.',
+          'درخواست محفوظ ڈیٹابیس میں درج ہوگی۔ درست معلومات دیں اور نجی رسائی کی کلید اپنے پاس محفوظ رکھیں۔',
         )}
       />
       <Panel>
         <form
           className="stack"
-          onSubmit={(e) => {
-            e.preventDefault();
-            const id = uid('REQ'),
-              token = crypto.randomUUID();
-            update((d) => ({
-              ...d,
-              requests: [
+          onSubmit={async (e) => {
+            try {
+              e.preventDefault();
+              const saved = await mutate<{ id: string; trackingToken: string }>(
+                '/' +
+                  {
+                    report: 'reports',
+                    suggestion: 'suggestions',
+                    application: 'applications',
+                    contact: 'contact',
+                  }[kind],
                 {
-                  id,
-                  token,
-                  kind,
-                  title:
-                    values.name ||
-                    values.subject ||
-                    (kind === 'report'
-                      ? `${values.category} report`
-                      : 'Contributor application'),
-                  values,
-                  status: kind === 'report' ? 'Open' : 'Submitted',
-                  created: new Date().toISOString(),
+                  title: values.name || values.subject || 'Community ' + kind,
+                  details:
+                    values.details ||
+                    values.message ||
+                    values.reason ||
+                    'Please review this community request',
+                  ...(values.venue && kind === 'report' ? { venueId: values.venue } : {}),
+                  ...(db.areas.find((a) => a.name === values.area)
+                    ? { areaId: db.areas.find((a) => a.name === values.area)?.id }
+                    : {}),
+                  ...(values.contactNumber || values.phone
+                    ? { contactNumber: values.contactNumber || values.phone }
+                    : {}),
+                  ...(kind === 'application'
+                    ? {
+                        requestedRole: values.role,
+                        availability: values.availability,
+                        reference: values.reference,
+                        affiliation: values.affiliation,
+                        consent,
+                      }
+                    : {}),
+                  submitted: values,
                 },
-                ...d.requests,
-              ],
-            }));
-            navigate(`/receipt/${id}?token=${token}`);
+              );
+              navigate('/receipt/' + saved.id, { state: { token: saved.trackingToken } });
+            } catch {
+              return;
+            }
           }}
         >
           {kind === 'report' && (
             <>
               <Field label={t('Mosque', 'مسجد')}>
-                <select
+                <RecordSelect
+                  resource="venues"
                   value={values.venue}
                   onChange={(e) => set('venue', e.target.value)}
                 >
@@ -105,7 +123,7 @@ export function PublicForm({
                       {v.name}
                     </option>
                   ))}
-                </select>
+                </RecordSelect>
               </Field>
               <Field label={t('What needs checking?', 'کیا درست کرنا ہے؟')}>
                 <select
@@ -114,7 +132,9 @@ export function PublicForm({
                 >
                   {['Timing', 'Location', 'Duplicate listing', 'Facilities', 'Other'].map(
                     (x) => (
-                      <option key={x}>{x}</option>
+                      <option key={x} value={x}>
+                        {tr(x)}
+                      </option>
                     ),
                   )}
                 </select>
@@ -139,9 +159,12 @@ export function PublicForm({
             <>
               {input('name', 'Mosque name', 'مسجد کا نام')}
               <Field label={t('City', 'شہر')}>
-                <select>
-                  <option>Lahore</option>
-                </select>
+                <input
+                  value={values.city || ''}
+                  onChange={(e) => set('city', e.target.value)}
+                  required
+                  maxLength={100}
+                />
               </Field>
               {input(
                 'address',
@@ -186,11 +209,18 @@ export function PublicForm({
           )}
           {(kind === 'application' || kind === 'suggestion') && (
             <Field label={t('Area', 'علاقہ')}>
-              <select value={values.area} onChange={(e) => set('area', e.target.value)}>
+              <RecordSelect
+                resource="areas"
+                nameValue
+                value={values.area}
+                onChange={(e) => set('area', e.target.value)}
+              >
                 {db.areas.map((a) => (
-                  <option key={a.name}>{a.name}</option>
+                  <option key={a.name} value={a.name}>
+                    {a.name}
+                  </option>
                 ))}
-              </select>
+              </RecordSelect>
             </Field>
           )}
           {kind === 'contact' && input('subject', 'Subject', 'موضوع')}

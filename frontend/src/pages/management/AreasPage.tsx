@@ -9,9 +9,10 @@ import { Modal } from '../../components/ui/Modal';
 import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { useApp } from '../../hooks/useApp';
+import { tr } from '../../i18n/translate';
 
 export function Areas() {
-  const { db, role, update, t } = useApp();
+  const { db, role, mutate, t } = useApp();
   const [adding, setAdding] = useState(false);
   if (role !== 'admin') return <AccessDenied />;
   return (
@@ -38,10 +39,10 @@ export function Areas() {
             <h2>{a.name}</h2>
             <p>{a.city}</p>
             <Badge tone={a.focal ? 'green' : 'amber'}>
-              {a.focal ? 'Reviewer assigned' : 'Responsibility gap'}
+              {a.focal ? tr('Reviewer assigned') : tr('Responsibility gap')}
             </Badge>
             <p>
-              {db.venues.filter((v) => v.area === a.name).length} {t('venues', 'مقامات')}
+              {a.venueCount ?? 0} {t('venues', 'مقامات')}
             </p>
             <ButtonLink
               secondary
@@ -59,19 +60,20 @@ export function Areas() {
         >
           <form
             className="stack"
-            onSubmit={(e) => {
-              e.preventDefault();
-              const x = Object.fromEntries(new FormData(e.currentTarget)) as Record<
-                string,
-                string
-              >;
-              if (db.areas.some((a) => a.name.toLowerCase() === x.name.toLowerCase()))
+            onSubmit={async (e) => {
+              try {
+                e.preventDefault();
+                const x = Object.fromEntries(new FormData(e.currentTarget)) as Record<
+                  string,
+                  string
+                >;
+                if (db.areas.some((a) => a.name.toLowerCase() === x.name.toLowerCase()))
+                  return;
+                await mutate('/management/areas', { name: x.name, city: x.city });
+                setAdding(false);
+              } catch {
                 return;
-              update((d) => ({
-                ...d,
-                areas: [...d.areas, { name: x.name, city: x.city, focal: '' }],
-              }));
-              setAdding(false);
+              }
             }}
           >
             <Field label={t('Area name', 'علاقے کا نام')}>

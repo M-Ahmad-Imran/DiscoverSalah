@@ -9,6 +9,7 @@ import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { canViewVenue } from '../../domain/permissions';
 import { useApp } from '../../hooks/useApp';
+import { displayDate, tr } from '../../i18n/translate';
 import { today } from '../../utils/date';
 
 export function SubmissionDetail() {
@@ -22,7 +23,7 @@ export function SubmissionDetail() {
     setDraft({
       venueId: v.id,
       times: { ...p.times },
-      special: structuredClone(p.special),
+      special: p.special.map((session) => ({ ...session })),
       effective: p.effective < today() ? today() : p.effective,
       reason: p.reason,
       baseRevision: v.revision,
@@ -63,7 +64,10 @@ export function SubmissionDetail() {
           </Panel>
           <Panel title={t('Effective schedule & rationale', 'لاگو اوقات اور وجہ')}>
             <p>{p.reason}</p>
-            <Badge tone="neutral">{p.effective} · Asia/Karachi</Badge>
+            <Badge tone="neutral">
+              {p.effective}
+              {tr('· Asia/Karachi')}
+            </Badge>
             {p.decision && <Alert>{p.decision}</Alert>}
           </Panel>
           <Panel title={t('Version lineage', 'ورژن کی تاریخ')}>
@@ -74,7 +78,7 @@ export function SubmissionDetail() {
                   <strong>
                     v{x.version} · {x.id}
                   </strong>
-                  <Badge tone="neutral">{x.state}</Badge>
+                  <Badge tone="neutral">{tr(x.state)}</Badge>
                 </Link>
               ))}
           </Panel>
@@ -85,7 +89,7 @@ export function SubmissionDetail() {
               <dt>{t('Submitted by', 'جمع کرانے والا')}</dt>
               <dd>{db.accounts.find((a) => a.id === p.author)?.name || p.author}</dd>
               <dt>{t('Submitted at', 'جمع کرنے کا وقت')}</dt>
-              <dd>{new Date(p.created).toLocaleString()}</dd>
+              <dd>{displayDate(p.created, true)}</dd>
               <dt>{t('Focal Person', 'فوکل پرسن')}</dt>
               <dd>{db.accounts.find((a) => a.id === v.focal)?.name}</dd>
             </dl>
@@ -103,17 +107,17 @@ export function SubmissionDetail() {
             )}
           </Panel>
           <Panel title={t('Activity history', 'سرگرمی کی تاریخ')}>
+            <ButtonLink secondary to={'/manage/history?venue=' + v.id}>
+              {t('View all', 'سب دیکھیں')}
+            </ButtonLink>
             <div className="timeline">
-              {db.audit
-                .filter((a) => a.target === v.id)
-                .slice(0, 5)
-                .map((a) => (
-                  <div key={a.id}>
-                    <span className="timeline-dot" />
-                    <strong>{a.action}</strong>
-                    <small>{new Date(a.at).toLocaleString()}</small>
-                  </div>
-                ))}
+              {db.audit.slice(0, 5).map((a) => (
+                <div key={a.id}>
+                  <span className="timeline-dot" />
+                  <strong>{tr(a.action)}</strong>
+                  <small>{displayDate(a.at, true)}</small>
+                </div>
+              ))}
             </div>
           </Panel>
         </aside>

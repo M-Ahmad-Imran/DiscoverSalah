@@ -2255,7 +2255,7 @@ dialog .section-title h2 {
   right: -4px;
 }
 
-[dir='rtl'] .field > span {
+[dir='rtl'] .field > label {
   line-height: 1.8;
 }
 
@@ -3271,4 +3271,14 @@ dialog .section-title h2 {
   .public-nav .mobile-management {
     display: flex;
   }
+}
+
+.field > label {
+  font-weight: 600;
+}
+input[type='tel'],
+input[type='time'],
+input[type='password'] {
+  direction: ltr;
+  text-align: start;
 }

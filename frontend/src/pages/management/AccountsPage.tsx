@@ -1,5 +1,4 @@
 import { Plus } from 'lucide-react';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AccessDenied } from '../../components/feedback/AccessDenied';
 import { Badge } from '../../components/ui/Badge';
@@ -8,22 +7,15 @@ import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { roleNames } from '../../domain/constants';
 import { useApp } from '../../hooks/useApp';
-import { uid } from '../../utils/id';
+import { useScreenFilter } from '../../hooks/useScreenFilter';
+import { tr } from '../../i18n/translate';
 
 export function Accounts({ representatives = false }: { representatives?: boolean }) {
-  const { db, role, actor, update, t } = useApp();
-  const [q, setQ] = useState('');
-  const [roleFilter, setRoleFilter] = useState('All');
+  const { db, role, actor, mutate, t } = useApp();
+  const [q, setQ] = useScreenFilter('q', '');
+  const [roleFilter, setRoleFilter] = useScreenFilter('role', 'All');
   if (role === 'representative') return <AccessDenied />;
-  const list = db.accounts.filter(
-    (a) =>
-      (role === 'admin' ||
-        (a.role === 'representative' &&
-          db.areas.some((area) => area.name === a.area && area.focal === actor))) &&
-      (!representatives || a.role === 'representative') &&
-      (roleFilter === 'All' || a.role === roleFilter) &&
-      a.name.toLowerCase().includes(q.toLowerCase()),
-  );
+  const list = db.accounts.filter(a => (!db.page || db.page.ids.includes(a.id)) && (role === 'admin' || a.role === 'representative'));
   return (
     <>
       <PageTitle
@@ -32,33 +24,33 @@ export function Accounts({ representatives = false }: { representatives?: boolea
           representatives ? 'مقامی نمائندے' : 'انتظامی اکاؤنٹس',
         )}
         description={t(
-          'Invitations and assignments determine access. Each account belongs to one person.',
-          'دعوت اور ذمہ داری رسائی طے کرتی ہے۔ ہر اکاؤنٹ ایک شخص کا ہے۔',
+          'Issuer-created credentials and assignments determine access. Each account belongs to one person.',
+          'مجاز شخص کے بنائے گئے اکاؤنٹ اور مقررہ ذمہ داریوں کے مطابق رسائی ملتی ہے۔ ہر اکاؤنٹ ایک شخص کا ہے۔',
         )}
         action={
           <ButtonLink to="/manage/accounts/invite">
             <Plus size={18} />
-            {t('Invite account', 'اکاؤنٹ کو دعوت')}
+            {t('Create credentials', 'اکاؤنٹ کی اسناد بنائیں')}
           </ButtonLink>
         }
       />
       <input
         className="search-input"
-        aria-label="Search accounts"
+        aria-label={tr('Search accounts')}
         placeholder={t('Search by name…', 'نام سے تلاش…')}
         value={q}
         onChange={(e) => setQ(e.target.value)}
       />
       {role === 'admin' && !representatives && (
         <select
-          aria-label="Filter account role"
+          aria-label={tr('Filter account role')}
           value={roleFilter}
           onChange={(e) => setRoleFilter(e.target.value)}
         >
-          <option value="All">All roles</option>
-          <option value="focal">Focal Persons</option>
-          <option value="representative">Representatives</option>
-          <option value="admin">Administrators</option>
+          <option value="All">{tr('All roles')}</option>
+          <option value="focal">{tr('Focal Persons')}</option>
+          <option value="representative">{tr('Representatives')}</option>
+          <option value="admin">{tr('Administrators')}</option>
         </select>
       )}
       <Panel>
@@ -82,11 +74,11 @@ export function Accounts({ representatives = false }: { representatives?: boolea
                     <small>{a.id}</small>
                   </td>
                   <td>
-                    {roleNames[a.role]}
+                    {tr(roleNames[a.role])}
                     <small>{a.area}</small>
                   </td>
                   <td>
-                    <Badge tone={a.active ? 'green' : 'amber'}>{a.status}</Badge>
+                    <Badge tone={a.active ? 'green' : 'amber'}>{tr(a.status)}</Badge>
                   </td>
                   <td>
                     <div className="row wrap">
@@ -99,60 +91,26 @@ export function Accounts({ representatives = false }: { representatives?: boolea
                       {a.id !== actor && (
                         <button
                           className="secondary"
-                          onClick={() => {
-                            if (
-                              window.confirm(
-                                t(
-                                  'Change this account’s access? Existing assignments are preserved in history.',
-                                  'اکاؤنٹ کی رسائی بدلیں؟ تاریخ محفوظ رہے گی۔',
-                                ),
+                          onClick={async () => {
+                            try {
+                              if (
+                                window.confirm(
+                                  t(
+                                    'Change this account’s access? Existing assignments are preserved in history.',
+                                    'اکاؤنٹ کی رسائی بدلیں؟ تاریخ محفوظ رہے گی۔',
+                                  ),
+                                )
                               )
-                            )
-                              update((d) => ({
-                                ...d,
-                                accounts: d.accounts.map((x) =>
-                                  x.id === a.id
-                                    ? {
-                                        ...x,
-                                        active: false,
-                                        status: 'Deactivated',
-                                      }
-                                    : x,
-                                ),
-                                venues: d.venues.map((v) =>
-                                  v.rep === a.id
-                                    ? {
-                                        ...v,
-                                        rep: '',
-                                        status:
-                                          v.status === 'Published'
-                                            ? 'Maintenance pending'
-                                            : v.status,
-                                      }
-                                    : v.focal === a.id
-                                      ? {
-                                          ...v,
-                                          focal: '',
-                                          status:
-                                            v.status === 'Draft'
-                                              ? 'Draft'
-                                              : 'Maintenance pending',
-                                        }
-                                      : v.backup?.reviewer === a.id
-                                        ? { ...v, backup: undefined }
-                                        : v,
-                                ),
-                                audit: [
+                                await mutate(
+                                  '/management/accounts/' + a.id + '/deactivate',
                                   {
-                                    id: uid('A'),
-                                    action: 'Account deactivated: ' + a.name,
-                                    actor,
-                                    at: new Date().toISOString(),
-                                    target: a.id,
+                                    authVersion: a.authVersion,
+                                    reason: 'Access revoked by authorized management',
                                   },
-                                  ...d.audit,
-                                ],
-                              }));
+                                );
+                            } catch {
+                              return;
+                            }
                           }}
                           disabled={!a.active}
                         >

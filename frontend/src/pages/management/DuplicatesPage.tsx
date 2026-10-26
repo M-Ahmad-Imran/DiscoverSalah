@@ -5,15 +5,22 @@ import { ButtonLink } from '../../components/ui/ButtonLink';
 import { Field } from '../../components/ui/Field';
 import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
+import { RecordSelect } from '../../components/ui/RecordSelect';
 import { useApp } from '../../hooks/useApp';
-import { uid } from '../../utils/id';
+import { tr } from '../../i18n/translate';
 
 export function Duplicates() {
-  const { db, role, t, toast, update, actor } = useApp();
+  const { db, role, t, toast, mutate, actor } = useApp();
   const [first, setFirst] = useState(db.venues[0]?.id);
   const [second, setSecond] = useState(db.venues[1]?.id);
   const [reason, setReason] = useState('');
   if (role !== 'admin') return <AccessDenied />;
+  if (db.venues.length < 2)
+    return (
+      <Panel title={tr('Duplicate assessment')}>
+        {tr('At least two registered venues are required.')}{' '}
+      </Panel>
+    );
   return (
     <>
       <PageTitle
@@ -34,7 +41,8 @@ export function Duplicates() {
                   i ? 'موازنہ اندراج' : 'مرکزی اندراج',
                 )}
               >
-                <select
+                <RecordSelect
+                  resource="venues"
                   value={id}
                   onChange={(e) =>
                     i ? setSecond(e.target.value) : setFirst(e.target.value)
@@ -45,11 +53,11 @@ export function Duplicates() {
                       {v.name}
                     </option>
                   ))}
-                </select>
+                </RecordSelect>
               </Field>
               <h2>{v.name}</h2>
               <p>{v.address}</p>
-              <Badge>{v.status}</Badge>
+              <Badge>{tr(v.status)}</Badge>
               <p>
                 {v.lat}, {v.lng}
               </p>
@@ -66,39 +74,25 @@ export function Duplicates() {
         </Field>
         <button
           disabled={first === second || !reason.trim()}
-          onClick={() => {
-            update((d) => ({
-              ...d,
-              venues: d.venues.map((v) =>
-                v.id === second ? { ...v, duplicateOf: first } : v,
-              ),
-              requests: d.requests.map((r) =>
-                ['suggestion', 'report'].includes(r.kind) && r.values.venue === second
-                  ? {
-                      ...r,
-                      values: { ...r.values, linkedVenue: first },
-                      response: 'Duplicate assessment linked to ' + first,
-                    }
-                  : r,
-              ),
-              audit: [
-                {
-                  id: uid('A'),
-                  action: `Duplicate assessment; primary ${first}, duplicate ${second}: ${reason}`,
-                  actor,
-                  at: new Date().toISOString(),
-                  target: first,
-                },
-                ...d.audit,
-              ],
-            }));
-            toast(
-              t(
-                'Assessment recorded. Neither listing was deleted or merged.',
-                'جائزہ درج ہو گیا۔ کوئی اندراج حذف یا ضم نہیں ہوا۔',
-              ),
-            );
-            setReason('');
+          onClick={async () => {
+            try {
+              await mutate('/management/duplicates', {
+                primaryId: first,
+                duplicateId: second,
+                primaryRevision: db.venues.find((v) => v.id === first)?.revision,
+                duplicateRevision: db.venues.find((v) => v.id === second)?.revision,
+                reason,
+              });
+              toast(
+                t(
+                  'Assessment recorded. Neither listing was deleted or merged.',
+                  'جائزہ درج ہو گیا۔ کوئی اندراج حذف یا ضم نہیں ہوا۔',
+                ),
+              );
+              setReason('');
+            } catch {
+              return;
+            }
           }}
         >
           {t('Record assessment', 'جائزہ درج کریں')}

@@ -23,20 +23,23 @@ import { Panel } from '../../components/ui/Panel';
 import { canManage } from '../../domain/permissions';
 import { resolveTimes } from '../../domain/schedules';
 import { useApp } from '../../hooks/useApp';
+import { tr } from '../../i18n/translate';
 import { today } from '../../utils/date';
-import { uid } from '../../utils/id';
 
 export function VenueOverview() {
   const { id } = useParams();
-  const { db, role, actor, update, t, toast } = useApp();
+  const { db, role, actor, mutate, t, toast } = useApp();
   const v = db.venues.find((v) => v.id === id);
   const [confirm, setConfirm] = useState(false);
   if (!v || !role || !canManage(role, v, actor)) return <AccessDenied />;
+  const registration = db.requests.find(
+    (r) => r.kind === 'registration' && r.values.venue === id,
+  );
   const pending = db.proposals.find((p) => p.venueId === id && p.state === 'Submitted');
   return (
     <>
       <div className="breadcrumb">
-        <Link to="/manage/mosques">{t('My mosques', 'مساجدی')}</Link>
+        <Link to="/manage/mosques">{t('My mosques', 'میری مساجد')}</Link>
         <ChevronRight size={14} />
         {v.name}
       </div>
@@ -51,6 +54,15 @@ export function VenueOverview() {
           </ButtonLink>
         }
       />
+      {registration?.status === 'Returned' &&
+        (v.rep === actor || registration.values.author === actor) && (
+          <Alert tone="warning">
+            <p>{registration.internalNotes}</p>
+            <ButtonLink to={`/manage/registrations/${id}/edit`}>
+              {t('Correct and resubmit registration', 'اندراج درست کر کے دوبارہ بھیجیں')}
+            </ButtonLink>
+          </Alert>
+        )}
       {pending && (
         <div className="action-card">
           <span className="icon-tile amber">
@@ -114,7 +126,7 @@ export function VenueOverview() {
             <div className="row wrap">
               {Object.entries(v.facilities).map(([key, val]) => (
                 <Badge key={key} tone="neutral">
-                  {key}: {val}
+                  {tr(key)}: {tr(val)}
                 </Badge>
               ))}
             </div>
@@ -144,7 +156,7 @@ export function VenueOverview() {
             <ShieldCheck size={30} className="green-text" />
             <dl className="definition-list">
               <dt>{t('Last Focal phone verification', 'آخری فوکل فون تصدیق')}</dt>
-              <dd>{v.phoneVerified} · sample</dd>
+              <dd>{v.phoneVerified}</dd>
               <dt>{t('Representative reconfirmation', 'نمائندے کی دوبارہ تصدیق')}</dt>
               <dd>{v.reconfirmed}</dd>
               <dt>{t('Current revision', 'موجودہ ورژن')}</dt>
@@ -154,12 +166,16 @@ export function VenueOverview() {
           <Panel title={t('Private Imam contact', 'امام کا نجی رابطہ')}>
             <Alert>
               {t(
-                'Synthetic contact only. No real phone number is stored in this preview.',
-                'صرف نمونہ رابطہ۔ حقیقی نمبر محفوظ نہیں۔',
+                'Private contact details are visible only to authorized management.',
+                'نجی رابطے کی معلومات صرف مجاز انتظامیہ دیکھ سکتی ہے۔',
               )}
             </Alert>
             <p>
-              <strong>{t('Registered Imam', 'رجسٹرڈ امام')}</strong>
+              <strong>{v.contactName || t('Registered Imam', 'رجسٹرڈ امام')}</strong>
+              <br />
+              <a href={v.contactNumber ? 'tel:' + v.contactNumber : undefined}>
+                {v.contactNumber}
+              </a>
               <br />
               {t('Private · authorized management only', 'نجی · صرف مجاز انتظامیہ')}
             </p>
@@ -198,30 +214,22 @@ export function VenueOverview() {
           <Timetable times={resolveTimes(v, db.proposals, today())} />
           <button
             className="full spaced"
-            onClick={() => {
-              update((d) => ({
-                ...d,
-                venues: d.venues.map((x) =>
-                  x.id === id ? { ...x, reconfirmed: today() } : x,
-                ),
-                audit: [
-                  {
-                    id: uid('A'),
-                    action: 'Unchanged timings reconfirmed',
-                    actor,
-                    at: new Date().toISOString(),
-                    target: id!,
-                  },
-                  ...d.audit,
-                ],
-              }));
-              setConfirm(false);
-              toast(
-                t(
-                  'Representative reconfirmation recorded',
-                  'نمائندے کی دوبارہ تصدیق درج ہو گئی',
-                ),
-              );
+            onClick={async () => {
+              try {
+                await mutate('/management/venues/' + id + '/reconfirm', {
+                  revision: v.revision,
+                  reason: 'Displayed daily timetable reconfirmed unchanged',
+                });
+                setConfirm(false);
+                toast(
+                  t(
+                    'Representative reconfirmation recorded',
+                    'نمائندے کی دوبارہ تصدیق درج ہو گئی',
+                  ),
+                );
+              } catch {
+                return;
+              }
             }}
           >
             {t('Confirm unchanged', 'کوئی تبدیلی نہیں')}
