@@ -6,7 +6,11 @@ export function effective(
 ): Snapshot {
   return (
     approved
-      .filter((p) => p.state === "Approved" && p.snapshot.effective <= date)
+      .filter(
+        (p) =>
+          ["Approved", "Published"].includes(p.state) &&
+          p.snapshot.effective <= date,
+      )
       .sort(
         (a, b) =>
           b.snapshot.effective.localeCompare(a.snapshot.effective) ||
@@ -62,5 +66,5 @@ export function confidence(
   if (disputes.some((d) => d.active && d.prayer === prayer && d.date === date))
     return "Disputed";
   if (pending && affected(pending, prayer, date)) return "Under review";
-  return "Approved timetable";
+  return "Published timetable";
 }

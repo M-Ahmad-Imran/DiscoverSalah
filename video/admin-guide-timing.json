@@ -1,0 +1,662 @@
+[
+  {
+    "index": 0,
+    "start": 0,
+    "duration": 9.541666666666666,
+    "frames": 229,
+    "screen": "dashboard",
+    "title": "Admin ka complete guide",
+    "urdu": "السلام علیکم! ڈسکور صلاح کے ایڈمن گائیڈ میں خوش آمدید۔ آج ہم علاقہ، مسجد، اکاؤنٹس اور ڈیش بورڈ کے روزمرہ کام آسان طریقے سے دیکھیں گے۔",
+    "english": "Manage areas, mosques, people and daily reviews. All records shown are training examples."
+  },
+  {
+    "index": 1,
+    "start": 9.541666666666666,
+    "duration": 8.208333333333334,
+    "frames": 197,
+    "screen": "credentials",
+    "title": "Number aur password",
+    "urdu": "سب سے پہلے سائن اِن کھولیں۔ اپنا رجسٹرڈ نمبر اور پاس ورڈ لکھیں، پھر سائن اِن دبائیں۔ اس ویڈیو کے نمبر صرف مثال ہیں۔",
+    "english": "Enter your own registered number and password, then select Sign in."
+  },
+  {
+    "index": 2,
+    "start": 17.75,
+    "duration": 9.0,
+    "frames": 216,
+    "screen": "mfa",
+    "title": "Phone se fresh code",
+    "urdu": "اب اپنے فون کی آتھنٹیکیٹر ایپ کھولیں۔ ڈسکور صلاح والا تازہ چھ ہندسوں کا کوڈ یہاں لکھیں، اور کنٹینیو دبائیں۔ یہ ایس ایم ایس کوڈ نہیں ہے۔",
+    "english": "Open your linked authenticator app. Enter its current six-digit code and select Continue."
+  },
+  {
+    "index": 3,
+    "start": 26.75,
+    "duration": 10.416666666666666,
+    "frames": 250,
+    "screen": "mfa",
+    "title": "Recovery sirf emergency",
+    "urdu": "ایپ پہلے سے لنک ہونا ضروری ہے۔ پہلی سیٹ اَپ کے لیے قابلِ اعتماد سسٹم آپریٹر سے رابطہ کریں۔ ریکوری کوڈ ایمرجنسی کے لیے ہے، اور ہر کوڈ صرف ایک بار چلتا ہے۔",
+    "english": "Link the authenticator during initial setup with your trusted operator. Recovery codes are single-use backups."
+  },
+  {
+    "index": 4,
+    "start": 37.166666666666664,
+    "duration": 10.416666666666666,
+    "frames": 250,
+    "screen": "reset",
+    "title": "Pehla password badlein",
+    "urdu": "اگر ٹمپریری پاس ورڈ ملا ہے، تو پہلے اسے بدلیں۔ موجودہ پاس ورڈ، کم از کم بارہ کریکٹرز کا نیا پاس ورڈ، اور کنفرم پاس ورڈ لکھیں۔ پھر دوبارہ لاگ اِن کریں۔",
+    "english": "When prompted, replace the temporary password with a private password of at least 12 characters. Sign in again."
+  },
+  {
+    "index": 5,
+    "start": 47.58333333333333,
+    "duration": 9.458333333333334,
+    "frames": 227,
+    "screen": "dashboard",
+    "title": "Aaj ka kaam dekhein",
+    "urdu": "یہ آپ کا ڈیش بورڈ ہے۔ پہلے پینڈنگ کام اور ذمہ داریوں کے گیپ دیکھیں۔ بائیں مینیو سے متعلقہ سیکشن کھولیں، اور فوری ضرورت والے کام پہلے کریں۔",
+    "english": "Check pending work and responsibility gaps. Use the sidebar to open each section."
+  },
+  {
+    "index": 6,
+    "start": 57.041666666666664,
+    "duration": 7.916666666666667,
+    "frames": 190,
+    "screen": "areas",
+    "title": "Naya area shamil karein",
+    "urdu": "نیا علاقہ شامل کرنے کے لیے سٹیز اینڈ ایریاز کھولیں، پھر ایڈ ایریا پر کلک کریں۔ پہلے دیکھ لیں کہ علاقہ پہلے سے موجود تو نہیں۔",
+    "english": "Open Cities & areas. Check existing entries, then select Add area."
+  },
+  {
+    "index": 7,
+    "start": 64.95833333333333,
+    "duration": 7.958333333333333,
+    "frames": 191,
+    "screen": "area-form",
+    "title": "Naam aur city likhein",
+    "urdu": "علاقے کا واضح نام اور شہر لکھیں۔ پھر ایڈ ایریا والا بٹن دبائیں۔ مثال میں ہم لاہور کا ایک ٹریننگ ایریا بنا رہے ہیں۔",
+    "english": "Enter the area name and city, then save the new area."
+  },
+  {
+    "index": 8,
+    "start": 72.91666666666666,
+    "duration": 9.333333333333334,
+    "frames": 224,
+    "screen": "area-created",
+    "title": "Ab focal assign karein",
+    "urdu": "علاقہ بن گیا! ریسپانسبلٹی گیپ کا مطلب ہے کہ ابھی اس کا نگران مقرر نہیں۔ اگلا کام فوکل پرسن کا اکاؤنٹ بنا کر اسے یہ علاقہ دینا ہے۔",
+    "english": "Responsibility gap means no primary reviewer is assigned yet. Create or select a focal person next."
+  },
+  {
+    "index": 9,
+    "start": 82.24999999999999,
+    "duration": 8.75,
+    "frames": 210,
+    "screen": "accounts",
+    "title": "Focal account banayein",
+    "urdu": "مینجمنٹ اکاؤنٹس کھولیں، پھر کریئیٹ کریڈینشلز دبائیں۔ ایڈمن یہاں فوکل پرسن کا اکاؤنٹ بناتا ہے۔ ہر شخص کا الگ اکاؤنٹ رکھیں۔",
+    "english": "Open Management accounts and select Create credentials. Admins create focal-person accounts."
+  },
+  {
+    "index": 10,
+    "start": 90.99999999999999,
+    "duration": 9.666666666666666,
+    "frames": 232,
+    "screen": "focal-filled",
+    "title": "Details verify karein",
+    "urdu": "پورا نام، درست رابطہ نمبر اور متعلقہ علاقہ منتخب کریں۔ شناخت اور ذمہ داری خود کنفرم کریں، وجہ لکھیں، پھر چیک باکس لگا کر کریئیٹ کریڈینشلز دبائیں۔",
+    "english": "Enter the name, contact number and area. Record your checks, tick confirmation and create credentials."
+  },
+  {
+    "index": 11,
+    "start": 100.66666666666666,
+    "duration": 10.791666666666666,
+    "frames": 259,
+    "screen": "focal-created",
+    "title": "Password private dein",
+    "urdu": "یہ ٹمپریری پاس ورڈ صرف متعلقہ شخص کو پرائیویٹ دیں۔ یہ چوبیس گھنٹے میں ایکسپائر ہوتا ہے، اور پہلے لاگ اِن پر بدلنا ضروری ہے۔ ہینڈ اوور کے بعد تصدیق والا بٹن دبائیں۔",
+    "english": "Privately hand over the temporary password. It expires in 24 hours and must be changed on first login."
+  },
+  {
+    "index": 12,
+    "start": 111.45833333333333,
+    "duration": 7.708333333333333,
+    "frames": 185,
+    "screen": "focal-assignment",
+    "title": "Area ka zimmedar",
+    "urdu": "اب ایریاز میں مینج سپرویژن کھولیں۔ آپریشن میں پرائمری فوکل پرسن، پھر درست علاقہ اور مجاز فوکل اکاؤنٹ منتخب کریں۔",
+    "english": "Open Manage supervision. Choose Assign primary Focal Person, the area and the authorized account."
+  },
+  {
+    "index": 13,
+    "start": 119.16666666666666,
+    "duration": 8.708333333333334,
+    "frames": 209,
+    "screen": "focal-assign-filled",
+    "title": "Assignment save karein",
+    "urdu": "ذمہ داری دینے کی وجہ لکھیں۔ نیچے تصدیق پڑھ کر چیک لگائیں، اور کمٹ اسائنمنٹ دبائیں۔ تبدیلی فوراً رسائی پر اثر ڈالتی ہے۔",
+    "english": "Record a reason, confirm the access change and select Commit assignment."
+  },
+  {
+    "index": 14,
+    "start": 127.87499999999999,
+    "duration": 7.708333333333333,
+    "frames": 185,
+    "screen": "area-assigned",
+    "title": "Reviewer assigned",
+    "urdu": "واپس ایریاز میں ریویوئر اسائنڈ دیکھیں۔ اس طرح صرف اکاؤنٹ نہیں بنتا، بلکہ علاقے کی اصل ذمہ داری بھی واضح ہو جاتی ہے۔",
+    "english": "Return to Cities & areas and confirm that the area shows Reviewer assigned."
+  },
+  {
+    "index": 15,
+    "start": 135.58333333333331,
+    "duration": 9.208333333333334,
+    "frames": 221,
+    "screen": "rep-create",
+    "title": "Local account ka sahi flow",
+    "urdu": "لوکل نمائندے کا اکاؤنٹ متعلقہ فوکل پرسن بناتا ہے۔ اب ہم فوکل پرسن کی الگ سیشن دکھا رہے ہیں۔ اس کے مینیو سے کریئیٹ کریڈینشلز کھولیں۔",
+    "english": "FOCAL-PERSON SESSION: the responsible focal person creates the local representative account."
+  },
+  {
+    "index": 16,
+    "start": 144.79166666666666,
+    "duration": 8.875,
+    "frames": 213,
+    "screen": "rep-filled",
+    "title": "Local ki details",
+    "urdu": "فوکل پرسن نمائندے کا نام، نمبر اور اپنا متعلقہ علاقہ منتخب کرے۔ مسجد سے تعلق اور اجازت کنفرم کرے، وجہ لکھے، اور اکاؤنٹ بنائے۔",
+    "english": "The focal person enters the representative details, verifies authority and creates credentials."
+  },
+  {
+    "index": 17,
+    "start": 153.66666666666666,
+    "duration": 8.541666666666666,
+    "frames": 205,
+    "screen": "rep-created",
+    "title": "Login phir assignment",
+    "urdu": "نمائندے کو بھی ٹمپریری پاس ورڈ پرائیویٹ ملے گا۔ پہلے لاگ اِن پر وہ اسے بدلے گا۔ اس کے بعد مسجد کی اسائنمنٹ ضرور چیک کریں۔",
+    "english": "Privately hand over the representative credentials. First-login password change and mosque assignment are required."
+  },
+  {
+    "index": 18,
+    "start": 162.20833333333331,
+    "duration": 12.541666666666666,
+    "frames": 301,
+    "screen": "rep-assignment",
+    "title": "Masjid se link karein",
+    "urdu": "واپس ایڈمن میں، اسائنمنٹس کھولیں۔ ریپلیس ریپریزنٹیٹو، متعلقہ مسجد اور درست نمائندہ منتخب کریں۔ وجہ اور تصدیق کے بعد کمٹ کریں۔ پرانی ذمہ داری بدلنے سے پہلے نام دوبارہ دیکھیں۔",
+    "english": "ADMIN SESSION: choose Replace representative, the mosque and the correct account. Confirm the reason before committing."
+  },
+  {
+    "index": 19,
+    "start": 174.74999999999997,
+    "duration": 8.0,
+    "frames": 192,
+    "screen": "mosques",
+    "title": "Pehle listing check",
+    "urdu": "مسجد شامل کرنے سے پہلے مساجد کی لسٹ میں نام تلاش کریں، تاکہ ڈبل اندراج نہ ہو۔ نئی مسجد کے لیے رجسٹریشن فارم کھولیں۔",
+    "english": "Search Mosques & venues first to avoid duplicate entries. Open the registration form for a new mosque."
+  },
+  {
+    "index": 20,
+    "start": 182.74999999999997,
+    "duration": 9.875,
+    "frames": 237,
+    "screen": "register-basic",
+    "title": "Naam aur area",
+    "urdu": "مسجد کا نام، چاہیں تو اردو نام، اور درست علاقہ منتخب کریں۔ نماز گاہ ہو تو وینیو ٹائپ بدل کر متعلقہ مسجد بھی منتخب کریں۔ پھر کنٹینیو دبائیں۔",
+    "english": "Enter the mosque name and area. For a prayer ground, select its associated mosque."
+  },
+  {
+    "index": 21,
+    "start": 192.62499999999997,
+    "duration": 9.458333333333334,
+    "frames": 227,
+    "screen": "register-location",
+    "title": "Asal gate ki location",
+    "urdu": "گلی کا پتہ اور گیٹ تک پہنچنے کی آسان ہدایات لکھیں۔ لیٹیٹیوڈ اور لانگیٹیوڈ اصل داخلی دروازے کے ہوں، تاکہ نئے علاقے میں آنے والا شخص صحیح جگہ پہنچے۔",
+    "english": "Enter the address and actual entrance coordinates so visitors can find the correct gate."
+  },
+  {
+    "index": 22,
+    "start": 202.08333333333331,
+    "duration": 9.458333333333334,
+    "frames": 227,
+    "screen": "register-contact",
+    "title": "Imam ka private contact",
+    "urdu": "اب مجاز امام کا نام، درست نمبر اور مسجد سے اپنا تعلق لکھیں۔ پہلے رابطے کی اجازت لیں، پھر چیک باکس لگائیں۔ یہ نجی رابطہ تصدیق کے لیے ہے۔",
+    "english": "Enter the authorized Imam contact and your relationship to the mosque. Confirm permission to contact him."
+  },
+  {
+    "index": 23,
+    "start": 211.54166666666666,
+    "duration": 9.916666666666666,
+    "frames": 238,
+    "screen": "register-times",
+    "title": "Jamaat ke sahi auqaat",
+    "urdu": "پانچوں نمازوں کے جماعت کے اصل اوقات درج کریں۔ وضو، خواتین کی جگہ، وہیل چیئر اور پارکنگ کی صحیح حالت بتائیں۔ جس بات کا علم نہ ہو اسے اَن نون رہنے دیں۔",
+    "english": "Enter actual congregation times and facility availability. Keep unknown facilities marked Unknown."
+  },
+  {
+    "index": 24,
+    "start": 221.45833333333331,
+    "duration": 10.291666666666666,
+    "frames": 247,
+    "screen": "register-check",
+    "title": "Review karke submit",
+    "urdu": "اب نام، جگہ، رابطہ اور اوقات دوبارہ پڑھیں۔ تصدیق لگا کر سبمٹ رجسٹریشن دبائیں۔ آپ کا اپنا اندراج کسی دوسرے مجاز ریویوئر کی تصدیق کے بعد شائع ہوگا۔",
+    "english": "Review every detail and submit for verification. Your own registration requires an independent reviewer."
+  },
+  {
+    "index": 25,
+    "start": 231.74999999999997,
+    "duration": 9.625,
+    "frames": 231,
+    "screen": "registered",
+    "title": "Submit ka matlab pending",
+    "urdu": "رجسٹریشن جمع ہونا فوراً پبلش ہونا نہیں ہے۔ مسجد کی تفصیل میں سٹیٹس دیکھتے رہیں۔ اگر واپس آئے تو وجہ کے مطابق درست کر کے دوبارہ بھیجیں۔",
+    "english": "Check the registration status. If returned, correct the stated issues and resubmit."
+  },
+  {
+    "index": 26,
+    "start": 241.37499999999997,
+    "duration": 10.583333333333334,
+    "frames": 254,
+    "screen": "mosque",
+    "title": "Record aur updates",
+    "urdu": "کسی مسجد کو کھول کر موجودہ اوقات، ذمہ دار لوگ اور ریکارڈ دیکھیں۔ وقت، پروفائل یا امام کے رابطے کی تبدیلی متعلقہ فارم سے بھیجیں۔ اپنی تبدیلی خود منظور نہ کریں۔",
+    "english": "Open a mosque to inspect timings and responsibility. Submit changes through the relevant form for independent review."
+  },
+  {
+    "index": 27,
+    "start": 251.95833333333331,
+    "duration": 7.666666666666667,
+    "frames": 184,
+    "screen": "queue",
+    "title": "Pending review kholein",
+    "urdu": "ریویو کیو میں پینڈنگ تبدیلی کھولیں۔ جلدی میں اپروو نہ کریں؛ پہلے دیکھیں کس نماز کا وقت بدلا ہے اور کب سے نافذ ہوگا۔",
+    "english": "Open a pending submission from Review queue. Identify changed prayers and the effective date."
+  },
+  {
+    "index": 28,
+    "start": 259.625,
+    "duration": 8.583333333333334,
+    "frames": 206,
+    "screen": "comparison",
+    "title": "Purana aur naya waqt",
+    "urdu": "یہاں پرانے اور نئے اوقات ساتھ دیکھیں۔ ہر تبدیل شدہ وقت کنفرم کریں۔ صرف ایک نماز دیکھ کر پوری درخواست منظور نہ کریں۔",
+    "english": "Compare the old and proposed times. Verify every changed value."
+  },
+  {
+    "index": 29,
+    "start": 268.2083333333333,
+    "duration": 8.041666666666666,
+    "frames": 193,
+    "screen": "special",
+    "title": "Jumma aur dated times",
+    "urdu": "جمعہ، خطبہ اور مخصوص تاریخ والی جماعت بھی الگ چیک کریں۔ تاریخ، وقت، کینسل ہونے کی حالت اور مؤثر دن سب درست ہونے چاہییں۔",
+    "english": "Check dated sessions, Jumu’ah, khutbah times, cancellations and effective dates."
+  },
+  {
+    "index": 30,
+    "start": 276.25,
+    "duration": 9.458333333333334,
+    "frames": 227,
+    "screen": "authority",
+    "title": "Imam se confirm karein",
+    "urdu": "رجسٹرڈ مجاز رابطے پر امام صاحب سے بات کریں۔ اندازے یا صرف میسج کی بنیاد پر وقت کنفرم نہ لکھیں۔ پھر کال کا اصل نتیجہ ریکارڈ کریں۔",
+    "english": "Contact the registered authority and record the real verification outcome."
+  },
+  {
+    "index": 31,
+    "start": 285.7083333333333,
+    "duration": 9.75,
+    "frames": 234,
+    "screen": "attempt-notes",
+    "title": "Call ka result likhein",
+    "urdu": "جس سے بات ہوئی اس کا نام، پاکستان کے وقت کے مطابق کال کا وقت، اور واضح نوٹس لکھیں۔ جواب نہ آئے تو نو آنسر منتخب کریں اور کوشش ریکارڈ کر کے پینڈنگ رہنے دیں۔",
+    "english": "Record who answered, the call time in PKT and clear notes. No answer means record the attempt and keep pending."
+  },
+  {
+    "index": 32,
+    "start": 295.4583333333333,
+    "duration": 9.75,
+    "frames": 234,
+    "screen": "return",
+    "title": "Correction ya rejection",
+    "urdu": "غلطی درست کروانی ہو تو وجہ کے ساتھ ریٹرن فار کریکشن کریں۔ درخواست مسترد کرنی ہو تو واضح وجہ لکھیں۔ ہر فیصلے کی تصدیق والی ونڈو غور سے پڑھیں۔",
+    "english": "Return for correction or reject with a clear reason. Review the confirmation before committing."
+  },
+  {
+    "index": 33,
+    "start": 305.2083333333333,
+    "duration": 8.333333333333334,
+    "frames": 200,
+    "screen": "approve",
+    "title": "Tasdeeq ke baad approve",
+    "urdu": "سب تبدیلیاں کنفرم ہو جائیں تو درست کال رزلٹ، نوٹس اور تصدیق مکمل کریں۔ اپروو ویریفائیڈ ٹائمنگز دبائیں، پھر فیصلہ کنفرم کریں۔",
+    "english": "After independent verification, complete the evidence and confirmation, then approve the verified timings."
+  },
+  {
+    "index": 34,
+    "start": 313.54166666666663,
+    "duration": 7.333333333333333,
+    "frames": 176,
+    "screen": "approved",
+    "title": "Approved status check",
+    "urdu": "منظوری کے بعد ریکارڈ میں اپرووڈ سٹیٹس چیک کریں۔ سبمشنز میں درخواستوں کی حالت اور پہلے فیصلے دیکھے جا سکتے ہیں۔",
+    "english": "Confirm the Approved status. Use Submissions to track the status and decision history."
+  },
+  {
+    "index": 35,
+    "start": 320.87499999999994,
+    "duration": 9.958333333333334,
+    "frames": 239,
+    "screen": "registration-detail",
+    "title": "Nayi mosque ka review",
+    "urdu": "رجسٹریشن ریویوز میں نئی مسجد کھولیں۔ نام، دروازے کی جگہ، امام کی اجازت اور ابتدائی اوقات کنفرم کریں۔ صرف فارم بھرا ہونے سے مسجد منظور نہیں ہوتی۔",
+    "english": "Review the mosque identity, entrance, authorized contact and initial timetable before approving registration."
+  },
+  {
+    "index": 36,
+    "start": 330.83333333333326,
+    "duration": 8.666666666666666,
+    "frames": 208,
+    "screen": "registration-checks",
+    "title": "Checks complete karein",
+    "urdu": "ڈسپوزیشن منتخب کریں، مطلوبہ کال شواہد اور چیک مکمل کریں، پھر سیو ریویو کریں۔ اپنے بنائے ہوئے اندراج کے لیے الگ مجاز ریویوئر چاہیے۔",
+    "english": "Choose the disposition, complete the required evidence and checks, then save the review."
+  },
+  {
+    "index": 37,
+    "start": 339.49999999999994,
+    "duration": 9.25,
+    "frames": 222,
+    "screen": "contact-review",
+    "title": "Naya contact verify",
+    "urdu": "کانٹیکٹ ریویوز میں امام کے بدلے ہوئے نمبر یا نام کی درخواست دیکھیں۔ نئے نمبر کو پرانے معتبر حوالے سے الگ کنفرم کریں، پھر ثبوت اور فیصلہ محفوظ کریں۔",
+    "english": "Verify a new Imam contact independently using an established trusted reference, then record the decision."
+  },
+  {
+    "index": 38,
+    "start": 348.74999999999994,
+    "duration": 8.791666666666666,
+    "frames": 211,
+    "screen": "profile-detail",
+    "title": "Address aur facilities",
+    "urdu": "پروفائل ریویوز میں مسجد کا نام، پتہ یا سہولیات کی تبدیلی دیکھیں۔ متعلقہ معلومات چیک کریں، اور واضح وجہ کے ساتھ منظور، واپس یا مسترد کریں۔",
+    "english": "Review proposed profile changes and record a clear approval, return or rejection reason."
+  },
+  {
+    "index": 39,
+    "start": 357.54166666666663,
+    "duration": 8.041666666666666,
+    "frames": 193,
+    "screen": "report-detail",
+    "title": "Awam ki report",
+    "urdu": "ایشوز اینڈ رپورٹس میں عوام کی شکایت کھولیں۔ مسئلہ سمجھیں، متعلقہ امام یا ذمہ دار سے چیک کریں، اور انویسٹی گیشن نوٹس لکھیں۔",
+    "english": "Open the report, investigate with the responsible authority and record private investigation notes."
+  },
+  {
+    "index": 40,
+    "start": 365.5833333333333,
+    "duration": 10.333333333333334,
+    "frames": 248,
+    "screen": "report-decision",
+    "title": "Reply aur status",
+    "urdu": "درست سٹیٹس منتخب کریں، اور درخواست دینے والے کے لیے آسان پبلک جواب لکھیں۔ نجی رابطہ یا حساس نوٹس پبلک جواب میں شامل نہ کریں۔ پھر سیو ریویو کریں۔",
+    "english": "Choose the status, add a clear public response without private details, then save the review."
+  },
+  {
+    "index": 41,
+    "start": 375.91666666666663,
+    "duration": 9.0,
+    "frames": 216,
+    "screen": "dispute",
+    "title": "Disputed scope",
+    "urdu": "وقت پر اختلاف ہو تو متعلقہ نماز یا سکوپ چن کر ڈسپیوٹ درج کریں۔ یہ اختلاف کا ریکارڈ ہے؛ صحیح وقت کے لیے تصدیق والا ریویو پھر بھی ضروری ہے۔",
+    "english": "Mark only the affected scope as disputed. A dispute flag does not verify replacement timings."
+  },
+  {
+    "index": 42,
+    "start": 384.91666666666663,
+    "duration": 10.25,
+    "frames": 246,
+    "screen": "suggestion-detail",
+    "title": "Suggested mosque check",
+    "urdu": "مسجد سجیشنز میں عوام کی بتائی ہوئی مسجد دیکھیں۔ پہلے موجودہ لسٹنگ چیک کریں، پھر رابطہ اور جگہ کنفرم کریں۔ سجیشن خود نئی پبلشڈ مسجد نہیں بن جاتی۔",
+    "english": "Check suggested mosques against existing listings and verify the location before proceeding to registration."
+  },
+  {
+    "index": 43,
+    "start": 395.16666666666663,
+    "duration": 10.458333333333334,
+    "frames": 251,
+    "screen": "application-detail",
+    "title": "Volunteer application",
+    "urdu": "ایپلی کیشنز میں نئے رضاکار کی درخواست پڑھیں۔ شناخت، علاقہ اور ذمہ داری کنفرم کریں، پھر فیصلہ لکھیں۔ درخواست منظور ہونے کے بعد اکاؤنٹ مجاز شخص الگ بنائے گا۔",
+    "english": "Review the applicant and record a decision. Account creation remains a separate authorized step."
+  },
+  {
+    "index": 44,
+    "start": 405.62499999999994,
+    "duration": 9.166666666666666,
+    "frames": 220,
+    "screen": "notice-review",
+    "title": "Notice ko parhein",
+    "urdu": "نوٹس بورڈ میں اعلان کا متن، مسجد، تاریخ اور اجازت چیک کریں۔ تصویر ہو تو اس کا لکھا ہوا بھی پڑھیں۔ مکمل چیک کے بعد ہی اعلان منظور کریں۔",
+    "english": "Review the notice text, mosque, dates, authority and any poster content before approving."
+  },
+  {
+    "index": 64,
+    "start": 414.79166666666663,
+    "duration": 11.75,
+    "frames": 282,
+    "screen": "notice-review",
+    "title": "Correction ya cancel",
+    "urdu": "اعلان میں غلطی ہو تو موڈریشن کی وجہ لکھ کر ریٹرن یا ریجیکٹ کریں۔ ترمیم کے لیے ریوائز نوٹس، اور عوامی صفحے سے ہٹانے کے لیے کینسل نوٹس استعمال کریں۔ کنفرم کرنے سے پہلے اعلان پہچان لیں۔",
+    "english": "Use a moderation reason to return or reject. Revise notice edits it; Cancel notice removes it from public display."
+  },
+  {
+    "index": 45,
+    "start": 426.54166666666663,
+    "duration": 8.875,
+    "frames": 213,
+    "screen": "notice-create",
+    "title": "Naya notice",
+    "urdu": "نیا اعلان بناتے وقت مسجد، عنوان، کیٹیگری اور آسان متن لکھیں۔ پروگرام کا وقت اور ایکسپائری لازمی صحیح رکھیں، تاکہ پرانا اعلان چلتا نہ رہے۔",
+    "english": "Choose the mosque and enter the notice title, category, body, event time and expiry."
+  },
+  {
+    "index": 62,
+    "start": 435.41666666666663,
+    "duration": 11.208333333333334,
+    "frames": 269,
+    "screen": "notice-image",
+    "title": "Poster bhi check karein",
+    "urdu": "تصویر کے لیے ایک جے پی جی، پی این جی یا ویب پی فائل منتخب کریں، زیادہ سے زیادہ پانچ میگا بائٹ۔ پری ویو میں تحریر پڑھیں۔ غلط تصویر ہو تو ریموو کریں، اور اہم باتیں متن میں بھی لکھیں۔",
+    "english": "Choose one JPG, PNG or WebP up to 5 MiB. Check readability, remove the wrong image and repeat key details in text."
+  },
+  {
+    "index": 46,
+    "start": 446.62499999999994,
+    "duration": 10.791666666666666,
+    "frames": 259,
+    "screen": "notice-submit",
+    "title": "Draft ya submit",
+    "urdu": "ضرورت ہو تو تصویر شامل کریں اور پری ویو چیک کریں۔ ڈرافٹ بعد میں مکمل ہو سکتا ہے؛ سبمٹ کرنے سے ریویو کے لیے جاتا ہے۔ اپنے اعلان کے لیے دوسرے مجاز ریویوئر کی منظوری لیں۔",
+    "english": "Check the attachment preview where available. Save a draft or submit for an independent review."
+  },
+  {
+    "index": 47,
+    "start": 457.41666666666663,
+    "duration": 8.291666666666666,
+    "frames": 199,
+    "screen": "maintenance",
+    "title": "Missing zimmedari dekhein",
+    "urdu": "مینٹیننس اینڈ کوریج میں پرانے ریکارڈ، بند یا معطل مساجد، اور ذمہ داری کے گیپ دیکھیں۔ متعلقہ مسجد کھول کر مناسب کارروائی کریں۔",
+    "english": "Use Maintenance & coverage to find stale records, suspended venues and responsibility gaps."
+  },
+  {
+    "index": 63,
+    "start": 465.7083333333333,
+    "duration": 11.125,
+    "frames": 267,
+    "screen": "maintenance",
+    "title": "Mosque status badlein",
+    "urdu": "مسجد کے سٹیٹس میں تبدیلی چاہیے تو متعلقہ پبلشڈ، سسپینڈڈ یا مینٹیننس پینڈنگ بٹن استعمال کریں۔ واضح وجہ لکھیں، پھر کنفرم کریں۔ درست مسجد کا ریکارڈ کھلا ہونا ضروری ہے۔",
+    "english": "For a venue status change, choose Published, Suspended or Maintenance pending and record a clear reason."
+  },
+  {
+    "index": 48,
+    "start": 476.8333333333333,
+    "duration": 9.916666666666666,
+    "frames": 238,
+    "screen": "escalate",
+    "title": "Urgent kaam samne laayein",
+    "urdu": "فوری توجہ چاہیے تو ارجنٹ ورک میں متعلقہ سبمشن چنیں۔ مسئلہ اور جلدی کی وجہ واضح لکھ کر ایسکلیشن ریکارڈ کریں۔ اس سے درخواست خود منظور نہیں ہوتی۔",
+    "english": "Choose the submission, explain the urgency and record an escalation. Approval still requires verification."
+  },
+  {
+    "index": 49,
+    "start": 486.75,
+    "duration": 10.583333333333334,
+    "frames": 254,
+    "screen": "representatives",
+    "title": "Local team ki coverage",
+    "urdu": "ریپریزنٹیٹوز میں مقامی ٹیم تلاش کریں۔ ہر شخص کی مسجد، ذمہ داری اور کام دیکھیں۔ ضرورت کے مطابق اسائنمنٹ درست کریں تاکہ کوئی مسجد بغیر ذمہ دار نہ رہ جائے۔",
+    "english": "Find local representatives and inspect their assignments and workload."
+  },
+  {
+    "index": 50,
+    "start": 497.3333333333333,
+    "duration": 10.0,
+    "frames": 240,
+    "screen": "accounts",
+    "title": "Access ka control",
+    "urdu": "مینجمنٹ اکاؤنٹس میں نام سے تلاش اور رول فلٹر استعمال کریں۔ جس شخص کی رسائی واقعی بند کرنی ہو، اسی کا ڈی ایکٹیویٹ دبائیں، اور کنفرم کرنے سے پہلے نام دوبارہ پڑھیں۔",
+    "english": "Search or filter accounts by role. Deactivate only the intended account after checking the confirmation."
+  },
+  {
+    "index": 51,
+    "start": 507.3333333333333,
+    "duration": 9.791666666666666,
+    "frames": 235,
+    "screen": "focal-account",
+    "title": "Number update karein",
+    "urdu": "فوکل کا نمبر بدلنے کے لیے اس کا اکاؤنٹ کھولیں۔ نیا نمبر اور وجہ لکھیں، مالک سے الگ تصدیق کریں، پھر اپڈیٹ کریں۔ اس کے پرانے لاگ اِن سیشن ختم ہوں گے۔",
+    "english": "Open the focal account, verify the new contact number and record the reason. Updating it revokes existing sessions."
+  },
+  {
+    "index": 52,
+    "start": 517.125,
+    "duration": 9.666666666666666,
+    "frames": 232,
+    "screen": "reset-focal",
+    "title": "Password bhool jayein",
+    "urdu": "فوکل پاس ورڈ بھول جائے تو پہلے شناخت اور رابطہ کنفرم کریں، پھر اِشو ٹمپریری پاس ورڈ دبائیں۔ لوکل نمائندے کا یہی کام اس کا متعلقہ فوکل پرسن کرے گا۔",
+    "english": "Verify identity before issuing a temporary password. Admin resets focal credentials; the responsible focal resets representatives."
+  },
+  {
+    "index": 53,
+    "start": 526.7916666666666,
+    "duration": 9.625,
+    "frames": 231,
+    "screen": "backup",
+    "title": "Chhutti mein backup",
+    "urdu": "فوکل دستیاب نہ ہو تو اسائنمنٹس میں ٹمپریری بیک اَپ ریویوئر چنیں۔ مسجد، متبادل فوکل، پاکستان کے وقت میں آغاز اور اختتام، اور وجہ درج کر کے کنفرم کریں۔",
+    "english": "Choose Temporary backup reviewer, the mosque, an eligible focal person and the start/end times in PKT."
+  },
+  {
+    "index": 54,
+    "start": 536.4166666666666,
+    "duration": 8.583333333333334,
+    "frames": 206,
+    "screen": "backup",
+    "title": "Limited review access",
+    "urdu": "یہ بیک اَپ صرف اوقات کے ریویو کے لیے ہے، اور مقررہ وقت پر ختم ہوتا ہے۔ ضرورت پہلے ختم ہو جائے تو ریکارڈڈ کوریج میں رِووک کوریج کریں۔",
+    "english": "Backup coverage grants timetable review only and expires at its end time. Revoke coverage early when needed."
+  },
+  {
+    "index": 55,
+    "start": 545.0,
+    "duration": 10.958333333333334,
+    "frames": 263,
+    "screen": "duplicate-assessment",
+    "title": "Duplicate ka muqabla",
+    "urdu": "ڈپلیکیٹ لسٹنگز میں دونوں ریکارڈ منتخب کریں۔ نام، پتہ اور دروازے کی جگہ ملائیں۔ شواہد لکھ کر ریکارڈ اسیسمنٹ کریں۔ یہ بٹن خود مسجد حذف یا مرج نہیں کرتا۔",
+    "english": "Compare both listings and record your evidence. Record assessment does not delete or merge either listing."
+  },
+  {
+    "index": 56,
+    "start": 555.9583333333334,
+    "duration": 8.625,
+    "frames": 207,
+    "screen": "delivery",
+    "title": "Notification ka masla",
+    "urdu": "ڈیلیوری فیلئرز میں ناکام اِن ایپ اطلاع دیکھیں۔ وجہ اور کوششیں پڑھیں، پھر کیو ری ٹرائی کریں، یا مسئلہ آگے پہنچانے کے لیے ایسکلیٹ فیلئر دبائیں۔",
+    "english": "Inspect failed in-app notifications. Queue a retry or escalate the failure for investigation."
+  },
+  {
+    "index": 57,
+    "start": 564.5833333333334,
+    "duration": 7.916666666666667,
+    "frames": 190,
+    "screen": "history",
+    "title": "Kis ne kya kiya",
+    "urdu": "ایکٹیویٹی ہسٹری میں دیکھیں کس نے کیا تبدیلی کی اور کب کی۔ کسی مسئلے کو سمجھنے کے لیے متعلقہ ریکارڈ اور شخص کی ہسٹری دیکھیں۔",
+    "english": "Use Activity history to trace who changed a record and when."
+  },
+  {
+    "index": 58,
+    "start": 572.5,
+    "duration": 8.5,
+    "frames": 204,
+    "screen": "notifications",
+    "title": "Apni notifications",
+    "urdu": "نوٹیفکیشن بیل سے اپنی نئی اطلاعات کھولیں۔ متعلقہ اطلاع سے اصل کام پر جائیں، اور پینڈنگ معاملہ مکمل ہونے تک اس کا سٹیٹس دیکھتے رہیں۔",
+    "english": "Open the notification bell and follow each notice to its related task."
+  },
+  {
+    "index": 65,
+    "start": 581.0,
+    "duration": 8.958333333333334,
+    "frames": 215,
+    "screen": "notifications",
+    "title": "Read aur resolved alag",
+    "urdu": "تمام اطلاعات پڑھ لی ہوں تو مارک آل ریڈ دبائیں۔ یاد رکھیں، اطلاع پڑھنے سے اصل درخواست منظور یا مسئلہ حل نہیں ہوتا؛ متعلقہ کام الگ مکمل کرنا ہے۔",
+    "english": "Mark all read updates notification status only. Complete the underlying review task separately."
+  },
+  {
+    "index": 59,
+    "start": 589.9583333333334,
+    "duration": 9.25,
+    "frames": 222,
+    "screen": "password",
+    "title": "Apna account secure",
+    "urdu": "مائی اکاؤنٹ میں اپنا رول اور نمبر دیکھیں۔ پاس ورڈ بدلنے کے لیے موجودہ اور مضبوط نیا پاس ورڈ لکھیں۔ تبدیلی کے بعد دوبارہ سائن اِن کریں۔",
+    "english": "Review your role and contact details. Change your password using the current password, then sign in again."
+  },
+  {
+    "index": 60,
+    "start": 599.2083333333334,
+    "duration": 11.833333333333334,
+    "frames": 284,
+    "screen": "recovery",
+    "title": "Admin access ki recovery",
+    "urdu": "ایڈمن اپنا پاس ورڈ بھول جائے تو قابلِ اعتماد سسٹم آپریٹر سے رابطہ کرے۔ آتھنٹیکیٹر پھر بھی درکار ہوگا۔ تمام بیک اَپ کوڈ ختم ہوں اور ایپ بھی نہ ملے تو آپریٹر سے محفوظ ری سیٹ کروائیں۔",
+    "english": "For admin password or lost-MFA recovery, contact the trusted operator. Password reset alone does not remove MFA."
+  },
+  {
+    "index": 61,
+    "start": 611.0416666666667,
+    "duration": 12.708333333333334,
+    "frames": 305,
+    "screen": "dashboard",
+    "title": "Roz ka simple routine",
+    "urdu": "بس! روز پینڈنگ ریویوز، رپورٹس اور ذمہ داری کے گیپ دیکھیں۔ درست معلومات کنفرم کریں، فیصلے ریکارڈ کریں، اور کام ختم ہونے پر لاگ آؤٹ کریں۔ اسی طرح مسجد کی معلومات قابلِ اعتماد رہیں گی۔",
+    "english": "Daily routine: review pending work, verify details, close responsibility gaps and log out when finished."
+  }
+]

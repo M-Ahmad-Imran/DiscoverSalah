@@ -1,3 +1,4 @@
+import { freshness } from "../schedules/freshness.js";
 import { loadScreen, screenQuery } from "./screenData.js";
 import { Router } from "express";
 import type { Database } from "../../db/database.js";
@@ -8,6 +9,7 @@ import { principal } from "../../middleware/security.js";
 import { venueScope } from "./routes.js";
 import type { Change } from "./changes.js";
 import { today } from "../../lib/validation.js";
+import { noticeImageUrl } from "../notices/images.js";
 
 // Compatibility read model for existing screens. It contains DTOs, never raw
 // account documents or public access to private contacts/evidence.
@@ -136,7 +138,7 @@ export async function workspace(
             .filter(
               (p) =>
                 p.venueId === v._id &&
-                p.state === "Approved" &&
+                ["Approved", "Published"].includes(p.state) &&
                 p.snapshot.effective <= query.date,
             )
             .sort(
@@ -149,6 +151,13 @@ export async function workspace(
         focal: actor ? v.focalId || "" : "",
         revision: v.revision,
         reconfirmed: v.reconfirmedAt?.toISOString() || "",
+        freshness: freshness(v),
+        ...(actor
+          ? {
+              lastFollowUpAt: v.lastFollowUpAt?.toISOString(),
+              lastFollowUpOutcome: v.lastFollowUpOutcome,
+            }
+          : {}),
         phoneVerified:
           contact?.verifiedAt?.toISOString() ||
           v.identityApprovedAt?.toISOString() ||
@@ -249,6 +258,8 @@ export async function workspace(
     ],
     notices: notices.map((n) => ({
       id: n._id,
+      imageUrl: n.imageId ? noticeImageUrl(n._id, !!actor) : null,
+      ...(actor ? { imageId: n.imageId } : {}),
       venueId: n.venueId,
       title: n.title,
       body: n.body,

@@ -1,0 +1,485 @@
+{
+  "signin": {
+    "box": {
+      "x": 631,
+      "y": 346.5,
+      "width": 431,
+      "height": 290.375
+    }
+  },
+  "credentials": {
+    "box": {
+      "x": 631,
+      "y": 346.5,
+      "width": 431,
+      "height": 290.375
+    }
+  },
+  "mfa": {
+    "box": {
+      "x": 252,
+      "y": 222.59375,
+      "width": 646,
+      "height": 237.1875
+    }
+  },
+  "dashboard": {
+    "box": null
+  },
+  "areas": {
+    "box": null
+  },
+  "area-form": {
+    "box": {
+      "x": 302,
+      "y": 240.8125,
+      "width": 546,
+      "height": 236.375
+    }
+  },
+  "area-created": {
+    "box": null
+  },
+  "accounts": {
+    "box": null
+  },
+  "focal-create": {
+    "box": {
+      "x": 266,
+      "y": 0.09375,
+      "width": 833,
+      "height": 719.75
+    }
+  },
+  "focal-filled": {
+    "box": {
+      "x": 266,
+      "y": 0.09375,
+      "width": 833,
+      "height": 719.75
+    }
+  },
+  "focal-created": {
+    "box": {
+      "x": 266,
+      "y": 256.09375,
+      "width": 833,
+      "height": 24.5
+    }
+  },
+  "focal-assignment": {
+    "box": null
+  },
+  "focal-assign-filled": {
+    "box": {
+      "x": 266,
+      "y": 479.59375,
+      "width": 833,
+      "height": 48
+    }
+  },
+  "assignment-result": {
+    "box": null
+  },
+  "area-assigned": {
+    "box": null
+  },
+  "register": {
+    "box": null
+  },
+  "register-basic": {
+    "box": {
+      "x": 266,
+      "y": 164.59375,
+      "width": 833,
+      "height": 485.859375
+    }
+  },
+  "register-location": {
+    "box": {
+      "x": 266,
+      "y": 574.15625,
+      "width": 404.5,
+      "height": 48
+    }
+  },
+  "register-contact": {
+    "box": {
+      "x": 266,
+      "y": -0.40625,
+      "width": 833,
+      "height": 562.859375
+    }
+  },
+  "register-times": {
+    "box": {
+      "x": 266,
+      "y": 62.59375,
+      "width": 833,
+      "height": 499.640625
+    }
+  },
+  "register-check": {
+    "box": {
+      "x": 834.21875,
+      "y": 513.71875,
+      "width": 264.78125,
+      "height": 48
+    }
+  },
+  "registered": {
+    "box": null
+  },
+  "mosques": {
+    "box": null
+  },
+  "mosque": {
+    "box": null
+  },
+  "queue": {
+    "box": null
+  },
+  "comparison": {
+    "box": null
+  },
+  "special": {
+    "box": {
+      "x": 266,
+      "y": 314.390625,
+      "width": 484.21875,
+      "height": 22.09375
+    }
+  },
+  "authority": {
+    "box": {
+      "x": 825.21875,
+      "y": 90.625,
+      "width": 97.796875,
+      "height": 17
+    }
+  },
+  "outcomes": {
+    "box": {
+      "x": 284,
+      "y": 316.359375,
+      "width": 18,
+      "height": 18
+    }
+  },
+  "attempt-notes": {
+    "box": {
+      "x": 266,
+      "y": 301.03125,
+      "width": 484.21875,
+      "height": 90
+    }
+  },
+  "attempt": {
+    "box": {
+      "x": 825.21875,
+      "y": 300.703125,
+      "width": 273.765625,
+      "height": 48
+    }
+  },
+  "return": {
+    "box": {
+      "x": 825.21875,
+      "y": 300.703125,
+      "width": 273.765625,
+      "height": 48
+    }
+  },
+  "return-confirm": {
+    "box": {
+      "x": 708.828125,
+      "y": 397.75,
+      "width": 139.171875,
+      "height": 48
+    }
+  },
+  "reject": {
+    "box": {
+      "x": 825.21875,
+      "y": 436.703125,
+      "width": 273.765625,
+      "height": 48
+    }
+  },
+  "evidence": {
+    "box": {
+      "x": 520.109375,
+      "y": 226.046875,
+      "width": 230.109375,
+      "height": 48.796875
+    }
+  },
+  "check": {
+    "box": {
+      "x": 270,
+      "y": 428.03125,
+      "width": 18,
+      "height": 18
+    }
+  },
+  "approve": {
+    "box": {
+      "x": 825.21875,
+      "y": 300.703125,
+      "width": 273.765625,
+      "height": 48
+    }
+  },
+  "confirm": {
+    "box": {
+      "x": 708.828125,
+      "y": 397.75,
+      "width": 139.171875,
+      "height": 48
+    }
+  },
+  "approved": {
+    "box": null
+  },
+  "submissions": {
+    "box": null
+  },
+  "registrations": {
+    "box": null
+  },
+  "registration-detail": {
+    "box": null
+  },
+  "registration-authority": {
+    "box": {
+      "x": 825.21875,
+      "y": 412.15625,
+      "width": 273.765625,
+      "height": 48.796875
+    }
+  },
+  "registration-checks": {
+    "box": {
+      "x": 829.21875,
+      "y": 588.140625,
+      "width": 18,
+      "height": 18
+    }
+  },
+  "registration-save": {
+    "box": {
+      "x": 825.21875,
+      "y": 300.6875,
+      "width": 273.765625,
+      "height": 48
+    }
+  },
+  "contacts": {
+    "box": null
+  },
+  "contact-detail": {
+    "box": null
+  },
+  "contact-review": {
+    "box": {
+      "x": 825.21875,
+      "y": 412.15625,
+      "width": 273.765625,
+      "height": 48.796875
+    }
+  },
+  "profiles": {
+    "box": null
+  },
+  "profile-detail": {
+    "box": null
+  },
+  "reports": {
+    "box": null
+  },
+  "report-detail": {
+    "box": null
+  },
+  "dispute": {
+    "box": {
+      "x": 266,
+      "y": 602.34375,
+      "width": 484.21875,
+      "height": 48
+    }
+  },
+  "report-decision": {
+    "box": {
+      "x": 266,
+      "y": 587.578125,
+      "width": 484.21875,
+      "height": 48
+    }
+  },
+  "suggestions": {
+    "box": null
+  },
+  "suggestion-detail": {
+    "box": null
+  },
+  "notices": {
+    "box": null
+  },
+  "notice-review": {
+    "box": {
+      "x": 400.03125,
+      "y": 379.09375,
+      "width": 135.71875,
+      "height": 48
+    }
+  },
+  "notice-published": {
+    "box": null
+  },
+  "notice-create": {
+    "box": {
+      "x": 266,
+      "y": 301.46875,
+      "width": 833,
+      "height": 48
+    }
+  },
+  "notice-image": {
+    "box": {
+      "x": 266,
+      "y": -0.15625,
+      "width": 833,
+      "height": 833.0625
+    }
+  },
+  "notice-submit": {
+    "box": {
+      "x": 266,
+      "y": 485.078125,
+      "width": 833,
+      "height": 48
+    }
+  },
+  "maintenance": {
+    "box": null
+  },
+  "urgent": {
+    "box": null
+  },
+  "escalate": {
+    "box": {
+      "x": 825.21875,
+      "y": 525.40625,
+      "width": 273.765625,
+      "height": 48
+    }
+  },
+  "representatives": {
+    "box": null
+  },
+  "focal-account": {
+    "box": null
+  },
+  "reset-focal": {
+    "box": {
+      "x": 266,
+      "y": 301,
+      "width": 207.09375,
+      "height": 48
+    }
+  },
+  "assignment": {
+    "box": null
+  },
+  "rep-assignment": {
+    "box": {
+      "x": 266,
+      "y": 479.59375,
+      "width": 833,
+      "height": 48
+    }
+  },
+  "backup": {
+    "box": {
+      "x": 266,
+      "y": 301.59375,
+      "width": 404.5,
+      "height": 48.796875
+    }
+  },
+  "applications": {
+    "box": null
+  },
+  "application-detail": {
+    "box": null
+  },
+  "duplicates": {
+    "box": null
+  },
+  "duplicate-assessment": {
+    "box": {
+      "x": 266,
+      "y": 485.109375,
+      "width": 163.40625,
+      "height": 48
+    }
+  },
+  "delivery": {
+    "box": null
+  },
+  "history": {
+    "box": null
+  },
+  "notifications": {
+    "box": null
+  },
+  "account": {
+    "box": null
+  },
+  "password": {
+    "box": {
+      "x": 719.5,
+      "y": 291.96875,
+      "width": 379.5,
+      "height": 48
+    }
+  },
+  "recovery": {
+    "box": null
+  },
+  "reset": {
+    "box": {
+      "x": 252,
+      "y": 222.59375,
+      "width": 646,
+      "height": 401.0625
+    }
+  },
+  "focal-signin": {
+    "box": null
+  },
+  "rep-create": {
+    "box": {
+      "x": 266,
+      "y": 0.09375,
+      "width": 833,
+      "height": 719.75
+    }
+  },
+  "rep-filled": {
+    "box": {
+      "x": 266,
+      "y": 0.09375,
+      "width": 833,
+      "height": 719.75
+    }
+  },
+  "rep-created": {
+    "box": {
+      "x": 266,
+      "y": 256.09375,
+      "width": 833,
+      "height": 24.5
+    }
+  }
+}

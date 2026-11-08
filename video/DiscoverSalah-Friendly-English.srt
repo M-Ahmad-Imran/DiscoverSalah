@@ -1,0 +1,55 @@
+1
+00:00:00,800 --> 00:00:07,042
+In a new area, wondering what time Jama’at starts at a nearby mosque?
+
+2
+00:00:07,192 --> 00:00:15,583
+That is the idea behind DiscoverSalah: make mosques and Jama’at times easier to find.
+
+3
+00:00:16,383 --> 00:00:25,750
+Choose your area, browse listed mosques and check Jama’at times. No account needed.
+
+4
+00:00:25,900 --> 00:00:37,250
+Prayer time and congregation time are different. The focus here is Jama’at timings.
+
+5
+00:00:38,050 --> 00:00:46,667
+Found a mosque? Check its details and notices, then open Google Maps for directions.
+
+6
+00:00:46,817 --> 00:00:56,583
+Check the timing before leaving and allow extra travel time. Arrival on time is not guaranteed.
+
+7
+00:00:57,383 --> 00:01:04,750
+It is a shared effort. A local mosque representative submits new timings or changes.
+
+8
+00:01:04,900 --> 00:01:15,333
+A focal person checks the update with the Imam. An admin helps organise the team.
+
+9
+00:01:16,133 --> 00:01:26,500
+An update is checked by another responsible person before approval, or returned for correction.
+
+10
+00:01:26,650 --> 00:01:35,583
+Nobody approves their own update. Future timings take effect on their planned date.
+
+11
+00:01:36,383 --> 00:01:45,792
+Notice an incorrect time or a missing mosque? Send a report or suggest the mosque.
+
+12
+00:01:45,942 --> 00:01:58,083
+Apply to help and track your request. Private Imam phone numbers are not shown publicly.
+
+13
+00:01:58,883 --> 00:02:08,458
+The goal is simple: easy-to-find Jama’at times, checked information and a helpful community.
+
+14
+00:02:08,608 --> 00:02:17,583
+That is DiscoverSalah. Stay connected with your mosque and help make someone else’s day easier.

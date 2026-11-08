@@ -1,0 +1,263 @@
+1
+00:00:00,300 --> 00:00:09,542
+Manage areas, mosques, people and daily reviews. All records shown are training examples.
+
+2
+00:00:09,842 --> 00:00:17,750
+Enter your own registered number and password, then select Sign in.
+
+3
+00:00:18,050 --> 00:00:26,750
+Open your linked authenticator app. Enter its current six-digit code and select Continue.
+
+4
+00:00:27,050 --> 00:00:37,167
+Link the authenticator during initial setup with your trusted operator. Recovery codes are single-use backups.
+
+5
+00:00:37,467 --> 00:00:47,583
+When prompted, replace the temporary password with a private password of at least 12 characters. Sign in again.
+
+6
+00:00:47,883 --> 00:00:57,042
+Check pending work and responsibility gaps. Use the sidebar to open each section.
+
+7
+00:00:57,342 --> 00:01:04,958
+Open Cities & areas. Check existing entries, then select Add area.
+
+8
+00:01:05,258 --> 00:01:12,917
+Enter the area name and city, then save the new area.
+
+9
+00:01:13,217 --> 00:01:22,250
+Responsibility gap means no primary reviewer is assigned yet. Create or select a focal person next.
+
+10
+00:01:22,550 --> 00:01:31,000
+Open Management accounts and select Create credentials. Admins create focal-person accounts.
+
+11
+00:01:31,300 --> 00:01:40,667
+Enter the name, contact number and area. Record your checks, tick confirmation and create credentials.
+
+12
+00:01:40,967 --> 00:01:51,458
+Privately hand over the temporary password. It expires in 24 hours and must be changed on first login.
+
+13
+00:01:51,758 --> 00:01:59,167
+Open Manage supervision. Choose Assign primary Focal Person, the area and the authorized account.
+
+14
+00:01:59,467 --> 00:02:07,875
+Record a reason, confirm the access change and select Commit assignment.
+
+15
+00:02:08,175 --> 00:02:15,583
+Return to Cities & areas and confirm that the area shows Reviewer assigned.
+
+16
+00:02:15,883 --> 00:02:24,792
+FOCAL-PERSON SESSION: the responsible focal person creates the local representative account.
+
+17
+00:02:25,092 --> 00:02:33,667
+The focal person enters the representative details, verifies authority and creates credentials.
+
+18
+00:02:33,967 --> 00:02:42,208
+Privately hand over the representative credentials. First-login password change and mosque assignment are required.
+
+19
+00:02:42,508 --> 00:02:54,750
+ADMIN SESSION: choose Replace representative, the mosque and the correct account. Confirm the reason before committing.
+
+20
+00:02:55,050 --> 00:03:02,750
+Search Mosques & venues first to avoid duplicate entries. Open the registration form for a new mosque.
+
+21
+00:03:03,050 --> 00:03:12,625
+Enter the mosque name and area. For a prayer ground, select its associated mosque.
+
+22
+00:03:12,925 --> 00:03:22,083
+Enter the address and actual entrance coordinates so visitors can find the correct gate.
+
+23
+00:03:22,383 --> 00:03:31,542
+Enter the authorized Imam contact and your relationship to the mosque. Confirm permission to contact him.
+
+24
+00:03:31,842 --> 00:03:41,458
+Enter actual congregation times and facility availability. Keep unknown facilities marked Unknown.
+
+25
+00:03:41,758 --> 00:03:51,750
+Review every detail and submit for verification. Your own registration requires an independent reviewer.
+
+26
+00:03:52,050 --> 00:04:01,375
+Check the registration status. If returned, correct the stated issues and resubmit.
+
+27
+00:04:01,675 --> 00:04:11,958
+Open a mosque to inspect timings and responsibility. Submit changes through the relevant form for independent review.
+
+28
+00:04:12,258 --> 00:04:19,625
+Open a pending submission from Review queue. Identify changed prayers and the effective date.
+
+29
+00:04:19,925 --> 00:04:28,208
+Compare the old and proposed times. Verify every changed value.
+
+30
+00:04:28,508 --> 00:04:36,250
+Check dated sessions, Jumu’ah, khutbah times, cancellations and effective dates.
+
+31
+00:04:36,550 --> 00:04:45,708
+Contact the registered authority and record the real verification outcome.
+
+32
+00:04:46,008 --> 00:04:55,458
+Record who answered, the call time in PKT and clear notes. No answer means record the attempt and keep pending.
+
+33
+00:04:55,758 --> 00:05:05,208
+Return for correction or reject with a clear reason. Review the confirmation before committing.
+
+34
+00:05:05,508 --> 00:05:13,542
+After independent verification, complete the evidence and confirmation, then approve the verified timings.
+
+35
+00:05:13,842 --> 00:05:20,875
+Confirm the Approved status. Use Submissions to track the status and decision history.
+
+36
+00:05:21,175 --> 00:05:30,833
+Review the mosque identity, entrance, authorized contact and initial timetable before approving registration.
+
+37
+00:05:31,133 --> 00:05:39,500
+Choose the disposition, complete the required evidence and checks, then save the review.
+
+38
+00:05:39,800 --> 00:05:48,750
+Verify a new Imam contact independently using an established trusted reference, then record the decision.
+
+39
+00:05:49,050 --> 00:05:57,542
+Review proposed profile changes and record a clear approval, return or rejection reason.
+
+40
+00:05:57,842 --> 00:06:05,583
+Open the report, investigate with the responsible authority and record private investigation notes.
+
+41
+00:06:05,883 --> 00:06:15,917
+Choose the status, add a clear public response without private details, then save the review.
+
+42
+00:06:16,217 --> 00:06:24,917
+Mark only the affected scope as disputed. A dispute flag does not verify replacement timings.
+
+43
+00:06:25,217 --> 00:06:35,167
+Check suggested mosques against existing listings and verify the location before proceeding to registration.
+
+44
+00:06:35,467 --> 00:06:45,625
+Review the applicant and record a decision. Account creation remains a separate authorized step.
+
+45
+00:06:45,925 --> 00:06:54,792
+Review the notice text, mosque, dates, authority and any poster content before approving.
+
+46
+00:06:55,092 --> 00:07:06,542
+Use a moderation reason to return or reject. Revise notice edits it; Cancel notice removes it from public display.
+
+47
+00:07:06,842 --> 00:07:15,417
+Choose the mosque and enter the notice title, category, body, event time and expiry.
+
+48
+00:07:15,717 --> 00:07:26,625
+Choose one JPG, PNG or WebP up to 5 MiB. Check readability, remove the wrong image and repeat key details in text.
+
+49
+00:07:26,925 --> 00:07:37,417
+Check the attachment preview where available. Save a draft or submit for an independent review.
+
+50
+00:07:37,717 --> 00:07:45,708
+Use Maintenance & coverage to find stale records, suspended venues and responsibility gaps.
+
+51
+00:07:46,008 --> 00:07:56,833
+For a venue status change, choose Published, Suspended or Maintenance pending and record a clear reason.
+
+52
+00:07:57,133 --> 00:08:06,750
+Choose the submission, explain the urgency and record an escalation. Approval still requires verification.
+
+53
+00:08:07,050 --> 00:08:17,333
+Find local representatives and inspect their assignments and workload.
+
+54
+00:08:17,633 --> 00:08:27,333
+Search or filter accounts by role. Deactivate only the intended account after checking the confirmation.
+
+55
+00:08:27,633 --> 00:08:37,125
+Open the focal account, verify the new contact number and record the reason. Updating it revokes existing sessions.
+
+56
+00:08:37,425 --> 00:08:46,792
+Verify identity before issuing a temporary password. Admin resets focal credentials; the responsible focal resets representatives.
+
+57
+00:08:47,092 --> 00:08:56,417
+Choose Temporary backup reviewer, the mosque, an eligible focal person and the start/end times in PKT.
+
+58
+00:08:56,717 --> 00:09:05,000
+Backup coverage grants timetable review only and expires at its end time. Revoke coverage early when needed.
+
+59
+00:09:05,300 --> 00:09:15,958
+Compare both listings and record your evidence. Record assessment does not delete or merge either listing.
+
+60
+00:09:16,258 --> 00:09:24,583
+Inspect failed in-app notifications. Queue a retry or escalate the failure for investigation.
+
+61
+00:09:24,883 --> 00:09:32,500
+Use Activity history to trace who changed a record and when.
+
+62
+00:09:32,800 --> 00:09:41,000
+Open the notification bell and follow each notice to its related task.
+
+63
+00:09:41,300 --> 00:09:49,958
+Mark all read updates notification status only. Complete the underlying review task separately.
+
+64
+00:09:50,258 --> 00:09:59,208
+Review your role and contact details. Change your password using the current password, then sign in again.
+
+65
+00:09:59,508 --> 00:10:11,042
+For admin password or lost-MFA recovery, contact the trusted operator. Password reset alone does not remove MFA.
+
+66
+00:10:11,342 --> 00:10:23,750
+Daily routine: review pending work, verify details, close responsibility gaps and log out when finished.

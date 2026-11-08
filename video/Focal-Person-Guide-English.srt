@@ -1,0 +1,223 @@
+1
+00:00:00,300 --> 00:00:12,417
+Welcome! Learn the focal-person dashboard, from sign-in to timing approvals and other tasks. Names, contacts and call records shown are training examples.
+
+2
+00:00:12,717 --> 00:00:22,583
+Open Sign in. Enter your own registered contact number and password. An authorized administrator creates your focal-person credentials.
+
+3
+00:00:22,883 --> 00:00:29,417
+Check your details and press Sign in. Use your own account and keep your password private.
+
+4
+00:00:29,717 --> 00:00:39,083
+If prompted, enter your temporary password, choose a new password of at least 12 characters, confirm it and continue. Then sign in again.
+
+5
+00:00:39,383 --> 00:00:46,500
+Use Forgot password to open Recovery. Follow the instructions and contact the administrator who issued your account.
+
+6
+00:00:46,800 --> 00:00:56,833
+Overview shows pending reviews, responsibility gaps and open issues. Open the relevant task from Attention required.
+
+7
+00:00:57,133 --> 00:01:06,083
+Open Mosques & venues and choose a mosque within your scope. Check its name and area. Ask the administrator to resolve missing access or assignments.
+
+8
+00:01:06,383 --> 00:01:16,167
+Review queue brings tasks together. Filter Review type to Timetable, or narrow the list by mosque and event/effective date.
+
+9
+00:01:16,467 --> 00:01:25,625
+Check the mosque, proposal version and representative’s reason. Compare the old and new timings. This example changes Asr from 4:15 PM to 4:45 PM.
+
+10
+00:01:25,925 --> 00:01:35,958
+Also check dated sessions: Jama’at, Khutbah, date, cancellation or provisional status, and Effective from. Verify every changed detail.
+
+11
+00:01:36,258 --> 00:01:46,917
+Contact the registered Imam shown under Registered mosque authority. Verify this proposal’s changes and start date. Keep the private number confidential.
+
+12
+00:01:47,217 --> 00:01:56,917
+Choose the actual call outcome. Use Confirmed as submitted only when everything matches. Otherwise select the matching, partial-confirmation or unreachable outcome.
+
+13
+00:01:57,217 --> 00:02:05,917
+If nobody answers, say so in the notes. Record the actual call date and Pakistan time. Do not name someone as having confirmed details when no conversation occurred.
+
+14
+00:02:06,217 --> 00:02:15,917
+Press Record attempt · keep pending. This logs the attempt without approval. No answer or partial confirmation does not verify the whole proposal.
+
+15
+00:02:16,217 --> 00:02:23,625
+For corrections, write an actionable Message to representative: specify the incorrect time or date. Then press Return for correction.
+
+16
+00:02:23,925 --> 00:02:33,833
+Check the proposal and version in Confirm decision, then confirm. The representative submits a revised proposal, which needs a fresh review.
+
+17
+00:02:34,133 --> 00:02:44,292
+Use Reject submission with a clear reason when the proposal cannot be accepted. Return correctable mistakes with guidance the representative can act on.
+
+18
+00:02:44,592 --> 00:02:53,000
+For approval, choose Confirmed as submitted. Enter the Imam you actually spoke to and the actual call date and Pakistan time.
+
+19
+00:02:53,300 --> 00:03:01,875
+Record the checked details in Private verification notes. Tick confirmation only after verifying all changed times, special sessions and the effective date against this exact version.
+
+20
+00:03:02,175 --> 00:03:10,458
+Press Approve verified timings. If disabled, check the required evidence and confirmation. Fill fields with verified facts, not guesses.
+
+21
+00:03:10,758 --> 00:03:19,208
+Check the proposal and version once more, then press Confirm decision. The decision is recorded and a notification is queued for the representative.
+
+22
+00:03:19,508 --> 00:03:28,542
+Check that the status is Approved. Future-dated timings take effect on their effective date; the current approved times remain until then.
+
+23
+00:03:28,842 --> 00:03:39,042
+Use Submissions to track decisions and previous proposals. You cannot approve your own work. If the version changes, reload and review the current proposal.
+
+24
+00:03:39,342 --> 00:03:48,708
+Open a new listing in Registration reviews. Check for an existing duplicate and verify the submitted details against the actual mosque.
+
+25
+00:03:49,008 --> 00:03:58,042
+Check the name, area, address and actual entrance coordinates. Verify the representative’s relationship, authorized Imam contact, initial timetable and facilities.
+
+26
+00:03:58,342 --> 00:04:07,875
+When choosing Approved, record the established authority contacted and the actual confirmation call. Complete all required checks and confirm reviewer independence.
+
+27
+00:04:08,175 --> 00:04:16,833
+Write the decision reason and use Save review. Choose Returned or Rejected with clear feedback when needed. Submission alone does not publish a mosque.
+
+28
+00:04:17,133 --> 00:04:26,208
+In Contact reviews, check the new name, number, consent and reference. Verify through an existing trusted contact or independent authority, not only the proposed new number.
+
+29
+00:04:26,508 --> 00:04:36,000
+Record the trusted authority and actual call. Confirm the required checks and independence, then save the reasoned decision. The phone number remains private.
+
+30
+00:04:36,300 --> 00:04:46,125
+Review proposed name, address or facility changes in Profile reviews. Verify the facts and approve, return or reject. This does not change Jama’at times.
+
+31
+00:04:46,425 --> 00:04:57,333
+Review submitted notices: title, public details, event time, expiry and authorized source. Death or Janazah notices require an authorized family or mosque source.
+
+32
+00:04:57,633 --> 00:05:07,917
+Check privacy before using Approve notice and confirming. For Returned or Rejected, write a clear Moderation reason. You cannot approve your own notice.
+
+33
+00:05:08,217 --> 00:05:17,458
+After approval, check Published status. Use Cancel notice and confirm to remove it from public display. Notice approval does not change Jama’at times.
+
+34
+00:05:17,758 --> 00:05:26,500
+Use Create notice to enter the mosque, category, title and details. Set the event and a later expiry, and provide authorized source or consent evidence.
+
+35
+00:05:26,800 --> 00:05:34,417
+Save draft for unfinished work, or Submit for moderation. Another authorized reviewer must check your own notice.
+
+36
+00:05:34,717 --> 00:05:42,833
+Read the report in Issues & reports and investigate the facts. A public report alone does not prove an error or change official timings.
+
+37
+00:05:43,133 --> 00:05:54,500
+After investigation, select only the affected prayer and date. Add a reason and use Mark selected scope disputed. Official timing corrections still require timetable verification.
+
+38
+00:05:54,800 --> 00:06:05,417
+Choose a Disposition, write private investigation notes and a clear public response, then Save review. Resolving the report does not automatically clear a dispute flag.
+
+39
+00:06:05,717 --> 00:06:16,500
+Check the suggested mosque and existing listings. Link an existing mosque when appropriate, or arrange onboarding and formal registration for a new one.
+
+40
+00:06:16,800 --> 00:06:29,333
+Check ownership, recorded Imam verification, pending reviews and unresolved reports in Maintenance & coverage. Follow up on gaps; an old date alone does not prove a timing is wrong.
+
+41
+00:06:29,633 --> 00:06:39,000
+In Urgent work, select a pending submission, explain the reason and urgency, then Record escalation. This notifies administrators without approving the proposal.
+
+42
+00:06:39,300 --> 00:06:48,042
+Use Representatives to find your area’s local representatives. Search by name and open their account to check responsibilities. Each account belongs to one person.
+
+43
+00:06:48,342 --> 00:06:58,792
+Open Create credentials. Enter the full name, contact number, assigned area and reference-check reason. Independently confirm identity, contact and authority first.
+
+44
+00:06:59,092 --> 00:07:10,125
+Tick confirmation and create credentials. Hand the temporary password privately to its owner. It expires in 24 hours and must be changed at first sign-in.
+
+45
+00:07:10,425 --> 00:07:21,667
+Verify the owner and new contact before changing an account number. Enter the new number, reason and confirmation, then Update contact and revoke sessions.
+
+46
+00:07:21,967 --> 00:07:32,125
+After verifying identity and contact, use Issue temporary password for a representative who lost access. Existing sessions are revoked. Share the replacement privately with its owner.
+
+47
+00:07:32,425 --> 00:07:41,958
+In Assignments, choose Replace representative, the correct mosque and an authorized active representative. Creating credentials and assigning a mosque are separate tasks.
+
+48
+00:07:42,258 --> 00:07:49,875
+Enter the mandatory reason, confirm consent and press Commit assignment. Ask the administrator to arrange primary focal-person or temporary backup coverage.
+
+49
+00:07:50,175 --> 00:08:01,042
+Arrange replacement coverage when a representative leaves. Use Deactivate when access should end. Historical records and assignments remain recorded.
+
+50
+00:08:01,342 --> 00:08:11,167
+To propose your own update, open the relevant mosque edit, enter the changes and reason, review and submit. Another authorized person must approve your proposal.
+
+51
+00:08:11,467 --> 00:08:20,708
+Register mosque uses Details, Location, Imam, Timings and Review. Complete the record and submit it for independent verification; do not approve your own registration.
+
+52
+00:08:21,008 --> 00:08:29,375
+Open Notifications from the bell and follow the relevant task. Mark all read only marks messages as read; it does not complete reviews or approve requests.
+
+53
+00:08:29,675 --> 00:08:37,083
+Use Activity history to review past decisions and actions. Open the original record when you need to understand a change.
+
+54
+00:08:37,383 --> 00:08:45,792
+Review your role and area in My account. Change your password using the current password and a new one of at least 12 characters, then sign in again.
+
+55
+00:08:46,092 --> 00:08:54,375
+Sign out when finished, especially on a shared device. Keep private contacts, call notes and passwords secure.
+
+56
+00:08:54,675 --> 00:09:06,458
+Remember: check the proposal, contact the registered Imam, record real evidence and make the right decision. Your care helps neighbours and newcomers rely on local Jama’at information.

@@ -1,7 +1,6 @@
 import { LocateFixed, MapPin } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MapPreview } from '../../components/discovery/MapPreview';
 import { Alert } from '../../components/ui/Alert';
 import { ButtonLink } from '../../components/ui/ButtonLink';
 import { Field } from '../../components/ui/Field';
@@ -80,10 +79,11 @@ export function LocationPage() {
           onSubmit={(e) => {
             e.preventDefault();
             params.delete('cursor');
-            params.set('origin', area);
-            params.set('city', city);
+            params.set('origin', area.trim() || city.trim());
+            params.set('city', city.trim());
             params.delete('area');
             if (coords.lat && coords.lng) {
+              params.delete('city');
               setOrigin({ lat: Number(coords.lat), lng: Number(coords.lng) });
               params.set('scope', 'nearby');
             } else {
@@ -98,54 +98,73 @@ export function LocationPage() {
           <Field label={t('City', 'شہر')}>
             <input
               value={city}
-              onChange={(e) => setCity(e.target.value)}
-              required
+              onChange={(e) => {
+                setCity(e.target.value);
+                setCoords({ lat: '', lng: '' });
+              }}
+              required={!coords.lat || !coords.lng}
               maxLength={100}
+              autoComplete="address-level2"
+              placeholder={t('e.g. Lahore', 'مثلاً لاہور')}
             />
           </Field>
-          <Field label={t('Area, address or landmark', 'علاقہ، پتہ یا مشہور مقام')}>
+          <Field
+            label={t('Location label (optional)', 'مقام کا نام (اختیاری)')}
+            hint={t(
+              'This label is for your reference. Without GPS, results are filtered by city only.',
+              'یہ نام صرف آپ کی آسانی کے لیے ہے۔ لوکیشن کے بغیر پورے شہر کی مساجد نظر آئیں گی۔',
+            )}
+          >
             <input
               value={area}
               onChange={(e) => setArea(e.target.value)}
-              required
               placeholder={t(
                 'e.g. Main Boulevard, Gulberg III',
                 'مثلاً مین بلیوارڈ، گلبرگ III',
               )}
             />
           </Field>
-          <MapPreview items={[]} large />
           <Alert>
             {t(
-              'Enter coordinates below for nearby discovery, or browse by area. Directions open separately in Google Maps.',
-              'قریبی مساجد کے لیے مختصات درج کریں یا علاقے کے اوقات دیکھیں۔ راستہ گوگل میپس میں الگ کھلے گا۔',
+              'For nearby mosques, tap Use my current location and allow location access. You can also enter a city without sharing your location. Directions open in Google Maps.',
+              'قریبی مسجد کے لیے اوپر موجودہ مقام کا بٹن دبائیں اور لوکیشن کی اجازت دیں۔ اجازت نہیں دینا چاہتے تو شہر لکھ کر مساجد دیکھیں۔ راستہ گوگل میپس میں کھلے گا۔',
             )}
           </Alert>
-          <div className="two-grid">
-            <Field label={t('Latitude (optional)', 'عرض البلد (اختیاری)')}>
-              <input
-                type="number"
-                min="-90"
-                max="90"
-                step="any"
-                value={coords.lat}
-                onChange={(e) => setCoords({ ...coords, lat: e.target.value })}
-              />
-            </Field>
-            <Field label={t('Longitude (optional)', 'طول البلد (اختیاری)')}>
-              <input
-                type="number"
-                min="-180"
-                max="180"
-                step="any"
-                value={coords.lng}
-                onChange={(e) => setCoords({ ...coords, lng: e.target.value })}
-              />
-            </Field>
-          </div>
+          <details>
+            <summary>
+              {t(
+                'Enter map coordinates (optional)',
+                'نقشے کے کوآرڈینیٹس درج کریں (اختیاری)',
+              )}
+            </summary>
+            <div className="two-grid">
+              <Field label={t('Latitude (optional)', 'عرض البلد (اختیاری)')}>
+                <input
+                  type="number"
+                  min="-90"
+                  max="90"
+                  step="any"
+                  required={!!coords.lng}
+                  value={coords.lat}
+                  onChange={(e) => setCoords({ ...coords, lat: e.target.value })}
+                />
+              </Field>
+              <Field label={t('Longitude (optional)', 'طول البلد (اختیاری)')}>
+                <input
+                  type="number"
+                  min="-180"
+                  max="180"
+                  step="any"
+                  required={!!coords.lat}
+                  value={coords.lng}
+                  onChange={(e) => setCoords({ ...coords, lng: e.target.value })}
+                />
+              </Field>
+            </div>
+          </details>
           <button type="submit">
             <MapPin size={18} />
-            {t('Confirm location', 'مقام کی تصدیق')}
+            {t('Show mosques', 'مساجد دکھائیں')}
           </button>
           <ButtonLink secondary to={'/results?' + params}>
             {t(

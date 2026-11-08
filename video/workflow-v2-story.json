@@ -1,0 +1,171 @@
+{
+  "Representative": [
+    [
+      "Direct publishing",
+      "Aap ki masjid, aap ki zimmedari",
+      "published",
+      "اب آپ اپنی مسجد کے نماز کے اوقات خود پبلش کر سکتے ہیں۔ ہر تبدیلی کے لیے فوکل پرسن کی منظوری کا انتظار نہیں کرنا۔ لیکن اصل وقت امام صاحب یا مسجد سے چیک کرنا آپ کی ذمہ داری ہے۔",
+      "Publish your mosque’s timetable directly. Check the actual times first; focal approval is not required."
+    ],
+    [
+      "Sign in and choose your mosque",
+      "Sign in > My mosques",
+      "../representative-assets/signin",
+      "اپنے نمبر اور پاس ورڈ سے سائن اِن کریں۔ مائی موسکس میں اپنی مسجد کھولیں۔ آپ صرف اپنی مقررہ مسجد کے اوقات بدل سکتے ہیں۔ پاس ورڈ کسی کے ساتھ شیئر نہ کریں۔",
+      "Sign in with your number and password. Open My mosques. You can edit only your assigned mosque."
+    ],
+    [
+      "Review before publishing",
+      "Har waqt aur date check karein",
+      "publish-preview",
+      "ایڈٹ ٹائم ٹیبل میں اوقات درست کریں، تبدیلی کی وجہ لکھیں، پھر ریویو چینجز کھولیں۔ پرانا اور نیا وقت غور سے دیکھیں۔ آج کا وقت آج سے لاگو کریں؛ آئندہ تبدیلی کے لیے درست تاریخ منتخب کریں۔",
+      "Edit the times, give a reason, then review old and new values. Check the effective date."
+    ],
+    [
+      "Publish once",
+      "Check karein, phir Publish",
+      "published",
+      "تصدیق والا باکس چیک کریں اور پبلش ٹائم ٹیبل دبائیں۔ نیا ورژن محفوظ ہو جائے گا۔ آج کی تاریخ ہو تو وقت فوراً دستیاب ہے۔ مستقبل کی تاریخ ہو تو اسی دن لاگو ہوگا۔ فوکل کو اِن ایپ اطلاع بھی ملتی ہے۔",
+      "Publish creates a recorded version. Today’s changes are available immediately; future changes start on their date."
+    ],
+    [
+      "No change? Confirm it",
+      "7 din: dobara check",
+      "confirmation",
+      "ہر سات دن بعد اوقات چیک کریں۔ وقت وہی ہے تو کنفرم ٹائمنگز اَن چینجڈ دبائیں۔ صرف ایکٹیو دکھنے کے لیے وقت بدلنا ضروری نہیں۔ چودہ دن تک تصدیق نہ ہو تو فوکل پرسن آپ سے رابطہ کرے گا۔",
+      "Check every 7 days. If unchanged, confirm it. After 14 days without confirmation, the focal person follows up."
+    ],
+    [
+      "Correct mistakes safely",
+      "Naya version, poora record",
+      "published",
+      "غلطی ہو جائے تو اسی ورژن سے نئی درستی بنائیں، وقت اور تاریخ دوبارہ دیکھ کر پبلش کریں۔ پرانا ریکارڈ حذف نہیں ہوگا۔ جمعہ، عید، آئندہ تاریخوں اور منسوخ جماعتوں کو بھی ضرور چیک کریں۔",
+      "Correct mistakes with a new version. History remains. Check Friday, Eid, future dates and cancellations too."
+    ]
+  ],
+  "Focal-Person": [
+    [
+      "Your role is oversight",
+      "Approval se follow-up tak",
+      "follow-up",
+      "اب روزانہ اوقات کی ہر تبدیلی منظور کرنا آپ کا کام نہیں۔ نمائندہ خود پبلش کرتا ہے۔ آپ دیکھتے ہیں کہ مساجد کے اوقات باقاعدگی سے چیک ہو رہے ہیں اور غیر فعال نمائندوں سے رابطہ ہوتا ہے۔",
+      "Representatives publish directly. Your role is to monitor confirmations and follow up with inactive representatives."
+    ],
+    [
+      "Sign in and open maintenance",
+      "Dashboard > Maintenance",
+      "follow-up",
+      "اپنے فوکل اکاؤنٹ میں سائن اِن کریں۔ ڈیش بورڈ پر چودہ دن والے فالو اَپ کا کارڈ کھولیں، یا مینٹیننس اینڈ کوریج میں جائیں۔ فِلٹر سے صرف وہ مساجد دیکھیں جن کی تازہ تصدیق نہیں ہوئی۔",
+      "Open the 14-day follow-up card or Maintenance & coverage. Filter for overdue confirmations."
+    ],
+    [
+      "7 days and 14 days",
+      "Reminder, phir rabta",
+      "calendar",
+      "سات دن پر نمائندے کو اوقات چیک کرنے کی یاد دہانی نظر آتی ہے۔ چودہ دن پر آپ کا فالو اَپ بنتا ہے۔ تاخیر کا مطلب یہ نہیں کہ وقت غلط ہے۔ مسجد یا نمائندہ خود بخود نہیں ہٹتا۔",
+      "Day 7: confirmation reminder. Day 14: focal follow-up. Overdue does not automatically mean incorrect times."
+    ],
+    [
+      "Call or visit",
+      "Baat karein, record rakhein",
+      "follow-up",
+      "نمائندے یا امام صاحب کو فون کریں، یا مسجد جائیں۔ ریکارڈ اے کال اور وزٹ کھولیں۔ طریقہ، نتیجہ اور نجی نوٹس لکھ کر محفوظ کریں۔ رابطہ نہ ہو تو نو کانٹیکٹ درج کریں؛ اندازے سے تصدیق نہ کریں۔",
+      "Call or visit. Record the method, outcome and private notes. If nobody answers, record No contact."
+    ],
+    [
+      "Replace only after checking",
+      "Pehle jaanch, phir tabdeeli",
+      "follow-up",
+      "نمائندہ کام نہیں کر سکتا تو پہلے وجہ معلوم کریں۔ ضرورت ہو تو ری پلیس نمائندہ کھولیں، نیا اہل اکاؤنٹ منتخب کریں اور وجہ لکھیں۔ پرانے نمائندے کا اس مسجد پر اختیار ختم ہو جائے گا۔",
+      "Investigate first. Assign a suitable replacement with a reason. The old representative loses access to that mosque."
+    ],
+    [
+      "Urgent correction",
+      "Imam se tasdeeq zaroor",
+      "focal-correction",
+      "فوری غلطی ہو اور نمائندہ دستیاب نہ ہو، تو آپ اوقات درست کر سکتے ہیں۔ پہلے امام یا نمائندے سے فون یا ملاقات پر تصدیق کریں۔ پبلش سے پہلے رابطے کا طریقہ اور تصدیق کرنے والے کی نجی تفصیل درج کریں۔",
+      "For urgent focal corrections, contact the imam or representative first. Record Phone/Visit and the source before publishing."
+    ],
+    [
+      "Other checks continue",
+      "Har kaam ka apna process",
+      "calendar",
+      "مسجد کا نیا اندراج، شناخت کی تبدیلی اور نوٹس بورڈ کے اعلانات اپنے الگ جائزے سے گزریں گے۔ صرف عام ٹائم ٹیبل تبدیلیوں کی منظوری ختم ہوئی ہے۔ نمائندے کی ہفتہ وار تصدیق اس کی اپنی ذمہ داری ہے۔",
+      "Registration, identity changes and notices keep their own review rules. Weekly representative confirmation remains separate."
+    ]
+  ],
+  "Admin": [
+    [
+      "The new operating model",
+      "Direct publish, zimmedar nigrani",
+      "published",
+      "ڈسکور صلاح میں اب مقررہ نمائندہ اوقات براہِ راست پبلش کرتا ہے۔ فوکل پرسن ہفتہ وار تصدیق اور غیر فعال نمائندوں کی نگرانی کرتا ہے۔ ایڈمن علاقوں، اکاؤنٹس اور ذمہ داریوں کو درست رکھتا ہے۔",
+      "Representatives publish. Focal persons oversee confirmations. Admins maintain areas, accounts and assignments."
+    ],
+    [
+      "Secure sign-in stays the same",
+      "Password + authenticator",
+      "../admin-assets/mfa",
+      "ایڈمن اپنے نمبر اور پاس ورڈ کے بعد آتھنٹیکیٹر کا کوڈ درج کرے۔ ریکوری کوڈ صرف ضرورت پر استعمال کریں اور نجی جگہ محفوظ رکھیں۔ اوقات کا نیا طریقہ سکیورٹی کے اصول نہیں بدلتا۔",
+      "Admin sign-in still requires MFA. Keep recovery codes private. The timetable policy does not weaken account security."
+    ],
+    [
+      "Keep assignments correct",
+      "Har masjid ka zimmedar",
+      "confirmation",
+      "ہر شائع شدہ مسجد کا نمائندہ اور فوکل مقرر ہونا چاہیے۔ ایڈمن فوکل کے اکاؤنٹ بناتا ہے، اور ذمہ دار فوکل نمائندے کے اکاؤنٹ بناتا ہے۔ نمائندہ بدلتے وقت درست مسجد، نیا اکاؤنٹ اور وجہ چیک کریں۔",
+      "Each published mosque needs assigned staff. Admin creates focal accounts; the responsible focal creates representative accounts."
+    ],
+    [
+      "Watch the follow-up list",
+      "7 din / 14 din",
+      "calendar",
+      "سات دن بعد تصدیق کی یاد دہانی اور چودہ دن بعد فوکل کا رابطہ درکار ہے۔ ایڈمن دیکھے کہ فالو اَپ ہو رہا ہے۔ صرف پرانی تاریخ کی وجہ سے مسجد بند یا نمائندہ معطل نہ کریں۔",
+      "Monitor the 7-day reminder and 14-day follow-up process. Do not suspend a mosque or person solely because confirmation is overdue."
+    ],
+    [
+      "History and corrections",
+      "Har tabdeeli ka record",
+      "published",
+      "ہر پبلش کا ورژن اور کرنے والے کا ریکارڈ محفوظ ہے۔ غلط وقت نئے ورژن سے درست ہوگا۔ ایڈمن خود درستی کرے تو پہلے رابطہ اور اس کی نجی تفصیل درج کرنا ضروری ہے۔",
+      "Every publication keeps its author and version. Corrections create new versions; admin corrections require contact evidence."
+    ],
+    [
+      "Existing pending records",
+      "Purane drafts khud publish nahi",
+      "follow-up",
+      "پہلے سے زیر التوا اوقات خود بخود پبلش نہیں ہوں گے۔ انہیں پرانے جائزے سے مکمل کریں یا نمائندہ چیک کر کے نیا ورژن پبلش کرے۔ اندراج، اعلانات، رپورٹس اور اکاؤنٹ کی حفاظت کے باقی اصول برقرار ہیں۔",
+      "Old pending timetables are not auto-published. Review them through the legacy process or publish a checked replacement version."
+    ]
+  ],
+  "Project-Overview": [
+    [
+      "New area? Find your mosque",
+      "Masjid aur Jama’at ka waqt",
+      "public-discovery",
+      "نئے علاقے میں ہیں اور قریبی مسجد یا جماعت کا وقت نہیں معلوم؟ ڈسکور صلاح میں مقام یا شہر منتخب کریں، مسجد کے اوقات دیکھیں اور راستے کے لیے گوگل میپس کھولیں۔ دیکھنے کے لیے اکاؤنٹ ضروری نہیں۔",
+      "Find participating mosques and Jama’at times in a new area. Browse without an account and open directions in Google Maps."
+    ],
+    [
+      "Local updates without delay",
+      "Masjid se seedha update",
+      "published",
+      "مسجد کا مقررہ نمائندہ اصل اوقات چیک کر کے خود پبلش کرتا ہے۔ آج کی تبدیلی منظوری کے انتظار میں نہیں رکے گی۔ آئندہ تاریخ کا وقت اپنی مقررہ تاریخ پر لاگو ہوگا۔",
+      "The assigned representative checks and publishes times directly. Today’s changes do not wait for focal approval."
+    ],
+    [
+      "A simple checking routine",
+      "7 din check, 14 din follow-up",
+      "calendar",
+      "ہر سات دن بعد نمائندہ اوقات دوبارہ چیک کرتا ہے۔ وقت نہیں بدلا تو صرف تصدیق کرتا ہے۔ چودہ دن تک تصدیق نہ ہو تو فوکل پرسن فون یا ملاقات کر کے خبر لیتا ہے۔",
+      "Every 7 days, check and confirm. After 14 days without confirmation, the focal person calls or visits."
+    ],
+    [
+      "Community accountability",
+      "Ghalti batayein, mil kar sudharein",
+      "follow-up",
+      "غلط وقت نظر آئے تو رپورٹ کریں۔ ہر تبدیلی کا ریکارڈ محفوظ رہتا ہے، اور ضرورت پر ذمہ دار نمائندہ تبدیل ہو سکتا ہے۔ پرانی تصدیق کا مطلب لازماً غلط وقت نہیں؛ شک ہو تو مسجد سے پوچھ لیں۔",
+      "Report incorrect times. Changes keep a history. Overdue confirmation does not prove a time is wrong; check with the mosque if unsure."
+    ]
+  ]
+}

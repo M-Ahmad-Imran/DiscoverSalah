@@ -62,7 +62,7 @@ export function discoveryRoutes(d: Database) {
                 $expr: {
                   $and: [
                     { $eq: ["$venueId", "$$vid"] },
-                    { $eq: ["$state", "Approved"] },
+                    { $in: ["$state", ["Approved", "Published"]] },
                     { $lte: ["$snapshot.effective", q.date] },
                   ],
                 },

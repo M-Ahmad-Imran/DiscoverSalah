@@ -1,0 +1,71 @@
+1
+00:00:00,000 --> 00:00:07,167
+What time is Jama’at at a nearby mosque? DiscoverSalah makes that easier to find.
+
+2
+00:00:07,167 --> 00:00:14,500
+A community-maintained website for actual congregation times at participating mosques.
+
+3
+00:00:14,500 --> 00:00:19,917
+The beginning of a prayer time is different from the start of congregation.
+
+4
+00:00:19,917 --> 00:00:28,292
+No account needed. Choose an area or location, then browse timetables and notices.
+
+5
+00:00:28,292 --> 00:00:37,167
+Open Google Maps for directions. DiscoverSalah provides no travel-time estimate or arrival guarantee.
+
+6
+00:00:37,167 --> 00:00:44,500
+Report incorrect information, suggest a mosque, or apply to contribute.
+
+7
+00:00:44,500 --> 00:00:52,500
+Track your request privately. Reports never automatically change approved timings.
+
+8
+00:00:52,500 --> 00:00:58,833
+The local representative maintains mosque information and submits timing changes.
+
+9
+00:00:58,833 --> 00:01:03,958
+The focal person reviews changes after contacting the registered Imam.
+
+10
+00:01:03,958 --> 00:01:11,583
+The administrator manages areas, staff and assignments. Each role has a defined scope.
+
+11
+00:01:11,583 --> 00:01:18,125
+A submitted change receives independent review with recorded Imam-call evidence.
+
+12
+00:01:18,125 --> 00:01:25,875
+The reviewer approves, returns or rejects it. Nobody can approve their own submission.
+
+13
+00:01:25,875 --> 00:01:31,292
+Future-approved timings become effective on their scheduled date.
+
+14
+00:01:31,292 --> 00:01:40,167
+Staff sign in; administrators use MFA. Private Imam contacts stay off public pages.
+
+15
+00:01:40,167 --> 00:01:47,417
+React, Node and Express, and MongoDB connect the interface, workflows and stored records.
+
+16
+00:01:47,417 --> 00:01:54,875
+DiscoverSalah works locally. Public deployment is still being prepared.
+
+17
+00:01:54,875 --> 00:02:00,958
+Free pilot hosting, scheduled notifications, backups and final checks remain.
+
+18
+00:02:00,958 --> 00:02:09,083
+DiscoverSalah. Local Jama’at times, community participation and clear verification.

@@ -15,7 +15,7 @@ const publicSchema = z
   .object({
     title: text,
     submitted: z
-      .record(z.string().max(3000))
+      .record(z.string(), z.string().max(3000))
       .refine((v) => Object.keys(v).length <= 50)
       .optional(),
     areaId: id.optional(),
@@ -220,17 +220,15 @@ export function communityManagement(d: Database, c: Config) {
               { $inc: { writeFence: 1 } },
               { session },
             );
-          await d.db
-            .collection("investigations")
-            .insertOne(
-              {
-                requestId: rid,
-                actorId: a._id,
-                notesCipher: encrypt(x.notes, c.DATA_KEY),
-                at: new Date(),
-              },
-              { session },
-            );
+          await d.db.collection("investigations").insertOne(
+            {
+              requestId: rid,
+              actorId: a._id,
+              notesCipher: encrypt(x.notes, c.DATA_KEY),
+              at: new Date(),
+            },
+            { session },
+          );
           await audit(
             d,
             session,

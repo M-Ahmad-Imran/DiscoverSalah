@@ -21,6 +21,7 @@ import { Empty } from '../../components/ui/Empty';
 import { Panel } from '../../components/ui/Panel';
 import { isDisputed } from '../../domain/disputes';
 import { noticeState } from '../../domain/notices';
+import { NoticeImage } from '../../components/ui/NoticeImage';
 import {
   pendingPrayer,
   resolveSpecial,
@@ -29,6 +30,7 @@ import {
 } from '../../domain/schedules';
 import { useApp } from '../../hooks/useApp';
 import { useQuery } from '../../hooks/useDiscoveryQuery';
+import { displayDate } from '../../i18n/translate';
 import { useNow } from '../../hooks/useNow';
 import { prayerUr } from '../../i18n/prayerLabels';
 import { tr } from '../../i18n/translate';
@@ -59,7 +61,10 @@ export function MosqueDetails() {
     );
   const times = resolveTimes(v, db.proposals, query.date);
   const upcoming = db.proposals.filter(
-    (p) => p.venueId === v.id && p.state === 'Approved' && p.effective > query.date,
+    (p) =>
+      p.venueId === v.id &&
+      ['Approved', 'Published'].includes(p.state) &&
+      p.effective > query.date,
   );
   const notices = db.notices.filter(
     (n) => n.venueId === id && noticeState(n, now) === 'Published',
@@ -151,7 +156,7 @@ export function MosqueDetails() {
             >
               {upcoming.length > 0 && (
                 <Alert>
-                  {t('Approved future schedules', 'منظور شدہ آئندہ اوقات')}:{' '}
+                  {t('Published future schedules', 'شائع شدہ آئندہ اوقات')}:{' '}
                   {upcoming.map((p) => (
                     <p key={p.id}>
                       {p.effective} ·{' '}
@@ -268,7 +273,16 @@ export function MosqueDetails() {
               {notices.length ? (
                 notices.map((n) => (
                   <Link to={'/notice/' + n.id} className="notice-row" key={n.id}>
-                    <CalendarDays />
+                    {n.imageUrl ? (
+                      <NoticeImage
+                        key={n.imageUrl}
+                        src={n.imageUrl}
+                        title={n.title}
+                        compact
+                      />
+                    ) : (
+                      <CalendarDays />
+                    )}
                     <div>
                       <Badge tone="neutral">{tr(n.category)}</Badge>
                       <h3>{n.title}</h3>
@@ -287,10 +301,16 @@ export function MosqueDetails() {
           <Panel title={t('Timing confidence', 'اوقات پر اعتماد')}>
             <ShieldCheck className="green-text" size={30} />
             <dl className="definition-list">
-              <dt>{t('Last phone verification', 'آخری فون تصدیق')}</dt>
+              <dt>{t('Registration contact check', 'اندراج کے رابطے کی جانچ')}</dt>
               <dd>{v.phoneVerified || t('Not recorded', 'درج نہیں')}</dd>
               <dt>{t('Representative reconfirmation', 'نمائندے کی دوبارہ تصدیق')}</dt>
-              <dd>{v.reconfirmed}</dd>
+              <dd>
+                {v.reconfirmed
+                  ? displayDate(v.reconfirmed, true)
+                  : t('Not recorded', 'درج نہیں')}
+              </dd>
+              <dt>{t('Confirmation status', 'اوقات کی تصدیق کی حالت')}</dt>
+              <dd>{t(v.freshness?.status || 'Not recorded')}</dd>
               <dt>{t('Maintenance', 'دیکھ بھال')}</dt>
               <dd>{tr(v.status)}</dd>
             </dl>

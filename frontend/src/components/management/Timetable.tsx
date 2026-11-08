@@ -19,7 +19,7 @@ export function Timetable({
         <thead>
           <tr>
             <th>{t('Congregation', 'جماعت')}</th>
-            {before && <th>{t('Currently approved', 'موجودہ منظور شدہ')}</th>}
+            {before && <th>{t('Current time', 'موجودہ وقت')}</th>}
             <th>
               {t(
                 before ? 'Proposed time' : 'Jama’at time',

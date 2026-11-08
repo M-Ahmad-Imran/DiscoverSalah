@@ -4,9 +4,11 @@ import { ButtonLink } from '../../components/ui/ButtonLink';
 import { Empty } from '../../components/ui/Empty';
 import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
+import { NoticeImage } from '../../components/ui/NoticeImage';
 import { noticeState } from '../../domain/notices';
 import { useApp } from '../../hooks/useApp';
 import { useNow } from '../../hooks/useNow';
+import { displayDate } from '../../i18n/translate';
 
 export function NoticeDetail() {
   const { id } = useParams();
@@ -26,11 +28,12 @@ export function NoticeDetail() {
       <Panel>
         <Badge>{t('Approved notice', 'منظور شدہ اعلان')}</Badge>
         <p>{n.body}</p>
+        {n.imageUrl && <NoticeImage key={n.imageUrl} src={n.imageUrl} title={n.title} />}
         <dl className="definition-list">
           <dt>{t('Event', 'تقریب')}</dt>
-          <dd>{n.event}</dd>
+          <dd>{displayDate(n.event, true)}</dd>
           <dt>{t('Expires', 'اختتام')}</dt>
-          <dd>{n.expires}</dd>
+          <dd>{displayDate(n.expires, true)}</dd>
         </dl>
         <ButtonLink to={'/mosque/' + n.venueId}>
           {t('View mosque', 'مسجد دیکھیں')}

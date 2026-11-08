@@ -18,15 +18,17 @@ export function Root() {
       <a href="#main-content" className="skip-link">
         {t('Skip to content', 'مواد پر جائیں')}
       </a>
-      <div className="demo-strip">
-        {t('LOCAL WORKSPACE', 'مقامی ورک اسپیس')}
-        <span>
-          {t(
-            'Connected database · Route estimates unavailable',
-            'ڈیٹابیس منسلک · راستے کا تخمینہ دستیاب نہیں',
-          )}
-        </span>
-      </div>
+      {import.meta.env.DEV && (
+        <div className="demo-strip">
+          {t('LOCAL WORKSPACE', 'مقامی ورک اسپیس')}
+          <span>
+            {t(
+              'Connected database · Route estimates unavailable',
+              'ڈیٹابیس منسلک · راستے کا تخمینہ دستیاب نہیں',
+            )}
+          </span>
+        </div>
+      )}
       {!online && (
         <div className="offline" role="status">
           {t(

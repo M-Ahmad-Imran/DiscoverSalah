@@ -29,8 +29,8 @@ export function Contribute() {
           <h2>{t('Local Representative', 'مقامی نمائندہ')}</h2>
           <p>
             {t(
-              'Keep assigned mosque profiles and timetables current. Submit changes for independent review and follow up on reports.',
-              'اپنی مسجد کے اوقات اور معلومات درست رکھیں۔ تبدیلیاں تصدیق کے لیے بھیجیں۔',
+              'Publish your assigned mosque’s timetable and confirm it every 7 days. Follow up on reports.',
+              'اپنی مسجد کے اوقات شائع کریں اور ہر ۷ دن بعد درست ہونے کی تصدیق کریں۔',
             )}
           </p>
           <ul className="check-list">
@@ -50,8 +50,8 @@ export function Contribute() {
           <h2>{t('Focal Person', 'فوکل پرسن')}</h2>
           <p>
             {t(
-              'Support your area’s representatives. Call registered Imams, independently verify submissions and help resolve local issues.',
-              'نمائندوں کی مدد کریں، امام سے فون پر تصدیق کریں اور مسائل حل کریں۔',
+              'Monitor timetable confirmations, call or visit after 14 days, and replace inactive representatives after checking.',
+              'اوقات کی تصدیق دیکھیں، ۱۴ دن بعد فون یا ملاقات کریں اور جانچ کے بعد غیر فعال نمائندہ بدلیں۔',
             )}
           </p>
           <ul className="check-list">

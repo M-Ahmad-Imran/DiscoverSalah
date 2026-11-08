@@ -1,0 +1,27 @@
+1
+00:00:00,000 --> 00:00:11,875
+Representatives publish directly. Your role is to monitor confirmations and follow up with inactive representatives.
+
+2
+00:00:11,875 --> 00:00:23,417
+Open the 14-day follow-up card or Maintenance & coverage. Filter for overdue confirmations.
+
+3
+00:00:23,417 --> 00:00:35,500
+Day 7: confirmation reminder. Day 14: focal follow-up. Overdue does not automatically mean incorrect times.
+
+4
+00:00:35,500 --> 00:00:48,375
+Call or visit. Record the method, outcome and private notes. If nobody answers, record No contact.
+
+5
+00:00:48,375 --> 00:01:00,167
+Investigate first. Assign a suitable replacement with a reason. The old representative loses access to that mosque.
+
+6
+00:01:00,167 --> 00:01:13,167
+For urgent focal corrections, contact the imam or representative first. Record Phone/Visit and the source before publishing.
+
+7
+00:01:13,167 --> 00:01:25,708
+Registration, identity changes and notices keep their own review rules. Weekly representative confirmation remains separate.

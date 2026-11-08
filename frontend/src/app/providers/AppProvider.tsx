@@ -13,6 +13,7 @@ import { screenRequest } from '../../services/screenRequest';
 import { Draft } from '../../types/draft';
 import { Database } from '../../types/index';
 import { C } from '../context';
+import { ServerConnectionStatus } from '../../components/ui/ServerConnectionStatus';
 const empty: Database = {
   venues: [],
   proposals: [],
@@ -192,9 +193,12 @@ export function Provider({ children }: { children: ReactNode }) {
   }
   if (loading)
     return (
-      <div className="container narrow" role="status">
-        {tr('Loading…')}{' '}
-      </div>
+      <>
+        <ServerConnectionStatus />
+        <div className="container narrow" role="status">
+          {tr('Loading…')}{' '}
+        </div>
+      </>
     );
   return (
     <C.Provider
@@ -236,6 +240,7 @@ export function Provider({ children }: { children: ReactNode }) {
         online,
       }}
     >
+      <ServerConnectionStatus />
       {failure && (
         <div className="container" role="alert">
           {tr(failure)}{' '}

@@ -1,4 +1,5 @@
 import { randomUUID } from "node:crypto";
+import { mkdir } from "node:fs/promises";
 import { createRequire } from "node:module";
 import { spawn } from "node:child_process";
 import { MongoMemoryReplSet } from "mongodb-memory-server";
@@ -68,6 +69,7 @@ await d.areas.insertOne({
   revision: 0,
 });
 venue = {
+  identityApprovedAt: new Date(),
   _id: randomUUID(),
   name: "Synthetic Mosque",
   urdu: "نمونہ",
@@ -146,6 +148,31 @@ try {
     (dialog: { accept(): Promise<void> }) => void dialog.accept(),
   );
   page.setDefaultTimeout(60000);
+  const training = new URL("../../video/workflow-v2-assets/", import.meta.url);
+  await mkdir(training, { recursive: true });
+  const shot = async (name: string) => {
+    await page.locator("main h1").first().waitFor();
+    const dismiss = page.getByRole("button", {
+      name: "Dismiss guide",
+      exact: true,
+    });
+    if (await dismiss.isVisible()) await dismiss.click();
+    await page.setViewportSize({ width: 1150, height: 800 });
+    await page.evaluate(
+      () =>
+        new Promise<void>((resolve) =>
+          requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+        ),
+    );
+    await page.screenshot({
+      path: new URL(name + ".png", training).pathname.replace(
+        /^\/([A-Za-z]:)/,
+        "$1",
+      ),
+      fullPage: true,
+    });
+    await page.setViewportSize({ width: 390, height: 844 });
+  };
   const errors: string[] = [];
   page.on("pageerror", (e: Error) => errors.push(e.message));
   async function signIn(number: string) {
@@ -157,6 +184,79 @@ try {
     await page.getByRole("button", { name: "Sign in", exact: true }).click();
   }
   const googleRequests: string[] = [];
+  // A cold gateway must show a helpful status and recover before API calls.
+  let ready = false;
+  await page.route("**/health/ready", async (route: any) => {
+    if (!ready) await route.fulfill({ status: 503, body: "Starting" });
+    else await route.continue();
+  });
+  await page.goto(c.WEB_ORIGIN + "/location", {
+    waitUntil: "domcontentloaded",
+  });
+  await page
+    .getByRole("status")
+    .filter({ hasText: "Connecting to the server" })
+    .waitFor();
+  ready = true;
+  await page
+    .getByRole("button", { name: "Use my current location", exact: true })
+    .waitFor();
+  await page.unroute("**/health/ready");
+  await shot("public-discovery");
+  await page.screenshot({
+    path: "../.project-reference/location-mobile-en.png",
+    fullPage: true,
+  });
+  await page.getByRole("button", { name: "اردو", exact: true }).click();
+  await page
+    .getByRole("button", { name: "مساجد دکھائیں", exact: true })
+    .waitFor();
+  if (
+    await page.evaluate(
+      () => document.documentElement.scrollWidth > window.innerWidth + 1,
+    )
+  )
+    throw Error("Urdu location page overflows");
+  await page.screenshot({
+    path: "../.project-reference/location-mobile-ur.png",
+    fullPage: true,
+  });
+  await page.getByRole("button", { name: "English", exact: true }).click();
+  if ((await page.locator("details").getAttribute("open")) !== null)
+    throw Error("Coordinates should be optional and collapsed");
+  await page.getByLabel("City", { exact: true }).fill("Lahore");
+  await page.getByRole("button", { name: "Show mosques", exact: true }).click();
+  await page.waitForURL("**/results?*");
+  if (new URL(page.url()).searchParams.get("scope") !== "city")
+    throw Error("Manual city browsing failed");
+  await page.context().grantPermissions(["geolocation"]);
+  await page.context().setGeolocation({ latitude: 31.5, longitude: 74.3 });
+  await page.goto(c.WEB_ORIGIN + "/location?city=WrongCity");
+  await page
+    .getByRole("button", { name: "Use my current location", exact: true })
+    .click();
+  await page
+    .getByLabel("Location label (optional)", { exact: true })
+    .filter({ visible: true })
+    .waitFor();
+  await page.waitForFunction(
+    () =>
+      (document.querySelector('input[type="number"]') as HTMLInputElement)
+        ?.value !== "",
+  );
+  await page.getByRole("button", { name: "Show mosques", exact: true }).click();
+  await page.waitForURL("**/results?*");
+  const nearbyUrl = new URL(page.url());
+  if (
+    nearbyUrl.searchParams.has("city") ||
+    nearbyUrl.searchParams.get("scope") !== "nearby"
+  )
+    throw Error("GPS must not retain a conflicting city");
+  const overflow = await page.evaluate(
+    () => document.documentElement.scrollWidth > window.innerWidth + 1,
+  );
+  if (overflow) throw Error("Mobile results overflow");
+  console.info("Cold start, manual city and GPS discovery passed at 390px.");
   page.on("request", (request: { url(): string }) => {
     if (/google\.com|googleapis\.com|gstatic\.com/.test(request.url()))
       googleRequests.push(request.url());
@@ -251,16 +351,24 @@ try {
     .focus();
   await page.keyboard.press("Enter");
   await page.waitForURL("**/review-changes");
+  await page.getByRole("button", { name: "Publish timetable", exact: true }).waitFor();
+  await shot("publish-preview");
   await page.getByRole("checkbox").check();
   await page
-    .getByRole("button", { name: "Submit for verification", exact: true })
+    .getByRole("button", { name: "Publish timetable", exact: true })
     .click();
   await page.waitForURL("**/manage/submissions/*");
   const submitted = await d.proposals.findOne({
     venueId: venue._id,
-    state: "Submitted",
+    state: "Published",
   });
   if (!submitted) throw Error("Timetable submission did not persist");
+  await shot("published");
+  await page.goto(c.WEB_ORIGIN + "/manage/mosques/" + venue._id);
+  await page
+    .getByRole("button", { name: "Confirm timings unchanged", exact: true })
+    .waitFor();
+  await shot("confirmation");
   console.info(
     "Representative mobile editor and timetable submission persisted.",
   );
@@ -355,35 +463,59 @@ try {
   await page.context().clearCookies();
   await signIn("+12025550102");
   await page.waitForURL("**/manage");
-  await page.goto(c.WEB_ORIGIN + "/manage/review/" + submitted._id);
+  await d.venues.updateOne(
+    { _id: venue._id },
+    { $set: { reconfirmedAt: new Date(Date.now() - 15 * 86400000) } },
+  );
+  await page.goto(c.WEB_ORIGIN + "/manage/maintenance?freshness=overdue");
   await page
-    .getByRole("radio", { name: "Confirmed as submitted", exact: true })
-    .check();
-  await page.getByLabel("Person spoken to").fill("Synthetic Imam");
+    .getByText("Record a call or visit", { exact: true })
+    .first()
+    .click();
+  await shot("follow-up");
   await page
-    .getByLabel("Call date & time (PKT)")
-    .fill(new Date(Date.now() + 5 * 3600000).toISOString().slice(0, 16));
+    .getByLabel("Private contact notes")
+    .first()
+    .fill("Called the imam; representative needs to confirm today's times");
   await page
-    .getByLabel("Private verification notes")
-    .fill("All proposed times confirmed in synthetic test");
-  await page.getByRole("checkbox").check();
-  await page
-    .getByRole("button", { name: "Approve verified timings", exact: true })
+    .getByRole("button", { name: "Save follow-up", exact: true })
+    .first()
     .click();
   await page
-    .getByRole("button", { name: "Confirm decision", exact: true })
-    .click();
-  await page.waitForURL("**/manage/submissions/*");
-  if ((await d.proposals.findOne({ _id: submitted._id }))?.state !== "Approved")
-    throw Error("Approval did not persist");
-  console.info("Independent focal review and approval persisted.");
+    .getByRole("status")
+    .filter({ hasText: "Follow-up recorded" })
+    .waitFor();
+  if (
+    !(await d.db
+      .collection("timetableFollowUps")
+      .findOne({ venueId: venue._id }))
+  )
+    throw Error("Follow-up missing");
+  if (
+    (await d.proposals.findOne({ _id: submitted._id }))?.state !== "Published"
+  )
+    throw Error("Direct publication changed");
+  console.info(
+    "Direct publishing and focal 14-day follow-up passed without approval.",
+  );
+  await page.goto(c.WEB_ORIGIN + "/manage/mosques/" + venue._id + "/edit");
+  await page.getByLabel("Reason for change").fill("Confirmed correction with the imam by phone");
+  await page.getByRole("button", { name: "Review changes", exact: true }).click();
+  await page.waitForURL("**/review-changes");
+  await page.getByRole("button", { name: "Publish timetable", exact: true }).waitFor();
+  await shot("focal-correction");
   await page.goto(c.WEB_ORIGIN + "/manage/notices/new");
+  const nextOptionsResponse = page.waitForResponse(
+    (response: { url(): string; status(): number }) =>
+      response.url().includes("/management/workspace?view=venues") &&
+      response.url().includes("cursor=") &&
+      response.status() === 200,
+  );
   await page.getByRole("button", { name: "More options", exact: true }).click();
   await page.getByRole("button", { name: "First page", exact: true }).waitFor();
-  const options = await page
-    .getByLabel("Mosque", { exact: true })
-    .locator("option")
-    .evaluateAll((rows: { value: string }[]) => rows.map((row) => row.value));
+  // Wait for the requested page, not the previous options still visible during loading.
+  const options = (await (await nextOptionsResponse).json()).page
+    .ids as string[];
   const chosen = options[options.length - 1];
   await page.getByLabel("Mosque", { exact: true }).selectOption(chosen);
   await page.getByRole("button", { name: "First page", exact: true }).click();
@@ -423,6 +555,155 @@ try {
     throw Error("Credentials did not persist");
   console.info("Focal credential issuance persisted in isolated MongoDB.");
   await page.context().clearCookies();
+  await signIn("+12025550104");
+  await page.waitForURL("**/mfa");
+  await page.locator('[name="code"]').fill(
+    new OTPAuth.TOTP({
+      secret: OTPAuth.Secret.fromBase32(secret),
+    }).generate(),
+  );
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
+  await page.waitForURL("**/manage");
+  await page.goto(c.WEB_ORIGIN + "/manage/areas");
+  await page.getByRole("button", { name: "Add area", exact: true }).click();
+  await page
+    .getByLabel("Area name", { exact: true })
+    .fill("Assignment regression area");
+  await page.getByLabel("City", { exact: true }).fill("Test city");
+  await page
+    .getByRole("button", {
+      name: "Add area with responsibility gap",
+      exact: true,
+    })
+    .click();
+  await page
+    .getByRole("heading", { name: "Assignment regression area", exact: true })
+    .waitFor();
+  const assignmentArea = await d.areas.findOne({
+    name: "Assignment regression area",
+  });
+  if (!assignmentArea) throw Error("Assignment test area missing");
+  await page.goto(c.WEB_ORIGIN + "/manage/accounts/invite");
+  await page.getByLabel("Full name").fill("New assignment focal");
+  await page.getByLabel("Contact number", { exact: true }).fill("+12025550119");
+  await page.getByLabel("Assigned area").selectOption(assignmentArea._id);
+  await page
+    .getByLabel("Reason / reference checks")
+    .fill("Synthetic authority independently checked");
+  await page.getByRole("checkbox").check();
+  await page
+    .getByRole("button", { name: "Create credentials", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "I have handed over the credentials" })
+    .waitFor();
+  const assignmentFocal = await d.accounts.findOne({
+    name: "New assignment focal",
+  });
+  const assignmentRep = await d.accounts.findOne({
+    name: "Browser representative",
+  });
+  if (!assignmentFocal || !assignmentRep)
+    throw Error("New assignment accounts missing");
+  await page.goto(
+    c.WEB_ORIGIN +
+      "/manage/assignments?area=" +
+      encodeURIComponent(assignmentArea.name),
+  );
+  await page
+    .getByLabel("Authorized assignee", { exact: true })
+    .selectOption(assignmentFocal._id);
+  async function saveAfterRefresh() {
+    await page
+      .getByLabel("Mandatory reason", { exact: true })
+      .fill("Synthetic assignment after background refresh");
+    await page.getByRole("checkbox").check();
+    const refreshed = page.waitForResponse(
+      (r: any) =>
+        r.url().includes("/management/workspace?") &&
+        new URL(r.url()).searchParams.get("view") === "form" &&
+        r.status() === 200,
+    );
+    await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+    await refreshed;
+    // Allow React to apply the smaller payload. No search, reselect or reload workaround.
+    await page.waitForTimeout(300);
+    const saved = page.waitForResponse(
+      (r: any) =>
+        r.url().endsWith("/management/assignments") &&
+        r.request().method() === "POST",
+      { timeout: 15000 },
+    );
+    await page
+      .getByRole("button", { name: "Commit assignment", exact: true })
+      .click({ timeout: 15000 });
+    const response = await saved;
+    if (response.status() !== 200)
+      throw Error("Assignment save failed: " + response.status());
+    await page.waitForFunction(
+      () =>
+        document.querySelector<HTMLInputElement>('form input[type="checkbox"]')
+          ?.checked === false,
+    );
+  }
+  await saveAfterRefresh();
+  if (
+    (await d.areas.findOne({ _id: assignmentArea._id }))?.focalId !==
+    assignmentFocal._id
+  )
+    throw Error("New focal assignment failed after refresh");
+  console.info("New focal assignment persisted after refresh.");
+  await page
+    .getByLabel("Operation", { exact: true })
+    .selectOption("representative");
+  // The fixture has more than one page of venues. Find the target normally
+  // before selecting it; do not search/reselect after the forced refresh.
+  await page
+    .getByRole("searchbox", { name: "Search available records", exact: true })
+    .first()
+    .fill(venue.name);
+  await page
+    .getByLabel("Target mosque or area", { exact: true })
+    .selectOption(venue._id);
+  await page
+    .getByLabel("Authorized assignee", { exact: true })
+    .selectOption(assignmentRep._id);
+  await saveAfterRefresh();
+  if ((await d.venues.findOne({ _id: venue._id }))?.repId !== assignmentRep._id)
+    throw Error("Representative assignment failed after refresh");
+  console.info("Representative assignment persisted after refresh.");
+  await page.getByLabel("Operation", { exact: true }).selectOption("backup");
+  await page
+    .getByLabel("Target mosque or area", { exact: true })
+    .selectOption(venue._id);
+  await page
+    .getByLabel("Authorized assignee", { exact: true })
+    .selectOption(assignmentFocal._id);
+  const start = new Date(Date.now() + 5 * 3600000 + 3600000)
+    .toISOString()
+    .slice(0, 16);
+  const end = new Date(Date.now() + 5 * 3600000 + 7200000)
+    .toISOString()
+    .slice(0, 16);
+  await page
+    .getByLabel("Starts at (Pakistan time)", { exact: true })
+    .fill(start);
+  await page.getByLabel("Ends at (Pakistan time)", { exact: true }).fill(end);
+  await saveAfterRefresh();
+  if (
+    (await d.venues.findOne({ _id: venue._id }))?.backup?.reviewerId !==
+    assignmentFocal._id
+  )
+    throw Error("Backup assignment failed after refresh");
+  console.info(
+    "New focal, representative and backup assignments survive background refresh without reselecting.",
+  );
+  await page.context().clearCookies();
+  // The next login must use a new TOTP step; clear the synthetic fixture's replay marker.
+  await d.accounts.updateOne(
+    { _id: admin._id },
+    { $unset: { mfaLastStep: "" } },
+  );
   await d.accounts.updateOne(
     { _id: admin._id },
     {
@@ -452,6 +733,14 @@ try {
   await page.waitForURL("**/sign-in");
   if ((await d.accounts.findOne({ _id: admin._id }))?.mustChangePassword)
     throw Error("First password change was not persisted");
+  await page.goto(c.WEB_ORIGIN + "/recovery");
+  await page
+    .getByText("Administrators should contact the trusted server operator", {
+      exact: false,
+    })
+    .waitFor();
+  if (await page.locator("input[type=email]").count())
+    throw Error("Removed email recovery form is still visible");
   if (errors.length) throw Error(errors.join("; "));
   console.info(
     "Admin MFA and mandatory first password change passed; no browser runtime errors.",

@@ -15,6 +15,14 @@ export interface SpecialSession {
 }
 
 export interface Venue {
+  freshness?: {
+    days: number;
+    status: 'Current' | 'Confirmation due' | 'Follow-up needed';
+    reminderAt: string;
+    followUpAt: string;
+  };
+  lastFollowUpAt?: string;
+  lastFollowUpOutcome?: string;
   registrationRelationship?: string;
   city?: string;
   initialEffective?: string;
@@ -101,6 +109,8 @@ export interface RequestRecord {
 }
 
 export interface Notice {
+  imageId?: string;
+  imageUrl?: string | null;
   revision?: number;
   replacesId?: string;
   id: string;

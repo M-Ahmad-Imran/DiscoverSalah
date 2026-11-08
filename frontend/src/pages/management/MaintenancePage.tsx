@@ -9,10 +9,13 @@ import { useApp } from '../../hooks/useApp';
 import { useScopedVenues } from '../../hooks/useScopedVenues';
 import { tr } from '../../i18n/translate';
 import { today } from '../../utils/date';
+import { TimetableFollowUp } from '../../components/management/TimetableFollowUp';
+import { useScreenFilter } from '../../hooks/useScreenFilter';
 
 export function Maintenance() {
   const { db, role, t, mutate } = useApp();
   const venues = useScopedVenues();
+  const [freshness, setFreshness] = useScreenFilter('freshness', 'all');
   if (role === 'representative') return <AccessDenied />;
   return (
     <>
@@ -25,13 +28,36 @@ export function Maintenance() {
       />
       <Alert>
         {t(
-          'Dates are evidence, not expiry guarantees. A freshness threshold has not yet been approved.',
-          'تاریخیں شواہد ہیں، درستگی کی ضمانت نہیں۔ تازگی کی مدت ابھی منظور نہیں ہوئی۔',
+          'Representatives check times every 7 days. After 14 days, call or visit. Overdue confirmation does not automatically mean incorrect times or remove a mosque.',
+          'نمائندے ہر ۷ دن بعد اوقات چیک کریں۔ ۱۴ دن بعد فون یا ملاقات کریں۔ تاخیر کا مطلب غلط اوقات نہیں اور مسجد خود بخود نہیں ہٹے گی۔',
         )}
       </Alert>
+      <label>
+        {t('Confirmation status', 'تصدیق کی حالت')}{' '}
+        <select value={freshness} onChange={(e) => setFreshness(e.target.value)}>
+          <option value="all">{t('All mosques', 'تمام مساجد')}</option>
+          <option value="due">
+            {t('7+ days: confirmation due', '۷ دن: تصدیق درکار')}
+          </option>
+          <option value="overdue">
+            {t('14+ days: follow-up needed', '۱۴ دن: رابطہ درکار')}
+          </option>
+        </select>
+      </label>
       <div className="two-grid spaced">
         {venues.map((v) => (
           <Panel key={v.id} title={v.name}>
+            <p>
+              {t(v.freshness?.status || 'Not recorded')} · {v.freshness?.days ?? '—'}{' '}
+              {t('days', 'دن')}
+            </p>
+            {v.lastFollowUpAt && (
+              <p>
+                {t('Last follow-up', 'آخری رابطہ')}: {v.lastFollowUpAt.slice(0, 10)} ·{' '}
+                {t(v.lastFollowUpOutcome || '')}
+              </p>
+            )}
+            <TimetableFollowUp venue={v} />
             <Badge tone={v.rep && v.focal ? 'green' : 'amber'}>
               {t(
                 v.rep && v.focal ? 'Assigned ownership' : 'Ownership gap',

@@ -14,5 +14,7 @@ export function status(
   if (v.status !== 'Published') return t('Maintenance pending', 'دیکھ بھال زیر التوا');
   return under
     ? t('Timing under review', 'اوقات زیر تصدیق')
-    : t('Phone verification recorded', 'فون تصدیق درج ہے');
+    : v.freshness?.status === 'Follow-up needed'
+      ? t('Published times — confirmation overdue', 'شائع شدہ اوقات — تازہ تصدیق درکار')
+      : t('Published timetable', 'شائع شدہ اوقات');
 }

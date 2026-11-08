@@ -17,7 +17,10 @@ export function Submissions({ review = false }: { review?: boolean }) {
   const [q, setQ] = useScreenFilter('q', '');
   const [filter, setFilter] = useScreenFilter('status', review ? 'Submitted' : 'All');
   if (review && role === 'representative') return <AccessDenied />;
-  const rows = db.proposals.filter(p => (!db.page || db.page.ids.includes(p.id)) && venues.some(v => v.id === p.venueId));
+  const rows = db.proposals.filter(
+    (p) =>
+      (!db.page || db.page.ids.includes(p.id)) && venues.some((v) => v.id === p.venueId),
+  );
   return (
     <>
       <PageTitle
@@ -42,13 +45,19 @@ export function Submissions({ review = false }: { review?: boolean }) {
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
         >
-          {['All', 'Submitted', 'Approved', 'Returned', 'Rejected', 'Superseded'].map(
-            (s) => (
-              <option key={s} value={s}>
-                {tr(s)}
-              </option>
-            ),
-          )}
+          {[
+            'All',
+            'Published',
+            'Submitted',
+            'Approved',
+            'Returned',
+            'Rejected',
+            'Superseded',
+          ].map((s) => (
+            <option key={s} value={s}>
+              {tr(s)}
+            </option>
+          ))}
         </select>
       </div>
       <Panel>
@@ -75,7 +84,7 @@ export function Submissions({ review = false }: { review?: boolean }) {
                   <td>
                     <Badge
                       tone={
-                        p.state === 'Approved'
+                        ['Approved', 'Published'].includes(p.state)
                           ? 'green'
                           : p.state === 'Rejected'
                             ? 'red'

@@ -7,10 +7,19 @@ import { Field } from '../../components/ui/Field';
 import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { RecordSelect } from '../../components/ui/RecordSelect';
+import {
+  NoticeImagePicker,
+  type NoticeAttachment,
+} from '../../components/ui/NoticeImagePicker';
 import { useApp } from '../../hooks/useApp';
 import { useScopedVenues } from '../../hooks/useScopedVenues';
 import { useUnsavedChanges } from '../../hooks/useUnsavedChanges';
 import { tr } from '../../i18n/translate';
+
+const pakistanInputTime = (value?: string) =>
+  value
+    ? new Date(Date.parse(value) + 5 * 3600000).toISOString().slice(0, 16)
+    : undefined;
 
 export function NoticeForm() {
   const { id } = useParams();
@@ -20,6 +29,17 @@ export function NoticeForm() {
   const n = db.notices.find((n) => n.id === id);
   const navigate = useNavigate();
   const [dirty, setDirty] = useState(false);
+  const [venueId, setVenueId] = useState(
+    n?.venueId || params.get('venue') || venues[0]?.id || '',
+  );
+  const [attachment, setAttachment] = useState<NoticeAttachment | null>(
+    n?.imageId && n.imageUrl && n.author === actor && Date.parse(n.expires) > Date.now()
+      ? { id: n.imageId, previewUrl: n.imageUrl, attachBefore: n.expires }
+      : null,
+  );
+  const [imageBlocked, setImageBlocked] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState('');
   const allowLeave = useUnsavedChanges(dirty);
   if (n && !venues.some((v) => v.id === n.venueId)) return <AccessDenied />;
   return (
@@ -37,6 +57,20 @@ export function NoticeForm() {
           onSubmit={async (e) => {
             try {
               e.preventDefault();
+              if (saving || imageBlocked) return;
+              setError('');
+              if (
+                attachment?.attachBefore &&
+                Date.parse(attachment.attachBefore) <= Date.now()
+              ) {
+                setError(
+                  t(
+                    'This image has expired. Remove it or upload it again.',
+                    'اس تصویر کی مدت ختم ہو گئی ہے۔ اسے ہٹائیں یا دوبارہ اپ لوڈ کریں۔',
+                  ),
+                );
+                return;
+              }
               const savingDraft =
                 (e.nativeEvent as SubmitEvent).submitter?.getAttribute('value') ===
                 'draft';
@@ -56,8 +90,9 @@ export function NoticeForm() {
                 e.currentTarget.reportValidity();
                 return;
               }
+              setSaving(true);
               await mutate('/management/notices', {
-                venueId: x.venue,
+                venueId,
                 title: x.title,
                 body: x.body,
                 category: x.category,
@@ -66,11 +101,14 @@ export function NoticeForm() {
                 source: x.source,
                 draft: savingDraft,
                 ...(n ? { replacesId: n.id } : {}),
+                ...(attachment ? { imageId: attachment.id } : {}),
               });
               allowLeave();
               navigate('/manage/notices');
-            } catch {
-              return;
+            } catch (e) {
+              setError((e as Error).message);
+            } finally {
+              setSaving(false);
             }
           }}
         >
@@ -79,7 +117,15 @@ export function NoticeForm() {
               <RecordSelect
                 resource="venues"
                 name="venue"
-                defaultValue={n?.venueId || params.get('venue') || venues[0]?.id}
+                required
+                value={venueId}
+                disabled={saving || !!n}
+                onChange={(e) => {
+                  setVenueId(e.target.value);
+                  setAttachment(null);
+                  setImageBlocked(false);
+                  setDirty(true);
+                }}
               >
                 {venues.map((v) => (
                   <option key={v.id} value={v.id}>
@@ -104,13 +150,33 @@ export function NoticeForm() {
           <Field label={t('Public details', 'عوامی تفصیلات')}>
             <textarea name="body" defaultValue={n?.body} required rows={4} />
           </Field>
+          <fieldset disabled={saving} className="notice-image-fieldset">
+            {n?.imageId && n.author !== actor && (
+              <p>
+                {t(
+                  'To include a poster in your revision, upload your own copy. Another author’s image cannot be reused.',
+                  'اپنی ترمیم میں تصویر شامل کرنے کے لیے نئی کاپی اپ لوڈ کریں۔ دوسرے لکھنے والے کی تصویر دوبارہ استعمال نہیں ہو سکتی۔',
+                )}
+              </p>
+            )}
+            <NoticeImagePicker
+              key={venueId}
+              venueId={venueId}
+              value={attachment}
+              onChange={(value) => {
+                setAttachment(value);
+                setDirty(true);
+              }}
+              onBlocked={setImageBlocked}
+            />
+          </fieldset>
           <div className="two-grid">
             <Field label={t('Event date & time', 'تقریب کی تاریخ اور وقت')}>
               <input
                 name="event"
                 type="datetime-local"
                 required
-                defaultValue={n?.event}
+                defaultValue={pakistanInputTime(n?.event)}
               />
             </Field>
             <Field label={t('Expiry date & time', 'اختتام کی تاریخ اور وقت')}>
@@ -118,7 +184,7 @@ export function NoticeForm() {
                 name="expires"
                 type="datetime-local"
                 required
-                defaultValue={n?.expires}
+                defaultValue={pakistanInputTime(n?.expires)}
                 onInput={(e) => e.currentTarget.setCustomValidity('')}
               />
             </Field>
@@ -138,6 +204,7 @@ export function NoticeForm() {
             )}
           </Alert>
           <button
+            disabled={saving || imageBlocked}
             type="submit"
             name="intent"
             value="draft"
@@ -146,7 +213,13 @@ export function NoticeForm() {
           >
             {t('Save draft', 'مسودہ محفوظ کریں')}
           </button>
-          <button type="submit" name="intent" value="submit">
+          {error && <p role="alert">{error}</p>}
+          <button
+            type="submit"
+            name="intent"
+            value="submit"
+            disabled={saving || imageBlocked}
+          >
             {t('Submit for moderation', 'جائزے کے لیے بھیجیں')}
             <Send size={17} />
           </button>

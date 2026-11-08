@@ -1,7 +1,11 @@
 import { randomUUID } from "node:crypto";
 import type { Database } from "../db/database.js";
 /** Durable in-account notifications. Lease + deterministic notification ID make retries safe. */
-export async function deliverOne(d: Database, now = new Date()) {
+export async function deliverOne(
+  d: Database,
+  now = new Date(),
+  onFailure = () => {},
+) {
   const leaseToken = randomUUID();
   const job = await d.outbox.findOneAndUpdate(
     {
@@ -51,6 +55,7 @@ export async function deliverOne(d: Database, now = new Date()) {
       );
     });
   } catch {
+    onFailure();
     await d.outbox.updateOne(
       { _id: job._id, leaseToken },
       {

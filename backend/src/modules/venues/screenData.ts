@@ -18,6 +18,7 @@ import type { Change } from "./changes.js";
 import { venueScope } from "./routes.js";
 import { date, id, today, prayers } from "../../lib/validation.js";
 import { assert } from "../../lib/errors.js";
+import { freshnessFilter } from "../schedules/freshness.js";
 
 export const screenQuery = z
   .object({
@@ -68,6 +69,7 @@ export const screenQuery = z
     person: id.optional(),
     due: z.enum(["all", "past", "future"]).default("all"),
     urgent: z.enum(["true", "false"]).default("false"),
+    freshness: z.enum(["all", "due", "overdue"]).default("all"),
   })
   .strict();
 export type ScreenQuery = z.infer<typeof screenQuery>;
@@ -267,6 +269,12 @@ export async function loadScreen(
         ? [{ kind: q.kind }]
         : []),
       ...(state ? [{ status: state }] : []),
+      ...(q.freshness !== "all"
+        ? [
+            { status: "Published" },
+            freshnessFilter(q.freshness === "due" ? 7 : 14),
+          ]
+        : []),
     ],
   };
   if (
@@ -394,7 +402,11 @@ export async function loadScreen(
           accountScope,
           filter(["name", "_id"]),
           ...(q.view === "account" ? [{ _id: q.id || actor?._id }] : []),
-          ...(q.role ? [{ role: q.role }] : q.view === "accounts" && actor?.role === "focal" ? [{role:"representative"}] : []),
+          ...(q.role
+            ? [{ role: q.role }]
+            : q.view === "accounts" && actor?.role === "focal"
+              ? [{ role: "representative" }]
+              : []),
         ],
       }),
     );
@@ -670,7 +682,7 @@ export async function loadScreen(
             pipeline: [
               {
                 $match: {
-                  state: "Approved",
+                  state: { $in: ["Approved", "Published"] },
                   "snapshot.effective": { $lte: q.date },
                 },
               },
@@ -702,7 +714,7 @@ export async function loadScreen(
                 pipeline: [
                   {
                     $match: {
-                      state: "Approved",
+                      state: { $in: ["Approved", "Published"] },
                       "snapshot.effective": { $gt: q.date },
                     },
                   },
@@ -817,6 +829,12 @@ export async function loadScreen(
   }
   if (q.view === "dashboard") {
     result.counts.venues = await d.venues.countDocuments(scope);
+    result.counts.confirmationDue = await d.venues.countDocuments({
+      $and: [scope, { status: "Published" }, freshnessFilter(7)],
+    });
+    result.counts.followUpNeeded = await d.venues.countDocuments({
+      $and: [scope, { status: "Published" }, freshnessFilter(14)],
+    });
     result.counts.maintenance = await d.venues.countDocuments({
       $and: [scope, { status: { $ne: "Published" } }],
     });
@@ -880,7 +898,7 @@ async function discover(d: Database, scope: Document, q: ScreenQuery) {
         pipeline: [
           {
             $match: {
-              state: "Approved",
+              state: { $in: ["Approved", "Published"] },
               "snapshot.effective": { $lte: q.date },
             },
           },

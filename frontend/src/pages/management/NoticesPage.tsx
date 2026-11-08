@@ -6,18 +6,21 @@ import { Empty } from '../../components/ui/Empty';
 import { Field } from '../../components/ui/Field';
 import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
+import { NoticeImage } from '../../components/ui/NoticeImage';
 import { noticeState } from '../../domain/notices';
 import { useApp } from '../../hooks/useApp';
 import { useNow } from '../../hooks/useNow';
 import { useScopedVenues } from '../../hooks/useScopedVenues';
 import { useScreenFilter } from '../../hooks/useScreenFilter';
-import { tr } from '../../i18n/translate';
+import { tr, displayDate } from '../../i18n/translate';
 
 export function Notices() {
   const { db, role, actor, mutate, t, toast } = useApp();
   const venues = useScopedVenues();
   const now = useNow();
   const [reasons, setReasons] = useState<Record<string, string>>({});
+  const [imageLoaded, setImageLoaded] = useState<Record<string, boolean>>({});
+  const [imageChecked, setImageChecked] = useState<Record<string, boolean>>({});
   const [filter, setFilter] = useScreenFilter('status', 'All');
   const list = db.notices.filter(
     (n) =>
@@ -67,13 +70,23 @@ export function Notices() {
             </Badge>
             <h2>{n.title}</h2>
             <p>{n.body}</p>
+            {n.imageUrl && (
+              <NoticeImage
+                key={n.imageUrl}
+                src={n.imageUrl}
+                title={n.title}
+                onReady={(ready) =>
+                  setImageLoaded((current) => ({ ...current, [n.id]: ready }))
+                }
+              />
+            )}
             <small>
               {db.venues.find((v) => v.id === n.venueId)?.name} · {tr(n.category)}
             </small>
             <dl className="definition-list">
               <dt>{t('Event / expires', 'تقریب / اختتام')}</dt>
               <dd>
-                {n.event} / {n.expires}
+                {displayDate(n.event, true)} / {displayDate(n.expires, true)}
               </dd>
             </dl>
             <details>
@@ -84,6 +97,22 @@ export function Notices() {
               n.author !== actor &&
               n.state === 'Submitted' && (
                 <>
+                  {n.imageUrl && (
+                    <label className="notice-image-confirm">
+                      <input
+                        type="checkbox"
+                        checked={!!imageChecked[n.id]}
+                        disabled={!imageLoaded[n.id]}
+                        onChange={(e) =>
+                          setImageChecked({ ...imageChecked, [n.id]: e.target.checked })
+                        }
+                      />
+                      {t(
+                        'I checked the poster: text is readable, details match, and no private information is exposed.',
+                        'میں نے پوسٹر چیک کیا ہے: تحریر واضح ہے، تفصیلات درست ہیں اور کوئی نجی معلومات شامل نہیں۔',
+                      )}
+                    </label>
+                  )}
                   <Field label={t('Moderation reason', 'جائزے کی وجہ')}>
                     <textarea
                       value={reasons[n.id] || ''}
@@ -123,6 +152,7 @@ export function Notices() {
                 n.author !== actor &&
                 n.state === 'Submitted' && (
                   <button
+                    disabled={!!n.imageUrl && (!imageLoaded[n.id] || !imageChecked[n.id])}
                     onClick={async () => {
                       try {
                         if (!n.source.trim() || Date.parse(n.expires) <= Date.now()) {

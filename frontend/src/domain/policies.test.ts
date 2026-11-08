@@ -86,6 +86,13 @@ describe('scope, proposal and effective date policies', () => {
     expect(resolveTimes(d.venues[0], [p], '2026-12-31').Asr).toBe('16:15');
     expect(resolveTimes(d.venues[0], [p], '2027-01-01').Asr).toBe('16:30');
   });
+  it('resolves directly published versions and preserves future dates', () => {
+    const d = seed();
+    const p = { ...d.proposals[0], state: 'Published', effective: '2027-01-01' };
+    expect(resolveTimes(d.venues[0], [p], '2026-12-31').Asr).toBe('16:15');
+    expect(resolveTimes(d.venues[0], [p], '2027-01-01').Asr).toBe('16:30');
+    expect(pendingPrayer(d.venues[0], [p], 'Asr', '2027-01-01')).toBe(false);
+  });
   it('rejects invalid and incomplete daily times', () => {
     const t = seed().venues[0].times;
     expect(validateTimes(t)).toBe(true);

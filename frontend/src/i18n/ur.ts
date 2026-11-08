@@ -1,4 +1,13 @@
 export const ur: Record<string, string> = {
+  Current: 'تازہ',
+  'Confirmation due': 'اوقات کی تصدیق درکار',
+  'Follow-up needed': 'فون یا ملاقات درکار',
+  'Published timetable': 'شائع شدہ اوقات',
+  'Timetable published': 'اوقات شائع ہو گئے',
+  'Connecting to the server. It may be waking up; please wait up to 90 seconds.':
+    'سرور سے رابطہ ہو رہا ہے۔ اسے شروع ہونے میں وقت لگ سکتا ہے؛ براہِ کرم ۹۰ سیکنڈ تک انتظار کریں۔',
+  'The server is taking longer than expected. Check your connection and try again.':
+    'سرور سے رابطے میں زیادہ وقت لگ رہا ہے۔ اپنا انٹرنیٹ چیک کر کے دوبارہ کوشش کریں۔',
   'We couldn’t display this page': 'یہ صفحہ نہیں دکھایا جا سکا',
   'Reload to retrieve the current records from the server.':
     'سرور سے تازہ ریکارڈ حاصل کرنے کے لیے صفحہ دوبارہ کھولیں۔',

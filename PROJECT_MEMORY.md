@@ -1,4 +1,12 @@
+> Current policy — 8 November 2026: representatives publish timetable versions directly; seven-day confirmation reminders and fourteen-day focal follow-up are implemented. See backend/docs/TIMETABLE_PUBLISHING.md. Other approvals remain separate. Earlier timetable approval requirements below are historical.
+
+# Current status override — 5 November 2026
+
+This file retains chronological project history. Earlier statements that a real backend is absent, returned-registration correction is unfinished, or per-screen pagination remains to be implemented are superseded. The backend, returned-registration editor and screen-specific pagination are implemented. Read Documents/CURRENT_SYSTEM.md and backend/docs/RELEASE_READINESS.md first. Current backup/restore instructions are in backend/docs/BACKUP_AND_RESTORE.md. Historical provider/pricing/test-count statements below are not current launch evidence.
+
 # DiscoverSalah project reference
+
+Current override (4 November 2026): use Documents/CURRENT_SYSTEM.md and live route schemas for current behavior. Email password recovery has been removed by the owner. Admin MFA/local operator reset and focal/representative issuer resets remain. Earlier email/invitation requirements below are historical, not active implementation. Original screen references now live in design/screens/; branding posts are in design/posts/.
 
 Read and consolidated on 16 October 2026. This file is durable workspace context for subsequent frontend work. Read it before implementing screens; consult the source documents for full contracts and acceptance cases. The original documents remain unchanged. Text extractions are in `.project-reference/` for searchable reference.
 
@@ -127,7 +135,7 @@ Screen Inventory expands this to P01–P16, C01–C09, A01–A09, R01–R17, F01
 
 ## Visual and interaction requirements
 
-Phase 3 records Inter, body 16 px / 24 px line height, forest green, mint surfaces and white cards. Normalization tokens: primary #146B4A, background #F7FAF8, text #172B23, secondary #52635B, warning #8A4B08, error #B42318. Read `screens/devout_utilitarian/DESIGN.md` and actual HTML/assets in the next stage before finalizing design implementation.
+Phase 3 records Inter, body 16 px / 24 px line height, forest green, mint surfaces and white cards. Normalization tokens: primary #146B4A, background #F7FAF8, text #172B23, secondary #52635B, warning #8A4B08, error #B42318. Read `design/screens/devout_utilitarian/DESIGN.md` and actual HTML/assets in the next stage before finalizing design implementation.
 
 Target 48 px controls, visible focus, labels and semantic headings, text plus color status, keyboard flow, mobile reflow and 200% zoom. Test 360/768/1280 CSS pixels. Bundle approved assets/fonts, provide text alternatives. Urdu needs an appropriate font and RTL layout; isolate numbers, phone, email, URLs and numeric times correctly. Language switch persists locally and preserves route/query/unsaved input; do not translate names or mutate timetable values.
 

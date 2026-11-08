@@ -389,8 +389,8 @@ export function RequestReview() {
               </button>
               <Alert>
                 {t(
-                  'Reports do not automatically change official timings. Schedule corrections use the independent timetable workflow.',
-                  'رپورٹ خود اوقات تبدیل نہیں کرتی۔ اصلاح کے لیے اوقات کا آزاد تصدیقی عمل استعمال کریں۔',
+                  'Reports do not automatically change times. An assigned representative publishes a correction; focal corrections need a recorded call or visit.',
+                  'رپورٹ خود اوقات نہیں بدلتی۔ مقررہ نمائندہ درستی شائع کرے؛ فوکل کی درستی کے لیے کال یا ملاقات درج کریں۔',
                 )}
               </Alert>
             </form>

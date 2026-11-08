@@ -61,7 +61,8 @@ export function originGuard(c: Config): RequestHandler {
       "This request origin is not allowed.",
     );
     assert(
-      req.is("application/json"),
+      req.is("application/json") ||
+        (req.method === "POST" && req.path === "/management/notice-images" && req.is("application/octet-stream")),
       415,
       "JSON_REQUIRED",
       "Use application/json.",

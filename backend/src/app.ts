@@ -34,12 +34,15 @@ import {
 } from "./modules/community/routes.js";
 import { noticePublic, noticeManagement } from "./modules/notices/routes.js";
 import { adminRoutes } from "./modules/admin/routes.js";
+import { CloudinaryImages, type ImageStorage } from "./providers/images.js";
+import { noticeImageRoutes } from "./modules/notices/images.js";
 export function createApp(
   d: Database,
   c: Config,
   provider: PhoneProvider = c.PHONE_PROVIDER === "gateway"
     ? new GatewayPhoneProvider(c)
     : new DisabledPhoneProvider(),
+  imageStorage: ImageStorage = new CloudinaryImages(c),
 ) {
   const app = express();
   app.disable("x-powered-by");
@@ -100,6 +103,7 @@ export function createApp(
     discoveryRoutes(d),
     communityPublic(d, c),
     noticePublic(d),
+    noticeImageRoutes(d, c, imageStorage, false),
   );
   app.use(
     "/api/v1/management",
@@ -111,6 +115,7 @@ export function createApp(
     changeRoutes(d, c),
     communityManagement(d, c),
     noticeManagement(d, c),
+    noticeImageRoutes(d, c, imageStorage, true),
     adminRoutes(d, c),
   );
   app.use((_req, res) =>

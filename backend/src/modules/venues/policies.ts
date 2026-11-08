@@ -1,4 +1,5 @@
 import type { Account, Venue } from "../../db/models.js";
+import { freshness } from "../schedules/freshness.js";
 export function manages(a: Account, v: Venue) {
   return (
     a.active &&
@@ -31,5 +32,6 @@ export function publicVenue(v: Venue) {
     status: v.status,
     revision: v.revision,
     reconfirmedAt: v.reconfirmedAt,
+    freshness: freshness(v),
   };
 }

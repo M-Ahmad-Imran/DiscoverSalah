@@ -28,7 +28,7 @@ export function RecordSelect({
   kindFilter?: string;
   areaFilter?: string;
 }) {
-  const { include, t, locale } = useApp();
+  const { db, include, t, locale } = useApp();
   const location = useLocation();
   const [text, setText] = useState(''),
     [query, setQuery] = useState(''),
@@ -39,12 +39,13 @@ export function RecordSelect({
   const merge = useRef(include);
   merge.current = include;
   useEffect(() => {
+    if (text === query) return;
     const timer = setTimeout(() => {
       setQuery(text);
       setCursor('');
     }, 300);
     return () => clearTimeout(timer);
-  }, [text]);
+  }, [text, query]);
   useEffect(() => {
     let active = true;
     setLoading(true);
@@ -78,6 +79,11 @@ export function RecordSelect({
   );
   const [choice, setChoice] = useState(String(props.defaultValue ?? ''));
   const selected = String(props.value ?? choice);
+  // A workspace refresh replaces the bounded screen payload. An option can
+  // remain visible here even though its record was removed from that payload.
+  const selectedLoaded = db[resource].some(
+    (row) => (nameValue ? row.name : row.id) === selected,
+  );
   const savedOption = useRef<{ value: string; label: string } | null>(null);
   const currentRow = rows.find((row) => (nameValue ? row.name : row.id) === selected);
   if (currentRow)
@@ -89,8 +95,7 @@ export function RecordSelect({
           : currentRow.name,
     };
   useEffect(() => {
-    if (!selected || rows.some((row) => (nameValue ? row.name : row.id) === selected))
-      return;
+    if (!selected || selectedLoaded) return;
     let active = true;
     const params = new URLSearchParams({ view: resource, q: selected, limit: '1' });
     const base = location.pathname.startsWith('/manage')
@@ -113,7 +118,7 @@ export function RecordSelect({
     return () => {
       active = false;
     };
-  }, [selected, resource, nameValue, location.pathname]);
+  }, [selected, selectedLoaded, resource, nameValue, location.pathname]);
   const values = new Set(rows.map((row) => (nameValue ? row.name : row.id)));
   const retained = Children.toArray(children).filter((child) => {
     if (!isValidElement<{ value?: string; children?: unknown }>(child)) return false;

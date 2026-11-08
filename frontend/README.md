@@ -2,6 +2,13 @@
 
 # DiscoverSalah frontend
 
+
+## Notice images (3 November 2026)
+
+Representatives can attach one optional JPG/PNG/WebP poster to a notice with upload progress, retry, removal and a processed preview. The form preserves its retry key for the same file/mosque and blocks submission during pending/failed uploads. Focal reviewers inspect the poster and confirm readability/privacy before approval. Approved active images appear on public detail/list/mosque notice-board views. Revisions retain an author's own active image unless removed; switching mosques clears it. English/Urdu labels and mobile layouts are supported.
+
+The backend handles compression, storage permissions and expiry cleanup. See [setup and API contract](../backend/NOTICE_IMAGES.md). Build this frontend, then run `npm run test:browser:images` from `backend` for the isolated end-to-end image flow. No Cloudinary credentials belong in frontend environment variables.
+
 Responsive React + TypeScript application based on the fifteen core screens and the supporting Screen Inventory. The visual system uses forest green, mint surfaces, Inter and Noto Sans Arabic. Fonts and illustrations are bundled locally.
 
 ## Run
@@ -11,7 +18,7 @@ npm ci
 npm run dev
 ```
 
-Open http://127.0.0.1:5173. Use Management → a sample workspace to explore representative, Focal Person and administrator flows. The administrator preview challenge uses `123456`. These are explicit demonstrations, not authentication.
+Open http://127.0.0.1:5173 with the backend running and sign in using issued account credentials. Administrator accounts require their configured authenticator. See `../backend/README.md` for account setup.
 
 ```sh
 npm run typecheck
@@ -34,7 +41,7 @@ npm run format:check
 | `src/components/discovery`, `management`, `common`, `feedback` | Reusable application components | Components are grouped by purpose, not collected in a single oversized file. |
 | `src/domain` | Schedule selection, permissions and arrival policy; colocated tests | Pure functions allow important rules to be tested without rendering React. |
 | `src/hooks` | React access to state, scope and discovery query | Pages share the same filtering and state lifecycle. |
-| `src/services` | Browser persistence adapter | Provides an explicit seam for replacing local data with an authenticated API. |
+| `src/services` | API transport, screen requests and local preferences | Keeps session/CSRF handling and server commands out of presentation. |
 | `src/data` | Fictional fixtures and informational copy | Sample content is separated from business rules. |
 | `src/types` | Shared domain and draft contracts | Keeps data contracts consistent across screens. |
 | `src/i18n` | Shared language labels | English/Urdu text and RTL rendering preserve the same underlying values. |
@@ -47,11 +54,9 @@ Dependencies flow from pages/hooks toward domain/types, never from domain back i
 
 ## Scope and operating limits
 
-See [screen coverage](docs/SCREEN_COVERAGE.md). Public browsing and management journeys are connected, with local sample state, scoped role checks, immutable proposal history, independent timetable decisions, future-effective schedules and dated cancellations.
+See [screen coverage](docs/SCREEN_COVERAGE.md) for historical screen audits. The application now uses authenticated API commands and persistent MongoDB records. Synthetic fixtures are used by tests only. Session, scope, approval and concurrency enforcement live on the backend. Browser storage keeps locale preferences, not credentials or mosque records.
 
-This is a frontend preview. Sample records persist in this browser under `ds-demo-v1`; role selection is tab-local under `ds-role`. Do not enter real private contacts. This client cannot provide enforceable authorization, secure tracking tokens, tamper-proof audit, transactional version locking, live delegation or durable delivery. Those must be implemented server-side before launch.
-
-Maps are labeled illustrations. Route estimates remain explicitly unavailable; the UI does not manufacture walking/motorcycle arrival confidence. The directions action hands off to Google Maps. Authentication/recovery/invitation delivery, database persistence, real map/geocoding/routing, notification workers, secure contact storage and backup enforcement remain integration work. Some operational status values retain English; final Urdu copy and legal text need review.
+Google Maps directions open externally on user action; in-app route estimates remain unavailable. Production hosting, backup/restore checks and real-device acceptance still require verification.
 
 Future-departure forecasts and automatic reminders are deliberately excluded by the project requirements. No production deployment has been performed. See the production routing setup below.
 
@@ -66,3 +71,7 @@ Browser requests remain same-origin at `/api/v1`; the proxy preserves the `/api`
 Run `npm run test:deployment` to check routing configuration. After deploying, verify `/health/ready` returns JSON, `/api/v1/session` returns an API response rather than HTML, a nested frontend page reloads, and sign-in, MFA, session restoration, a protected write and logout work over HTTPS. Confirm API failures and unknown API paths remain API errors. Configuration tests do not replace these live proxy/cookie checks.
 
 Management page modules use route-level lazy loading so public discovery does not download every administration screen at startup. A data router supports shared unsaved-form navigation guards. The detailed inventory audit and its acceptance boundaries are maintained in `docs/SCREEN_COVERAGE.md`.
+## Current deployment and usability notes
+
+See [Render and scheduled maintenance](../backend/docs/RENDER_AND_GITHUB_ACTIONS.md) for the same-origin API/health proxy and cold-start setup. Shared touch/readability rules live in `src/styles/usability.css`; discovery wording is in the public pages. See the [Pakistan audience review](../Documents/PAKISTAN_UX_REVIEW.md) for remaining usability validation.
+

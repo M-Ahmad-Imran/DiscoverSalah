@@ -11,7 +11,7 @@ export function AuthSupport({
 }: {
   mode: 'recovery' | 'reset' | 'invite' | 'mfa' | 'expired' | 'denied';
 }) {
-  const { account, restoreSession, refresh } = useApp();
+  const { account, restoreSession, refresh, t } = useApp();
   const navigate = useNavigate();
   const [error, setError] = useState('');
   if (['recovery', 'invite', 'expired', 'denied'].includes(mode))
@@ -26,6 +26,14 @@ export function AuthSupport({
                 )
               : tr('Please sign in with an account authorized for this workspace.')}
           </p>
+          {mode === 'recovery' && (
+            <p>
+              {t(
+                'Administrators should contact the trusted server operator for a password reset. Your authenticator or recovery code is still required to sign in.',
+                'ایڈمن پاس ورڈ ری سیٹ کے لیے سرور کے قابل اعتماد ذمہ دار سے رابطہ کریں۔ سائن اِن کے لیے آتھنٹیکیٹر یا ریکوری کوڈ اب بھی ضروری ہے۔',
+              )}
+            </p>
+          )}
           <Link to="/sign-in">{tr('Sign in')}</Link>
         </Panel>
       </div>

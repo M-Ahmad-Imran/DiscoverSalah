@@ -7,4 +7,4 @@ coverage/
 .cache/
 
 .local-admin-setup.txt
-docs/
+.local-admin-reset.pending.txt

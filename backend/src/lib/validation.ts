@@ -66,6 +66,8 @@ export const snapshot = z
   .strict();
 export const submitSchema = snapshot.extend({
   baseRevision: z.number().int().nonnegative(),
+  contactMethod: z.enum(["Phone", "Visit"]).optional(),
+  contactSource: text.min(5).optional(),
 });
 export const evidence = z
   .object({

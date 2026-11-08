@@ -92,6 +92,7 @@ beforeEach(async () => {
     revision: 0,
   });
   venue = {
+    identityApprovedAt: new Date(),
     _id: randomUUID(),
     name: "Synthetic Mosque",
     urdu: "نمونہ",
@@ -198,9 +199,10 @@ test("submit is atomic and identical idempotent replay returns the same proposal
   const replay = await submit(d, rep, venue._id, key, proposal());
   assert.equal(first.id, replay.id);
   assert.equal(await d.proposals.countDocuments(), 1);
-  assert.equal(await d.tasks.countDocuments(), 1);
+  assert.equal(await d.tasks.countDocuments(), 0);
   assert.equal(await d.audit.countDocuments(), 1);
-  assert.equal(await d.outbox.countDocuments(), 1);
+  assert.equal(await d.outbox.countDocuments(), 0);
+  assert.equal(await d.notifications.countDocuments(), 1);
   await assert.rejects(
     submit(d, rep, venue._id, key, { ...proposal(), reason: "Different body" }),
     /already used/,
@@ -212,10 +214,146 @@ test("two concurrent submissions with same revision have exactly one winner", as
     submit(d, rep, venue._id, randomUUID(), proposal()),
   ]);
   assert.equal(results.filter((r) => r.status === "fulfilled").length, 1);
-  assert.equal(await d.proposals.countDocuments({ state: "Submitted" }), 1);
+  assert.equal(await d.proposals.countDocuments({ state: "Published" }), 1);
+});
+test("published times appear without approval; future versions wait for their date", async () => {
+  const future = today(new Date(Date.now() + 86400000));
+  await submit(d, rep, venue._id, randomUUID(), {
+    ...proposal(),
+    effective: future,
+  });
+  const current = await request(app)
+    .get("/api/v1/venues/" + venue._id + "/sessions")
+    .query({ date: today(), prayer: "Asr" });
+  const later = await request(app)
+    .get("/api/v1/venues/" + venue._id + "/sessions")
+    .query({ date: future, prayer: "Asr" });
+  assert.equal(current.body.items[0].time, "16:15");
+  assert.equal(later.body.items[0].time, "16:30");
+  assert.equal(
+    (await d.venues.findOne({ _id: venue._id }))?.reconfirmedAt,
+    undefined,
+  );
+  await submit(d, rep, venue._id, randomUUID(), proposal(1));
+  const published = await request(app)
+    .get("/api/v1/venues/" + venue._id + "/sessions")
+    .query({ date: today(), prayer: "Asr" });
+  assert.equal(published.body.items[0].time, "16:30");
+  assert.ok((await d.venues.findOne({ _id: venue._id }))?.reconfirmedAt);
+  assert.equal(
+    await d.tasks.countDocuments({ kind: "Timetable", state: "Open" }),
+    0,
+  );
+});
+test("focal correction requires private contact evidence; unassigned representatives cannot publish", async () => {
+  await assert.rejects(
+    submit(d, focal, venue._id, randomUUID(), proposal(), c),
+    /phone call or visit/,
+  );
+  const result = await submit(
+    d,
+    focal,
+    venue._id,
+    randomUUID(),
+    {
+      ...proposal(),
+      contactMethod: "Visit",
+      contactSource: "Imam confirmed during visit",
+    },
+    c,
+  );
+  const p = await d.proposals.findOne({ _id: result.id });
+  assert.equal(p?.state, "Published");
+  assert.ok(p?.evidenceCipher);
+  assert.equal(
+    JSON.stringify(p).includes("Imam confirmed during visit"),
+    false,
+  );
+  await d.venues.updateOne(
+    { _id: venue._id },
+    { $set: { repId: randomUUID() } },
+  );
+  await assert.rejects(
+    submit(d, rep, venue._id, randomUUID(), proposal(1)),
+    /access denied/,
+  );
+});
+test("follow-up records are scoped, encrypted and do not reset overdue confirmation", async () => {
+  const old = new Date(Date.now() - 15 * 86400000);
+  await d.venues.updateOne(
+    { _id: venue._id },
+    { $set: { reconfirmedAt: old } },
+  );
+  const send = async (number: string) => {
+    const auth = await login(number);
+    return request(app)
+      .post("/api/v1/management/venues/" + venue._id + "/follow-up")
+      .set("Origin", c.WEB_ORIGIN)
+      .set("Cookie", auth.cookie)
+      .set("X-CSRF-Token", auth.csrf)
+      .set("Idempotency-Key", randomUUID())
+      .send({
+        revision: 0,
+        method: "Phone",
+        outcome: "Replacement needed",
+        notes: "Private follow-up with imam",
+      });
+  };
+  assert.equal((await send("+12025550101")).status, 403);
+  assert.equal((await send("+12025550102")).status, 200);
+  const focalAuth = await login("+12025550102");
+  const history = await request(app)
+    .get("/api/v1/management/venues/" + venue._id + "/follow-ups")
+    .set("Cookie", focalAuth.cookie);
+  assert.equal(history.status, 200);
+  assert.equal(history.body.items[0].notes, "Private follow-up with imam");
+  const repAuth = await login();
+  assert.equal(
+    (
+      await request(app)
+        .get("/api/v1/management/venues/" + venue._id + "/follow-ups")
+        .set("Cookie", repAuth.cookie)
+    ).status,
+    403,
+  );
+  const record = await d.db
+    .collection("timetableFollowUps")
+    .findOne({ venueId: venue._id });
+  assert.ok(record?.notesCipher);
+  assert.equal(JSON.stringify(record).includes("Private follow-up"), false);
+  assert.equal(
+    (await d.venues.findOne({ _id: venue._id }))?.reconfirmedAt?.getTime(),
+    old.getTime(),
+  );
+  const auth = await login();
+  const response = await request(app)
+    .post("/api/v1/management/venues/" + venue._id + "/reconfirm")
+    .set("Origin", c.WEB_ORIGIN)
+    .set("Cookie", auth.cookie)
+    .set("X-CSRF-Token", auth.csrf)
+    .set("Idempotency-Key", randomUUID())
+    .send({ revision: 1, reason: "Checked current timetable" });
+  assert.equal(response.status, 200);
+  assert.ok((await d.venues.findOne({ _id: venue._id }))!.reconfirmedAt! > old);
 });
 test("superseded and self-authored proposals cannot be approved, including admin", async () => {
-  const first = await submit(d, admin, venue._id, randomUUID(), proposal());
+  const first = await submit(
+    d,
+    admin,
+    venue._id,
+    randomUUID(),
+    {
+      ...proposal(),
+      contactMethod: "Phone",
+      contactSource: "Imam confirmed correction",
+    },
+    c,
+  );
+  // Arrange a pre-migration legacy pending record to retain its independent-review rules.
+  await d.proposals.updateOne(
+    { _id: first.id },
+    { $set: { state: "Submitted" } },
+  );
   await assert.rejects(
     decide(d, c, admin, first.id, randomUUID(), {
       decision: "Approved",
@@ -238,12 +376,13 @@ test("superseded and self-authored proposals cannot be approved, including admin
     /changed/,
   );
 });
-test("unreachable evidence does not approve; valid future approval stays future-effective", async () => {
+test("legacy pending review still needs evidence and respects future effective dates", async () => {
   const future = today(new Date(Date.now() + 86400000));
   const p = await submit(d, rep, venue._id, randomUUID(), {
     ...proposal(),
     effective: future,
   });
+  await d.proposals.updateOne({ _id: p.id }, { $set: { state: "Submitted" } });
   await assert.rejects(
     decide(d, c, focal, p.id, randomUUID(), {
       decision: "Approved",
@@ -290,16 +429,16 @@ test("current account revocation is checked after authentication and at commit",
     /access has changed/,
   );
 });
-test("outbox delivers once and does not alter schedule approval state", async () => {
+test("direct notification exists without worker delivery and timetable stays published", async () => {
   await submit(d, rep, venue._id, randomUUID(), proposal());
   await Promise.all([deliverOne(d), deliverOne(d)]);
   await deliverOne(d);
   assert.equal(await d.notifications.countDocuments(), 1);
   assert.equal(
     (await d.proposals.findOne({ venueId: venue._id }))?.state,
-    "Submitted",
+    "Published",
   );
-  assert.equal((await d.outbox.findOne({}))?.state, "delivered");
+  assert.equal(await d.outbox.countDocuments(), 0);
 });
 test("tracking requires the high-entropy token and omits private submitted details", async () => {
   const response = await request(app)
@@ -430,6 +569,15 @@ test("SMS recovery and invitation endpoints are retired for all accounts", async
     assert.equal(result.status, 410);
   }
 });
+test("removed email recovery endpoints cannot enroll an address or reset a password", async () => {
+  for (const path of ["email", "request", "verify-email", "reset"]) {
+    const result = await request(app)
+      .post("/api/v1/auth/admin-recovery/" + path)
+      .set("Origin", c.WEB_ORIGIN)
+      .send({});
+    assert.equal(result.status, 404);
+  }
+});
 test("discovery returns only selected prayer/date and stable pagination", async () => {
   const second = { ...venue, _id: randomUUID(), name: "Second Mosque" };
   await d.venues.insertOne(second);
@@ -498,8 +646,9 @@ test("privacy cleanup removes expired application content and ledger replay prev
   assert.equal((await d.requests.findOne({ _id: rid }))?.privateCipher, "");
 });
 
-test("unrelated venue metadata changes do not strand a pending review", async () => {
+test("unrelated venue metadata changes do not strand a legacy pending review", async () => {
   const p = await submit(d, rep, venue._id, randomUUID(), proposal());
+  await d.proposals.updateOne({ _id: p.id }, { $set: { state: "Submitted" } });
   await d.venues.updateOne({ _id: venue._id }, { $inc: { revision: 1 } });
   const result = await decide(d, c, focal, p.id, randomUUID(), {
     decision: "Approved",
@@ -877,15 +1026,13 @@ test("screen pages reach records beyond old caps and retain effective timetable 
     .query({ view: "discovery", date: "2099-01-01", prayer: "Asr", limit: 1 });
   assert.equal(firstSession.status, 200, JSON.stringify(firstSession.body));
   assert.equal(firstSession.body.discoverySessions[0].time, "16:05");
-  const secondSession = await request(app)
-    .get("/api/v1/catalog")
-    .query({
-      view: "discovery",
-      date: "2099-01-01",
-      prayer: "Asr",
-      limit: 1,
-      cursor: firstSession.body.page.nextCursor,
-    });
+  const secondSession = await request(app).get("/api/v1/catalog").query({
+    view: "discovery",
+    date: "2099-01-01",
+    prayer: "Asr",
+    limit: 1,
+    cursor: firstSession.body.page.nextCursor,
+  });
   assert.equal(secondSession.status, 200);
   assert.equal(secondSession.body.discoverySessions[0].time, "16:15");
   assert.notEqual(secondSession.body.discoverySessions[0].venueId, last._id);

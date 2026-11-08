@@ -1,0 +1,67 @@
+1
+00:00:00,300 --> 00:00:05,958
+You arrive in a new area. The streets are unfamiliar, and you do not know your way around.
+
+2
+00:00:06,258 --> 00:00:13,917
+Where is a nearby mosque? Choose your location or area in DiscoverSalah to find listed mosques nearby.
+
+3
+00:00:14,217 --> 00:00:18,958
+Alongside the mosque location, check congregation times for prayers from Fajr to Isha.
+
+4
+00:00:19,258 --> 00:00:26,042
+Prayer time beginning and congregation starting are different. The focus here is Jama’at time.
+
+5
+00:00:26,342 --> 00:00:32,208
+Found the mosque and checked the time? Open Google Maps for directions to its entrance.
+
+6
+00:00:32,508 --> 00:00:39,708
+Check the timing before leaving and allow extra travel time. Arrival on time is not guaranteed.
+
+7
+00:00:40,008 --> 00:00:46,833
+Travelling, new to the neighbourhood, or out for work? Browse mosque locations and timings without an account.
+
+8
+00:00:47,133 --> 00:00:53,000
+Who updates the timings? The local mosque representative submits new timings or changes.
+
+9
+00:00:53,300 --> 00:00:58,583
+A focal person checks the update by speaking with the registered Imam.
+
+10
+00:00:58,883 --> 00:01:03,667
+The administrator assigns responsibilities across areas so the team can work together.
+
+11
+00:01:03,967 --> 00:01:11,250
+Nobody approves their own update. Another responsible person checks it, then approves or returns it for correction.
+
+12
+00:01:11,550 --> 00:01:16,292
+If a new timetable starts on a future date, it takes effect on that date.
+
+13
+00:01:16,592 --> 00:01:22,625
+See an incorrect time? Report it. A small contribution can help improve the information.
+
+14
+00:01:22,925 --> 00:01:28,958
+Your mosque is missing? Suggest it so it can be added after the required checks.
+
+15
+00:01:29,258 --> 00:01:33,917
+Want to help? Apply to contribute and follow your request’s status.
+
+16
+00:01:34,217 --> 00:01:38,042
+Private Imam phone numbers are not shown to the public.
+
+17
+00:01:38,342 --> 00:01:46,000
+DiscoverSalah: find mosque locations and Jama’at times in an unfamiliar area, and help your community.

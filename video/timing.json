@@ -1,0 +1,128 @@
+[
+  {
+    "scene": 1,
+    "start": 0,
+    "duration": 7.166666666666667,
+    "urdu": "قریبی مسجد میں جماعت کا وقت کیا ہے؟ ڈسکور صلاح اسی سوال کا جواب آسان بناتی ہے۔",
+    "english": "What time is Jama’at at a nearby mosque? DiscoverSalah makes that easier to find."
+  },
+  {
+    "scene": 1,
+    "start": 7.166666666666667,
+    "duration": 7.333333333333333,
+    "urdu": "یہ کمیونٹی کی مدد سے چلنے والی ویب ایپ ہے، جہاں شریک مساجد کے اصل جماعت کے اوقات دیکھے جا سکتے ہیں۔",
+    "english": "A community-maintained website for actual congregation times at participating mosques."
+  },
+  {
+    "scene": 1,
+    "start": 14.5,
+    "duration": 5.416666666666667,
+    "urdu": "نماز کا وقت شروع ہونا، اور مسجد میں جماعت شروع ہونا، دو الگ باتیں ہیں۔",
+    "english": "The beginning of a prayer time is different from the start of congregation."
+  },
+  {
+    "scene": 2,
+    "start": 19.916666666666668,
+    "duration": 8.375,
+    "urdu": "عام صارف کو اکاؤنٹ کی ضرورت نہیں۔ اپنا علاقہ یا مقام منتخب کریں، پھر مسجد کے اوقات اور اعلانات دیکھیں۔",
+    "english": "No account needed. Choose an area or location, then browse timetables and notices."
+  },
+  {
+    "scene": 2,
+    "start": 28.291666666666668,
+    "duration": 8.875,
+    "urdu": "راستے کے لیے گوگل میپس کھولیں۔ ڈسکور صلاح خود سفر کا دورانیہ نہیں بتاتی، اور وقت پر پہنچنے کی ضمانت نہیں دیتی۔",
+    "english": "Open Google Maps for directions. DiscoverSalah provides no travel-time estimate or arrival guarantee."
+  },
+  {
+    "scene": 3,
+    "start": 37.16666666666667,
+    "duration": 7.333333333333333,
+    "urdu": "غلط معلومات کی رپورٹ کریں، کسی مسجد کی تجویز دیں، یا رضاکارانہ تعاون کے لیے درخواست جمع کرائیں۔",
+    "english": "Report incorrect information, suggest a mosque, or apply to contribute."
+  },
+  {
+    "scene": 3,
+    "start": 44.50000000000001,
+    "duration": 8.0,
+    "urdu": "اپنی درخواست کی پیش رفت نجی طور پر دیکھیں۔ کوئی رپورٹ خود بخود منظور شدہ اوقات تبدیل نہیں کرتی۔",
+    "english": "Track your request privately. Reports never automatically change approved timings."
+  },
+  {
+    "scene": 4,
+    "start": 52.50000000000001,
+    "duration": 6.333333333333333,
+    "urdu": "مقامی نمائندہ مسجد کی معلومات برقرار رکھتا ہے، اور اوقات میں تبدیلی جمع کراتا ہے۔",
+    "english": "The local representative maintains mosque information and submits timing changes."
+  },
+  {
+    "scene": 4,
+    "start": 58.83333333333334,
+    "duration": 5.125,
+    "urdu": "فوکل پرسن رجسٹرڈ امام سے رابطہ کر کے تبدیلی کا جائزہ لیتا ہے۔",
+    "english": "The focal person reviews changes after contacting the registered Imam."
+  },
+  {
+    "scene": 4,
+    "start": 63.95833333333334,
+    "duration": 7.625,
+    "urdu": "ایڈمن علاقوں، عملے اور ذمہ داریوں کا انتظام کرتا ہے۔ ہر کردار کا اختیار محدود اور واضح ہے۔",
+    "english": "The administrator manages areas, staff and assignments. Each role has a defined scope."
+  },
+  {
+    "scene": 5,
+    "start": 71.58333333333334,
+    "duration": 6.541666666666667,
+    "urdu": "نمائندے کی جمع کردہ تبدیلی، امام سے گفتگو کے ریکارڈ کے ساتھ، آزاد جائزے سے گزرتی ہے۔",
+    "english": "A submitted change receives independent review with recorded Imam-call evidence."
+  },
+  {
+    "scene": 5,
+    "start": 78.12500000000001,
+    "duration": 7.75,
+    "urdu": "جائزہ لینے والا اسے منظور، واپس یا مسترد کرتا ہے۔ کوئی شخص اپنی ہی تبدیلی منظور نہیں کر سکتا۔",
+    "english": "The reviewer approves, returns or rejects it. Nobody can approve their own submission."
+  },
+  {
+    "scene": 5,
+    "start": 85.87500000000001,
+    "duration": 5.416666666666667,
+    "urdu": "مستقبل کے لیے منظور شدہ اوقات، اپنی مقررہ تاریخ سے نافذ ہوتے ہیں۔",
+    "english": "Future-approved timings become effective on their scheduled date."
+  },
+  {
+    "scene": 6,
+    "start": 91.29166666666669,
+    "duration": 8.875,
+    "urdu": "عملے کے لیے سائن اِن، اور ایڈمن کے لیے اضافی تصدیق موجود ہے۔ امام کے نجی رابطے عوامی صفحات پر ظاہر نہیں ہوتے۔",
+    "english": "Staff sign in; administrators use MFA. Private Imam contacts stay off public pages."
+  },
+  {
+    "scene": 6,
+    "start": 100.16666666666669,
+    "duration": 7.25,
+    "urdu": "ری ایکٹ کا انٹرفیس، نوڈ اور ایکسپریس کا سرور، اور مونگو ڈی بی، معلومات اور کارروائیوں کو مربوط کرتے ہیں۔",
+    "english": "React, Node and Express, and MongoDB connect the interface, workflows and stored records."
+  },
+  {
+    "scene": 7,
+    "start": 107.41666666666669,
+    "duration": 7.458333333333333,
+    "urdu": "ڈسکور صلاح مقامی طور پر کام کرنے والی ایپ ہے۔ عوامی تعیناتی ابھی تیاری کے مرحلے میں ہے۔",
+    "english": "DiscoverSalah works locally. Public deployment is still being prepared."
+  },
+  {
+    "scene": 7,
+    "start": 114.87500000000001,
+    "duration": 6.083333333333333,
+    "urdu": "مفت پائلٹ کے لیے ہوسٹنگ، مقررہ وقفوں سے اطلاعات، بیک اپ، اور آخری جانچ باقی ہیں۔",
+    "english": "Free pilot hosting, scheduled notifications, backups and final checks remain."
+  },
+  {
+    "scene": 7,
+    "start": 120.95833333333334,
+    "duration": 8.125,
+    "urdu": "ڈسکور صلاح۔ جماعت کے مقامی اوقات تک آسان رسائی، کمیونٹی کی شمولیت اور واضح تصدیق کے ساتھ۔",
+    "english": "DiscoverSalah. Local Jama’at times, community participation and clear verification."
+  }
+]

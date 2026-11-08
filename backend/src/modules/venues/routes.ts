@@ -113,7 +113,7 @@ export function publicRoutes(d: Database) {
     const approved = await d.proposals
       .find({
         venueId: v._id,
-        state: "Approved",
+        state: { $in: ["Approved", "Published"] },
         "snapshot.effective": { $lte: q.date },
       })
       .sort({ "snapshot.effective": -1, version: -1 })
@@ -236,6 +236,7 @@ export function managementVenueRoutes(d: Database, c: Config) {
           id.parse(req.params.id),
           req.get("idempotency-key"),
           req.body,
+          c,
         ),
       ),
   );
@@ -389,7 +390,16 @@ export function managementVenueRoutes(d: Database, c: Config) {
         async (s, a) => {
           const v = await d.venues.findOne({ _id: vid }, { session: s });
           assert(
-            v && manages(a, v) && v.revision === x.revision,
+            a.role === "representative" && v?.repId === a._id,
+            403,
+            "SCOPE_DENIED",
+            "Only the assigned representative can confirm unchanged times.",
+          );
+          assert(
+            v &&
+              v.status === "Published" &&
+              manages(a, v) &&
+              v.revision === x.revision,
             409,
             "VERSION_CONFLICT",
             "Reload an authorized venue.",
@@ -412,6 +422,118 @@ export function managementVenueRoutes(d: Database, c: Config) {
       ),
     );
   });
+  r.get("/venues/:id/follow-ups", async (req, res) => {
+    const vid = id.parse(req.params.id),
+      q = page.parse(req.query);
+    const v = await d.venues.findOne({ _id: vid });
+    assert(
+      v && reviews(principal(req), v),
+      403,
+      "SCOPE_DENIED",
+      "Focal oversight access required.",
+    );
+    const rows = await d.db
+      .collection<{
+        _id: string;
+        venueId: string;
+        at: Date;
+        method: string;
+        outcome: string;
+        notesCipher: string;
+      }>("timetableFollowUps")
+      .find({ venueId: vid, ...(q.cursor ? { _id: { $gt: q.cursor } } : {}) })
+      .sort({ _id: 1 })
+      .limit(q.limit + 1)
+      .toArray();
+    res.json({
+      items: rows
+        .slice(0, q.limit)
+        .map((r) => ({
+          id: r._id,
+          at: r.at,
+          method: r.method,
+          outcome: r.outcome,
+          notes: decrypt(r.notesCipher, c.DATA_KEY),
+        })),
+      nextCursor: rows.length > q.limit ? rows[q.limit - 1]!._id : null,
+    });
+  });
+  r.post("/venues/:id/follow-up", async (req, res) => {
+    const vid = id.parse(req.params.id);
+    const x = z
+      .object({
+        revision: z.number().int(),
+        method: z.enum(["Phone", "Visit"]),
+        outcome: z.enum([
+          "Times confirmed",
+          "Correction requested",
+          "No contact",
+          "Replacement needed",
+        ]),
+        notes: text.min(5),
+      })
+      .strict()
+      .parse(req.body);
+    res.json(
+      await command(
+        d,
+        principal(req),
+        req.get("idempotency-key"),
+        "follow-up:" + vid,
+        x,
+        async (s, a) => {
+          const v = await d.venues.findOne({ _id: vid }, { session: s });
+          assert(
+            v && reviews(a, v),
+            403,
+            "SCOPE_DENIED",
+            "Focal oversight access required.",
+          );
+          assert(
+            v.revision === x.revision,
+            409,
+            "VERSION_CONFLICT",
+            "Reload the mosque before recording a follow-up.",
+          );
+          const at = new Date(),
+            recordId = randomUUID();
+          await d.db
+            .collection<{ _id: string; [key: string]: unknown }>(
+              "timetableFollowUps",
+            )
+            .insertOne(
+              {
+                _id: recordId,
+                venueId: vid,
+                actorId: a._id,
+                at,
+                method: x.method,
+                outcome: x.outcome,
+                notesCipher: encrypt(x.notes, c.DATA_KEY),
+              },
+              { session: s },
+            );
+          await d.venues.updateOne(
+            { _id: vid, revision: x.revision },
+            {
+              $inc: { revision: 1 },
+              $set: { lastFollowUpAt: at, lastFollowUpOutcome: x.outcome },
+            },
+            { session: s },
+          );
+          await audit(
+            d,
+            s,
+            a._id,
+            "Timetable follow-up: " + x.outcome,
+            recordId,
+            vid,
+          );
+          return { id: recordId, revision: x.revision + 1 };
+        },
+      ),
+    );
+  });
   const registration = z
     .object({
       relationship: text.optional(),
@@ -423,7 +545,10 @@ export function managementVenueRoutes(d: Database, c: Config) {
       lng: z.number().min(-180).max(180),
       kind: z.enum(["Mosque", "Prayer ground"]),
       parentVenueId: id.optional(),
-      facilities: z.record(z.enum(["Available", "Unavailable", "Unknown"])),
+      facilities: z.record(
+        z.string(),
+        z.enum(["Available", "Unavailable", "Unknown"]),
+      ),
       initial: snapshot,
       imam: z
         .object({

@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:12,458
+Representatives publish. Focal persons oversee confirmations. Admins maintain areas, accounts and assignments.
+
+2
+00:00:12,458 --> 00:00:24,542
+Admin sign-in still requires MFA. Keep recovery codes private. The timetable policy does not weaken account security.
+
+3
+00:00:24,542 --> 00:00:37,375
+Each published mosque needs assigned staff. Admin creates focal accounts; the responsible focal creates representative accounts.
+
+4
+00:00:37,375 --> 00:00:48,917
+Monitor the 7-day reminder and 14-day follow-up process. Do not suspend a mosque or person solely because confirmation is overdue.
+
+5
+00:00:48,917 --> 00:00:59,917
+Every publication keeps its author and version. Corrections create new versions; admin corrections require contact evidence.
+
+6
+00:00:59,917 --> 00:01:12,583
+Old pending timetables are not auto-published. Review them through the legacy process or publish a checked replacement version.

@@ -1,0 +1,163 @@
+1
+00:00:00,300 --> 00:00:09,958
+Welcome! Learn sign-in, Jama’at updates, notices and dashboard tasks. All on-screen records are training examples.
+
+2
+00:00:10,258 --> 00:00:18,792
+Open Sign in. Enter your registered contact number and password supplied by your authorized focal person.
+
+3
+00:00:19,092 --> 00:00:26,375
+Check your contact number and password, then press Sign in. Use your own credentials; this number is an example.
+
+4
+00:00:26,675 --> 00:00:38,833
+If prompted, replace your temporary password with at least 12 characters, then sign in again. For forgotten passwords, follow Recovery and contact your account issuer.
+
+5
+00:00:39,133 --> 00:00:48,375
+Overview shows your assigned mosques, pending reviews and items needing attention. Use the sidebar to open each section.
+
+6
+00:00:48,675 --> 00:00:58,042
+Open My mosques and choose your mosque. If it is missing, ask your focal person to check your assignment.
+
+7
+00:00:58,342 --> 00:01:07,208
+Check the current approved Jama’at timetable. Confirm the correct congregation times with the Imam before proposing changes.
+
+8
+00:01:07,508 --> 00:01:15,083
+Open Edit timetable. Compare Approved time with Proposed Jama’at, where you enter the new time.
+
+9
+00:01:15,383 --> 00:01:24,250
+Example: change Asr from 4:15 PM to 4:45 PM by entering 16:45. Check the prayer row and AM/PM carefully.
+
+10
+00:01:24,550 --> 00:01:33,917
+Set Effective from to the start date. In Reason for change, explain why the timetable needs updating.
+
+11
+00:01:34,217 --> 00:01:43,750
+Keep draft retains unfinished work in this tab only. It does not submit anything; do not rely on it after closing or reloading the tab.
+
+12
+00:01:44,050 --> 00:01:52,375
+Press Review changes. Compare old and new times, the reason and effective date. Use Back to edit to correct mistakes.
+
+13
+00:01:52,675 --> 00:01:59,958
+Tick the confirmation checkbox, then press Submit for verification. Your proposal is sent for review.
+
+14
+00:02:00,258 --> 00:02:09,583
+Submitted does not mean published. A focal person verifies with the registered Imam. Approved changes take effect on their scheduled date.
+
+15
+00:02:09,883 --> 00:02:18,833
+Track your proposal in Submissions. Submitted means awaiting review; Approved means accepted. Read the reason for any Returned or Rejected proposal.
+
+16
+00:02:19,133 --> 00:02:28,708
+Open the submission and use Revise as new proposal. Correct it and submit again. The previous proposal remains in the history.
+
+17
+00:02:29,008 --> 00:02:39,125
+If daily times are unchanged, open Confirm timings unchanged, check every time and confirm. This does not approve any pending proposal.
+
+18
+00:02:39,425 --> 00:02:47,292
+For Friday, Eid or a dated exception, open Friday, Eid & dated exceptions and press Add session.
+
+19
+00:02:47,592 --> 00:02:58,208
+Choose the prayer/event, date and Jama’at time. Khutbah is separate. Replace default values with actual details. Add separate sessions for multiple Friday congregations.
+
+20
+00:02:58,508 --> 00:03:08,375
+Mark an uncertain date as provisional. Explicitly mark a cancelled session. Add a reason, review the changes and submit for verification.
+
+21
+00:03:08,675 --> 00:03:18,167
+Open Edit information to propose name, address or facility changes. Choose Available, Unavailable or Unknown accurately.
+
+22
+00:03:18,467 --> 00:03:26,208
+Add the reason and press Submit change request. The change needs review. This form does not update Jama’at times.
+
+23
+00:03:26,508 --> 00:03:35,208
+Open Request contact change. Enter the new Imam name and private phone, plus an existing trusted contact or independent authority.
+
+24
+00:03:35,508 --> 00:03:45,542
+Tick permission only after consent is obtained, then submit with a reason. The number remains private and needs independent verification.
+
+25
+00:03:45,842 --> 00:03:52,917
+Open Notice board and create a notice for an event or mosque service. Choose the correct mosque and category.
+
+26
+00:03:53,217 --> 00:04:01,000
+Write a short public title and clear details. Set the correct event date and time.
+
+27
+00:04:01,300 --> 00:04:12,083
+Set expiry after the event and provide private source or consent evidence. Save draft or Submit for moderation. Notices do not change prayer timings.
+
+28
+00:04:12,383 --> 00:04:20,000
+For death or Janazah notices, obtain an authorized family or mosque source. Keep unnecessary private details out of public text.
+
+29
+00:04:20,300 --> 00:04:28,625
+Open Issues & reports and read the report. Check the facts and, where follow-up is available, add a clear note and use Save review.
+
+30
+00:04:28,925 --> 00:04:37,792
+A report does not change official times. If a correction is needed, submit it through Edit timetable for independent verification.
+
+31
+00:04:38,092 --> 00:04:46,625
+Use Register mosque for a new listing. Check for duplicates first, then enter the correct name, area and venue type.
+
+32
+00:04:46,925 --> 00:04:58,167
+Complete Details, Location, Imam, Timings and Review. Use the actual entrance, authorized contact, accurate timings and facilities. Publication requires verification.
+
+33
+00:04:58,467 --> 00:05:09,250
+In Location, enter the street address and entrance instructions. Use the actual entrance latitude and longitude, because directions use these coordinates. Press Continue.
+
+34
+00:05:09,550 --> 00:05:18,417
+Enter the registered Imam name, verification phone and your relationship to the mosque. Obtain contact permission, tick the checkbox and press Continue.
+
+35
+00:05:18,717 --> 00:05:28,417
+Enter all five actual Jama’at times; check every prefilled value. Set accurate options for Wudu, women’s space, wheelchair access and parking.
+
+36
+00:05:28,717 --> 00:05:39,875
+Review the name, address, contact and all timings. Tick confirmation and press Submit registration for verification. If returned, correct the feedback and resubmit.
+
+37
+00:05:40,175 --> 00:05:48,583
+Use the bell to open Notifications and follow the relevant task. Mark all read only marks messages as read; it does not approve or resolve anything.
+
+38
+00:05:48,883 --> 00:05:57,125
+Activity history shows past actions and changes. Review the relevant record with your focal person if clarification is needed.
+
+39
+00:05:57,425 --> 00:06:08,833
+In My account, review your role and scope. To change your password, enter the current password and a new one of at least 12 characters, then sign in again.
+
+40
+00:06:09,133 --> 00:06:16,208
+When finished, use Sign out, especially on a shared phone or computer. Keep your password private.
+
+41
+00:06:16,508 --> 00:06:27,333
+Remember: confirm the facts, edit, review, submit and track status. Your accurate updates help neighbours and newcomers find the right Jama’at time.

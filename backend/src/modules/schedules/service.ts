@@ -14,6 +14,7 @@ export async function submit(
   venueId: string,
   key: string | undefined,
   input: unknown,
+  c?: Config,
 ) {
   const x = submitSchema.parse(input);
   assert(
@@ -26,16 +27,33 @@ export async function submit(
     const v = await d.venues.findOne({ _id: venueId }, { session: s });
     assert(v && manages(actor, v), 403, "SCOPE_DENIED", "Venue access denied.");
     assert(
+      v.status === "Published" && v.identityApprovedAt && v.repId && v.focalId,
+      409,
+      "VENUE_NOT_PUBLISHED",
+      "Verify the mosque and assign its staff before publishing times.",
+    );
+    if (actor.role !== "representative")
+      assert(
+        x.contactMethod && x.contactSource && c,
+        422,
+        "CONTACT_EVIDENCE_REQUIRED",
+        "Record the phone call or visit and who confirmed the correction.",
+      );
+    assert(
       v.revision === x.baseRevision,
       409,
       "VERSION_CONFLICT",
       "Reload the current timetable before submitting.",
     );
     const approved = await d.proposals
-      .find({ venueId, state: "Approved" }, { session: s })
+      .find(
+        { venueId, state: { $in: ["Approved", "Published"] } },
+        { session: s },
+      )
       .toArray();
     const before = effective(v, approved, x.effective);
-    const { baseRevision, ...snapshot } = x;
+    const { baseRevision, contactMethod, contactSource, ...snapshot } = x;
+    const now = new Date();
     const pid = randomUUID();
     await d.proposals.updateMany(
       { venueId, state: "Submitted" },
@@ -49,7 +67,15 @@ export async function submit(
     );
     const changed = await d.venues.updateOne(
       { _id: venueId, revision: baseRevision },
-      { $inc: { revision: 1 } },
+      {
+        $inc: { revision: 1 },
+        $set: {
+          timetablePublishedAt: now,
+          ...(actor.role === "representative" && x.effective === today()
+            ? { reconfirmedAt: now }
+            : {}),
+        },
+      },
       { session: s },
     );
     assert(
@@ -65,37 +91,42 @@ export async function submit(
         authorId: actor._id,
         version: baseRevision + 1,
         baseRevision: baseRevision + 1,
-        state: "Submitted",
+        state: "Published",
         snapshot,
         before,
         createdAt: new Date(),
+        ...(actor.role !== "representative" && c
+          ? {
+              evidenceCipher: encrypt(
+                JSON.stringify({
+                  method: contactMethod,
+                  source: contactSource,
+                }),
+                c.DATA_KEY,
+              ),
+            }
+          : {}),
       },
       { session: s },
     );
-    await d.tasks.insertOne(
+    await audit(d, s, actor._id, "Timetable published", pid, venueId);
+    // In-app delivery is part of the same transaction; no worker delays oversight.
+    await d.notifications.insertOne(
       {
         _id: randomUUID(),
-        venueId,
-        recordId: pid,
-        kind: "Timetable",
-        state: "Open",
-        createdAt: new Date(),
+        accountId: actor.role === "representative" ? v.focalId! : v.repId!,
+        title: "Timetable published",
+        href: "/manage/submissions/" + pid,
+        read: false,
+        createdAt: now,
       },
       { session: s },
-    );
-    await audit(d, s, actor._id, "Timetable submitted", pid, venueId);
-    await notify(
-      d,
-      s,
-      v.focalId,
-      "Timetable awaiting verification",
-      "/manage/review/" + pid,
     );
     return {
       id: pid,
       version: baseRevision + 1,
       venueRevision: baseRevision + 1,
-      state: "Submitted",
+      state: "Published",
     };
   });
 }

@@ -1,0 +1,7 @@
+00:00:00 Your role is oversight
+00:00:11 Sign in and open maintenance
+00:00:23 7 days and 14 days
+00:00:35 Call or visit
+00:00:48 Replace only after checking
+00:01:00 Urgent correction
+00:01:13 Other checks continue

@@ -15,6 +15,7 @@ import type {
   AccessToken,
   PublicRequest,
   Notice,
+  NoticeImage,
   Dispute,
 } from "./models.js";
 export class Database {
@@ -64,6 +65,9 @@ export class Database {
   get notices() {
     return this.db.collection<Notice>("notices");
   }
+  get noticeImages() {
+    return this.db.collection<NoticeImage>("noticeImages");
+  }
   get disputes() {
     return this.db.collection<Dispute>("disputes");
   }
@@ -82,7 +86,7 @@ export class Database {
     }
   }
 }
-export async function connect(c: Config) {
+export async function connect(c: Pick<Config, "MONGODB_URI" | "DB_NAME">) {
   const client = new MongoClient(c.MONGODB_URI, {
     maxPoolSize: 20,
     minPoolSize: 0,
@@ -129,6 +133,17 @@ export async function indexes(d: Database) {
   await d.accounts.createIndex({ areaIds: 1, role: 1, _id: 1 });
   await d.requests.createIndex({ venueId: 1, kind: 1, status: 1, _id: 1 });
   await d.notices.createIndex({ state: 1, _id: 1 });
+  await d.noticeImages.createIndex(
+    { storageCloud: 1, publicId: 1 },
+    { unique: true },
+  );
+  await d.noticeImages.createIndex({
+    storageCloud: 1,
+    state: 1,
+    deleteAfter: 1,
+    leaseUntil: 1,
+  });
+  await d.notices.createIndex({ imageId: 1 });
   await d.db
     .collection("venueChanges")
     .createIndex({ state: 1, kind: 1, _id: 1 });
@@ -147,6 +162,9 @@ export async function indexes(d: Database) {
   await d.requests.createIndex({ trackingHash: 1 }, { unique: true });
   await d.requests.createIndex({ areaId: 1, kind: 1, status: 1, _id: 1 });
   await d.requests.createIndex({ kind: 1, status: 1, closedAt: 1 });
+  await d.db
+    .collection("timetableFollowUps")
+    .createIndex({ venueId: 1, at: -1 });
   await d.notices.createIndex({ venueId: 1, state: 1, expires: 1 });
   await d.disputes.createIndex({ venueId: 1, active: 1, date: 1 });
   await d.db

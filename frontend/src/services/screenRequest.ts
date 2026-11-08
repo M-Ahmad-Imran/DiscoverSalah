@@ -84,6 +84,7 @@ export function screenRequest(path: string, search: string) {
     'urgent',
     'area',
     'city',
+    'freshness',
   ]) {
     const value = source.get(key);
     if (value && value !== 'All') q.set(key, value);

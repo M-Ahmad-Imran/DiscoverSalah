@@ -3,9 +3,14 @@ import { config } from "../config/env.js";
 import { connect } from "../db/database.js";
 import { deliverOne } from "./outbox.js";
 import { retainOneBatch } from "./retention.js";
-const d = await connect(config());
+import { cleanNoticeImages } from "./notice-images.js";
+import { CloudinaryImages } from "../providers/images.js";
+const settings = config();
+const d = await connect(settings);
+const images = new CloudinaryImages(settings);
 let running = true;
 let nextRetention = 0;
+let nextImageCleanup = 0;
 process.on("SIGTERM", () => {
   running = false;
 });
@@ -15,6 +20,10 @@ process.on("SIGINT", () => {
 try {
   while (running) {
     try {
+      if (Date.now() >= nextImageCleanup) {
+        const count = await cleanNoticeImages(d, images);
+        nextImageCleanup = Date.now() + (count === 50 ? 1000 : 60000);
+      }
       if (Date.now() >= nextRetention) {
         const count = await retainOneBatch(d);
         nextRetention = Date.now() + (count === 100 ? 1000 : 3600000);

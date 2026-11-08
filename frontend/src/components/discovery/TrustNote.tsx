@@ -15,8 +15,8 @@ export function TrustNote() {
         </strong>
         <p>
           {t(
-            'Representatives maintain schedules. Focal Persons verify changes with the registered Imam.',
-            'نمائندے اوقات درج کرتے ہیں۔ فوکل پرسن امام سے تبدیلیوں کی تصدیق کرتے ہیں۔',
+            'Representatives publish times and confirm them every 7 days. Focal persons follow up after 14 days without confirmation.',
+            'نمائندے اوقات شائع اور ہر ۷ دن بعد تصدیق کرتے ہیں۔ ۱۴ دن تک تصدیق نہ ہو تو فوکل پرسن رابطہ کرتا ہے۔',
           )}
         </p>
       </div>

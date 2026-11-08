@@ -1,0 +1,23 @@
+# Local dependencies, generated output and temporary tooling
+**/node_modules/
+**/dist/
+**/__pycache__/
+*.pyc
+*.tsbuildinfo
+.video-tools/
+**/test-results/
+**/coverage/
+**/.env
+**/.env.*
+!**/.env.example
+**/.local-admin-*.txt
+video/capture-*.txt
+# Database dumps and private backup tool configuration never belong in Git.
+**/backups/
+*.archive.gz
+*.bson
+**/backup-config*.yml
+**/restore-config*.yml
+**/.restore.env
+**/restore.env
+*.kdbx

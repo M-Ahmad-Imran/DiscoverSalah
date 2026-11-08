@@ -10,7 +10,8 @@ import { encrypt, decrypt } from "../../lib/crypto.js";
 import { principal } from "../../middleware/security.js";
 import { venueScope } from "../venues/routes.js";
 import type { Notice } from "../../db/models.js";
-function publicNotice(n: Notice) {
+import { noticeImageUrl } from "./images.js";
+function publicNotice(n: Notice, management = false) {
   return {
     id: n._id,
     venueId: n.venueId,
@@ -20,6 +21,8 @@ function publicNotice(n: Notice) {
     event: n.event,
     expires: n.expires,
     state: n.state,
+    imageUrl: n.imageId ? noticeImageUrl(n._id, management) : null,
+    ...(management ? { imageId: n.imageId } : {}),
   };
 }
 const content = z
@@ -33,6 +36,7 @@ const content = z
     source: text.min(5),
     draft: z.boolean().default(false),
     replacesId: id.optional(),
+    imageId: id.optional(),
   })
   .strict()
   .refine(
@@ -63,7 +67,7 @@ export function noticePublic(d: Database) {
       .sort({ _id: 1 })
       .limit(50)
       .toArray();
-    res.json({ items: rows.map(publicNotice) });
+    res.json({ items: rows.map((n) => publicNotice(n)) });
   });
   r.get("/notices/:id", async (req, res) => {
     const n = await d.notices.findOne({
@@ -104,7 +108,7 @@ export function noticeManagement(d: Database, c: Config) {
       .toArray();
     res.json({
       items: rows.slice(0, q.limit).map((n) => ({
-        ...publicNotice(n),
+        ...publicNotice(n, true),
         revision: n.revision,
         source: decrypt(n.sourceCipher, c.DATA_KEY),
       })),
@@ -142,11 +146,46 @@ export function noticeManagement(d: Database, c: Config) {
               "Previous notice not found.",
             );
           const nid = randomUUID();
+          if (x.imageId) {
+            // Sharing between an uploader's notices/revisions extends retention to the
+            // latest expiry. This write serializes attachment against cleanup claims.
+            const image = await d.noticeImages.findOneAndUpdate(
+              {
+                _id: x.imageId,
+                venueId: v._id,
+                ownerId: a._id,
+                state: "ready",
+                deleteAfter: { $gt: new Date() },
+              },
+              [
+                {
+                  $set: {
+                    attached: true,
+                    deleteAfter: {
+                      $cond: [
+                        { $eq: ["$attached", true] },
+                        { $max: ["$deleteAfter", new Date(x.expires)] },
+                        new Date(x.expires),
+                      ],
+                    },
+                  },
+                },
+              ],
+              { session: s },
+            );
+            assert(
+              image,
+              422,
+              "IMAGE_UNAVAILABLE",
+              "Choose an available image uploaded by you for this mosque.",
+            );
+          }
           await d.notices.insertOne(
             {
               _id: nid,
               venueId: v._id,
               authorId: a._id,
+              ...(x.imageId ? { imageId: x.imageId } : {}),
               title: x.title,
               body: x.body,
               category: x.category,

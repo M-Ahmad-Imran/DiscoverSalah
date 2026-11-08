@@ -1,0 +1,562 @@
+[
+  {
+    "index": 0,
+    "start": 0,
+    "duration": 12.416666666666666,
+    "frames": 298,
+    "screen": "dashboard",
+    "title": "Aaiye, shuru karein",
+    "urdu": "السلام علیکم! آج ہم فوکل پرسن کا پورا کام دیکھیں گے۔ سائن اِن، جماعت کی ٹائمنگ اپروو کرنا، اور ڈیش بورڈ کے باقی کام۔ سکرین پر نام، نمبر اور کال کی تفصیل صرف ٹریننگ کی مثالیں ہیں۔",
+    "english": "Welcome! Learn the focal-person dashboard, from sign-in to timing approvals and other tasks. Names, contacts and call records shown are training examples."
+  },
+  {
+    "index": 1,
+    "start": 12.416666666666666,
+    "duration": 10.166666666666666,
+    "frames": 244,
+    "screen": "signin",
+    "title": "Apna account kholein",
+    "urdu": "سائن اِن کھولیں۔ اپنا رجسٹرڈ کانٹیکٹ نمبر اور پاس ورڈ ڈالیں۔ فوکل پرسن کا اکاؤنٹ مجاز ایڈمن بناتا ہے۔ مثال والا نمبر استعمال نہ کریں۔",
+    "english": "Open Sign in. Enter your own registered contact number and password. An authorized administrator creates your focal-person credentials."
+  },
+  {
+    "index": 2,
+    "start": 22.583333333333332,
+    "duration": 6.833333333333333,
+    "frames": 164,
+    "screen": "credentials",
+    "title": "Sign in dabayein",
+    "urdu": "نمبر اور پاس ورڈ چیک کر کے سائن اِن دبائیں۔ اپنا اکاؤنٹ خود استعمال کریں، پاس ورڈ دوسرے شخص کو نہ دیں۔",
+    "english": "Check your details and press Sign in. Use your own account and keep your password private."
+  },
+  {
+    "index": 3,
+    "start": 29.416666666666664,
+    "duration": 9.666666666666666,
+    "frames": 232,
+    "screen": "reset",
+    "title": "Pehli dafa password badlein",
+    "urdu": "پہلی بار پاس ورڈ بدلنے کو کہا جائے تو موجودہ ٹیمپریری پاس ورڈ دیں۔ نیا پاس ورڈ کم از کم بارہ کریکٹر کا رکھیں، دوبارہ لکھ کر کنٹینیو کریں، پھر سائن اِن کریں۔",
+    "english": "If prompted, enter your temporary password, choose a new password of at least 12 characters, confirm it and continue. Then sign in again."
+  },
+  {
+    "index": 4,
+    "start": 39.08333333333333,
+    "duration": 7.416666666666667,
+    "frames": 178,
+    "screen": "recovery",
+    "title": "Password bhool gaye?",
+    "urdu": "پاس ورڈ بھول جائیں تو فارگوٹ پاس ورڈ سے ریکوری کھولیں۔ ہدایات پڑھ کر اپنے اکاؤنٹ جاری کرنے والے ایڈمن سے رابطہ کریں۔",
+    "english": "Use Forgot password to open Recovery. Follow the instructions and contact the administrator who issued your account."
+  },
+  {
+    "index": 5,
+    "start": 46.49999999999999,
+    "duration": 10.333333333333334,
+    "frames": 248,
+    "screen": "dashboard",
+    "title": "Aap ke area ka kaam",
+    "urdu": "یہ آپ کے ایریا کا ڈیش بورڈ ہے۔ پینڈنگ ریویوز، ذمہ داری کی کمی اور کھلے مسائل دیکھیں۔ اٹینشن ریکوائرڈ میں جو کام نظر آئیں، وہاں سے متعلقہ درخواست کھول سکتے ہیں۔",
+    "english": "Overview shows pending reviews, responsibility gaps and open issues. Open the relevant task from Attention required."
+  },
+  {
+    "index": 6,
+    "start": 56.83333333333333,
+    "duration": 9.25,
+    "frames": 222,
+    "screen": "mosques",
+    "title": "Sahi masjid chunein",
+    "urdu": "موسکس اینڈ وینیوز میں اپنے دائرے کی مسجد کھولیں۔ نام اور ایریا ضرور ملائیں۔ مسجد یا اختیار نظر نہ آئے تو ایڈمن سے اسائنمنٹ چیک کروائیں۔",
+    "english": "Open Mosques & venues and choose a mosque within your scope. Check its name and area. Ask the administrator to resolve missing access or assignments."
+  },
+  {
+    "index": 7,
+    "start": 66.08333333333333,
+    "duration": 10.083333333333334,
+    "frames": 242,
+    "screen": "queue",
+    "title": "Pending kaam ek jagah",
+    "urdu": "ریویو کیو میں مختلف درخواستیں ایک جگہ ملتی ہیں۔ ریویو ٹائپ میں ٹائم ٹیبل چن کر جماعت والی درخواستیں دیکھیں۔ مسجد اور تاریخ کے فلٹر بھی استعمال کر سکتے ہیں۔",
+    "english": "Review queue brings tasks together. Filter Review type to Timetable, or narrow the list by mosque and event/effective date."
+  },
+  {
+    "index": 8,
+    "start": 76.16666666666666,
+    "duration": 9.458333333333334,
+    "frames": 227,
+    "screen": "comparison",
+    "title": "Purana aur naya milayein",
+    "urdu": "درخواست کھول کر پہلے مسجد، ورژن اور نمائندے کی وجہ دیکھیں۔ پھر پرانا اور نیا ٹائم ملائیں۔ مثال میں عصر چار پندرہ سے چار پینتالیس کی گئی ہے۔",
+    "english": "Check the mosque, proposal version and representative’s reason. Compare the old and new timings. This example changes Asr from 4:15 PM to 4:45 PM."
+  },
+  {
+    "index": 9,
+    "start": 85.62499999999999,
+    "duration": 10.333333333333334,
+    "frames": 248,
+    "screen": "special",
+    "title": "Sirf rozana time nahi",
+    "urdu": "جمعہ، عید اور خاص تاریخ کے سیشن بھی چیک کریں۔ جماعت، خطبہ، تاریخ، کینسل یا پروویژنل نشان، اور ایفیکٹو فرام سب ملائیں۔ ہر بدلی ہوئی چیز کی تصدیق چاہیے۔",
+    "english": "Also check dated sessions: Jama’at, Khutbah, date, cancellation or provisional status, and Effective from. Verify every changed detail."
+  },
+  {
+    "index": 10,
+    "start": 95.95833333333331,
+    "duration": 10.958333333333334,
+    "frames": 263,
+    "screen": "authority",
+    "title": "Registered Imam se baat",
+    "urdu": "رجسٹرڈ مسجد اتھارٹی میں موجود امام کے نمبر سے رابطہ کریں۔ اسی درخواست کے تمام نئے ٹائم اور شروع ہونے کی تاریخ پوچھیں۔ یہ پرائیویٹ نمبر ہے، اسے پبلک جگہ شیئر نہ کریں۔",
+    "english": "Contact the registered Imam shown under Registered mosque authority. Verify this proposal’s changes and start date. Keep the private number confidential."
+  },
+  {
+    "index": 11,
+    "start": 106.91666666666664,
+    "duration": 10.0,
+    "frames": 240,
+    "screen": "outcomes",
+    "title": "Call ka asal nateeja",
+    "urdu": "کال کے بعد اصل نتیجہ منتخب کریں۔ سب باتیں درست ہوں تو کنفرمڈ ایز سبمٹڈ۔ جواب نہ آئے، فرق ہو، یا صرف کچھ باتیں کنفرم ہوں، تو وہی صحیح آپشن چنیں۔",
+    "english": "Choose the actual call outcome. Use Confirmed as submitted only when everything matches. Otherwise select the matching, partial-confirmation or unreachable outcome."
+  },
+  {
+    "index": 12,
+    "start": 116.91666666666664,
+    "duration": 9.0,
+    "frames": 216,
+    "screen": "attempt-notes",
+    "title": "Jawab nahi aaya?",
+    "urdu": "جواب نہ آئے تو نوٹس میں یہی لکھیں۔ کال کی اصل تاریخ اور پاکستان کا ٹائم دیں۔ جس سے بات نہیں ہوئی، اسے تصدیق کرنے والا شخص نہ لکھیں۔",
+    "english": "If nobody answers, say so in the notes. Record the actual call date and Pakistan time. Do not name someone as having confirmed details when no conversation occurred."
+  },
+  {
+    "index": 13,
+    "start": 125.91666666666664,
+    "duration": 10.0,
+    "frames": 240,
+    "screen": "attempt",
+    "title": "Pending hi rehne dein",
+    "urdu": "ریکارڈ اٹیمپٹ، کیپ پینڈنگ دبائیں۔ اس سے کوشش کا ریکارڈ بنتا ہے، منظوری نہیں ہوتی۔ کال نہ اٹھنا یا صرف کچھ ٹائم کنفرم ہونا، پوری درخواست کی تصدیق نہیں ہے۔",
+    "english": "Press Record attempt · keep pending. This logs the attempt without approval. No answer or partial confirmation does not verify the whole proposal."
+  },
+  {
+    "index": 14,
+    "start": 135.91666666666663,
+    "duration": 7.708333333333333,
+    "frames": 185,
+    "screen": "return",
+    "title": "Ghalti saaf bata dein",
+    "urdu": "اصلاح چاہیے تو میسج ٹو ریپریزنٹیٹو میں صاف لکھیں کہ کون سا ٹائم یا تاریخ درست کرنی ہے۔ پھر ریٹرن فار کریکشن دبائیں۔",
+    "english": "For corrections, write an actionable Message to representative: specify the incorrect time or date. Then press Return for correction."
+  },
+  {
+    "index": 15,
+    "start": 143.62499999999997,
+    "duration": 10.208333333333334,
+    "frames": 245,
+    "screen": "return-confirm",
+    "title": "Faisla confirm karein",
+    "urdu": "کنفرم ڈیسیژن میں درخواست اور ورژن دوبارہ دیکھیں۔ صحیح ہو تو فیصلہ کنفرم کریں۔ نمائندہ اصلاح کے بعد نئی تجویز بھیجے گا، جسے دوبارہ چیک کرنا ہوگا۔",
+    "english": "Check the proposal and version in Confirm decision, then confirm. The representative submits a revised proposal, which needs a fresh review."
+  },
+  {
+    "index": 16,
+    "start": 153.83333333333331,
+    "duration": 10.458333333333334,
+    "frames": 251,
+    "screen": "reject",
+    "title": "Reject kab karna hai?",
+    "urdu": "اگر درخواست منظور کرنے کے قابل نہیں تو واضح وجہ کے ساتھ ریجیکٹ سبمشن استعمال کریں۔ معمولی اصلاح ہو تو واپس بھیجیں۔ وجہ ایسی ہو کہ نمائندہ اگلا قدم سمجھ سکے۔",
+    "english": "Use Reject submission with a clear reason when the proposal cannot be accepted. Return correctable mistakes with guidance the representative can act on."
+  },
+  {
+    "index": 17,
+    "start": 164.29166666666666,
+    "duration": 8.708333333333334,
+    "frames": 209,
+    "screen": "evidence",
+    "title": "Sab details confirm hain?",
+    "urdu": "اب منظور کرنے والی مثال دیکھیں۔ کنفرمڈ ایز سبمٹڈ چنیں، جس امام سے بات ہوئی ان کا نام دیں، اور کال کی اصل تاریخ اور پاکستان کا ٹائم لکھیں۔",
+    "english": "For approval, choose Confirmed as submitted. Enter the Imam you actually spoke to and the actual call date and Pakistan time."
+  },
+  {
+    "index": 18,
+    "start": 173.0,
+    "duration": 8.875,
+    "frames": 213,
+    "screen": "check",
+    "title": "Private notes + checkbox",
+    "urdu": "پرائیویٹ نوٹس میں لکھیں کہ کیا چیک کیا، مثلاً عصر، جمعہ، خطبہ اور لاگو تاریخ۔ تمام تبدیلیاں اسی ورژن سے مل جائیں تب ہی تصدیق کا باکس ٹک کریں۔",
+    "english": "Record the checked details in Private verification notes. Tick confirmation only after verifying all changed times, special sessions and the effective date against this exact version."
+  },
+  {
+    "index": 19,
+    "start": 181.875,
+    "duration": 8.583333333333334,
+    "frames": 206,
+    "screen": "approve",
+    "title": "Approve verified timings",
+    "urdu": "اب اپروو ویریفائیڈ ٹائمنگز دبائیں۔ بٹن بند ہو تو اوپر کی ضروری معلومات اور تصدیق چیک کریں۔ اندازے سے کوئی خانہ پورا نہ کریں۔",
+    "english": "Press Approve verified timings. If disabled, check the required evidence and confirmation. Fill fields with verified facts, not guesses."
+  },
+  {
+    "index": 20,
+    "start": 190.45833333333334,
+    "duration": 8.75,
+    "frames": 210,
+    "screen": "confirm",
+    "title": "Aakhri baar version dekhein",
+    "urdu": "کنفرم ڈیسیژن کھلے تو مسجد کی درخواست اور ورژن آخری بار ملائیں، پھر کنفرم کریں۔ یہی فیصلہ ریکارڈ ہوگا اور نمائندے کے لیے اطلاع بنے گی۔",
+    "english": "Check the proposal and version once more, then press Confirm decision. The decision is recorded and a notification is queued for the representative."
+  },
+  {
+    "index": 21,
+    "start": 199.20833333333334,
+    "duration": 9.333333333333334,
+    "frames": 224,
+    "screen": "approved",
+    "title": "Approved! Tareekh bhi yaad",
+    "urdu": "اب سٹیٹس اپرووڈ دیکھ لیں۔ اگر شروع ہونے کی تاریخ آگے کی ہے تو نئی ٹائمنگ اسی تاریخ سے چلے گی۔ اس سے پہلے موجودہ منظور شدہ ٹائم رہیں گے۔",
+    "english": "Check that the status is Approved. Future-dated timings take effect on their effective date; the current approved times remain until then."
+  },
+  {
+    "index": 22,
+    "start": 208.54166666666669,
+    "duration": 10.5,
+    "frames": 252,
+    "screen": "submissions",
+    "title": "Purana record bhi dekhein",
+    "urdu": "سبمشنز میں فیصلے اور پچھلی درخواستیں دیکھیں۔ اپنی بنائی ہوئی تجویز خود اپروو نہیں کر سکتے۔ ورژن بدلنے کا پیغام آئے تو ری لوڈ کر کے تازہ درخواست دوبارہ چیک کریں۔",
+    "english": "Use Submissions to track decisions and previous proposals. You cannot approve your own work. If the version changes, reload and review the current proposal."
+  },
+  {
+    "index": 23,
+    "start": 219.04166666666669,
+    "duration": 9.666666666666666,
+    "frames": 232,
+    "screen": "registrations",
+    "title": "Nayi masjid ka review",
+    "urdu": "رجسٹریشن ریویوز میں نئی مسجد کی درخواست کھولیں۔ پہلے چیک کریں کہ یہی مسجد پہلے سے لسٹ میں موجود تو نہیں۔ پھر دی گئی معلومات اصل مسجد سے ملائیں۔",
+    "english": "Open a new listing in Registration reviews. Check for an existing duplicate and verify the submitted details against the actual mosque."
+  },
+  {
+    "index": 24,
+    "start": 228.70833333333334,
+    "duration": 9.333333333333334,
+    "frames": 224,
+    "screen": "registration-detail",
+    "title": "Naam se entrance tak",
+    "urdu": "نام، ایریا، پتہ اور اصل داخلی دروازے کی لوکیشن دیکھیں۔ نمائندے کا مسجد سے تعلق، امام کا مجاز رابطہ، پانچوں جماعت کے ٹائم اور سہولتیں بھی چیک کریں۔",
+    "english": "Check the name, area, address and actual entrance coordinates. Verify the representative’s relationship, authorized Imam contact, initial timetable and facilities."
+  },
+  {
+    "index": 25,
+    "start": 238.04166666666669,
+    "duration": 9.833333333333334,
+    "frames": 236,
+    "screen": "registration-authority",
+    "title": "Trusted authority se tasdeeq",
+    "urdu": "اپرووڈ منتخب کرنے پر معتبر اتھارٹی کا نام اور اصل کنفرمیشن کال کا وقت دیں۔ ساری ضروری جانچ مکمل ہو اور آپ درخواست دینے والے سے الگ ہوں، تب تصدیق کریں۔",
+    "english": "When choosing Approved, record the established authority contacted and the actual confirmation call. Complete all required checks and confirm reviewer independence."
+  },
+  {
+    "index": 26,
+    "start": 247.87500000000003,
+    "duration": 8.958333333333334,
+    "frames": 215,
+    "screen": "registration-save",
+    "title": "Reason likh kar save",
+    "urdu": "فیصلے کی وجہ لکھیں اور سیو ریویو کریں۔ کمی ہو تو ریٹرنڈ یا ریجیکٹڈ کے ساتھ واضح فیڈبیک دیں۔ صرف درخواست آنے سے مسجد پبلک نہیں ہوتی۔",
+    "english": "Write the decision reason and use Save review. Choose Returned or Rejected with clear feedback when needed. Submission alone does not publish a mosque."
+  },
+  {
+    "index": 27,
+    "start": 256.83333333333337,
+    "duration": 9.375,
+    "frames": 225,
+    "screen": "contact-detail",
+    "title": "Imam ka number badla?",
+    "urdu": "کانٹیکٹ ریویوز میں نیا نام، نمبر، اجازت اور حوالہ دیکھیں۔ نئے نمبر کی بات پر ہی اعتماد نہ کریں؛ پہلے سے معتبر رابطے یا آزاد ذمہ دار شخص سے تصدیق کریں۔",
+    "english": "In Contact reviews, check the new name, number, consent and reference. Verify through an existing trusted contact or independent authority, not only the proposed new number."
+  },
+  {
+    "index": 28,
+    "start": 266.20833333333337,
+    "duration": 9.791666666666666,
+    "frames": 235,
+    "screen": "contact-review",
+    "title": "Tasdeeq ke baad decision",
+    "urdu": "معتبر شخص اور اصل کال کی تفصیل درج کریں۔ ضروری چیک اور اپنی غیر جانب داری کنفرم کر کے وجہ کے ساتھ فیصلہ محفوظ کریں۔ نمبر پرائیویٹ ہی رہے گا۔",
+    "english": "Record the trusted authority and actual call. Confirm the required checks and independence, then save the reasoned decision. The phone number remains private."
+  },
+  {
+    "index": 29,
+    "start": 276.00000000000006,
+    "duration": 10.125,
+    "frames": 243,
+    "screen": "profile-detail",
+    "title": "Naam, pata, facilities",
+    "urdu": "پروفائل ریویوز میں مسجد کے نام، پتے یا سہولت کی تبدیلی دیکھیں۔ اصل معلومات کنفرم کر کے اپروو، ریٹرن یا ریجیکٹ کریں۔ اس ریویو سے جماعت کے ٹائم نہیں بدلتے۔",
+    "english": "Review proposed name, address or facility changes in Profile reviews. Verify the facts and approve, return or reject. This does not change Jama’at times."
+  },
+  {
+    "index": 30,
+    "start": 286.12500000000006,
+    "duration": 11.208333333333334,
+    "frames": 269,
+    "screen": "notices",
+    "title": "Notice pehle check karein",
+    "urdu": "نوٹس بورڈ میں سبمٹڈ نوٹس دیکھیں۔ عنوان، پبلک تفصیل، ایونٹ ٹائم، ایکسپائری، اور مجاز سورس چیک کریں۔ وفات یا جنازے کی خبر خاندان یا مسجد کے مجاز شخص سے کنفرم ہونی چاہیے۔",
+    "english": "Review submitted notices: title, public details, event time, expiry and authorized source. Death or Janazah notices require an authorized family or mosque source."
+  },
+  {
+    "index": 31,
+    "start": 297.33333333333337,
+    "duration": 10.583333333333334,
+    "frames": 254,
+    "screen": "notice-review",
+    "title": "Approve, return ya reject",
+    "urdu": "پرائیویٹ معلومات ہٹا کر سب درست ہو تو اپروو نوٹس دبائیں اور تصدیق کریں۔ اصلاح یا رد کرنے کے لیے ماڈریشن ریزن میں واضح وجہ لکھیں۔ اپنا نوٹس خود اپروو نہیں کر سکتے۔",
+    "english": "Check privacy before using Approve notice and confirming. For Returned or Rejected, write a clear Moderation reason. You cannot approve your own notice."
+  },
+  {
+    "index": 32,
+    "start": 307.9166666666667,
+    "duration": 9.541666666666666,
+    "frames": 229,
+    "screen": "notice-published",
+    "title": "Published aur expiry",
+    "urdu": "منظوری کے بعد پبلشڈ سٹیٹس چیک کریں۔ نوٹس منسوخ کرنا ہو تو کینسل نوٹس سے کنفرم کریں۔ نوٹس کی منظوری جماعت کے ٹائم کو تبدیل نہیں کرتی۔",
+    "english": "After approval, check Published status. Use Cancel notice and confirm to remove it from public display. Notice approval does not change Jama’at times."
+  },
+  {
+    "index": 33,
+    "start": 317.45833333333337,
+    "duration": 9.041666666666666,
+    "frames": 217,
+    "screen": "notice-create",
+    "title": "Apna notice banana ho",
+    "urdu": "نیا نوٹس بنانا ہو تو کریئیٹ نوٹس سے مسجد، کیٹیگری، عنوان اور تفصیل دیں۔ ایونٹ اور اس کے بعد کی ایکسپائری رکھیں، پھر مجاز سورس یا اجازت کا ثبوت دیں۔",
+    "english": "Use Create notice to enter the mosque, category, title and details. Set the event and a later expiry, and provide authorized source or consent evidence."
+  },
+  {
+    "index": 34,
+    "start": 326.50000000000006,
+    "duration": 7.916666666666667,
+    "frames": 190,
+    "screen": "notice-submit",
+    "title": "Draft ya moderation",
+    "urdu": "سیو ڈرافٹ سے نامکمل کام محفوظ کریں، یا سبمٹ فار ماڈریشن سے بھیجیں۔ آپ کا اپنا نوٹس کوئی دوسرا مجاز شخص چیک کرے گا۔",
+    "english": "Save draft for unfinished work, or Submit for moderation. Another authorized reviewer must check your own notice."
+  },
+  {
+    "index": 35,
+    "start": 334.41666666666674,
+    "duration": 8.416666666666666,
+    "frames": 202,
+    "screen": "report-detail",
+    "title": "Report ko samajh kar dekhein",
+    "urdu": "ایشوز اینڈ رپورٹس میں شکایت پڑھیں اور اصل معلومات چیک کریں۔ رپورٹ آنے کا مطلب یہ نہیں کہ غلطی ثابت ہو گئی، یا آفیشل ٹائم بدل گیا۔",
+    "english": "Read the report in Issues & reports and investigate the facts. A public report alone does not prove an error or change official timings."
+  },
+  {
+    "index": 36,
+    "start": 342.8333333333334,
+    "duration": 11.666666666666666,
+    "frames": 280,
+    "screen": "dispute",
+    "title": "Sirf checked scope mark karein",
+    "urdu": "تحقیق سے مسئلہ ثابت ہو تو صرف متعلقہ نماز اور تاریخ منتخب کریں۔ وجہ لکھ کر مارک سلیکٹڈ سکوپ ڈسپیوٹڈ دبائیں۔ آفیشل ٹائم درست کرنے کے لیے الگ ٹائم ٹیبل ویریفیکیشن چاہیے۔",
+    "english": "After investigation, select only the affected prayer and date. Add a reason and use Mark selected scope disputed. Official timing corrections still require timetable verification."
+  },
+  {
+    "index": 37,
+    "start": 354.5000000000001,
+    "duration": 10.916666666666666,
+    "frames": 262,
+    "screen": "report-decision",
+    "title": "Status aur jawab dein",
+    "urdu": "ڈسپوزیشن میں مناسب سٹیٹس چنیں، پرائیویٹ تحقیق الگ لکھیں، اور درخواست دینے والے کے لیے صاف پبلک جواب دیں۔ سیو ریویو کریں۔ رپورٹ حل کرنے سے ڈسپیوٹ کا نشان خود نہیں ہٹتا۔",
+    "english": "Choose a Disposition, write private investigation notes and a clear public response, then Save review. Resolving the report does not automatically clear a dispute flag."
+  },
+  {
+    "index": 38,
+    "start": 365.4166666666668,
+    "duration": 11.083333333333334,
+    "frames": 266,
+    "screen": "suggestion-detail",
+    "title": "Masjid ki suggestion",
+    "urdu": "مسجد کی سجیشن آئے تو جگہ اور موجودہ لسٹنگ چیک کریں۔ پہلے سے موجود ہو تو متعلقہ لسٹنگ سے لنک کریں۔ نئی ہو تو آن بورڈنگ اور باقاعدہ رجسٹریشن کا عمل مکمل کروائیں۔",
+    "english": "Check the suggested mosque and existing listings. Link an existing mosque when appropriate, or arrange onboarding and formal registration for a new one."
+  },
+  {
+    "index": 39,
+    "start": 376.5000000000001,
+    "duration": 12.833333333333334,
+    "frames": 308,
+    "screen": "maintenance",
+    "title": "Area ki dekh bhaal",
+    "urdu": "مینٹیننس اینڈ کوریج میں ذمہ دار نمائندہ، امام سے آخری تصدیق، پینڈنگ ریویوز اور حل طلب رپورٹس دیکھیں۔ جہاں کمی ہو وہاں متعلقہ شخص سے فالو اَپ کریں۔ تاریخ پرانی ہونے سے خود بخود ٹائم غلط ثابت نہیں ہوتا۔",
+    "english": "Check ownership, recorded Imam verification, pending reviews and unresolved reports in Maintenance & coverage. Follow up on gaps; an old date alone does not prove a timing is wrong."
+  },
+  {
+    "index": 40,
+    "start": 389.3333333333334,
+    "duration": 9.666666666666666,
+    "frames": 232,
+    "screen": "escalate",
+    "title": "Zaroori kaam aage pohanchayein",
+    "urdu": "فوری مدد چاہیے تو ارجنٹ ورک میں پینڈنگ سبمشن چنیں، وجہ اور فوری ضرورت لکھیں، پھر ریکارڈ ایسکلیشن دبائیں۔ ایڈمن کو اطلاع جائے گی، درخواست خود اپروو نہیں ہوگی۔",
+    "english": "In Urgent work, select a pending submission, explain the reason and urgency, then Record escalation. This notifies administrators without approving the proposal."
+  },
+  {
+    "index": 41,
+    "start": 399.0000000000001,
+    "duration": 9.041666666666666,
+    "frames": 217,
+    "screen": "representatives",
+    "title": "Apni local team",
+    "urdu": "ریپریزنٹیٹوز میں اپنے ایریا کے نمائندے دیکھیں۔ نام سے تلاش کریں، اکاؤنٹ کھول کر ذمہ داریاں چیک کریں۔ ہر اکاؤنٹ صرف ایک شخص کا ہونا چاہیے۔",
+    "english": "Use Representatives to find your area’s local representatives. Search by name and open their account to check responsibilities. Each account belongs to one person."
+  },
+  {
+    "index": 42,
+    "start": 408.0416666666668,
+    "duration": 10.75,
+    "frames": 258,
+    "screen": "invite",
+    "title": "Naya representative account",
+    "urdu": "نیا نمائندہ شامل کرنا ہو تو کریئیٹ کریڈینشلز کھولیں۔ پورا نام، صحیح کانٹیکٹ نمبر، اسائنڈ ایریا، اور ریفرنس چیک کی وجہ لکھیں۔ پہلے شناخت اور اختیار خود کنفرم کریں۔",
+    "english": "Open Create credentials. Enter the full name, contact number, assigned area and reference-check reason. Independently confirm identity, contact and authority first."
+  },
+  {
+    "index": 43,
+    "start": 418.7916666666668,
+    "duration": 11.333333333333334,
+    "frames": 272,
+    "screen": "invite-confirm",
+    "title": "Password private dein",
+    "urdu": "تصدیق کا باکس ٹک کر کے کریئیٹ کریڈینشلز دبائیں۔ ملنے والا ٹیمپریری پاس ورڈ صرف مالک کو پرائیویٹ دیں۔ یہ چوبیس گھنٹے میں ایکسپائر ہوتا ہے، اور پہلی سائن اِن پر بدلنا ضروری ہے۔",
+    "english": "Tick confirmation and create credentials. Hand the temporary password privately to its owner. It expires in 24 hours and must be changed at first sign-in."
+  },
+  {
+    "index": 44,
+    "start": 430.1250000000001,
+    "duration": 11.541666666666666,
+    "frames": 277,
+    "screen": "representative-account",
+    "title": "Account ka number badalna",
+    "urdu": "نمائندے کا اکاؤنٹ نمبر بدلنا ہو تو پہلے مالک کی شناخت اور نیا نمبر کنفرم کریں۔ نیا نمبر، وجہ اور تصدیق دے کر اپڈیٹ کانٹیکٹ اینڈ ریووک سیشنز دبائیں۔ پرانا لاگ اِن ختم ہو جائے گا۔",
+    "english": "Verify the owner and new contact before changing an account number. Enter the new number, reason and confirmation, then Update contact and revoke sessions."
+  },
+  {
+    "index": 45,
+    "start": 441.6666666666668,
+    "duration": 10.458333333333334,
+    "frames": 251,
+    "screen": "reset-representative",
+    "title": "Password reset mein madad",
+    "urdu": "نمائندہ پاس ورڈ بھول جائے تو شناخت اور رابطہ چیک کرنے کے بعد اِشیو ٹیمپریری پاس ورڈ استعمال کریں۔ پرانے سیشن ختم ہوں گے۔ نیا پاس ورڈ صرف اسی شخص کو دیں۔",
+    "english": "After verifying identity and contact, use Issue temporary password for a representative who lost access. Existing sessions are revoked. Share the replacement privately with its owner."
+  },
+  {
+    "index": 46,
+    "start": 452.1250000000001,
+    "duration": 9.833333333333334,
+    "frames": 236,
+    "screen": "assignment",
+    "title": "Masjid ki zimmedari dein",
+    "urdu": "اسائنمنٹس میں ریپلیس ریپریزنٹیٹو چنیں۔ صحیح مسجد اور مجاز، ایکٹیو نمائندہ سلیکٹ کریں۔ اکاؤنٹ بنانا اور مسجد کی ذمہ داری دینا دو الگ کام ہیں۔",
+    "english": "In Assignments, choose Replace representative, the correct mosque and an authorized active representative. Creating credentials and assigning a mosque are separate tasks."
+  },
+  {
+    "index": 47,
+    "start": 461.9583333333334,
+    "duration": 7.916666666666667,
+    "frames": 190,
+    "screen": "assignment-confirm",
+    "title": "Wajah aur consent",
+    "urdu": "ضروری وجہ لکھیں اور رضامندی کنفرم کر کے کَمِٹ اسائنمنٹ دبائیں۔ پرائمری فوکل یا عارضی بیک اَپ کی ضرورت ہو تو ایڈمن سے کہیں۔",
+    "english": "Enter the mandatory reason, confirm consent and press Commit assignment. Ask the administrator to arrange primary focal-person or temporary backup coverage."
+  },
+  {
+    "index": 48,
+    "start": 469.8750000000001,
+    "duration": 11.166666666666666,
+    "frames": 268,
+    "screen": "representatives",
+    "title": "Access kab band karein?",
+    "urdu": "نمائندے کی ذمہ داری ختم ہو تو پہلے مسجد کے لیے متبادل طے کریں۔ پھر ضرورت کے مطابق ڈی ایکٹیویٹ سے رسائی بند کریں۔ ریکارڈ اور پرانی ذمہ داریوں کی ہسٹری محفوظ رہتی ہے۔",
+    "english": "Arrange replacement coverage when a representative leaves. Use Deactivate when access should end. Historical records and assignments remain recorded."
+  },
+  {
+    "index": 49,
+    "start": 481.0416666666668,
+    "duration": 10.125,
+    "frames": 243,
+    "screen": "own-edit",
+    "title": "Khud update bhejna ho",
+    "urdu": "آپ خود ٹائم یا معلومات کی تجویز دیں تو مسجد کا متعلقہ ایڈٹ کھولیں، تبدیلی اور وجہ دیں، ریویو کر کے سبمٹ کریں۔ مگر اپنی تجویز کی منظوری کسی دوسرے مجاز شخص سے ہوگی۔",
+    "english": "To propose your own update, open the relevant mosque edit, enter the changes and reason, review and submit. Another authorized person must approve your proposal."
+  },
+  {
+    "index": 50,
+    "start": 491.1666666666668,
+    "duration": 9.541666666666666,
+    "frames": 229,
+    "screen": "register",
+    "title": "Nayi masjid register karna",
+    "urdu": "رجسٹر موسک سے نئی مسجد بھی درج کر سکتے ہیں۔ ڈیٹیلز، لوکیشن، امام، ٹائمنگز اور ریویو کے سٹیپس مکمل کریں۔ اپنی رجسٹریشن خود منظور نہ کریں۔",
+    "english": "Register mosque uses Details, Location, Imam, Timings and Review. Complete the record and submit it for independent verification; do not approve your own registration."
+  },
+  {
+    "index": 51,
+    "start": 500.7083333333335,
+    "duration": 8.666666666666666,
+    "frames": 208,
+    "screen": "notifications",
+    "title": "Bell aur notifications",
+    "urdu": "بیل سے نوٹیفکیشنز کھولیں اور متعلقہ کام دیکھیں۔ مارک آل ریڈ صرف پڑھی ہوئی نشان لگاتا ہے؛ اس سے کوئی ریویو مکمل یا درخواست منظور نہیں ہوتی۔",
+    "english": "Open Notifications from the bell and follow the relevant task. Mark all read only marks messages as read; it does not complete reviews or approve requests."
+  },
+  {
+    "index": 52,
+    "start": 509.37500000000017,
+    "duration": 7.708333333333333,
+    "frames": 185,
+    "screen": "history",
+    "title": "Faislon ka record",
+    "urdu": "ایکٹیوٹی ہسٹری میں پچھلے فیصلے اور کارروائیاں دیکھیں۔ کسی تبدیلی کی وجہ سمجھنی ہو تو اس کا اصل ریکارڈ کھول کر چیک کریں۔",
+    "english": "Use Activity history to review past decisions and actions. Open the original record when you need to understand a change."
+  },
+  {
+    "index": 53,
+    "start": 517.0833333333335,
+    "duration": 8.708333333333334,
+    "frames": 209,
+    "screen": "password",
+    "title": "Apna account mehfooz",
+    "urdu": "مائی اکاؤنٹ میں اپنا رول اور ایریا دیکھیں۔ پاس ورڈ بدلنا ہو تو موجودہ اور کم از کم بارہ کریکٹر والا نیا پاس ورڈ دیں، پھر دوبارہ سائن اِن کریں۔",
+    "english": "Review your role and area in My account. Change your password using the current password and a new one of at least 12 characters, then sign in again."
+  },
+  {
+    "index": 54,
+    "start": 525.7916666666669,
+    "duration": 8.583333333333334,
+    "frames": 206,
+    "screen": "account",
+    "title": "Kaam ke baad sign out",
+    "urdu": "کام مکمل ہو تو سائن آؤٹ کریں، خاص طور پر مشترکہ فون یا کمپیوٹر پر۔ پرائیویٹ نمبر، کال کے نوٹس اور پاس ورڈ اپنے پاس محفوظ رکھیں۔",
+    "english": "Sign out when finished, especially on a shared device. Keep private contacts, call notes and passwords secure."
+  },
+  {
+    "index": 55,
+    "start": 534.3750000000002,
+    "duration": 12.083333333333334,
+    "frames": 290,
+    "screen": "approved",
+    "title": "Pehle tasdeeq, phir approval",
+    "urdu": "بس یہ ترتیب یاد رکھیں۔ درخواست چیک کریں، معتبر امام سے بات کریں، اصل شواہد لکھیں، پھر صحیح فیصلہ کریں۔ آپ کی توجہ سے محلے والوں اور نئے آنے والوں کو جماعت کی قابلِ اعتماد معلومات ملتی ہیں۔",
+    "english": "Remember: check the proposal, contact the registered Imam, record real evidence and make the right decision. Your care helps neighbours and newcomers rely on local Jama’at information."
+  }
+]

@@ -1,0 +1,15 @@
+1
+00:00:00,000 --> 00:00:12,292
+Find participating mosques and Jama’at times in a new area. Browse without an account and open directions in Google Maps.
+
+2
+00:00:12,292 --> 00:00:23,333
+The assigned representative checks and publishes times directly. Today’s changes do not wait for focal approval.
+
+3
+00:00:23,333 --> 00:00:34,167
+Every 7 days, check and confirm. After 14 days without confirmation, the focal person calls or visits.
+
+4
+00:00:34,167 --> 00:00:46,542
+Report incorrect times. Changes keep a history. Overdue confirmation does not prove a time is wrong; check with the mosque if unsure.

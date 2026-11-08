@@ -27,7 +27,16 @@ export function Field({
       {child
         ? cloneElement(child, {
             id: controlId,
-            ...(hint ? { 'aria-describedby': controlId + '-hint' } : {}),
+            ...(hint
+              ? {
+                  'aria-describedby': [
+                    child.props['aria-describedby'],
+                    controlId + '-hint',
+                  ]
+                    .filter(Boolean)
+                    .join(' '),
+                }
+              : {}),
           })
         : children}
       {hint && <small id={controlId + '-hint'}>{hint}</small>}

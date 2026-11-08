@@ -1,0 +1,155 @@
+[
+  {
+    "start": 0,
+    "duration": 5.958333333333333,
+    "frames": 143,
+    "title": "Naya area. Naye raste.",
+    "visual": "arrival",
+    "urdu": "آپ کسی نئے ایریا میں آئے ہیں۔ آس پاس کی گلیاں بھی نئی ہیں، اور راستوں کا بھی اندازہ نہیں۔",
+    "english": "You arrive in a new area. The streets are unfamiliar, and you do not know your way around."
+  },
+  {
+    "start": 5.958333333333333,
+    "duration": 7.958333333333333,
+    "frames": 191,
+    "title": "Masjid kahan hai?",
+    "visual": "find",
+    "urdu": "اب سوال ہے، قریب مسجد کہاں ہے؟ ڈسکور صلاح پر اپنی لوکیشن یا ایریا چوز کریں، اور لسٹ میں شامل قریبی مساجد تلاش کریں۔",
+    "english": "Where is a nearby mosque? Choose your location or area in DiscoverSalah to find listed mosques nearby."
+  },
+  {
+    "start": 13.916666666666666,
+    "duration": 5.041666666666667,
+    "frames": 121,
+    "title": "Jama’at kitne bajay hai?",
+    "visual": "times",
+    "urdu": "مسجد کی لوکیشن کے ساتھ، فجر سے عشاء تک نمازوں کی جماعت کے ٹائم بھی چیک کر لیں۔",
+    "english": "Alongside the mosque location, check congregation times for prayers from Fajr to Isha."
+  },
+  {
+    "start": 18.958333333333332,
+    "duration": 7.083333333333333,
+    "frames": 170,
+    "title": "Prayer time ≠ Jama’at time",
+    "visual": "difference",
+    "urdu": "یاد رہے، نماز کا وقت شروع ہونا، اور مسجد میں جماعت شروع ہونا، الگ ہیں۔ یہاں فوکس جماعت کے ٹائم پر ہے۔",
+    "english": "Prayer time beginning and congregation starting are different. The focus here is Jama’at time."
+  },
+  {
+    "start": 26.041666666666664,
+    "duration": 6.166666666666667,
+    "frames": 148,
+    "title": "Masjid mili. Ab rasta dekhein.",
+    "visual": "directions",
+    "urdu": "مسجد مل گئی اور ٹائم بھی دیکھ لیا؟ اب گوگل میپس کھولیں اور مسجد تک جانے کا راستہ دیکھ لیں۔",
+    "english": "Found the mosque and checked the time? Open Google Maps for directions to its entrance."
+  },
+  {
+    "start": 32.20833333333333,
+    "duration": 7.5,
+    "frames": 180,
+    "title": "Thora extra time rakhein.",
+    "visual": "buffer",
+    "urdu": "نکلنے سے پہلے ٹائمنگ دوبارہ چیک کریں، اور سفر کے لیے کچھ ایکسٹرا ٹائم رکھیں۔ وقت پر پہنچنے کی گارنٹی نہیں ہوتی۔",
+    "english": "Check the timing before leaving and allow extra travel time. Arrival on time is not guaranteed."
+  },
+  {
+    "start": 39.70833333333333,
+    "duration": 7.125,
+    "frames": 171,
+    "title": "Bas dekhein. Sign-up nahi.",
+    "visual": "browse",
+    "urdu": "سفر پر ہوں، نئے محلے میں ہوں، یا کام سے باہر نکلے ہوں۔ مسجد اور ٹائمنگ دیکھنے کے لیے اکاؤنٹ بنانے کی ضرورت نہیں۔",
+    "english": "Travelling, new to the neighbourhood, or out for work? Browse mosque locations and timings without an account."
+  },
+  {
+    "start": 46.83333333333333,
+    "duration": 6.166666666666667,
+    "frames": 148,
+    "title": "Local log, local updates.",
+    "visual": "representative",
+    "urdu": "لیکن ٹائمنگ اپڈیٹ کون کرے گا؟ مسجد کا لوکل نمائندہ نئی ٹائمنگ یا تبدیلی شیئر کرے گا۔",
+    "english": "Who updates the timings? The local mosque representative submits new timings or changes."
+  },
+  {
+    "start": 52.99999999999999,
+    "duration": 5.583333333333333,
+    "frames": 134,
+    "title": "Imam sahib se confirm.",
+    "visual": "reviewer",
+    "urdu": "فوکل پرسن، یعنی معلومات چیک کرنے والا شخص، امام صاحب سے بات کر کے اپڈیٹ کا ریویو کرے گا۔",
+    "english": "A focal person checks the update by speaking with the registered Imam."
+  },
+  {
+    "start": 58.58333333333333,
+    "duration": 5.083333333333333,
+    "frames": 122,
+    "title": "Team ki zimmedari clear.",
+    "visual": "admin",
+    "urdu": "ایڈمن یہ دیکھے گا کہ کس ایریا میں کون ذمہ دار ہے، تاکہ ٹیم مل کر کام کر سکے۔",
+    "english": "The administrator assigns responsibilities across areas so the team can work together."
+  },
+  {
+    "start": 63.666666666666664,
+    "duration": 7.583333333333333,
+    "frames": 182,
+    "title": "Pehle check. Phir publish.",
+    "visual": "approve",
+    "urdu": "کوئی اپنی اپڈیٹ خود اپروو نہیں کرے گا۔ دوسرا ذمہ دار شخص اسے چیک کر کے منظور کرے گا، یا اصلاح کے لیے واپس بھیجے گا۔",
+    "english": "Nobody approves their own update. Another responsible person checks it, then approves or returns it for correction."
+  },
+  {
+    "start": 71.25,
+    "duration": 5.041666666666667,
+    "frames": 121,
+    "title": "Naya time, sahi tareekh se.",
+    "visual": "calendar",
+    "urdu": "اور اگر نئی ٹائمنگ کسی اگلی تاریخ سے شروع ہونی ہے، تو وہ اسی تاریخ سے لاگو ہوگی۔",
+    "english": "If a new timetable starts on a future date, it takes effect on that date."
+  },
+  {
+    "start": 76.29166666666667,
+    "duration": 6.333333333333333,
+    "frames": 152,
+    "title": "Galat time? Bata dein.",
+    "visual": "report",
+    "urdu": "آپ کو کوئی ٹائم غلط لگے، تو رپورٹ کر دیں۔ آپ کی ایک چھوٹی سی مدد، معلومات بہتر بنا سکتی ہے۔",
+    "english": "See an incorrect time? Report it. A small contribution can help improve the information."
+  },
+  {
+    "start": 82.625,
+    "duration": 6.333333333333333,
+    "frames": 152,
+    "title": "Aap ki masjid missing hai?",
+    "visual": "suggest",
+    "urdu": "آپ کی مسجد لسٹ میں نہیں؟ اسے سجیسٹ کریں، تاکہ ضروری چیک کے بعد اسے شامل کیا جا سکے۔",
+    "english": "Your mosque is missing? Suggest it so it can be added after the required checks."
+  },
+  {
+    "start": 88.95833333333333,
+    "duration": 4.958333333333333,
+    "frames": 119,
+    "title": "Mil kar asaani banayein.",
+    "visual": "join",
+    "urdu": "ساتھ کام کرنا چاہیں تو اپلائی کریں، اور اپنی درخواست کا اسٹیٹس چیک کرتے رہیں۔",
+    "english": "Want to help? Apply to contribute and follow your request’s status."
+  },
+  {
+    "start": 93.91666666666666,
+    "duration": 4.125,
+    "frames": 99,
+    "title": "Private number, private hi.",
+    "visual": "privacy",
+    "urdu": "اور ہاں، امام صاحب کے پرائیویٹ فون نمبرز سب کو نظر نہیں آئیں گے۔",
+    "english": "Private Imam phone numbers are not shown to the public."
+  },
+  {
+    "start": 98.04166666666666,
+    "duration": 7.958333333333333,
+    "frames": 191,
+    "title": "Masjid bhi. Jama’at time bhi.",
+    "visual": "close",
+    "urdu": "بس یہی ہے ڈسکور صلاح۔ نئے ایریا میں مسجد کی لوکیشن اور جماعت کے ٹائم آسانی سے ڈھونڈیں، اور اپنی کمیونٹی کی مدد کریں۔",
+    "english": "DiscoverSalah: find mosque locations and Jama’at times in an unfamiliar area, and help your community."
+  }
+]

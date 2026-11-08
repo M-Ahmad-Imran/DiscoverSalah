@@ -63,6 +63,9 @@ export interface Venue {
   initial: Snapshot;
   identityApprovedAt?: Date;
   reconfirmedAt?: Date;
+  timetablePublishedAt?: Date;
+  lastFollowUpAt?: Date;
+  lastFollowUpOutcome?: string;
   createdAt: Date;
 }
 export interface PrivateContact {
@@ -79,7 +82,13 @@ export interface Proposal {
   authorId: string;
   version: number;
   baseRevision: number;
-  state: "Submitted" | "Approved" | "Returned" | "Rejected" | "Superseded";
+  state:
+    | "Submitted"
+    | "Approved"
+    | "Published"
+    | "Returned"
+    | "Rejected"
+    | "Superseded";
   snapshot: Snapshot;
   before: Snapshot;
   createdAt: Date;
@@ -156,6 +165,7 @@ export interface PublicRequest {
   redactedAt?: Date;
 }
 export interface Notice {
+  imageId?: string;
   _id: string;
   venueId: string;
   authorId: string;
@@ -176,6 +186,26 @@ export interface Notice {
   replacesId?: string;
   revision: number;
   createdAt: Date;
+}
+export interface NoticeImage {
+  attached?: boolean;
+  _id: string;
+  venueId: string;
+  ownerId: string;
+  storageCloud: string;
+  publicId: string;
+  state: "uploading" | "ready" | "deleting" | "deleted";
+  width?: number;
+  height?: number;
+  bytes?: number;
+  version?: number;
+  createdAt: Date;
+  // Starts at one hour for abandoned uploads; extended atomically on every attachment.
+  deleteAfter: Date;
+  leaseUntil: Date;
+  leaseToken?: string;
+  attempts: number;
+  deletedAt?: Date;
 }
 export interface Dispute {
   _id: string;

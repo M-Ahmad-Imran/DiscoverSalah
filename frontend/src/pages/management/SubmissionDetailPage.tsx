@@ -34,24 +34,26 @@ export function SubmissionDetail() {
     <>
       <PageTitle
         eyebrow={`${v.name} · ${p.id} · v${p.version}`}
-        title={t('Timing submission details', 'اوقات کی درخواست کی تفصیلات')}
+        title={t('Timetable version details', 'اوقات کے ورژن کی تفصیلات')}
         action={
-          <Badge tone={p.state === 'Approved' ? 'green' : 'amber'}>{p.state}</Badge>
+          <Badge tone={['Approved', 'Published'].includes(p.state) ? 'green' : 'amber'}>
+            {p.state}
+          </Badge>
         }
       />
       <Alert>
         {t(
-          p.state === 'Approved'
+          ['Approved', 'Published'].includes(p.state)
             ? p.effective > today()
-              ? 'Approved for future activation. The previous schedule remains effective until the date below.'
-              : 'This approved version is effective according to its schedule window.'
+              ? 'Published for a future date. The previous schedule remains effective until that date.'
+              : 'This published version applies according to its effective date and later versions.'
             : p.state === 'Submitted'
               ? 'Awaiting independent verification. This submission is not published.'
               : p.state === 'Superseded'
                 ? 'A newer version replaced this proposal. This historical version is read-only.'
                 : 'This version is retained in history. Corrections create a new proposal.',
-          p.state === 'Approved'
-            ? 'منظور شدہ ورژن اپنی مقررہ تاریخ پر لاگو ہوگا۔'
+          ['Approved', 'Published'].includes(p.state)
+            ? 'شائع شدہ ورژن اپنی مقررہ تاریخ پر لاگو ہوگا۔'
             : p.state === 'Submitted'
               ? 'آزاد تصدیق کا انتظار ہے۔ یہ درخواست شائع نہیں ہوئی۔'
               : 'یہ ورژن تاریخ میں محفوظ ہے۔ اصلاح نیا ورژن بنائے گی۔',
@@ -96,7 +98,7 @@ export function SubmissionDetail() {
             {p.state !== 'Superseded' && role === 'representative' && (
               <button onClick={revise}>
                 <Edit3 size={16} />
-                {t('Revise as new proposal', 'نئی تجویز کے طور پر ترمیم')}
+                {t('Correct as a new version', 'نیا ورژن بنا کر درست کریں')}
               </button>
             )}
             {role !== 'representative' && p.state === 'Submitted' && (

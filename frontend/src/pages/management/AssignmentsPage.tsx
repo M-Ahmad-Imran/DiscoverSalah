@@ -16,13 +16,18 @@ export function Assignments() {
   const [operation, setOperation] = useState<AssignmentInput['operation']>(
     params.get('area') ? 'focal' : 'representative',
   );
-  const [target, setTarget] = useState(params.get('area') || db.venues[0]?.id);
+  const [target, setTarget] = useState(params.get('area') || params.get('venue') || db.venues[0]?.id);
   const [assignee, setAssignee] = useState(params.get('account') || '');
   const [reason, setReason] = useState('');
   const [startsAt, setStartsAt] = useState('');
   const [endsAt, setEndsAt] = useState('');
   const [error, setError] = useState('');
   const [consent, setConsent] = useState(false);
+  const selectionReady =
+    db.accounts.some((a) => a.id === assignee) &&
+    (operation === 'focal'
+      ? db.areas.some((a) => a.name === target)
+      : db.venues.some((v) => v.id === target));
   if (role !== 'admin' && role !== 'focal') return <AccessDenied />;
   return (
     <>
@@ -40,7 +45,7 @@ export function Assignments() {
           onSubmit={async (e) => {
             try {
               e.preventDefault();
-              if (!consent) return;
+              if (!consent || !selectionReady) return;
               const input = {
                 operation,
                 target,
@@ -191,7 +196,12 @@ export function Assignments() {
               'میں سمجھتا ہوں کہ تبدیلی فوراً رسائی بدلتی ہے اور پرانی تاریخ محفوظ رہے گی۔',
             )}
           </label>
-          <button disabled={!consent}>
+          {assignee && !selectionReady && (
+            <p role="status">
+              {t('Loading selected records…', 'منتخب ریکارڈ لوڈ ہو رہے ہیں…')}
+            </p>
+          )}
+          <button disabled={!consent || !selectionReady}>
             {t('Commit assignment', 'ذمہ داری درج کریں')}
           </button>
         </form>

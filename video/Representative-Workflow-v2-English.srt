@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:11,958
+Publish your mosque’s timetable directly. Check the actual times first; focal approval is not required.
+
+2
+00:00:11,958 --> 00:00:23,375
+Sign in with your number and password. Open My mosques. You can edit only your assigned mosque.
+
+3
+00:00:23,375 --> 00:00:35,583
+Edit the times, give a reason, then review old and new values. Check the effective date.
+
+4
+00:00:35,583 --> 00:00:49,833
+Publish creates a recorded version. Today’s changes are available immediately; future changes start on their date.
+
+5
+00:00:49,833 --> 00:01:02,458
+Check every 7 days. If unchanged, confirm it. After 14 days without confirmation, the focal person follows up.
+
+6
+00:01:02,458 --> 00:01:14,208
+Correct mistakes with a new version. History remains. Check Friday, Eid, future dates and cancellations too.

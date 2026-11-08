@@ -27,7 +27,10 @@ const content = z.discriminatedUnion("kind", [
       kind: z.literal("profile-change"),
       name: text,
       address: text,
-      facilities: z.record(z.enum(["Available", "Unavailable", "Unknown"])),
+      facilities: z.record(
+        z.string(),
+        z.enum(["Available", "Unavailable", "Unknown"]),
+      ),
       reason: text.min(5),
     })
     .strict(),
@@ -378,17 +381,15 @@ export function changeRoutes(d: Database, c: Config) {
             { session: s },
           );
           await audit(d, s, a._id, "Review escalated", pid, v._id);
-          await d.db
-            .collection("escalations")
-            .insertOne(
-              {
-                proposalId: pid,
-                reasonCipher: encrypt(x.reason, c.DATA_KEY),
-                actorId: a._id,
-                at: new Date(),
-              },
-              { session: s },
-            );
+          await d.db.collection("escalations").insertOne(
+            {
+              proposalId: pid,
+              reasonCipher: encrypt(x.reason, c.DATA_KEY),
+              actorId: a._id,
+              at: new Date(),
+            },
+            { session: s },
+          );
           for await (const admin of d.accounts.find(
             { role: "admin", active: true },
             { session: s },

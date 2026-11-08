@@ -43,8 +43,8 @@ export const content: Record<
       [
         '2. Understand the timing evidence',
         '۲۔ اوقات کی تصدیق سمجھیں',
-        'Representatives submit changes. Focal Persons verify exact versions by calling the registered Imam.',
-        'نمائندے تبدیلیاں بھیجتے ہیں اور فوکل پرسن امام سے فون پر تصدیق کرتا ہے۔',
+        'Assigned representatives publish timetable changes directly. Focal persons monitor confirmations and follow up after 14 days.',
+        'مقررہ نمائندہ اوقات براہِ راست شائع کرتا ہے۔ فوکل پرسن تصدیق کی نگرانی اور ۱۴ دن بعد رابطہ کرتا ہے۔',
       ],
       [
         '3. Check your journey',
@@ -76,8 +76,8 @@ export const content: Record<
       [
         'Can I change a public timetable?',
         'کیا میں اوقات تبدیل کر سکتا ہوں؟',
-        'Visitors can report an issue. Only assigned management can submit official schedule proposals.',
-        'زائرین مسئلہ رپورٹ کر سکتے ہیں۔ سرکاری تبدیلی مقررہ نمائندہ بھیجتا ہے۔',
+        'Visitors can report an issue. Assigned representatives publish changes; focal corrections require a recorded call or visit.',
+        'زائرین مسئلہ رپورٹ کر سکتے ہیں۔ مقررہ نمائندہ اوقات شائع کرتا ہے؛ فوکل کی درستی کے لیے کال یا ملاقات درج ہوتی ہے۔',
       ],
       [
         'What if I decline location permission?',
@@ -97,8 +97,8 @@ export const content: Record<
       [
         'Phone verification',
         'فون تصدیق',
-        'An independent Focal Person records a call to the registered Imam for the exact schedule version and affected sessions.',
-        'فوکل پرسن امام سے مخصوص ورژن اور جماعتوں کی تصدیق کرتا ہے۔',
+        'The focal person records calls or visits when following up on overdue confirmations or correcting a timetable.',
+        'فوکل پرسن تصدیق میں تاخیر یا اوقات کی درستی پر فون یا ملاقات کا ریکارڈ رکھتا ہے۔',
       ],
       [
         'Representative reconfirmation',
@@ -109,8 +109,8 @@ export const content: Record<
       [
         'Under review, disputed or stale',
         'زیر تصدیق، متنازع یا پرانے',
-        'Affected sessions do not receive positive arrival recommendations. Unchanged eligible sessions are considered separately.',
-        'متاثرہ جماعتوں کے لیے مثبت آمد کے اندازے نہیں دیے جاتے۔',
+        'A confirmation is due after 7 days; after 14 days the focal person follows up. An overdue confirmation does not prove a time is wrong or automatically hide the mosque.',
+        '۷ دن بعد تصدیق اور ۱۴ دن بعد فوکل کا رابطہ درکار ہے۔ تاخیر کا مطلب غلط وقت نہیں اور مسجد خود بخود نہیں چھپتی۔',
       ],
     ],
   },
@@ -188,10 +188,10 @@ export const content: Record<
         'اپنی ذمہ داری کے اندر کام کریں، اصلاحات نئے ورژن میں بھیجیں اور نجی معلومات محفوظ رکھیں۔',
       ],
       [
-        'No self-approval',
+        'Publishing and oversight',
         'اپنی منظوری خود نہیں',
-        'A different authorized reviewer must verify your submission, even if you hold another role.',
-        'آپ کی درخواست ایک الگ مجاز نگران تصدیق کرے گا۔',
+        'Routine timetable changes publish directly. Mosque registration, notices and identity changes still follow their separate verification rules.',
+        'عام اوقات براہِ راست شائع ہوتے ہیں۔ مسجد کے اندراج، اعلانات اور شناخت کی تبدیلیوں کے الگ تصدیقی اصول ہیں۔',
       ],
     ],
   },

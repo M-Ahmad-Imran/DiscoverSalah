@@ -60,6 +60,24 @@ export function Dashboard() {
         }
       />
       <div className="stats-grid">
+        <Link
+          className="stat-card"
+          to={
+            isRep
+              ? '/manage/mosques?freshness=due'
+              : '/manage/maintenance?freshness=overdue'
+          }
+        >
+          <span className="stat-number">
+            {db.counts?.[isRep ? 'confirmationDue' : 'followUpNeeded'] ?? 0}
+          </span>
+          <strong>
+            {t(
+              isRep ? 'Confirm times: 7+ days' : 'Follow up: 14+ days',
+              isRep ? 'اوقات کی تصدیق: ۷ دن یا زیادہ' : 'رابطہ کریں: ۱۴ دن یا زیادہ',
+            )}
+          </strong>
+        </Link>
         {[
           [
             Building2,
@@ -206,7 +224,10 @@ export function Dashboard() {
         </Panel>
       </div>
       {role === 'admin' && (
-        <Panel title={t('Participating areas & supervision', 'شریک علاقے اور نگرانی')} action={<Link to='/manage/areas'>{t('View all', 'سب دیکھیں')}</Link>}>
+        <Panel
+          title={t('Participating areas & supervision', 'شریک علاقے اور نگرانی')}
+          action={<Link to="/manage/areas">{t('View all', 'سب دیکھیں')}</Link>}
+        >
           <div className="table-wrap">
             <table>
               <thead>

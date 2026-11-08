@@ -65,8 +65,8 @@ export function TimetableEditor() {
       <PageTitle
         title={t('Update Jama’at timings', 'جماعت کے اوقات بدلیں')}
         description={t(
-          'Enter the actual congregation times. Changes are reviewed before publication.',
-          'حقیقی جماعت کے اوقات درج کریں۔ اشاعت سے پہلے تبدیلیوں کا جائزہ ہوگا۔',
+          'Enter the actual congregation times. Review your changes, then publish directly.',
+          'اصل جماعت کے اوقات درج کریں۔ تبدیلیاں چیک کر کے براہِ راست شائع کریں۔',
         )}
       />
       <Steps
@@ -74,7 +74,7 @@ export function TimetableEditor() {
         items={[
           t('Edit timetable', 'اوقات میں ترمیم'),
           t('Review changes', 'تبدیلیاں دیکھیں'),
-          t('Submit for verification', 'تصدیق کے لیے جمع'),
+          t('Publish timetable', 'اوقات شائع کریں'),
         ]}
       />
       <form
@@ -128,7 +128,7 @@ export function TimetableEditor() {
                 <thead>
                   <tr>
                     <th>{t('Prayer', 'نماز')}</th>
-                    <th>{t('Approved time', 'منظور شدہ وقت')}</th>
+                    <th>{t('Current time', 'موجودہ وقت')}</th>
                     <th>{t('Proposed Jama’at', 'مجوزہ جماعت')}</th>
                     <th />
                   </tr>
@@ -301,8 +301,8 @@ export function TimetableEditor() {
               <InfoIcon />
               <p>
                 {t(
-                  'Future approved schedules activate on their effective date. Today’s affected sessions stay under review until a decision.',
-                  'آئندہ اوقات مقررہ تاریخ پر لاگو ہوں گے۔ آج کی متاثرہ جماعتیں فیصلے تک زیر تصدیق رہیں گی۔',
+                  'Future schedules start on their effective date. Today’s changes publish immediately; no focal approval is needed.',
+                  'آئندہ اوقات مقررہ تاریخ پر لاگو ہوں گے۔ آج کی تبدیلی فوراً شائع ہوگی؛ فوکل کی منظوری ضروری نہیں۔',
                 )}
               </p>
             </div>

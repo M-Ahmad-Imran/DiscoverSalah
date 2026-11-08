@@ -1,0 +1,128 @@
+[
+  {
+    "scene": 0,
+    "start": 0,
+    "duration": 7.041666666666667,
+    "lead": 0.8,
+    "frames": 169,
+    "urdu": "کبھی آپ کسی نئے ایریا میں ہوں، اور سوچیں، قریب کی مسجد میں جماعت کتنے بجے ہے؟",
+    "english": "In a new area, wondering what time Jama’at starts at a nearby mosque?"
+  },
+  {
+    "scene": 0,
+    "start": 7.041666666666667,
+    "duration": 8.541666666666666,
+    "lead": 0.15,
+    "frames": 205,
+    "urdu": "بس، ڈسکور صلاح کا آئیڈیا یہی ہے۔ مسجد اور جماعت کی ٹائمنگ ڈھونڈنا، سب کے لیے آسان ہو جائے۔",
+    "english": "That is the idea behind DiscoverSalah: make mosques and Jama’at times easier to find."
+  },
+  {
+    "scene": 1,
+    "start": 15.583333333333332,
+    "duration": 10.166666666666666,
+    "lead": 0.8,
+    "frames": 244,
+    "urdu": "اپنا ایریا چوز کریں، لسٹ میں شامل مساجد دیکھیں، اور جماعت کا ٹائم چیک کر لیں۔ اکاؤنٹ بنانے کی بھی ضرورت نہیں۔",
+    "english": "Choose your area, browse listed mosques and check Jama’at times. No account needed."
+  },
+  {
+    "scene": 1,
+    "start": 25.75,
+    "duration": 11.5,
+    "lead": 0.15,
+    "frames": 276,
+    "urdu": "ایک چھوٹی سی بات یاد رکھیں۔ نماز کا وقت شروع ہونا، اور مسجد میں جماعت ہونا، الگ الگ ہیں۔ یہاں فوکس جماعت کی ٹائمنگ پر ہے۔",
+    "english": "Prayer time and congregation time are different. The focus here is Jama’at timings."
+  },
+  {
+    "scene": 2,
+    "start": 37.25,
+    "duration": 9.416666666666666,
+    "lead": 0.8,
+    "frames": 226,
+    "urdu": "مسجد مل گئی؟ اب اس کی ڈیٹیلز اور اعلانات دیکھیں۔ راستہ چاہیے تو گوگل میپس کھول لیں۔",
+    "english": "Found a mosque? Check its details and notices, then open Google Maps for directions."
+  },
+  {
+    "scene": 2,
+    "start": 46.666666666666664,
+    "duration": 9.916666666666666,
+    "lead": 0.15,
+    "frames": 238,
+    "urdu": "نکلنے سے پہلے ٹائمنگ دوبارہ چیک کر لیں، اور سفر کے لیے کچھ ایکسٹرا ٹائم رکھیں۔ وقت پر پہنچنے کی گارنٹی نہیں ہوتی۔",
+    "english": "Check the timing before leaving and allow extra travel time. Arrival on time is not guaranteed."
+  },
+  {
+    "scene": 3,
+    "start": 56.58333333333333,
+    "duration": 8.166666666666666,
+    "lead": 0.8,
+    "frames": 196,
+    "urdu": "یہ کام مل کر ہوگا۔ مسجد کا لوکل نمائندہ نئی ٹائمنگ یا کوئی تبدیلی شیئر کرے گا۔",
+    "english": "It is a shared effort. A local mosque representative submits new timings or changes."
+  },
+  {
+    "scene": 3,
+    "start": 64.75,
+    "duration": 10.583333333333334,
+    "lead": 0.15,
+    "frames": 254,
+    "urdu": "فوکل پرسن، یعنی وہ شخص جو معلومات چیک کرتا ہے، امام صاحب سے بات کر کے اپڈیٹ کا ریویو کرے گا۔ ایڈمن ٹیم کو منظم رکھے گا۔",
+    "english": "A focal person checks the update with the Imam. An admin helps organise the team."
+  },
+  {
+    "scene": 4,
+    "start": 75.33333333333333,
+    "duration": 11.166666666666666,
+    "lead": 0.8,
+    "frames": 268,
+    "urdu": "ٹائمنگ صرف لکھ دینے سے پبلش نہیں ہوگی۔ ایک دوسرا ذمہ دار شخص اسے چیک کرے گا، پھر اپروو کرے گا یا اصلاح کے لیے واپس بھیجے گا۔",
+    "english": "An update is checked by another responsible person before approval, or returned for correction."
+  },
+  {
+    "scene": 4,
+    "start": 86.5,
+    "duration": 9.083333333333334,
+    "lead": 0.15,
+    "frames": 218,
+    "urdu": "اس طرح کوئی اپنی ہی اپڈیٹ خود اپروو نہیں کرتا۔ اور اگلے دن سے لاگو ہونے والی ٹائمنگ، اسی دن سے دکھائی جاتی ہے۔",
+    "english": "Nobody approves their own update. Future timings take effect on their planned date."
+  },
+  {
+    "scene": 5,
+    "start": 95.58333333333333,
+    "duration": 10.208333333333334,
+    "lead": 0.8,
+    "frames": 245,
+    "urdu": "کوئی ٹائم غلط لگے، یا آپ کی مسجد لسٹ میں نہ ہو، تو ہمیں بتائیں۔ آپ رپورٹ کر سکتے ہیں، یا مسجد سجیسٹ کر سکتے ہیں۔",
+    "english": "Notice an incorrect time or a missing mosque? Send a report or suggest the mosque."
+  },
+  {
+    "scene": 5,
+    "start": 105.79166666666666,
+    "duration": 12.291666666666666,
+    "lead": 0.15,
+    "frames": 295,
+    "urdu": "ساتھ کام کرنا چاہیں تو تعاون کے لیے اپلائی کریں۔ اپنی درخواست کا اسٹیٹس بھی چیک کر سکتے ہیں۔ امام صاحب کے پرائیویٹ نمبرز سب کو نظر نہیں آئیں گے۔",
+    "english": "Apply to help and track your request. Private Imam phone numbers are not shown publicly."
+  },
+  {
+    "scene": 6,
+    "start": 118.08333333333333,
+    "duration": 10.375,
+    "lead": 0.8,
+    "frames": 249,
+    "urdu": "مقصد بہت سادہ ہے۔ جماعت کے اوقات آسانی سے ملیں، معلومات چیک ہو کر آئیں، اور کمیونٹی ایک دوسرے کی مدد کرے۔",
+    "english": "The goal is simple: easy-to-find Jama’at times, checked information and a helpful community."
+  },
+  {
+    "scene": 6,
+    "start": 128.45833333333331,
+    "duration": 9.125,
+    "lead": 0.15,
+    "frames": 219,
+    "urdu": "یہی ہے ڈسکور صلاح۔ اپنی مسجد سے جڑے رہیں، اور ایک چھوٹی سی مدد سے کسی اور کے لیے آسانی پیدا کریں۔",
+    "english": "That is DiscoverSalah. Stay connected with your mosque and help make someone else’s day easier."
+  }
+]

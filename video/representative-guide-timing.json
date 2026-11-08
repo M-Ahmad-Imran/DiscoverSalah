@@ -1,0 +1,412 @@
+[
+  {
+    "index": 0,
+    "start": 0,
+    "duration": 9.958333333333334,
+    "frames": 239,
+    "screen": "dashboard",
+    "title": "Shuru karein",
+    "urdu": "السلام علیکم! اس گائیڈ میں ہم سائن اِن سے لے کر جماعت کے ٹائم، نوٹس، اور ڈیش بورڈ کے باقی کام دیکھیں گے۔ سکرین پر سب معلومات صرف ٹریننگ کی مثال ہیں۔",
+    "english": "Welcome! Learn sign-in, Jama’at updates, notices and dashboard tasks. All on-screen records are training examples."
+  },
+  {
+    "index": 1,
+    "start": 9.958333333333334,
+    "duration": 8.833333333333334,
+    "frames": 212,
+    "screen": "signin",
+    "title": "Apna account kholein",
+    "urdu": "سب سے پہلے سائن اِن کھولیں۔ اپنا رجسٹرڈ کانٹیکٹ نمبر اور پاس ورڈ ڈالیں۔ اکاؤنٹ کی تفصیل آپ کو ذمہ دار فوکل پرسن سے ملے گی۔",
+    "english": "Open Sign in. Enter your registered contact number and password supplied by your authorized focal person."
+  },
+  {
+    "index": 2,
+    "start": 18.791666666666668,
+    "duration": 7.583333333333333,
+    "frames": 182,
+    "screen": "credentials",
+    "title": "Number + password",
+    "urdu": "نمبر اور پاس ورڈ دوبارہ دیکھ لیں، پھر سائن اِن دبائیں۔ یہاں دکھایا گیا نمبر صرف مثال ہے، آپ اپنا نمبر استعمال کریں۔",
+    "english": "Check your contact number and password, then press Sign in. Use your own credentials; this number is an example."
+  },
+  {
+    "index": 3,
+    "start": 26.375,
+    "duration": 12.458333333333334,
+    "frames": 299,
+    "screen": "recovery",
+    "title": "Password bhool gaye?",
+    "urdu": "اگر پہلی بار پاس ورڈ بدلنے کو کہا جائے تو نیا، کم از کم بارہ کریکٹر کا پاس ورڈ رکھیں، اور دوبارہ سائن اِن کریں۔ پاس ورڈ بھول جائیں تو ریکوری میں دی گئی ہدایات کے مطابق اپنے اکاؤنٹ جاری کرنے والے شخص سے رابطہ کریں۔",
+    "english": "If prompted, replace your temporary password with at least 12 characters, then sign in again. For forgotten passwords, follow Recovery and contact your account issuer."
+  },
+  {
+    "index": 4,
+    "start": 38.833333333333336,
+    "duration": 9.541666666666666,
+    "frames": 229,
+    "screen": "dashboard",
+    "title": "Aap ka dashboard",
+    "urdu": "یہ آپ کا ڈیش بورڈ ہے۔ یہاں آپ کی مساجد، پینڈنگ ریویوز، اور جن کاموں پر توجہ چاہیے، ان کا خلاصہ ملتا ہے۔ سائیڈ مینو سے ہر سیکشن کھلتا ہے۔",
+    "english": "Overview shows your assigned mosques, pending reviews and items needing attention. Use the sidebar to open each section."
+  },
+  {
+    "index": 5,
+    "start": 48.375,
+    "duration": 9.666666666666666,
+    "frames": 232,
+    "screen": "mosques",
+    "title": "Apni masjid chunein",
+    "urdu": "مائی موسکس کھولیں اور اپنی مسجد سلیکٹ کریں۔ صرف آپ کو دی گئی مساجد یہاں ملیں گی۔ اپنی مسجد نظر نہ آئے تو فوکل پرسن سے اسائنمنٹ چیک کروائیں۔",
+    "english": "Open My mosques and choose your mosque. If it is missing, ask your focal person to check your assignment."
+  },
+  {
+    "index": 6,
+    "start": 58.041666666666664,
+    "duration": 9.166666666666666,
+    "frames": 220,
+    "screen": "overview",
+    "title": "Pehle current time dekhein",
+    "urdu": "مسجد کی سکرین پر پہلے موجودہ اپرووڈ ٹائم دیکھیں۔ یہ جماعت کے ٹائم ہیں۔ تبدیلی کرنے سے پہلے امام صاحب سے صحیح ٹائم کنفرم کر لیں۔",
+    "english": "Check the current approved Jama’at timetable. Confirm the correct congregation times with the Imam before proposing changes."
+  },
+  {
+    "index": 7,
+    "start": 67.20833333333333,
+    "duration": 7.875,
+    "frames": 189,
+    "screen": "daily",
+    "title": "Edit timetable kholein",
+    "urdu": "ٹائم بدلنا ہو تو ایڈٹ ٹائم ٹیبل کھولیں۔ ایک طرف اپرووڈ ٹائم ہے، دوسری طرف پروپوزڈ جماعت، یعنی آپ کا بھیجا جانے والا نیا ٹائم۔",
+    "english": "Open Edit timetable. Compare Approved time with Proposed Jama’at, where you enter the new time."
+  },
+  {
+    "index": 8,
+    "start": 75.08333333333333,
+    "duration": 9.166666666666666,
+    "frames": 220,
+    "screen": "asr",
+    "title": "Misal: Asr 4:45 PM",
+    "urdu": "مثال کے طور پر عصر چار پندرہ کے بجائے چار پینتالیس ہو تو عصر والی لائن میں سولہ پینتالیس ڈالیں۔ نماز کی لائن اور صبح شام کا فرق ضرور چیک کریں۔",
+    "english": "Example: change Asr from 4:15 PM to 4:45 PM by entering 16:45. Check the prayer row and AM/PM carefully."
+  },
+  {
+    "index": 9,
+    "start": 84.25,
+    "duration": 9.666666666666666,
+    "frames": 232,
+    "screen": "reason",
+    "title": "Tareekh aur wajah",
+    "urdu": "اب ایفیکٹو فرام میں وہ تاریخ دیں جب نیا ٹائم شروع ہوگا۔ ریزن فار چینج میں سادہ وجہ لکھیں۔ مثلاً امام صاحب نے عصر کی نئی جماعت کنفرم کی ہے۔",
+    "english": "Set Effective from to the start date. In Reason for change, explain why the timetable needs updating."
+  },
+  {
+    "index": 10,
+    "start": 93.91666666666667,
+    "duration": 9.833333333333334,
+    "frames": 236,
+    "screen": "reason",
+    "title": "Draft abhi submit nahi",
+    "urdu": "ابھی کام مکمل نہیں؟ کیپ ڈرافٹ سے اسی ٹیب میں عارضی ڈرافٹ رکھ سکتے ہیں۔ یہ سبمٹ نہیں ہوتا، اس لیے ٹیب بند کرنے یا ری لوڈ کرنے پر اس پر بھروسہ نہ کریں۔",
+    "english": "Keep draft retains unfinished work in this tab only. It does not submit anything; do not rely on it after closing or reloading the tab."
+  },
+  {
+    "index": 11,
+    "start": 103.75,
+    "duration": 8.625,
+    "frames": 207,
+    "screen": "review",
+    "title": "Purana aur naya milayein",
+    "urdu": "اب ریویو چینجز دبائیں۔ پرانا اور نیا ٹائم، وجہ، اور شروع ہونے کی تاریخ ملا کر دیکھیں۔ غلطی ہو تو بیک ٹو ایڈٹ سے واپس جائیں۔",
+    "english": "Press Review changes. Compare old and new times, the reason and effective date. Use Back to edit to correct mistakes."
+  },
+  {
+    "index": 12,
+    "start": 112.375,
+    "duration": 7.583333333333333,
+    "frames": 182,
+    "screen": "submit",
+    "title": "Check karein, phir bhejein",
+    "urdu": "سب درست ہو تو تصدیق والا چیک باکس ٹک کریں، پھر سبمٹ فار ویریفیکیشن دبائیں۔ بس، آپ کی تجویز ریویو کے لیے چلی گئی۔",
+    "english": "Tick the confirmation checkbox, then press Submit for verification. Your proposal is sent for review."
+  },
+  {
+    "index": 13,
+    "start": 119.95833333333333,
+    "duration": 9.625,
+    "frames": 231,
+    "screen": "submitted",
+    "title": "Submitted ≠ Published",
+    "urdu": "یاد رکھیں، سبمٹ ہونے کا مطلب پبلش ہونا نہیں۔ فوکل پرسن رجسٹرڈ امام سے چیک کرے گا۔ منظوری کے بعد نئی ٹائمنگ اپنی مقررہ تاریخ سے لاگو ہوگی۔",
+    "english": "Submitted does not mean published. A focal person verifies with the registered Imam. Approved changes take effect on their scheduled date."
+  },
+  {
+    "index": 14,
+    "start": 129.58333333333331,
+    "duration": 9.25,
+    "frames": 222,
+    "screen": "submissions",
+    "title": "Status dekhte rahein",
+    "urdu": "سبمشنز میں اپنی درخواست کا سٹیٹس دیکھیں۔ سبمٹڈ یعنی ریویو باقی، اپرووڈ یعنی منظور۔ اگر واپس آئے یا رد ہو تو دی گئی وجہ غور سے پڑھیں۔",
+    "english": "Track your proposal in Submissions. Submitted means awaiting review; Approved means accepted. Read the reason for any Returned or Rejected proposal."
+  },
+  {
+    "index": 15,
+    "start": 138.83333333333331,
+    "duration": 9.875,
+    "frames": 237,
+    "screen": "submitted",
+    "title": "Wapas aaye to durust karein",
+    "urdu": "اصلاح چاہیے تو درخواست کھول کر ریوائز ایز نیو پروپوزل استعمال کریں۔ درست ٹائم اور وجہ دے کر دوبارہ بھیجیں۔ پرانی درخواست کا ریکارڈ اپنی جگہ رہتا ہے۔",
+    "english": "Open the submission and use Revise as new proposal. Correct it and submit again. The previous proposal remains in the history."
+  },
+  {
+    "index": 16,
+    "start": 148.70833333333331,
+    "duration": 10.416666666666666,
+    "frames": 250,
+    "screen": "unchanged",
+    "title": "Time same hai?",
+    "urdu": "اگر جماعت کے ٹائم بالکل وہی ہیں تو مسجد کی سکرین پر کنفرم ٹائمنگز اَن چینجڈ کھولیں۔ سب ٹائم دیکھ کر کنفرم کریں۔ اس سے کوئی پینڈنگ نئی تجویز اپروو نہیں ہوتی۔",
+    "english": "If daily times are unchanged, open Confirm timings unchanged, check every time and confirm. This does not approve any pending proposal."
+  },
+  {
+    "index": 17,
+    "start": 159.12499999999997,
+    "duration": 8.166666666666666,
+    "frames": 196,
+    "screen": "special",
+    "title": "Jumu’ah, Eid aur khas din",
+    "urdu": "جمعہ، عید، یا کسی خاص تاریخ کی جماعت کے لیے ٹائم ٹیبل میں فرائیڈے، عید اینڈ ڈیٹڈ ایکسیپشنز والا ٹیب کھولیں۔ پھر ایڈ سیشن دبائیں۔",
+    "english": "For Friday, Eid or a dated exception, open Friday, Eid & dated exceptions and press Add session."
+  },
+  {
+    "index": 18,
+    "start": 167.29166666666663,
+    "duration": 10.916666666666666,
+    "frames": 262,
+    "screen": "session",
+    "title": "Har session ki apni detail",
+    "urdu": "نماز یا ایونٹ چنیں، صحیح تاریخ اور جماعت کا ٹائم دیں۔ خطبے کا ٹائم الگ ہے۔ فارم میں پہلے سے آئے ٹائم کو اصل ٹائم سے بدلیں۔ دو جمعے ہوں تو دو الگ سیشن بنائیں۔",
+    "english": "Choose the prayer/event, date and Jama’at time. Khutbah is separate. Replace default values with actual details. Add separate sessions for multiple Friday congregations."
+  },
+  {
+    "index": 19,
+    "start": 178.2083333333333,
+    "duration": 10.166666666666666,
+    "frames": 244,
+    "screen": "session-options",
+    "title": "Provisional ya cancel?",
+    "urdu": "تاریخ ابھی فائنل نہ ہو تو پروویژنل منتخب کریں۔ سیشن منسوخ ہو تو کینسل والا آپشن واضح طور پر لگائیں۔ پھر وجہ دیں، ریویو کریں، اور ویریفیکیشن کے لیے بھیجیں۔",
+    "english": "Mark an uncertain date as provisional. Explicitly mark a cancelled session. Add a reason, review the changes and submit for verification."
+  },
+  {
+    "index": 20,
+    "start": 188.37499999999994,
+    "duration": 9.791666666666666,
+    "frames": 235,
+    "screen": "profile",
+    "title": "Masjid ki maloomat",
+    "urdu": "مسجد کا نام، پتہ، یا سہولت بدلنی ہو تو ایڈٹ انفارمیشن کھولیں۔ سہولت موجود ہے، نہیں ہے، یا معلوم نہیں، صحیح آپشن چنیں۔ اندازہ لگا کر معلومات نہ دیں۔",
+    "english": "Open Edit information to propose name, address or facility changes. Choose Available, Unavailable or Unknown accurately."
+  },
+  {
+    "index": 21,
+    "start": 198.1666666666666,
+    "duration": 8.041666666666666,
+    "frames": 193,
+    "screen": "profile-reason",
+    "title": "Wajah ke saath request",
+    "urdu": "تبدیلی کی وجہ لکھیں اور سبمٹ چینج ریکویسٹ دبائیں۔ یہ بھی پہلے ریویو ہوگی۔ اس فارم سے جماعت کے ٹائم نہیں بدلتے۔",
+    "english": "Add the reason and press Submit change request. The change needs review. This form does not update Jama’at times."
+  },
+  {
+    "index": 22,
+    "start": 206.20833333333326,
+    "duration": 9.0,
+    "frames": 216,
+    "screen": "contact",
+    "title": "Imam ka private contact",
+    "urdu": "امام صاحب کا نمبر بدل جائے تو ریکویسٹ کانٹیکٹ چینج کھولیں۔ نیا نام اور نمبر دیں، اور پرانے معتبر رابطے یا آزاد ذمہ دار شخص کا حوالہ لکھیں۔",
+    "english": "Open Request contact change. Enter the new Imam name and private phone, plus an existing trusted contact or independent authority."
+  },
+  {
+    "index": 23,
+    "start": 215.20833333333326,
+    "duration": 10.333333333333334,
+    "frames": 248,
+    "screen": "contact-consent",
+    "title": "Ijazat lena zaroori hai",
+    "urdu": "رابطے کی اجازت واقعی مل چکی ہو تو پرمیشن والا باکس ٹک کریں۔ وجہ کے ساتھ درخواست بھیجیں۔ یہ نمبر پرائیویٹ ہے، اور نیا نمبر اپنی تصدیق خود نہیں کر سکتا۔",
+    "english": "Tick permission only after consent is obtained, then submit with a reason. The number remains private and needs independent verification."
+  },
+  {
+    "index": 24,
+    "start": 225.5416666666666,
+    "duration": 7.375,
+    "frames": 177,
+    "screen": "notices",
+    "title": "Masjid ka notice board",
+    "urdu": "ایونٹ یا مسجد کی سروس کی اطلاع دینی ہو تو نوٹس بورڈ کھولیں اور نیا نوٹس بنائیں۔ پہلے صحیح مسجد اور کیٹیگری چنیں۔",
+    "english": "Open Notice board and create a notice for an event or mosque service. Choose the correct mosque and category."
+  },
+  {
+    "index": 25,
+    "start": 232.9166666666666,
+    "duration": 8.083333333333334,
+    "frames": 194,
+    "screen": "notice-form",
+    "title": "Chhota aur saaf notice",
+    "urdu": "پبلک ٹائٹل میں چھوٹا، صاف عنوان دیں۔ تفصیل میں وہی لکھیں جو لوگوں کو جاننا چاہیے۔ ایونٹ کی تاریخ اور ٹائم صحیح رکھیں۔",
+    "english": "Write a short public title and clear details. Set the correct event date and time."
+  },
+  {
+    "index": 26,
+    "start": 240.99999999999994,
+    "duration": 11.083333333333334,
+    "frames": 266,
+    "screen": "notice-submit",
+    "title": "Expiry aur source check",
+    "urdu": "ایکسپائری ایونٹ کے بعد رکھیں، اور پرائیویٹ سورس یا اجازت کا ثبوت دیں۔ سیو ڈرافٹ سے کام رکھیں، یا سبمٹ فار ماڈریشن سے ریویو کے لیے بھیجیں۔ نوٹس سے جماعت کے ٹائم نہیں بدلتے۔",
+    "english": "Set expiry after the event and provide private source or consent evidence. Save draft or Submit for moderation. Notices do not change prayer timings."
+  },
+  {
+    "index": 27,
+    "start": 252.0833333333333,
+    "duration": 7.916666666666667,
+    "frames": 190,
+    "screen": "notice-form",
+    "title": "Janazah ki khabar sambhal kar",
+    "urdu": "وفات یا جنازے کے نوٹس میں خاندان یا مسجد کے مجاز شخص سے تصدیق لیں۔ غیر ضروری پرائیویٹ معلومات پبلک تفصیل میں نہ لکھیں۔",
+    "english": "For death or Janazah notices, obtain an authorized family or mosque source. Keep unnecessary private details out of public text."
+  },
+  {
+    "index": 28,
+    "start": 259.99999999999994,
+    "duration": 8.625,
+    "frames": 207,
+    "screen": "reports",
+    "title": "Kisi ne issue report kiya?",
+    "urdu": "ایشوز اینڈ رپورٹس میں اپنی مسجد کی شکایت دیکھیں۔ تفصیل پڑھیں، معلومات چیک کریں، اور جہاں فالو اَپ دستیاب ہو، واضح نوٹ دے کر سیو ریویو کریں۔",
+    "english": "Open Issues & reports and read the report. Check the facts and, where follow-up is available, add a clear note and use Save review."
+  },
+  {
+    "index": 29,
+    "start": 268.62499999999994,
+    "duration": 9.166666666666666,
+    "frames": 220,
+    "screen": "daily",
+    "title": "Report se time nahi badalta",
+    "urdu": "رپورٹ لکھنے سے آفیشل ٹائم خود نہیں بدلتا۔ اگر واقعی ٹائم غلط ہے تو ایڈٹ ٹائم ٹیبل سے الگ درست تجویز بھیجیں، تاکہ باقاعدہ ویریفیکیشن ہو۔",
+    "english": "A report does not change official times. If a correction is needed, submit it through Edit timetable for independent verification."
+  },
+  {
+    "index": 30,
+    "start": 277.79166666666663,
+    "duration": 8.833333333333334,
+    "frames": 212,
+    "screen": "register",
+    "title": "Nayi masjid ka registration",
+    "urdu": "نئی مسجد شامل کرنی ہو تو رجسٹر موسک کھولیں۔ پہلے چیک کریں کہ وہ پہلے سے موجود تو نہیں۔ نام، ایریا اور مقام کی قسم درست چنیں۔",
+    "english": "Use Register mosque for a new listing. Check for duplicates first, then enter the correct name, area and venue type."
+  },
+  {
+    "index": 31,
+    "start": 286.62499999999994,
+    "duration": 11.541666666666666,
+    "frames": 277,
+    "screen": "register",
+    "title": "Paanch steps poore karein",
+    "urdu": "رجسٹریشن میں مسجد کی تفصیل، اصل داخلی دروازے کی لوکیشن، امام کا مجاز رابطہ، جماعت کے ٹائم اور سہولتیں دیں۔ آخر میں ریویو کر کے بھیجیں۔ تصدیق سے پہلے مسجد پبلک نہیں ہوگی۔",
+    "english": "Complete Details, Location, Imam, Timings and Review. Use the actual entrance, authorized contact, accurate timings and facilities. Publication requires verification."
+  },
+  {
+    "index": 37,
+    "start": 298.16666666666663,
+    "duration": 11.083333333333334,
+    "frames": 266,
+    "screen": "register-location",
+    "title": "Asal entrance ki location",
+    "urdu": "لوکیشن والے سٹیپ میں گلی کا پتہ اور داخلی دروازے کی ہدایت لکھیں۔ لیٹی ٹیوڈ اور لانگی ٹیوڈ میں اصل دروازے کے کوآرڈینیٹس دیں، کیونکہ راستہ انہی سے کھلے گا۔ پھر کنٹینیو کریں۔",
+    "english": "In Location, enter the street address and entrance instructions. Use the actual entrance latitude and longitude, because directions use these coordinates. Press Continue."
+  },
+  {
+    "index": 38,
+    "start": 309.24999999999994,
+    "duration": 9.166666666666666,
+    "frames": 220,
+    "screen": "register-imam",
+    "title": "Imam aur ijazat",
+    "urdu": "اگلے سٹیپ میں رجسٹرڈ امام کا نام، ویریفیکیشن فون، اور مسجد سے اپنا تعلق لکھیں۔ امام سے رابطے کی اجازت لے کر باکس ٹک کریں، پھر کنٹینیو کریں۔",
+    "english": "Enter the registered Imam name, verification phone and your relationship to the mosque. Obtain contact permission, tick the checkbox and press Continue."
+  },
+  {
+    "index": 39,
+    "start": 318.41666666666663,
+    "duration": 10.0,
+    "frames": 240,
+    "screen": "register-times",
+    "title": "Asal timings aur facilities",
+    "urdu": "اب پانچوں نمازوں کی اصل جماعت دیں۔ پہلے سے بھرے ہوئے ٹائم کو چیک کیے بغیر نہ چھوڑیں۔ وضو، خواتین کی جگہ، وہیل چیئر رسائی اور پارکنگ کے درست آپشن چنیں۔",
+    "english": "Enter all five actual Jama’at times; check every prefilled value. Set accurate options for Wudu, women’s space, wheelchair access and parking."
+  },
+  {
+    "index": 40,
+    "start": 328.41666666666663,
+    "duration": 11.458333333333334,
+    "frames": 275,
+    "screen": "register-review",
+    "title": "Aakhri baar check karein",
+    "urdu": "آخر میں نام، پتہ، رابطہ اور تمام ٹائم دوبارہ دیکھیں۔ تصدیق کا باکس ٹک کر کے سبمٹ رجسٹریشن فار ویریفیکیشن دبائیں۔ واپس آئے تو فیڈبیک کے مطابق درست کر کے دوبارہ بھیجیں۔",
+    "english": "Review the name, address, contact and all timings. Tick confirmation and press Submit registration for verification. If returned, correct the feedback and resubmit."
+  },
+  {
+    "index": 32,
+    "start": 339.87499999999994,
+    "duration": 8.708333333333334,
+    "frames": 209,
+    "screen": "notifications",
+    "title": "Bell par nazar rakhein",
+    "urdu": "اوپر بیل سے نوٹیفکیشنز کھولیں، اور متعلقہ کام پر جائیں۔ مارک آل ریڈ صرف پڑھی ہوئی نشان لگاتا ہے، کوئی درخواست اپروو یا مسئلہ حل نہیں کرتا۔",
+    "english": "Use the bell to open Notifications and follow the relevant task. Mark all read only marks messages as read; it does not approve or resolve anything."
+  },
+  {
+    "index": 33,
+    "start": 348.58333333333326,
+    "duration": 8.541666666666666,
+    "frames": 205,
+    "screen": "history",
+    "title": "Purana record yahan hai",
+    "urdu": "ایکٹیوٹی ہسٹری میں پچھلے کام اور تبدیلیوں کا ریکارڈ دیکھ سکتے ہیں۔ کسی بات کی وضاحت چاہیے تو متعلقہ ریکارڈ فوکل پرسن کے ساتھ چیک کریں۔",
+    "english": "Activity history shows past actions and changes. Review the relevant record with your focal person if clarification is needed."
+  },
+  {
+    "index": 34,
+    "start": 357.12499999999994,
+    "duration": 11.708333333333334,
+    "frames": 281,
+    "screen": "password",
+    "title": "Account mehfooz rakhein",
+    "urdu": "مائی اکاؤنٹ میں اپنا رول اور ذمہ داری دیکھیں۔ پاس ورڈ بدلنے کے لیے موجودہ اور نیا پاس ورڈ دیں۔ نیا پاس ورڈ کم از کم بارہ کریکٹر کا ہو۔ تبدیلی کے بعد دوبارہ سائن اِن کریں۔",
+    "english": "In My account, review your role and scope. To change your password, enter the current password and a new one of at least 12 characters, then sign in again."
+  },
+  {
+    "index": 35,
+    "start": 368.83333333333326,
+    "duration": 7.375,
+    "frames": 177,
+    "screen": "account",
+    "title": "Kaam ho gaya? Sign out",
+    "urdu": "کام مکمل ہو تو سائن آؤٹ کریں، خاص طور پر مشترکہ موبائل یا کمپیوٹر پر۔ اپنا پاس ورڈ کسی سے شیئر نہ کریں۔",
+    "english": "When finished, use Sign out, especially on a shared phone or computer. Keep your password private."
+  },
+  {
+    "index": 36,
+    "start": 376.20833333333326,
+    "duration": 11.125,
+    "frames": 267,
+    "screen": "overview",
+    "title": "Bas ye routine yaad rakhein",
+    "urdu": "بس یہ روٹین یاد رکھیں۔ پہلے صحیح معلومات کنفرم کریں، پھر ایڈٹ، ریویو، سبمٹ، اور سٹیٹس چیک کریں۔ آپ کی درست اپڈیٹ سے محلے والوں اور نئے آنے والوں کو جماعت کا صحیح ٹائم ملتا ہے۔",
+    "english": "Remember: confirm the facts, edit, review, submit and track status. Your accurate updates help neighbours and newcomers find the right Jama’at time."
+  }
+]

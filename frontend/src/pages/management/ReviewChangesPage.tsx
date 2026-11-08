@@ -10,17 +10,21 @@ import { Empty } from '../../components/ui/Empty';
 import { PageTitle } from '../../components/ui/PageTitle';
 import { Panel } from '../../components/ui/Panel';
 import { Steps } from '../../components/ui/Steps';
+import { Field } from '../../components/ui/Field';
 import { canManage } from '../../domain/permissions';
 import { resolveTimes } from '../../domain/schedules';
 import { useApp } from '../../hooks/useApp';
 import { tr } from '../../i18n/translate';
-import { timeLabel, today } from '../../utils/date';
+import { timeLabel } from '../../utils/date';
 
 export function ReviewChanges() {
   const { id } = useParams();
   const { db, actor, role, draft, setDraft, mutate, t } = useApp();
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [contactMethod, setContactMethod] = useState('Phone');
+  const [contactSource, setContactSource] = useState('');
   const navigate = useNavigate();
   const v = db.venues.find((v) => v.id === id);
   if (!v || !role || !canManage(role, v, actor)) return <AccessDenied />;
@@ -37,7 +41,16 @@ export function ReviewChanges() {
     );
   const submit = async () => {
     try {
-      if (!checked) return;
+      if (!checked || busy) return;
+      if (role !== 'representative' && contactSource.trim().length < 5) {
+        setError(
+          t(
+            'Record who confirmed the correction by phone or visit.',
+            'فون یا ملاقات پر کس نے درستی کی تصدیق کی، درج کریں۔',
+          ),
+        );
+        return;
+      }
       if (v.revision !== draft.baseRevision) {
         setError(
           t(
@@ -47,17 +60,21 @@ export function ReviewChanges() {
         );
         return;
       }
+      setBusy(true);
       const saved = await mutate('/management/venues/' + id + '/proposals', {
         baseRevision: draft.baseRevision,
         times: draft.times,
         special: draft.special,
         effective: draft.effective,
         reason: draft.reason,
+        ...(role !== 'representative' ? { contactMethod, contactSource } : {}),
       });
       setDraft(null);
       navigate('/manage/submissions/' + saved.id);
     } catch {
       return;
+    } finally {
+      setBusy(false);
     }
   };
   return (
@@ -66,8 +83,8 @@ export function ReviewChanges() {
         eyebrow={v.name}
         title={t('Review your timing changes', 'اوقات کی تبدیلیوں کا جائزہ')}
         description={t(
-          'Check every value before submitting this version for independent verification.',
-          'آزاد تصدیق کے لیے بھیجنے سے پہلے ہر وقت دیکھیں۔',
+          'Check every time and the effective date before publishing.',
+          'شائع کرنے سے پہلے ہر وقت اور لاگو ہونے کی تاریخ چیک کریں۔',
         )}
       />
       <Steps
@@ -75,7 +92,7 @@ export function ReviewChanges() {
         items={[
           t('Edit timetable', 'اوقات میں ترمیم'),
           t('Review changes', 'تبدیلیاں دیکھیں'),
-          t('Submit for verification', 'تصدیق کے لیے جمع'),
+          t('Publish timetable', 'اوقات شائع کریں'),
         ]}
       />
       <div className="detail-grid">
@@ -83,7 +100,7 @@ export function ReviewChanges() {
           <Panel title={t('Changed congregations', 'تبدیل شدہ جماعتیں')}>
             <Timetable
               times={draft.times}
-              before={resolveTimes(v, db.proposals, today())}
+              before={resolveTimes(v, db.proposals, draft.effective)}
             />
           </Panel>
           <Panel title={t('Special sessions', 'خصوصی جماعتیں')}>
@@ -114,32 +131,63 @@ export function ReviewChanges() {
             </li>
             <li>
               {t(
-                'Your Focal Person receives a review task.',
-                'فوکل پرسن کو جائزے کا کام ملے گا۔',
+                'No focal approval is needed for timetable changes.',
+                'اوقات بدلنے کے لیے فوکل کی منظوری ضروری نہیں۔',
               )}
             </li>
             <li>
               {t(
-                'The registered Imam is called to verify this version.',
-                'اس ورژن کی تصدیق امام سے فون پر ہوگی۔',
+                'Check the timetable again in 7 days, even if nothing changes.',
+                'تبدیلی نہ بھی ہو، ۷ دن بعد اوقات دوبارہ چیک کریں۔',
               )}
             </li>
             <li>
               {t(
-                'Approved timings activate on the effective date.',
-                'منظور شدہ اوقات مقررہ تاریخ پر لاگو ہوں گے۔',
+                'Published timings start on the effective date.',
+                'شائع شدہ اوقات مقررہ تاریخ پر لاگو ہوں گے۔',
               )}
             </li>
           </ol>
           <Alert>
             {t(
-              'Submission is not publication. Only the affected prayer/date loses confident arrival estimates while under review.',
-              'جمع کرانا اشاعت نہیں۔ صرف متاثرہ نماز اور تاریخ کے اندازے رکیں گے۔',
+              'Publishing makes this version available immediately for its effective date. Correct a mistake by publishing a new version.',
+              'شائع کرنے سے یہ ورژن مقررہ تاریخ کے لیے دستیاب ہوگا۔ غلطی درست کرنے کے لیے نیا ورژن شائع کریں۔',
             )}
           </Alert>
         </Panel>
       </div>
       <Panel className="spaced">
+        {role !== 'representative' && (
+          <div className="stack">
+            <p>
+              {t(
+                'Focal correction: contact the imam or representative before publishing.',
+                'فوکل کی درستی: شائع کرنے سے پہلے امام یا نمائندے سے رابطہ کریں۔',
+              )}
+            </p>
+            <Field label={t('Confirmation method', 'تصدیق کا طریقہ')}>
+              <select
+                value={contactMethod}
+                onChange={(e) => setContactMethod(e.target.value)}
+              >
+                <option value="Phone">{t('Phone', 'فون')}</option>
+                <option value="Visit">{t('Visit', 'ملاقات')}</option>
+              </select>
+            </Field>
+            <Field
+              label={t(
+                'Who confirmed this correction? (private)',
+                'درستی کی تصدیق کس نے کی؟ (نجی)',
+              )}
+            >
+              <textarea
+                value={contactSource}
+                maxLength={2000}
+                onChange={(e) => setContactSource(e.target.value)}
+              />
+            </Field>
+          </div>
+        )}
         <label className="checkbox">
           <input
             type="checkbox"
@@ -147,8 +195,8 @@ export function ReviewChanges() {
             onChange={(e) => setChecked(e.target.checked)}
           />
           {t(
-            'I checked the proposed times and dates. I understand that independent verification is required.',
-            'میں نے مجوزہ اوقات اور تاریخیں دیکھی ہیں۔ آزاد تصدیق ضروری ہے۔',
+            'I checked these times with the mosque and understand they will publish without focal approval.',
+            'میں نے مسجد کے اوقات اور تاریخیں چیک کر لی ہیں۔ یہ فوکل کی منظوری کے بغیر شائع ہوں گے۔',
           )}
         </label>
         {error && <Alert tone="warning">{error}</Alert>}
@@ -157,9 +205,9 @@ export function ReviewChanges() {
             <ArrowLeft size={17} />
             {t('Back to edit', 'ترمیم پر واپس')}
           </ButtonLink>
-          <button disabled={!checked} onClick={submit}>
+          <button disabled={!checked || busy} onClick={submit}>
             <Send size={17} />
-            {t('Submit for verification', 'تصدیق کے لیے جمع کریں')}
+            {t('Publish timetable', 'اوقات شائع کریں')}
           </button>
         </div>
       </Panel>

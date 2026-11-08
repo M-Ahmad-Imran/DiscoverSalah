@@ -20,16 +20,16 @@ export function SearchControls({ compact = false }: { compact?: boolean }) {
       }}
     >
       <div className="search-top">
-        <label className="location-control">
+        <div className="location-control">
           <MapPin size={22} />
           <span>
-            <small>{t('YOUR STARTING POINT', 'آپ کا ابتدائی مقام')}</small>
+            <small>{t('YOUR LOCATION', 'آپ کا مقام')}</small>
             <Link to={'/location?' + params}>
               {query.origin || t('Choose your location', 'اپنا مقام منتخب کریں')}
               <ChevronRight size={16} />
             </Link>
           </span>
-        </label>
+        </div>
         <div className="segment">
           {[
             ['nearby', 'Nearby', 'قریب'],
@@ -38,6 +38,7 @@ export function SearchControls({ compact = false }: { compact?: boolean }) {
             <button
               key={v}
               type="button"
+              aria-pressed={query.scope === v}
               className={query.scope === v ? 'active' : ''}
               onClick={() => change('scope', v)}
             >
@@ -76,6 +77,7 @@ export function SearchControls({ compact = false }: { compact?: boolean }) {
                 <button
                   key={v as string}
                   type="button"
+                  aria-pressed={query.mode === v}
                   className={query.mode === v ? 'active' : ''}
                   onClick={() => change('mode', v as string)}
                 >

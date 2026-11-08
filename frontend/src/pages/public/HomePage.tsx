@@ -1,13 +1,13 @@
 import {
-ArrowRight,
-Building2,
-CalendarDays,
-HeartHandshake,
-Info,
-Map as MapIcon,
-MapPin,
-Navigation,
-ShieldCheck,
+  ArrowRight,
+  Building2,
+  CalendarDays,
+  HeartHandshake,
+  Info,
+  Map as MapIcon,
+  MapPin,
+  Navigation,
+  ShieldCheck,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { MapPreview } from '../../components/discovery/MapPreview';
@@ -41,14 +41,14 @@ export function Home() {
           </h1>
           <p>
             {t(
-              'Mosque-specific prayer times, maintained by local people. Find your next congregation, wherever the day takes you.',
-              'مقامی لوگوں کے فراہم کردہ مسجد کے مخصوص اوقات۔ اپنی اگلی جماعت تلاش کریں۔',
+              'New to the area? Find nearby mosques and their Jama’at times. No account needed.',
+              'نئے علاقے میں ہیں؟ قریبی مسجد اور جماعت کا وقت معلوم کریں۔ اکاؤنٹ بنانا ضروری نہیں۔',
             )}
           </p>
           <div className="hero-proof">
             <span>
               <ShieldCheck size={17} />
-              {t('Accountable verification', 'ذمہ دارانہ تصدیق')}
+              {t('Locally maintained times', 'مقامی نمائندے کے درج کردہ اوقات')}
             </span>
             <span>
               <HeartHandshake size={17} />

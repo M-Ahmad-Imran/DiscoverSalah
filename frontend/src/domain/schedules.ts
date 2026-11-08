@@ -7,7 +7,12 @@ export function resolveTimes(v: Venue, proposals: Proposal[], date: string) {
 
 export function effectiveProposal(v: Venue, proposals: Proposal[], date: string) {
   return [...proposals]
-    .filter((p) => p.venueId === v.id && p.state === 'Approved' && p.effective <= date)
+    .filter(
+      (p) =>
+        p.venueId === v.id &&
+        ['Approved', 'Published'].includes(p.state) &&
+        p.effective <= date,
+    )
     .sort((a, b) => b.effective.localeCompare(a.effective) || b.version - a.version)[0];
 }
 

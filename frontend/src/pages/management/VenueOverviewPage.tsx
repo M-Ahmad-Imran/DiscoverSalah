@@ -74,7 +74,7 @@ export function VenueOverview() {
               {pending.id} ·{' '}
               {t(
                 'Current approved times stay separate from this proposal.',
-                'موجودہ منظور شدہ اوقات تجویز سے الگ ہیں۔',
+                'موجودہ شائع شدہ اوقات تجویز سے الگ ہیں۔',
               )}
             </p>
           </div>
@@ -83,10 +83,17 @@ export function VenueOverview() {
           </ButtonLink>
         </div>
       )}
+      <Alert tone={v.freshness?.status === 'Current' ? 'info' : 'warning'}>
+        {t(
+          'Check the timetable every 7 days. If it is unchanged, confirm it below. After 14 days the focal person follows up.',
+          'ہر ۷ دن بعد اوقات چیک کریں۔ تبدیلی نہیں تو نیچے تصدیق کریں۔ ۱۴ دن بعد فوکل پرسن رابطہ کرے گا۔',
+        )}{' '}
+        {v.freshness && t(v.freshness.status)}
+      </Alert>
       <div className="detail-grid spaced">
         <div className="stack">
           <Panel
-            title={t('Current approved timetable', 'موجودہ منظور شدہ اوقات')}
+            title={t('Current published timetable', 'موجودہ شائع شدہ اوقات')}
             action={
               <Link className="text-link" to={`/manage/mosques/${id}/edit`}>
                 <Edit3 size={16} />
@@ -95,10 +102,12 @@ export function VenueOverview() {
             }
           >
             <Timetable times={resolveTimes(v, db.proposals, today())} />
-            <button className="secondary full spaced" onClick={() => setConfirm(true)}>
-              <CheckCircle2 size={18} />
-              {t('Confirm timings unchanged', 'اوقات نہ بدلنے کی تصدیق')}
-            </button>
+            {role === 'representative' && (
+              <button className="secondary full spaced" onClick={() => setConfirm(true)}>
+                <CheckCircle2 size={18} />
+                {t('Confirm timings unchanged', 'اوقات نہ بدلنے کی تصدیق')}
+              </button>
+            )}
           </Panel>
           <Panel
             title={t('Special congregations & exceptions', 'خصوصی جماعتیں اور استثنا')}
